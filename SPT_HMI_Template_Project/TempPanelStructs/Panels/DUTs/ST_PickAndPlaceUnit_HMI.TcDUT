@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_PickAndPlaceUnit_HMI" Id="{8a9e3c1f-7b4d-4e6a-9f2c-1d5e8a7b3c9f}">
+    <Declaration><![CDATA[TYPE ST_PickAndPlaceUnit_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Status and Control
+    Enabled                 : BOOL;
+    Busy                    : BOOL;
+    HasError                : BOOL;
+    ErrorCode               : DINT;
+
+    // Position Status
+    CurrentPositionName     : STRING(40);       // Name of current position (e.g., "Home", "Pick", "Place")
+    TargetPositionName      : STRING(40);       // Name of target position
+    AtPosition              : BOOL;             // True when at target position
+
+    // Manual Control Setpoints
+    TargetPosition          : DINT;             // Target position number (1-based)
+    TargetX                 : LREAL;            // Target X coordinate in mm
+    TargetY                 : LREAL;            // Target Y coordinate in mm
+    TargetZ                 : LREAL;            // Target Z coordinate in mm
+    Speed                   : LREAL;            // Movement speed in mm/s
+    VacuumPressureSetpoint  : LREAL;            // Vacuum pressure setpoint in mbar
+
+    // Vacuum System
+    VacuumActive            : BOOL;             // Vacuum is currently active
+    VacuumPressure          : LREAL;            // Current vacuum pressure in mbar
+    VacuumSensorOK          : BOOL;             // Vacuum sensor status
+    PartDetected            : BOOL;             // Part detected by vacuum sensor
+
+    // Cycle Data
+    CycleCount              : UDINT;            // Total cycle count
+    PickCycles              : UDINT;            // Number of pick operations
+    PlaceCycles             : UDINT;            // Number of place operations
+    LastCycleTime           : LREAL;            // Last cycle time in seconds
+    RuntimeHours            : LREAL;            // Total runtime hours
+
+    // Commands
+    Pick                    : Button;           // Pick command
+    Place                   : Button;           // Place command
+    Home                    : Button;           // Home command
+    Reset                   : Button;           // Reset error command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

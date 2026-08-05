@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_EStop_HMI" Id="{5a8ee9e6-d16a-4506-8d32-ebb06db3e1b1}">
+    <Declaration><![CDATA[TYPE ST_EStop_HMI EXTENDS ST_HmiFunction :
+STRUCT
+	
+	// Primary Status Indicators
+    CircuitOk           : BOOL;           // Emergency stop circuit is intact
+    Activated           : BOOL;           // At least one E-Stop button is pressed
+    ResetRequired       : BOOL;           // System requires reset after E-Stop activation
+    MonitoringActive    : BOOL;           // Safety monitoring is active
+    Bypassed            : BOOL;           // Emergency stop circuit is bypassed (dangerous condition)
+    
+    // Safety System Status
+    SafetyRelayOk       : BOOL;           // Safety relay contacts are functioning properly
+    RedundancyOk        : BOOL;           // Redundant safety channels are OK
+    TestMode            : BOOL;           // System is in test/maintenance mode
+    
+    // Error Information
+    HasError            : BOOL;           // Error condition present
+    ErrorCode           : UDINT;          // Specific error code
+    
+    // Operating Statistics
+    ActivationCount     : UDINT;          // Total number of E-Stop activations
+    LastActivationTime  : STRING(80);     // Timestamp of last activation
+    ResponseTime        : LREAL;          // Last measured response time in milliseconds
+    TestCount           : UDINT;          // Number of function tests performed
+    LastTestDate        : STRING(80);     // Date/time of last function test
+    
+    // Bypass Configuration
+    BypassTimeout       : UDINT;          // Bypass timeout in seconds (safety feature)
+    
+    // Distributed E-Stop Stations
+    Station1Ok          : BOOL;           // Station 1 E-Stop is not activated and functioning
+    Station2Ok          : BOOL;           // Station 2 E-Stop is not activated and functioning
+    Station3Ok          : BOOL;           // Station 3 E-Stop is not activated and functioning
+    Station4Ok          : BOOL;           // Station 4 E-Stop is not activated and functioning
+    TotalStations       : UDINT;          // Total number of E-Stop stations in the system
+    ActivatedStationId  : UDINT;          // ID of the station that triggered the E-Stop (0 = none)
+    AllStationsOk       : BOOL;           // All configured stations are functioning properly
+    
+    // Commands (Button type for rising edge detection)
+    Reset               : Button;         // Reset the E-Stop system after clearing condition
+    Test                : Button;         // Perform a function test of the E-Stop system
+    Acknowledge         : Button;         // Acknowledge warning or alarm condition
+    
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

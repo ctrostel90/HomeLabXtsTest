@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_VFD_HMI" Id="{fc8ddda5-cdce-4dc2-aebd-f147939897cd}">
+    <Declaration><![CDATA[TYPE ST_VFD_HMI EXTENDS ST_HmiFunction :
+STRUCT
+	
+    // Display Parameters
+    Speed               : REAL;         // Actual motor speed in RPM
+    Frequency           : REAL;         // Output frequency in Hz
+    MotorCurrent        : REAL;         // Motor current in Amperes
+    OutputVoltage       : REAL;         // Output voltage in Volts
+    
+    // Control Parameters
+    TargetSpeed         : REAL;         // Target speed setpoint in RPM
+    TargetFrequency     : REAL;         // Target frequency setpoint in Hz
+    AccelerationTime    : REAL;         // Acceleration ramp time in seconds
+    DecelerationTime    : REAL;         // Deceleration ramp time in seconds
+    
+    // Limit Parameters
+    MaxSpeed            : REAL := 3600; // Maximum speed limit in RPM
+    MinSpeed            : REAL := 0;    // Minimum speed limit in RPM
+    CurrentLimit        : REAL := 10.0; // Current limit in Amperes
+    PowerLimit          : REAL := 5.0;  // Power limit in kW
+    
+    // Status Indicators
+    Running             : BOOL;         // Drive is running
+    Ready               : BOOL;         // Drive is ready to run
+    RemoteMode          : BOOL;         // Drive in remote control mode
+    AtSpeed             : BOOL;         // Drive has reached target speed
+    OverLimit           : BOOL;         // Current or power limit exceeded
+    OverTemperature     : BOOL;         // Drive over temperature
+    HasFault            : BOOL;         // Fault condition present
+    
+    // Fault Information
+    ErrorId           : DINT;         // Active fault code
+    
+    // Command Buttons (rising edge triggered)
+    Start               : Button;         // Start command
+    Stop                : Button;         // Stop command
+    Reset               : Button;         // Reset fault command
+	
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

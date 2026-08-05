@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_XtsZone_HMI" Id="{40ed5c84-823d-4f3e-a008-a9d9f5603c9a}">
+    <Declaration><![CDATA[TYPE ST_XtsZone_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Current Zone Information
+    StartPosition           : LREAL;          // Current start position of zone in mm
+    EndPosition             : LREAL;          // Current end position of zone in mm
+    Length                  : LREAL;          // Length of zone in mm
+    NumberMoversInZone      : UINT;           // Number of movers currently in the zone
+
+    // Target Zone Configuration (Editable)
+    TargetStartPosition     : LREAL;          // Target start position for zone (mm)
+    TargetEndPosition       : LREAL;          // Target end position for zone (mm)
+
+    // Sorted Mover Functionality
+    GetSortedMover          : BOOL;           // Command to get sorted mover
+    SortedPosition          : ULINT;          // Position index for sorted mover (input)
+    SortedMover             : STRING(80);     // Name of sorted mover at specified position
+
+    // Local Log
+    LocalLog                : ST_LocalLog;    // Log messages structure
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

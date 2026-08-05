@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_PeekerEntry" Id="{b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e}">
+    <Declaration><![CDATA[TYPE ST_PeekerEntry :
+STRUCT
+    Index               : UINT;           // Peeker index/address
+    Value               : LREAL;          // Peeker value
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

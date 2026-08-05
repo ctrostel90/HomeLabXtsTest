@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{6d22893f-4fab-4c64-b548-abd0d59fdaaf}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	Chiller1: ST_Chiller_HMI;
+	Compressor1: ST_Compressor_HMI;
+	Heater : ST_HeaterCooler_HMI;
+	PID: ST_PidController_HMI;
+	Pump: ST_Pump_HMI;
+	Valve: ST_Valve_HMI;
+	VFD: ST_VFD_HMI;
+	Vision1: ST_Vision_HMI;
+	SafetyDoor: ST_SafetyDoor_HMI;
+	LightCurtain: ST_LightCurtain_HMI;
+	MixingStation1: ST_MixingStation_HMI;
+	EStop: ST_EStop_HMI;
+	InterlockChain: ST_InterlockChain_HMI;
+	Conveyor: ST_Conveyor_HMI;
+	CuringOven1: ST_CuringOven_HMI;
+	Dispenser1: ST_Dispenser_HMI;
+	Robot: ST_Robot_HMI;
+	PickAndPlaceUnit: ST_PickAndPlaceUnit_HMI;
+	IndexingTable: ST_IndexingTable_HMI;
+	NetworkSwitch1: ST_NetworkSwitch_HMI;
+	UPS: ST_UPS_HMI;
+	XtsSystem: ST_XtsSystem_HMI;
+	XtsMover: ST_XtsMover_HMI;
+	XtsStation: ST_XtsStation_HMI;
+	XtsPositionTrigger: ST_XtsPositionTrigger_HMI;
+	XtsZone: ST_XtsZone_HMI;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

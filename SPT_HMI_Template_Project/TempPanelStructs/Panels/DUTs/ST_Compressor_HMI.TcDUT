@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Compressor_HMI" Id="{b8c9d0e1-f2a3-4b5c-9d6e-7f8a9b0c1d2e}">
+    <Declaration><![CDATA[TYPE ST_Compressor_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    Pressure            : LREAL;        // Current pressure in bar
+    Runtime             : LREAL;        // Current runtime in hours
+
+    // Display Parameters - Popup Data Points
+    MaintenanceInterval : LREAL;        // Next maintenance in hours
+    Temperature         : LREAL;        // Current temperature in °C
+
+    // Status Indicators
+    Running             : BOOL;         // Compressor is running
+    Enabled             : BOOL;         // Compressor is enabled
+    HasFault            : BOOL;         // Fault condition present
+    AtPressure          : BOOL;         // Target pressure reached
+    OverTemperature     : BOOL;         // Temperature limit exceeded
+
+    // Fault Information
+    ErrorId             : DINT;         // Active error code
+
+    // Control Setpoints
+    TargetPressure      : LREAL;        // Target pressure setpoint in bar
+    MaxPressure         : LREAL;        // Maximum pressure limit in bar
+    MinPressure         : LREAL;        // Minimum pressure limit in bar
+    MaxTemperature      : LREAL;        // Maximum temperature limit in °C
+
+    // Command Buttons (rising edge triggered)
+    Start               : Button;       // Start compressor command
+    Stop                : Button;       // Stop compressor command
+    Reset               : Button;       // Reset fault command
+
+    // Statistics
+    TotalStarts         : UDINT;        // Total number of starts
+    TotalRuntime        : LREAL;        // Total runtime in hours
+    AvgPressure         : LREAL;        // Average pressure in bar
+    AvgTemperature      : LREAL;        // Average temperature in °C
+    LastMaintenanceDate : STRING;       // Last maintenance date/time
+    HoursToMaintenance  : LREAL;        // Hours remaining until maintenance
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

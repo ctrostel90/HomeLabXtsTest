@@ -1,0 +1,643 @@
+<div id="Valve_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-creator-viewport-width="820" data-tchmi-creator-viewport-height="450" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+    <div id="valve-grid-main" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-height-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+        <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+            [
+              {
+                "height": 1.2,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 1.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 3.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              }
+            ]
+        </script>
+
+        <div id="valve-grid-status" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                [
+                  "grouping-container"
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                [
+                  {
+                    "height": 1,
+                    "heightMode": "Value",
+                    "heightUnit": "factor",
+                    "maxHeightUnit": "px",
+                    "minHeightUnit": "px",
+                    "overflow": false
+                  },
+                  {
+                    "height": 1,
+                    "heightMode": "Value",
+                    "heightUnit": "factor",
+                    "maxHeightUnit": "px",
+                    "minHeightUnit": "px",
+                    "overflow": false
+                  }
+                ]
+            </script>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="valve-ddt-position" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-label="Position" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%f%%pp%data::PositionFeedback%/pp%.toFixed(1) + ' %'%/f%" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10">
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="valve-ddt-flowrate" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-label="Flow Rate" data-tchmi-value="%f%%pp%data::FlowRate%/pp%.toFixed(2) + ' ' + %pp%data::FlowUnit%/pp%%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10">
+            </div>
+
+            <div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="0" id="valve-ddt-pressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-label="Pressure Diff" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%f%%pp%data::PressureDifferential%/pp%.toFixed(2) + ' ' + %pp%data::PressureUnit%/pp%%/f%" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10">
+            </div>
+
+            <div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="1" id="valve-ddt-cycles" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-label="Cycle Count" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%pp%data::CycleCount%/pp%" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10">
+            </div>
+
+            <div id="valve-grid-error" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 50.0,
+                        "widthMode": "Value",
+                        "widthUnit": "px"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1.0,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="valve-img-error" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-src="Images/Icons/error.svg" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-bottom="0" data-tchmi-right="0">
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="valve-ddt-errorcode" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-label="Error Id" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Left" data-tchmi-value="%pp%data::ErrorCode%/pp%">
+                </div>
+
+                <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%pp%data::HasError%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%data::HasError%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%valve-grid-error::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%valve-grid-error::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Collapsed"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+            </div>
+
+            <div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="2" id="valve-si-moving" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-label="Moving" data-tchmi-label-position="Right" data-tchmi-label-font-size="14" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::IsMoving%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+                
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="2" id="valve-si-enabled" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-label="Enabled" data-tchmi-label-position="Right" data-tchmi-label-font-size="14" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::Enabled%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+                
+            </div>
+
+        </div>
+
+        <div id="valve-grid-maincontrol" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                [
+                  "grouping-container"
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <div id="valve-btn-open" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-height-mode="Parent" data-tchmi-text="Open" data-tchmi-button="%pp%data::Open%/pp%">
+            </div>
+
+            <div id="valve-btn-close" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-text="Close" data-tchmi-button="%pp%data::Close%/pp%">
+            </div>
+
+            <div id="valve-btn-stop" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-icon="Images/Icons/stop.svg" data-tchmi-button="%pp%data::Stop%/pp%">
+
+                <script data-tchmi-target-attribute="data-tchmi-bgcolor" type="application/json">
+                    {
+                      "color": "rgba(239, 73, 73, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "icon-dark"
+                    ]
+                </script>
+            </div>
+
+            <div id="valve-btn-reset" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Reset%/pp%" data-tchmi-icon="Images/Icons/reset.svg">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "icon-dark"
+                    ]
+                </script>
+            </div>
+
+        </div>
+
+        <div id="valve-grid-control" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-bottom="10">
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 100.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <div id="valve-grid-select" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="5" data-tchmi-bottom="0" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <div id="valve-btn-navcontrol" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-text="Control" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="5" data-tchmi-bottom="2.5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="valve-select" data-tchmi-toggle-state="Active" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/target.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%">
+
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%valve-grid-parameters::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%valve-grid-maintenance::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+                        {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 2,
+                          "leftUnit": "px",
+                          "rightUnit": "px",
+                          "topUnit": "px",
+                          "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                        [
+                          "icon-dark"
+                        ]
+                    </script>
+                </div>
+
+                <div id="valve-btn-navmaintenance" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-text="Maint." data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="valve-select" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/info.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%">
+
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%valve-grid-parameters::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%valve-grid-maintenance::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+                        {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 2,
+                          "leftUnit": "px",
+                          "rightUnit": "px",
+                          "topUnit": "px",
+                          "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                        [
+                          "icon-dark"
+                        ]
+                    </script>
+                </div>
+            </div>
+
+            <div id="valve-grid-parameters" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Visible">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="valve-inp-targetposition" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="1" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::TargetPosition|BindingMode=TwoWay%/pp%" data-tchmi-unit="%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Target Position" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-min-value="0" data-tchmi-max-value="100" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="valve-inp-speed" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="1" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Speed|BindingMode=TwoWay%/pp%" data-tchmi-unit="%/s" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Speed" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="valve-si-automode" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Auto Mode" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::AutoMode%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+                    
+                </div>
+
+                <div id="valve-si-openended" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Fully Open" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::FullyOpen%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+                    
+                </div>
+
+                <div id="valve-si-closedended" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Fully Closed" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::FullyClosed%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+                    
+                </div>
+
+            </div>
+
+            <div id="valve-grid-maintenance" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Collapsed">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="valve-ddt-operatinghours" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-label="Operating Hours" data-tchmi-value="%f%%pp%data::OperatingHours%/pp%.toFixed(1) + ' h'%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+                </div>
+
+                <div id="valve-ddt-maintdue" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-label="Maintenance Due" data-tchmi-value="%f%%pp%data::MaintenanceDue%/pp%.toFixed(0) + ' h'%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+                </div>
+
+                <div id="valve-ddt-lastmaint" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-label="Last Maintenance" data-tchmi-value="%pp%data::LastMaintenanceDate%/pp%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+                </div>
+
+                <div id="valve-si-maintrequired" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Maint Required" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::MaintenanceRequired%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%" data-tchmi-fill-color-true="%tr%DefaultRed%/tr%">
+                    
+                </div>
+
+                <div id="valve-btn-resetmaint" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Reset Maintenance" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-word-wrap="True" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%data::ResetMaintenance%/pp%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:general#/definitions/BOOL",
+          "value": true
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

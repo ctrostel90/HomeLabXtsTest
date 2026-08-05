@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Valve_HMI" Id="{f0d5aa8a-62f2-45af-8302-13298a19876a}">
+    <Declaration><![CDATA[TYPE ST_Valve_HMI EXTENDS ST_HmiFunction :
+STRUCT
+	
+	// Status and Control
+    Enabled : BOOL;
+    IsMoving : BOOL;
+    HasError : BOOL;
+    ErrorCode : UDINT;
+    
+    // Position and Feedback
+    PositionFeedback : LREAL;  // Current position in %
+    TargetPosition : LREAL;    // Target position in %
+    Speed : LREAL;             // Speed in %/s
+    
+    // Flow and Pressure
+    FlowRate : LREAL;              // Current flow rate
+    FlowUnit : STRING(20);         // Flow rate unit (e.g., "L/min", "m³/h")
+    PressureDifferential : LREAL;  // Pressure difference across valve
+    PressureUnit : STRING(20);     // Pressure unit (e.g., "bar", "psi")
+    
+    // State Indicators
+    AutoMode : BOOL;       // Automatic control mode active
+    FullyOpen : BOOL;      // Valve is fully open
+    FullyClosed : BOOL;    // Valve is fully closed
+    
+    // Cycle and Operating Data
+    CycleCount : UDINT;           // Number of open/close cycles
+    OperatingHours : LREAL;       // Total operating hours
+    
+    // Maintenance
+    MaintenanceDue : LREAL;       // Hours until maintenance is due
+    MaintenanceRequired : BOOL;   // Maintenance is required
+    LastMaintenanceDate : STRING(80);  // Date of last maintenance
+    ResetMaintenance : BOOL;      // Command to reset maintenance counter
+    
+    // Commands
+    Open : BOOL;   // Command to open valve
+    Close : BOOL;  // Command to close valve
+    Stop : BOOL;   // Command to stop valve movement
+    Reset : BOOL;  // Command to reset errors
+    
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

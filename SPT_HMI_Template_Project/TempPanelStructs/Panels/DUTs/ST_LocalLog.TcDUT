@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_LocalLog" Id="{c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f}">
+    <Declaration><![CDATA[TYPE ST_LocalLog :
+STRUCT
+    Logs                : ARRAY[0..99] OF STRING(255);  // Array of log message strings
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

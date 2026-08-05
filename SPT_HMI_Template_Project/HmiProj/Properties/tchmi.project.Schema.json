@@ -1,0 +1,433 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "PackMLControl": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\PackMLControl.usercontrol.json",
+      "id": "tchmi:project#/definitions/PackMLControl",
+      "type": "object"
+    },
+    "Symbol_Of_Symbol": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/Symbol"
+          }
+        }
+      ]
+    },
+    "PackMLSelection": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PackMLSelection.usercontrol.json",
+      "id": "tchmi:project#/definitions/PackMLSelection",
+      "type": "object"
+    },
+    "NcAxis": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\AxisPTPPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/NcAxis",
+      "type": "object"
+    },
+    "NcAxis_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\NcAxis.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/NcAxis_0"
+    },
+    "PackMLPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\PackMLStatemachinePanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/PackMLPanel",
+      "type": "object"
+    },
+    "FilePanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\FilePanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/FilePanel"
+    },
+    "FilePanel_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\CylinderPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/FilePanel_-_Copy"
+    },
+    "FilePanel_-_Copy_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\CustomPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/FilePanel_-_Copy_0"
+    },
+    "CoreButton": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\CoreButton.usercontrol.json",
+      "id": "tchmi:project#/definitions/CoreButton",
+      "type": "object"
+    },
+    "Cylinder": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\Cylinder.usercontrol.json",
+      "id": "tchmi:project#/definitions/Cylinder",
+      "type": "object"
+    },
+    "KinematicPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\KinematicPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/KinematicPanel"
+    },
+    "Kinematic": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\Kinematic.usercontrol.json",
+      "id": "tchmi:project#/definitions/Kinematic",
+      "type": "object"
+    },
+    "File": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\File.usercontrol.json",
+      "id": "tchmi:project#/definitions/File",
+      "type": "object"
+    },
+    "Station": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\XtsStationPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Station"
+    },
+    "UserControl1": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsStation.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/UserControl1"
+    },
+    "XtsStationPanel_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\XtsPositionTriggerPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsStationPanel_-_Copy"
+    },
+    "XtsStation_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsPositionTrigger.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsStation_-_Copy"
+    },
+    "XtsStation_-_Copy_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsZone.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsStation_-_Copy_0"
+    },
+    "NcAxis_2": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsMoverCommands.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/NcAxis_2"
+    },
+    "XtsZonePanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\XtsZonePanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsZonePanel"
+    },
+    "XtsSystemPanel_-_Copy": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\XtsMoverPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsSystemPanel_-_Copy"
+    },
+    "XtsMoverCommands": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsMoverCommands.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsMoverCommands"
+    },
+    "PidControllerPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\PidControllerPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/PidControllerPanel",
+      "type": "object"
+    },
+    "PidController": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\PidController.usercontrol.json",
+      "id": "tchmi:project#/definitions/PidController",
+      "type": "object"
+    },
+    "ValvePanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\ValvePanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/ValvePanel",
+      "type": "object"
+    },
+    "Valve": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\Valve.usercontrol.json",
+      "id": "tchmi:project#/definitions/Valve",
+      "type": "object"
+    },
+    "PumpPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\PumpPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/PumpPanel",
+      "type": "object"
+    },
+    "Pump": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\Pump.usercontrol.json",
+      "id": "tchmi:project#/definitions/Pump",
+      "type": "object"
+    },
+    "HeaterCooler": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\HeaterCoolerPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/HeaterCooler"
+    },
+    "HeaterCooler_0": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\HeaterCooler.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/HeaterCooler_0"
+    },
+    "VfdPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\VfdPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/VfdPanel",
+      "type": "object"
+    },
+    "Vfd": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\Vfd.usercontrol.json",
+      "id": "tchmi:project#/definitions/Vfd",
+      "type": "object"
+    },
+    "HeaterCooler_1": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\HeaterCooler.usercontrol.json",
+      "id": "tchmi:project#/definitions/HeaterCooler_1",
+      "type": "object"
+    },
+    "HeaterCoolerPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\HeaterCoolerPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/HeaterCoolerPanel"
+    },
+    "SafetyDoorPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\SafetyDoorPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/SafetyDoorPanel",
+      "type": "object"
+    },
+    "SafetyDoor": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\SafetyDoor.usercontrol.json",
+      "id": "tchmi:project#/definitions/SafetyDoor",
+      "type": "object"
+    },
+    "LightCurtainPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\LightCurtainPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/LightCurtainPanel",
+      "type": "object"
+    },
+    "LightCurtain": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\LightCurtain.usercontrol.json",
+      "id": "tchmi:project#/definitions/LightCurtain",
+      "type": "object"
+    },
+    "EStopPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\EStopPanel.usercontrol.json",
+      "id": "tchmi:project#/definitions/EStopPanel",
+      "type": "object"
+    },
+    "EStop": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\EStop.usercontrol.json",
+      "id": "tchmi:project#/definitions/EStop",
+      "type": "object"
+    },
+    "InterlockChain": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\InterlockChain.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/InterlockChain"
+    },
+    "PickandPlaceUnitPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\PickandPlaceUnitPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/PickandPlaceUnitPanel"
+    },
+    "PickAndPlaceUnit": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\PickAndPlaceUnit.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/PickAndPlaceUnit"
+    },
+    "VisionPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\VisionPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/VisionPanel"
+    },
+    "Vision": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\Vision.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Vision"
+    },
+    "UPSPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\UPSPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/UPSPanel"
+    },
+    "a": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\a.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/a"
+    },
+    "EquipmentModule": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\EquipmentModule.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/EquipmentModule"
+    },
+    "XtsPositionTrigger": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsPositionTrigger.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsPositionTrigger"
+    },
+    "XtsPositionTriggerPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\XtsPositionTriggerPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsPositionTriggerPanel"
+    },
+    "XtsMoverPanel": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserControls\\Panels\\XtsMoverPanel.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsMoverPanel"
+    },
+    "XtsZone": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Popups\\PanelPopups\\XtsZone.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/XtsZone"
+    }
+  }
+}

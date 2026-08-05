@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Robot_HMI" Id="{e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b}">
+    <Declaration><![CDATA[TYPE ST_Robot_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Information
+    ToolAttached            : BOOL;           // Tool is attached to robot
+    ProgramStateText        : STRING(20);     // Program state as text (e.g., "Running", "Stopped", "Paused")
+    SafetyOk                : BOOL;           // Safety status is OK
+    ProgramRunning          : BOOL;           // Program is currently running
+    CurrentProgram          : STRING(80);     // Name of currently loaded/running program
+
+    // Error Information
+    HasError                : BOOL;           // Error condition present
+    ErrorCode               : UDINT;          // Specific error code
+    ErrorText               : STRING(255);    // Error description text
+
+    // Control and Operating State
+    Enabled                 : BOOL;           // Robot is enabled
+    AutoMode                : BOOL;           // Operating in automatic mode
+    Homed                   : BOOL;           // All axes are homed
+    Moving                  : BOOL;           // Robot is currently moving
+    SpeedOverride           : LREAL;          // Speed override percentage (0-100)
+    ToolNumber              : UINT;           // Active tool number
+
+    // Joint Positions (degrees)
+    Joint1Position          : LREAL;          // Joint 1 position in degrees
+    Joint2Position          : LREAL;          // Joint 2 position in degrees
+    Joint3Position          : LREAL;          // Joint 3 position in degrees
+    Joint4Position          : LREAL;          // Joint 4 position in degrees
+    Joint5Position          : LREAL;          // Joint 5 position in degrees
+    Joint6Position          : LREAL;          // Joint 6 position in degrees
+
+    // TCP (Tool Center Point) Position - Cartesian coordinates
+    TcpX                    : LREAL;          // TCP X position in mm
+    TcpY                    : LREAL;          // TCP Y position in mm
+    TcpZ                    : LREAL;          // TCP Z position in mm
+    TcpA                    : LREAL;          // TCP A rotation in degrees
+    TcpB                    : LREAL;          // TCP B rotation in degrees
+    TcpC                    : LREAL;          // TCP C rotation in degrees
+
+    // Statistics and Runtime
+    CycleCount              : UDINT;          // Total program cycles completed
+    RuntimeHours            : LREAL;          // Total runtime in hours
+    LastCycleTime           : LREAL;          // Last cycle time in seconds
+
+    // Commands (Button type for rising edge detection)
+    Start                   : Button;         // Start program command
+    Stop                    : Button;         // Stop program command
+    Home                    : Button;         // Home all axes command
+    Reset                   : Button;         // Reset faults/errors command
+    Acknowledge             : Button;         // Acknowledge alarms/warnings command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

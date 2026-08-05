@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_LightCurtain_HMI" Id="{cef30bab-121e-4554-8c5f-aa977b0b766b}">
+    <Declaration><![CDATA[TYPE ST_LightCurtain_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Data
+    BeamStatus              : BOOL;           // TRUE = Clear, FALSE = Blocked
+    MutingActive            : BOOL;           // Muting is currently active
+    TestMode                : BOOL;           // System in test mode
+    SafetyOutputActive      : BOOL;           // Safety output is active
+    
+    // Diagnostics
+    BeamInterruptionCount   : UDINT;          // Total beam interruptions
+    ResponseTime            : LREAL;          // Last response time in ms
+    SignalStrength          : LREAL;          // Beam signal strength in %
+    LastBeamBreakDuration   : LREAL;          // Duration of last break in seconds
+    
+    // Operating Data
+    OperatingHours          : LREAL;          // Total operating hours
+    PowerCycleCount         : UDINT;          // Number of power cycles
+    TestCount               : UDINT;          // Number of tests performed
+    LastTestDate            : STRING(80);     // Date/time of last test
+    
+    // Safety & Protection
+    HasError                : BOOL;           // Error present
+    ErrorCode               : UDINT;          // Error code
+    AlarmActive             : BOOL;           // Alarm condition active
+    SafetyCircuitOk         : BOOL;           // Safety circuit integrity OK
+    ExternalDeviceOk        : BOOL;           // External device monitoring OK
+    
+    // Muting Configuration
+    MutingEnabled           : BOOL;           // Muting function enabled
+    MutingTimeout           : UDINT;          // Muting timeout in seconds
+    MutingSensorStatus      : BOOL;           // Muting sensors status OK
+    
+    // System Configuration
+    ResolutionCapability    : LREAL;          // Detection capability in mm
+    ProtectedHeight         : LREAL;          // Protected field height in mm
+    SafetyDistance          : LREAL;          // Minimum safety distance in mm
+    
+    // Blanking Configuration
+    BlankingActive          : BOOL;           // Blanking function active
+    BlankingSize            : LREAL;          // Blanking size in mm
+    
+    // Maintenance
+    MaintenanceDue          : LREAL;          // Hours until maintenance
+    MaintenanceRequired     : BOOL;           // Maintenance required flag
+    LastMaintenanceDate     : STRING(80);     // Last maintenance date
+    ResetMaintenance        : BOOL;           // Reset maintenance counter
+    
+    // Commands (buttons)
+    Test                    : Button;         // Perform function test
+    Reset                   : Button;         // Reset errors and alarms
+    Acknowledge             : Button;         // Acknowledge alarm
+    EnableMuting            : Button;         // Enable muting function
+    DisableMuting           : Button;         // Disable muting function
+    Restart                 : Button;         // Restart device	
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

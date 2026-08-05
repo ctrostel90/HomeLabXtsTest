@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_NetworkSwitch_HMI" Id="{b2c3d4e5-f6a7-8901-bcde-f12345678901}">
+    <Declaration><![CDATA[TYPE ST_NetworkSwitch_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    PortStatus              : STRING(50);   // Port status text (e.g., "All Up", "1 Down", "2 Down")
+    DataThroughput          : REAL;         // Current data throughput in Mbps
+    ActivePorts             : DINT;         // Number of active ports
+    TotalPorts              : DINT := 24;   // Total number of ports on switch
+
+    // Display Parameters - Popup Data Points
+    ErrorRate               : REAL;         // Packet error rate in percent
+
+    // Control Parameters
+    MaxBandwidth            : REAL := 1000.0; // Maximum bandwidth per port in Mbps
+    VlanId                  : DINT := 1;    // VLAN ID for configuration
+
+    // Status Indicators
+    Enabled                 : BOOL;         // Switch is enabled
+    Busy                    : BOOL;         // Switch is processing high traffic
+    LinkUp                  : BOOL;         // Primary uplink is up
+    SpanningTreeActive      : BOOL;         // Spanning tree protocol active
+    NetworkCongestion       : BOOL;         // Network experiencing congestion
+    PortMirroring           : BOOL;         // Port mirroring enabled
+    HasFault                : BOOL;         // Fault condition present
+
+    // Fault Information
+    ErrorId                 : DINT;         // Active fault code
+
+    // Command Buttons (rising edge triggered)
+    Enable                  : Button;       // Enable switch command
+    Disable                 : Button;       // Disable switch command
+    Reset                   : Button;       // Reset fault command
+
+    // Statistics
+    TotalPackets            : DINT;         // Total packets processed
+    DroppedPackets          : DINT;         // Total dropped packets
+    TotalErrors             : DINT;         // Total error count
+    BroadcastPackets        : DINT;         // Total broadcast packets
+    Uptime                  : REAL;         // Switch uptime in hours
+    Temperature             : REAL;         // Switch temperature in degrees Celsius
+
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

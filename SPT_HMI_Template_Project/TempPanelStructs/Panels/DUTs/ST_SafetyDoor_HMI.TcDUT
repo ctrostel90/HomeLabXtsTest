@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_SafetyDoor_HMI" Id="{e027caf4-70ab-4af9-8703-94fdc94bb230}">
+    <Declaration><![CDATA[TYPE ST_SafetyDoor_HMI EXTENDS ST_HmiFunction :
+STRUCT
+    
+    // Door Status
+    DoorClosed              : BOOL;           // Door is in closed position
+    Locked                  : BOOL;           // Door lock is engaged
+    Bypassed                : BOOL;           // Safety bypass is active
+    
+    // Safety System Status
+    SafetyCircuitIntegrity  : BOOL;           // Safety circuit integrity check OK
+    InterlockOk             : BOOL;           // All interlocks satisfied
+    MonitoringActive        : BOOL;           // Safety monitoring active
+    EmergencyStopActive     : BOOL;           // Emergency stop circuit active
+    
+    // Access Control
+    AccessGranted           : BOOL;           // Access is currently granted
+    AccessDenied            : BOOL;           // Access was denied
+    KeySwitchOn             : BOOL;           // Physical key switch in ON position
+    GuardLockingActive      : BOOL;           // Guard locking mechanism active
+    AccessLevel             : UDINT;          // Required access level (0-10)
+    LastAccessUser          : STRING(80);     // Last user who accessed
+    LastAccessTime          : STRING(80);     // Timestamp of last access
+    
+    // Error and Alarm Status
+    HasError                : BOOL;           // Error condition present
+    ErrorCode               : UDINT;          // Error code if HasError is TRUE
+    AlarmActive             : BOOL;           // Alarm condition active
+    
+    // Operating Data
+    DoorOpenCount           : UDINT;          // Total number of door openings
+    LockEngageTime          : LREAL;          // Time for lock to engage (seconds)
+    BypassTimeout           : UDINT;          // Bypass timeout in seconds
+    
+    // Commands (Button type for rising edge detection)
+    Lock                    : Button;         // Command to lock door
+    Unlock                  : Button;         // Command to unlock door
+    Acknowledge             : Button;         // Acknowledge alarm/warning
+    Reset                   : Button;         // Reset error condition
+    
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

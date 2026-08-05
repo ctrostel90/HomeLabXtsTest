@@ -1,0 +1,831 @@
+<div id="PidController_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-creator-viewport-width="820" data-tchmi-creator-viewport-height="450" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+    <div id="pidcontroller-grid-main" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+        <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "maxWidthUnit": "px",
+    "minWidthUnit": "px",
+    "overflow": false,
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  }
+]
+</script>
+
+        <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+            [
+              {
+                "height": 1.2,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 1.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 3.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              }
+            ]
+        </script>
+
+        <!-- Status and Error Display -->
+        <div id="pidcontroller-grid-status" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                [
+                  "grouping-container"
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                [
+                  {
+                    "height": 1,
+                    "heightMode": "Value",
+                    "heightUnit": "factor",
+                    "maxHeightUnit": "px",
+                    "minHeightUnit": "px",
+                    "overflow": false
+                  },
+                  {
+                    "height": 1,
+                    "heightMode": "Value",
+                    "heightUnit": "factor",
+                    "maxHeightUnit": "px",
+                    "minHeightUnit": "px",
+                    "overflow": false
+                  }
+                ]
+            </script>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="pidcontroller-ddt-setpoint" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Setpoint" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%f%%pp%data::Setpoint%/pp%.toFixed(2) + ' ' + %pp%data::Unit%/pp%%/f%" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5">
+            </div>
+
+            
+            
+            
+            
+                    <div id="pidcontroller-grid-error" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5"><div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="pidcontroller-ddt-errorcode" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-label="Error Id" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Left" data-tchmi-value="%pp%data::ErrorCode%/pp%">
+</div>
+
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="pidcontroller-img-error" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-src="Images/Icons/error.svg" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-bottom="0" data-tchmi-right="0">
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 50.0,
+                        "widthMode": "Value",
+                        "widthUnit": "px"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1.0,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                
+                
+                <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%pp%data::HasError%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%data::HasError%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%pidcontroller-grid-error::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%pidcontroller-grid-error::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Collapsed"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+            </div>
+<div data-tchmi-grid-row-index="1" id="pidcontroller-si-enabled" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Enabled" data-tchmi-label-position="Right" data-tchmi-label-font-size="14" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-grid-column-index="3" data-tchmi-state-symbol="%pp%data::Error%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+<div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="0" id="pidcontroller-ddt-actual" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Actual" data-tchmi-value="%f%%pp%data::ActualValue%/pp%.toFixed(2) + ' ' + %pp%data::Unit%/pp%%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5">
+</div>
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="pidcontroller-ddt-output" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Output" data-tchmi-value="%f%%pp%data::Output%/pp%.toFixed(2) + '%'%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5">
+</div>
+</div>
+
+        <!-- Main Control Buttons -->
+        <div id="pidcontroller-grid-maincontrol" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                [
+                  "grouping-container"
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <div id="pidcontroller-btn-enable" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-height-mode="Parent" data-tchmi-icon="Images/Icons/on-red.svg">
+
+                <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%pp%data::Enabled%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%data::Enabled%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%pidcontroller-btn-enable::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Icons/on-green.svg"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.CreateBinding",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:framework#/definitions/Control",
+                    "symbolExpression": "%ctrl%pidcontroller-btn-enable%/ctrl%"
+                  },
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/ControlPropertyName",
+                    "value": "Button"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%pp%data::Enable%/pp%"
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%pidcontroller-btn-enable::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Icons/on-red.svg"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.CreateBinding",
+                "fnParams": [
+                  {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:framework#/definitions/Control",
+                    "symbolExpression": "%ctrl%pidcontroller-btn-enable%/ctrl%"
+                  },
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:framework#/definitions/ControlPropertyName",
+                    "value": "Button"
+                  },
+                  {
+                    "objectType": "Symbol",
+                    "symbolExpression": "%pp%data::Disable%/pp%"
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+            </div>
+
+            <div id="pidcontroller-btn-reset" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Reset%/pp%" data-tchmi-icon="Images/Icons/reset.svg">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "icon-dark"
+                    ]
+                </script>
+            </div>
+
+            <div id="pidcontroller-btn-autotune" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-text="Auto
+Tune" data-tchmi-button="%pp%data::AutoTune%/pp%">
+            </div>
+
+            <div id="pidcontroller-btn-hold" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-text="Hold
+Output" data-tchmi-button="%pp%data::Hold%/pp%">
+            </div>
+        </div>
+
+        <!-- Parameter Configuration -->
+        <div id="pidcontroller-grid-control" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-bottom="10">
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 100.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <div id="pidcontroller-grid-select" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="5" data-tchmi-bottom="0" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <div id="pidcontroller-btn-navtuning" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-text="Tuning" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="5" data-tchmi-bottom="2.5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="pidcontroller-select" data-tchmi-toggle-state="Active" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/tune.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%">
+
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%pidcontroller-grid-tuning::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%pidcontroller-grid-limits::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+                        {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 2,
+                          "leftUnit": "px",
+                          "rightUnit": "px",
+                          "topUnit": "px",
+                          "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                        [
+                          "icon-dark"
+                        ]
+                    </script>
+                </div>
+
+                <div id="pidcontroller-btn-navlimits" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-text="Limits" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="pidcontroller-select" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/limit.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%">
+
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%pidcontroller-grid-tuning::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%pidcontroller-grid-limits::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+                        {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 2,
+                          "leftUnit": "px",
+                          "rightUnit": "px",
+                          "topUnit": "px",
+                          "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                        [
+                          "icon-dark"
+                        ]
+                    </script>
+                </div>
+            </div>
+
+            <!-- Tuning Parameters Grid -->
+            <div id="pidcontroller-grid-tuning" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Visible">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="pidcontroller-inp-kp" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="4" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Kp|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Proportional Gain" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-ki" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="4" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Ki|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Integral Gain" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-kd" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="4" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Kd|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Derivative Gain" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-sampletime" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="3" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::SampleTime|BindingMode=TwoWay%/pp%" data-tchmi-unit="s" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Sample Time" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-setpoint" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Setpoint|BindingMode=TwoWay%/pp%" data-tchmi-unit="%pp%data::Unit%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Setpoint" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-deadband" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="3" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Deadband|BindingMode=TwoWay%/pp%" data-tchmi-unit="%pp%data::Unit%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Deadband" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-si-reverse" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="3" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Reverse Acting" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::ReverseActing%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+                    
+                </div>
+
+                <div id="pidcontroller-si-automode" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="3" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Auto Mode" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::AutoMode%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+                    
+                </div>
+            </div>
+
+            <!-- Limits Grid -->
+            <div id="pidcontroller-grid-limits" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Collapsed">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="pidcontroller-inp-outputmax" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::OutputMax|BindingMode=TwoWay%/pp%" data-tchmi-unit="%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Output Max" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-outputmin" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::OutputMin|BindingMode=TwoWay%/pp%" data-tchmi-unit="%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Output Min" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-integralmax" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::IntegralMax|BindingMode=TwoWay%/pp%" data-tchmi-unit="%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Integral Max" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-integralmin" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::IntegralMin|BindingMode=TwoWay%/pp%" data-tchmi-unit="%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Integral Min" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-inp-manualoutput" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::ManualOutput|BindingMode=TwoWay%/pp%" data-tchmi-unit="%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Manual Output" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="pidcontroller-si-windupreset" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Windup Reset" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::WindupReset%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

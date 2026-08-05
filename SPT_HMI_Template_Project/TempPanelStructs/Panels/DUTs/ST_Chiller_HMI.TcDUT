@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Chiller_HMI" Id="{c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f}">
+    <Declaration><![CDATA[TYPE ST_Chiller_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    Temperature         : LREAL;        // Current outlet temperature in °C
+    FlowRate            : LREAL;        // Current flow rate in L/min
+
+    // Display Parameters - Popup Data Points
+    TemperatureSetpoint : LREAL;        // Temperature setpoint in °C
+    AlarmStatus         : BOOL;         // Alarm condition present
+    InletTemperature    : LREAL;        // Inlet temperature in °C
+
+    // Status Indicators
+    Running             : BOOL;         // Chiller is running
+    Enabled             : BOOL;         // Chiller is enabled
+    HasFault            : BOOL;         // Fault condition present
+    AtSetpoint          : BOOL;         // Target setpoint reached
+    LowFlowAlarm        : BOOL;         // Low flow alarm active
+
+    // Fault Information
+    ErrorId             : DINT;         // Active error code
+
+    // Control Setpoints
+    TargetTemperature   : LREAL;        // Target temperature setpoint in °C
+    TargetFlowRate      : LREAL;        // Target flow rate in L/min
+    MinTemperature      : LREAL;        // Minimum temperature limit in °C
+    MaxTemperature      : LREAL;        // Maximum temperature limit in °C
+
+    // Command Buttons (rising edge triggered)
+    Start               : Button;       // Start chiller command
+    Stop                : Button;       // Stop chiller command
+    Reset               : Button;       // Reset fault command
+
+    // Statistics
+    TotalRuntime        : LREAL;        // Total runtime in hours
+    TotalStarts         : UDINT;        // Total number of starts
+    AvgTemperature      : LREAL;        // Average temperature in °C
+    AvgFlowRate         : LREAL;        // Average flow rate in L/min
+    TotalCoolingEnergy  : LREAL;        // Total cooling energy in kWh
+    AlarmCount          : UDINT;        // Total number of alarms
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,748 @@
+<div id="XtsMoverCommands_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-creator-viewport-width="780" data-tchmi-creator-viewport-height="444" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+    <div id="xtsmovercmds-grid-main" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-height-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+        <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+            [
+              {
+                "height": 1.2,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 1.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 3.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              }
+            ]
+        </script>
+
+        <!-- Top Section: Status and Key Data -->
+        <div id="xtsmovercmds-grid-status" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-row-index="0" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                ["grouping-container"]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  }
+]
+</script>
+
+            <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                [
+                  {"height": 1, "heightMode": "Value", "heightUnit": "factor"},
+                  {"height": 1, "heightMode": "Value", "heightUnit": "factor"}
+                ]
+            </script>
+
+            <!-- Row 0 -->
+            <div id="xtsmovercmds-ddt-position" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-label="Position" data-tchmi-value="%f%%pp%data::Position%/pp%.toFixed(2)%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-value-font-size="14" data-tchmi-label-position="Right" data-tchmi-left="10"></div>
+
+            <div id="xtsmovercmds-ddt-velocity" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" data-tchmi-label="Velocity" data-tchmi-value="%f%%pp%data::Velocity%/pp%.toFixed(2)%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-value-font-size="14" data-tchmi-label-position="Right" data-tchmi-left="10"></div>
+
+            
+            <!-- Row 1 -->
+            
+            
+            
+        <div id="xtsmovercmds-si-busy" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="3" data-tchmi-label="Busy" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="14" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-label-position="Right" data-tchmi-right="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+<div id="xtsmovercmds-si-initialized" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="3" data-tchmi-label="Initialized" data-tchmi-state-symbol="%pp%data::Initialized%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="14" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-label-position="Right" data-tchmi-right="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+<div id="xtsmovercmds-si-done" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="2" data-tchmi-label="Done" data-tchmi-state-symbol="%pp%data::Done%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="14" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-label-position="Right" data-tchmi-right="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+<div id="xtsmovercmds-si-enabled" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="2" data-tchmi-label="Enabled" data-tchmi-state-symbol="%pp%data::Enabled%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="14" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-label-position="Right" data-tchmi-right="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+</div>
+
+        <!-- Center Section: Jog Controls -->
+        <div id="xtsmovercmds-grid-jog" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-row-index="1" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                ["grouping-container"]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 110.0,
+    "widthMode": "Value",
+    "widthUnit": "px"
+  },
+  {
+    "width": 110.0,
+    "widthMode": "Value",
+    "widthUnit": "px"
+  },
+  {
+    "width": 110.0,
+    "widthMode": "Value",
+    "widthUnit": "px"
+  },
+  {
+    "width": 110.0,
+    "widthMode": "Value",
+    "widthUnit": "px"
+  },
+  {
+    "width": 110.0,
+    "widthMode": "Value",
+    "widthUnit": "px"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  }
+]
+</script>
+
+            
+            
+            
+                    <div data-tchmi-grid-row-index="0" id="xtsmovercmds-btn-bumpneglarge" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="0" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Commands::BumpCommand%/pp%" data-tchmi-text="-10x">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+            
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%data::Parameters::Distance%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/LREAL",
+          "symbolExpression": "%f%%ctrl%xtsmovercmds-inp-bumpdistance::Value%/ctrl% * -10.0%/f%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div data-tchmi-grid-row-index="0" id="xtsmovercmds-btn-bumpnegsmall" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Commands::BumpCommand%/pp%" data-tchmi-text="-1x">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+            
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%data::Parameters::Distance%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/LREAL",
+          "symbolExpression": "%f%%ctrl%xtsmovercmds-inp-bumpdistance::Value%/ctrl% * -1.0%/f%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div data-tchmi-grid-row-index="0" id="xtsmovercmds-btn-bumppossmall" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="3" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Commands::BumpCommand%/pp%" data-tchmi-text="+1x">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+            
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%data::Parameters::Distance%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/LREAL",
+          "symbolExpression": "%f%%ctrl%xtsmovercmds-inp-bumpdistance::Value%/ctrl%%/f%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div data-tchmi-grid-row-index="0" id="xtsmovercmds-btn-bumpposlarge" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="4" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Commands::BumpCommand%/pp%" data-tchmi-text="+10x">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+            
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%data::Parameters::Distance%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/LREAL",
+          "symbolExpression": "%f%%ctrl%xtsmovercmds-inp-bumpdistance::Value%/ctrl% * 10.0%/f%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="xtsmovercmds-inp-bumpdistance" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label-to-input-ratio="auto" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="2.5" data-tchmi-top="5" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-min-value="0" data-tchmi-grid-column-index="2">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+</div>
+
+        <!-- Bottom Section: Tabbed Content -->
+        <div id="xtsmovercmds-grid-control" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-row-index="2" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-creator-visibility="Visible">
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {"width": 100.0, "widthMode": "Value", "widthUnit": "px"},
+                  {"width": 1, "widthMode": "Value", "widthUnit": "factor"}
+                ]
+            </script>
+
+            <!-- Left Navigation -->
+            <div id="xtsmovercmds-grid-select" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="5" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-creator-visibility="Visible">
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {"height": 1, "heightMode": "Value", "heightUnit": "factor", "overflow": false},
+                      {"height": 1, "heightMode": "Value", "heightUnit": "factor", "overflow": false},
+                      {"height": 1, "heightMode": "Value", "heightUnit": "factor", "overflow": false},
+                      {"height": 1, "heightMode": "Value", "heightUnit": "factor", "overflow": false}
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    ["grouping-container"]
+                </script>
+
+                <!-- Move Tab Button -->
+                <div id="xtsmovercmds-btn-navmove" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-row-index="1" data-tchmi-text="Move" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="2.5" data-tchmi-bottom="2.5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="xtsmovercmds-select" data-tchmi-toggle-state="Normal" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/target.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%" data-tchmi-text-font-size="85" data-tchmi-text-font-size-unit="%">
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-move::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-info::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-log::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-moverdata::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">{"left": 0, "right": 0, "top": 0, "bottom": 2, "leftUnit": "px", "rightUnit": "px", "topUnit": "px", "bottomUnit": "px"}</script>
+                </div>
+
+                <!-- Gear Tab Button -->
+                
+                <!-- Log Tab Button -->
+                <div id="xtsmovercmds-btn-navlog" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-row-index="2" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="2.5" data-tchmi-bottom="7" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="xtsmovercmds-select" data-tchmi-icon="Images/Icons/logbook.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%" data-tchmi-icon-vertical-alignment="Top" data-tchmi-text="Log" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-text-font-size="85" data-tchmi-text-font-size-unit="%">
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-move::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-info::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-log::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-moverdata::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">{"left": 0, "right": 0, "top": 0, "bottom": 2, "leftUnit": "px", "rightUnit": "px", "topUnit": "px", "bottomUnit": "px"}</script>
+                </div>
+
+                <!-- Mover Data Tab Button -->
+                <div id="xtsmovercmds-btn-navmoverdata" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-row-index="3" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="xtsmovercmds-select" data-tchmi-icon="Images/Icons/tune.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%" data-tchmi-icon-vertical-alignment="Top" data-tchmi-text="Data" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-text-font-size="85" data-tchmi-text-font-size-unit="%">
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-move::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-info::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-log::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-moverdata::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">{"left": 0, "right": 0, "top": 0, "bottom": 3, "leftUnit": "px", "rightUnit": "px", "topUnit": "px", "bottomUnit": "px"}</script>
+                </div>
+
+            <div data-tchmi-grid-column-index="0" id="xtsmovercmds-btn-navinfo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-row-index="0" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="5" data-tchmi-bottom="2.5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="xtsmovercmds-select" data-tchmi-icon="Images/Icons/info.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%" data-tchmi-icon-vertical-alignment="Top" data-tchmi-text="Info" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-toggle-state="Active" data-tchmi-text-font-size="85" data-tchmi-text-font-size-unit="%">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-move::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-info::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-log::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%xtsmovercmds-grid-moverdata::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["icon-dark"]</script>
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">{"left": 0, "right": 0, "top": 0, "bottom": 2, "leftUnit": "px", "rightUnit": "px", "topUnit": "px", "bottomUnit": "px"}</script>
+                </div>
+</div>
+
+            <!-- Move Tab Content -->
+            <div id="xtsmovercmds-grid-move" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Collapsed" data-tchmi-creator-visibility="Visible">
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["grouping-container"]</script>
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 6.0,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  }
+]
+</script>
+
+                <div id="xtsmovercmds-grid-moveinps" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Visible">
+                    <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  }
+]
+</script>
+
+                    <div id="xtsmovercmds-inp-targetpos" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Parameters::Position|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Position" data-tchmi-label-to-input-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="8" data-tchmi-top="0" data-tchmi-right="12" data-tchmi-bottom="10">
+                        <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+
+                    <div id="xtsmovercmds-inp-targetvelo" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Parameters::Velocity|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Velocity" data-tchmi-label-to-input-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm/s" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5">
+                        <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+
+                    <div id="xtsmovercmds-inp-targetacc" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="2" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Parameters::Acceleration|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Acceleration" data-tchmi-label-to-input-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm/s2" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5">
+                        <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+
+                    <div id="xtsmovercmds-inp-targetdec" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Parameters::Deceleration|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Deceleration" data-tchmi-label-to-input-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm/s2" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-grid-column-index="1">
+                        <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+
+                    <div id="xtsmovercmds-inp-targetgap" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="2" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::Parameters::Gap|BindingMode=TwoWay%/pp%" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Target Gap" data-tchmi-label-to-input-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-grid-column-index="1">
+                        <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+
+                    <div id="xtsmovercmds-inp-targetstation" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledInput" data-tchmi-grid-row-index="0" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-label-to-input-ratio="1:1" data-tchmi-label="Target Station" data-tchmi-label-vertical-alignment="Center" data-tchmi-text="%pp%data::TargetStation|BindingMode=TwoWay%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-grid-column-index="2">
+                        <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+                
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "overflow": false,
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  },
+  {
+    "width": 1,
+    "widthMode": "Value",
+    "widthUnit": "factor"
+  }
+]
+</script>
+<div id="xtsmovercmds-inp-targetjerk" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="2" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Jerk" data-tchmi-label-to-input-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-unit="mm/s3" data-tchmi-label-vertical-alignment="Center" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-grid-column-index="1" data-tchmi-value-type="Number" data-tchmi-value="%pp%data::Parameters::Jerk|BindingMode=TwoWay%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">{"top": 3, "right": 3, "bottom": 3, "left": 3}</script>
+                    </div>
+</div>
+
+                <div id="xtsmovercmds-grid-movebtns" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+                    <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  }
+]
+</script>
+
+                    
+                    
+                                    <div id="xtsmovercmds-btn-movevelo" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-height-unit="px" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-button="%pp%data::Commands::MoveVelocity%/pp%" data-tchmi-text="Move Velo">
+</div>
+<div id="xtsmovercmds-btn-movepos" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="0" data-tchmi-height-unit="px" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-button="%pp%data::Commands::MoveToPosition%/pp%" data-tchmi-text="Move Pos">
+</div>
+<div id="xtsmovercmds-btn-movestation" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height-unit="px" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-button="%pp%data::Commands::MoveToStation%/pp%" data-tchmi-text="Move Station">
+</div>
+<div id="xtsmovercmds-btn-halt" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="3" data-tchmi-height-unit="px" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-button="%pp%data::Commands::Halt%/pp%" data-tchmi-text="Halt">
+</div>
+</div>
+            </div>
+
+            <!-- Gear Tab Content -->
+            <div id="xtsmovercmds-grid-info" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Visible" data-tchmi-creator-visibility="Collapsed">
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["grouping-container"]</script>
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [{"width": 1, "widthMode": "Value", "widthUnit": "factor"}, {"width": 1, "widthMode": "Value", "widthUnit": "factor"}]
+                </script>
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  },
+  {
+    "height": 1,
+    "heightMode": "Value",
+    "heightUnit": "factor"
+  }
+]
+</script>
+
+                <!-- All existing status and data fields that were in the old Status tab -->
+                <div id="xtsmovercmds-ddt-acceleration" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" data-tchmi-label="Acceleration" data-tchmi-value="%f%%pp%data::Acceleration%/pp%.toFixed(2)%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10"></div>
+
+                <div id="xtsmovercmds-ddt-deceleration" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" data-tchmi-label="Deceleration" data-tchmi-value="%f%%pp%data::Deceleration%/pp%.toFixed(2)%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10"></div>
+
+                <div id="xtsmovercmds-ddt-jerk" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="0" data-tchmi-label="Jerk" data-tchmi-value="%f%%pp%data::Jerk%/pp%.toFixed(2)%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10"></div>
+
+                <div id="xtsmovercmds-ddt-commandedpos" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="1" data-tchmi-label="Commanded Pos" data-tchmi-value="%f%%pp%data::CommandedPosition%/pp%.toFixed(2)%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10"></div>
+
+                
+                <div id="xtsmovercmds-ddt-identingroup" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="2" data-tchmi-grid-column-index="1" data-tchmi-label="Ident In Group" data-tchmi-value="%pp%data::IdentInGroup%/pp%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10"></div>
+
+                
+                
+            <div id="xtsmovercmds-si-avoidingcollision" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-row-index="3" data-tchmi-grid-column-index="1" data-tchmi-label="Avoiding Collision" data-tchmi-state-symbol="%pp%data::AvoidingCollision%/pp%" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-label-position="Right" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+                </div>
+<div id="xtsmovercmds-ddt-commandedstation" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="3" data-tchmi-grid-column-index="0" data-tchmi-label="Commanded Station" data-tchmi-value="%pp%data::CommandedStationName%/pp%" data-tchmi-label-to-value-ratio="2:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10">
+</div>
+<div id="xtsmovercmds-ddt-moveringroup" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-row-index="2" data-tchmi-grid-column-index="0" data-tchmi-label="Mover In Group" data-tchmi-value="%pp%data::MoverInGroup%/pp%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-top="10" data-tchmi-left="10" data-tchmi-bottom="10">
+</div>
+</div>
+
+            <!-- Log Tab Content -->
+            <div id="xtsmovercmds-grid-log" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Collapsed">
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["grouping-container"]</script>
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [{"height": 19.0, "heightMode": "Value", "heightUnit": "factor", "overflow": false}, {"height": 1, "heightMode": "Value", "heightUnit": "factor"}]
+                </script>
+
+                <div id="xtsmovercmds-dg-log" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDatagrid" data-tchmi-grid-row-index="0" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-src-data="%pp%data::LocalLog::Logs%/pp%">
+                    <script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+                        {"left": 3, "leftUnit": "px", "right": 3, "rightUnit": "px", "top": 0, "topUnit": "px", "bottom": 0, "bottomUnit": "px"}
+                    </script>
+                    <script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
+                        [{"label": "Logs", "control": "TextBox", "width": 1, "widthUnit": "factor", "resize": false, "minWidth": 20, "minWidthUnit": "px", "editable": false, "horizontalAlignment": "Left", "verticalAlignment": "Center", "headerHorizontalAlignment": "Center", "headerVerticalAlignment": "Center", "autoFocusOut": true, "autoSelectText": false, "sortable": true}]
+                    </script>
+                </div>
+
+                <div id="xtsmovercmds-btn-clearlog" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-grid-row-index="1" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Clear Log" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-word-wrap="True" data-tchmi-height-mode="Parent" data-tchmi-width-mode="Parent" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-min-height="35"></div>
+            </div>
+
+            <!-- Mover Data Tab Content -->
+            <div id="xtsmovercmds-grid-moverdata" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Collapsed">
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">["grouping-container"]</script>
+
+                <div id="xtsmovercmds-objbrowser" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiObjectBrowser" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-root-symbol="%pp%data%/pp%">
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "autoFocusOut": true,
+    "autoSelectText": false,
+    "columnData": "Name",
+    "editable": false,
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "horizontalAlignment": "Left",
+    "ignoreEscapeSequences": false,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "resize": false,
+    "sortable": true,
+    "verticalAlignment": "Center",
+    "width": 1.0,
+    "widthUnit": "factor"
+  },
+  {
+    "autoFocusOut": true,
+    "autoSelectText": false,
+    "columnData": "Value",
+    "editable": false,
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "horizontalAlignment": "Left",
+    "ignoreEscapeSequences": false,
+    "minWidth": 100,
+    "minWidthUnit": "px",
+    "resize": false,
+    "sortable": true,
+    "verticalAlignment": "Center",
+    "width": 1.0,
+    "widthUnit": "factor"
+  }
+]
+</script>
+</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,800 @@
+{
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.14.4.42/runtimes/native1.12-tchmi/Schema/TchmiConfig.Schema.json",
+  "basePath": "./Beckhoff.TwinCAT.HMI.Framework",
+  "scaleMode": "None",
+  "startupView": "Desktop.view",
+  "loginPage": "",
+  "splash": {
+    "versionSource": "Framework"
+  },
+  "projectVersion": "1.0.0.0",
+  "tcHmiServer": {
+    "websocketIntervalTime": 500,
+    "websocketTimeout": 20000,
+    "websocketSystemTimeout": 60000,
+    "websocketSubscriptionMode": null,
+    "disableOptionalSystemSubscriptions": false
+  },
+  "activeTheme": "Base-Dark",
+  "themes": {
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Base-DarkStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        },
+        {
+          "name": "Themes/Base-Dark/Base-Dark.theme",
+          "description": "",
+          "type": "ThemedValues"
+        }
+      ],
+      "replacesThemeForControls": [],
+      "replacesThemeForPackageComponents": []
+    },
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Base/BaseStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        },
+        {
+          "name": "Themes/Base/TcHmi.Controls.Beckhoff.TcHmiAdsState/Style.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": [
+        "TcHmi.Controls.Beckhoff.TcHmiAdsState"
+      ],
+      "replacesThemeForPackageComponents": []
+    }
+  },
+  "dependencyFiles": [
+    {
+      "name": "Fonts/Fonts.css",
+      "description": "",
+      "type": "Stylesheet"
+    },
+    {
+      "name": "Functions/GetModeName.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "Functions/BuildManualPage.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "Functions/DisplayPermissiveText.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "Functions/GetKinematicStatus.js",
+      "description": "",
+      "type": "JavaScript"
+    }
+  ],
+  "userControls": [
+    {
+      "url": "Popups/PackMLSelection.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Chiller.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Compressor.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Conveyor.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/CuringOven.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Cylinder.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Dispenser.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/EquipmentModule.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/EStop.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/File.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/HeaterCooler.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/IndexingTable.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/InterlockChain.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Kinematic.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/LightCurtain.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/MixingStation.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/NcAxis.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/NetworkSwitch.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/PickAndPlaceUnit.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/PidController.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Pump.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Robot.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/SafetyDoor.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/UPS.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Valve.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Vfd.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/Vision.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/XtsMoverCommands.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/XtsPositionTrigger.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/XtsStation.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/XtsSystem.usercontrol"
+    },
+    {
+      "url": "Popups/PanelPopups/XtsZone.usercontrol"
+    },
+    {
+      "url": "UserControls/CoreButton.usercontrol"
+    },
+    {
+      "url": "UserControls/PackMLControl.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/AxisPTPPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/ChillerPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/CompressorPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/ConveyorPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/CuringOvenPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/CustomPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/CylinderPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/DispenserPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/EquipmentModulePanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/EStopPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/FilePanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/HeaterCoolerPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/IndexingTablePanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/InterlockChainPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/KinematicPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/LightCurtainPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/MixingStationPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/NetworkSwitchPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/PackMLStatemachinePanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/PickandPlaceUnitPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/PidControllerPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/PumpPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/RobotPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/SafetyDoorPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/UPSPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/ValvePanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/VfdPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/VisionPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/XtsMoverPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/XtsPositionTriggerPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/XtsStationPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/XtsSystemPanel.usercontrol"
+    },
+    {
+      "url": "UserControls/Panels/XtsZonePanel.usercontrol"
+    }
+  ],
+  "controls": [],
+  "content": [
+    {
+      "url": "Pages/Diagnostics/EtherCAT.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Diagnostics/System.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Diagnostics/Trends.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Events.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Home.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Manual.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Recipes.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Xts.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Popups/Settings.content",
+      "preload": true,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": true
+    }
+  ],
+  "views": [
+    {
+      "url": "Desktop.view",
+      "preload": false,
+      "keepAlive": false,
+      "preloadBindings": false
+    }
+  ],
+  "userFunctions": [
+    {
+      "url": "Functions/BuildManualPage.js"
+    },
+    {
+      "url": "Functions/DisplayPermissiveText.js"
+    },
+    {
+      "url": "Functions/GetKinematicStatus.js"
+    },
+    {
+      "url": "Functions/GetModeName.js"
+    }
+  ],
+  "symbols": {
+    "internal": {
+      "OnGreen": {
+        "type": "tchmi:framework#/definitions/Path",
+        "persist": false,
+        "readonly": false
+      },
+      "DataRoot": {
+        "value": "C:\\Data\\",
+        "type": "tchmi:general#/definitions/String",
+        "persist": false,
+        "readonly": false
+      },
+      "machineControlLocked": {
+        "value": false,
+        "type": "tchmi:general#/definitions/Boolean",
+        "persist": true,
+        "readonly": false
+      },
+      "useOsTheme": {
+        "value": false,
+        "type": "tchmi:general#/definitions/Boolean",
+        "persist": true,
+        "readonly": false
+      },
+      "useOnScreenKeyboard": {
+        "value": true,
+        "type": "tchmi:general#/definitions/Boolean",
+        "persist": true,
+        "readonly": false
+      }
+    },
+    "themedResources": {
+      "ChartAxisColors": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          "Base": {
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        }
+      },
+      "DefaultGreen": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(81, 215, 119, 1)"
+          },
+          "Base": {
+            "color": "rgba(81, 215, 119, 1)"
+          }
+        }
+      },
+      "DefaultOrange": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(251, 167, 18, 1)"
+          },
+          "Base": {
+            "color": "rgba(251, 167, 18, 1)"
+          }
+        }
+      },
+      "DefaultRed": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(239, 73, 73, 1)"
+          },
+          "Base": {
+            "color": "rgba(239, 73, 73, 1)"
+          }
+        }
+      },
+      "DefaultBlue": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(23, 93, 184, 1)"
+          },
+          "Base": {
+            "color": "rgba(23, 93, 184, 1)"
+          }
+        }
+      },
+      "HighlightColor": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(102, 16, 242, 1)"
+          },
+          "Base": {
+            "color": "rgba(102, 16, 242, 1)"
+          }
+        }
+      },
+      "DefaultGrey": {
+        "type": "tchmi:framework#/definitions/SolidColor",
+        "description": "",
+        "values": {
+          "Base-Dark": {
+            "color": "rgba(185, 185, 185, 1)"
+          },
+          "Base": {
+            "color": "rgba(185, 185, 185, 1)"
+          }
+        }
+      }
+    },
+    "timer": {},
+    "package": {}
+  },
+  "intervals": {},
+  "trigger": [
+    {
+      "event": "onInitialized",
+      "actions": [
+        {
+          "objectType": "Condition",
+          "active": true,
+          "parts": [
+            {
+              "if": [
+                {
+                  "compare1": {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:general#/definitions/Boolean",
+                    "symbolExpression": "%i%useOsTheme%/i%"
+                  },
+                  "compare2": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/Boolean",
+                    "value": false
+                  },
+                  "compareOperator": "==",
+                  "logic": null
+                }
+              ],
+              "then": [
+                {
+                  "objectType": "Function",
+                  "active": true,
+                  "fn": "TcHmi.Functions.TcHmiExtendedControls.UseSystemTheme",
+                  "fnParams": [
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/Boolean",
+                      "value": false
+                    },
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:framework#/definitions/ThemeName",
+                      "value": "Base"
+                    },
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:framework#/definitions/ThemeName",
+                      "value": "Base-Dark"
+                    }
+                  ],
+                  "asyncWait": true
+                }
+              ]
+            },
+            {
+              "else": [
+                {
+                  "objectType": "Function",
+                  "active": true,
+                  "fn": "TcHmi.Functions.TcHmiExtendedControls.UseSystemTheme",
+                  "fnParams": [
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/Boolean",
+                      "value": true
+                    },
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:framework#/definitions/ThemeName",
+                      "value": "Base"
+                    },
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:framework#/definitions/ThemeName",
+                      "value": "Base-Dark"
+                    }
+                  ],
+                  "asyncWait": true
+                }
+              ]
+            }
+          ],
+          "asyncWait": true
+        },
+        {
+          "objectType": "Condition",
+          "active": true,
+          "parts": [
+            {
+              "if": [
+                {
+                  "compare1": {
+                    "objectType": "Symbol",
+                    "valueType": "tchmi:general#/definitions/Boolean",
+                    "symbolExpression": "%i%useOnScreenKeyboard%/i%"
+                  },
+                  "compare2": {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/Boolean",
+                    "value": true
+                  },
+                  "compareOperator": "==",
+                  "logic": null
+                }
+              ],
+              "then": [
+                {
+                  "objectType": "Function",
+                  "active": true,
+                  "fn": "TcHmi.Functions.Beckhoff.SetAutoOpenSystemKeyboard",
+                  "fnParams": [
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/Boolean",
+                      "value": true
+                    }
+                  ],
+                  "asyncWait": true
+                }
+              ]
+            },
+            {
+              "else": [
+                {
+                  "objectType": "Function",
+                  "active": true,
+                  "fn": "TcHmi.Functions.Beckhoff.SetAutoOpenSystemKeyboard",
+                  "fnParams": [
+                    {
+                      "objectType": "StaticValue",
+                      "valueType": "tchmi:general#/definitions/Boolean",
+                      "value": null
+                    }
+                  ],
+                  "asyncWait": true
+                }
+              ]
+            }
+          ],
+          "asyncWait": true
+        }
+      ]
+    }
+  ],
+  "actionTemplates": [
+    {
+      "displayname": "ncaxis-collapse-all",
+      "name": "ncaxis-collapse-all",
+      "category": "Action Templates",
+      "actions": [
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%uc-ncaxis-grid-move::Visibility%/ctrl%",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Collapsed"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%uc-ncaxis-grid-jog::Visibility%/ctrl%",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Collapsed"
+          },
+          "asyncWait": true
+        },
+        {
+          "objectType": "WriteToSymbol",
+          "active": true,
+          "symbolExpression": "%ctrl%uc-ncaxis-grid-gear::Visibility%/ctrl%",
+          "value": {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:framework#/definitions/Visibility",
+            "value": "Collapsed"
+          },
+          "asyncWait": true
+        }
+      ],
+      "parameters": []
+    }
+  ],
+  "languages": {
+    "de": "Localization/de.localization",
+    "en": "Localization/en.localization",
+    "es": "Localization/es.localization"
+  },
+  "languageFallback": "",
+  "disableLoadingOptimization": false,
+  "creatorSettings": {
+    "viewport": {
+      "defaultWidth": 800,
+      "defaultHeight": 600
+    }
+  },
+  "binding": {
+    "symbolError": "Ignore",
+    "symbolWriteError": "ReadBack"
+  },
+  "packages": [
+    {
+      "name": "Beckhoff.TwinCAT.HMI.BaseTemplate",
+      "basePath": "/Beckhoff.TwinCAT.HMI.BaseTemplate",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Controls",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Controls",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.EcDiagnosticsControl",
+      "basePath": "/Beckhoff.TwinCAT.HMI.EcDiagnosticsControl",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Framework",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Framework",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Functions",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Functions",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.XTS.Controls",
+      "basePath": "/Beckhoff.TwinCAT.HMI.XTS.Controls",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "TcHmiExtendedControls",
+      "basePath": "/TcHmiExtendedControls",
+      "symbols": {
+        "package": {}
+      }
+    },
+    {
+      "name": "TcHmiToastNotification",
+      "basePath": "/TcHmiToastNotification",
+      "symbols": {
+        "package": {}
+      }
+    }
+  ],
+  "keyboardLayouts": [
+    {
+      "url": "KeyboardLayouts/German - compact.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/Numpad (plusminus).keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/US - compact.keyboard.json"
+    }
+  ],
+  "systemKeyboard": {
+    "providerName": "Beckhoff.TcHmiKeyboard",
+    "autoOpen": true,
+    "projectKeyboardMapping": {
+      "de": {
+        "text": "KeyboardLayouts/German - compact.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus).keyboard.json",
+        "numeric": ""
+      },
+      "en": {
+        "text": "KeyboardLayouts/US - compact.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json",
+        "numeric": ""
+      },
+      "es": {
+        "text": "",
+        "decimal": "",
+        "numeric": ""
+      }
+    },
+    "layout": {
+      "position": "popup"
+    }
+  },
+  "systemPopups": {
+    "providerName": "Beckhoff.TcHmiPopups"
+  }
+}

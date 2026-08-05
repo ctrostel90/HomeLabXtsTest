@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_InterlockChain_HMI" Id="{8f3a9d4e-2b1c-4f7a-9e8d-5c6a7b8d9e0f}">
+    <Declaration><![CDATA[TYPE ST_InterlockChain_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Overall Safety Status
+    SafetyOk                : BOOL;           // Overall safety chain is satisfied (all conditions met or bypassed)
+    AllConditionsMet        : BOOL;           // All active conditions are satisfied without bypass
+    MonitoringActive        : BOOL;           // Interlock chain monitoring is active
+    Bypassed                : BOOL;           // One or more conditions are bypassed
+    LockedOut               : BOOL;           // Chain is locked out and cannot be satisfied
+
+    // Error Information
+    HasError                : BOOL;           // Error condition present in the chain
+    ErrorCode               : UDINT;          // Specific error code
+
+    // Configuration
+    ActiveConditionCount    : UDINT;          // Number of conditions actively monitored (1-6)
+    BypassTimeout           : UDINT;          // Bypass timeout in seconds (safety feature)
+
+    // Individual Condition 1
+    Condition1Name          : STRING(80);     // Description/name of condition 1
+    Condition1Met           : BOOL;           // Condition 1 is satisfied
+    Condition1Bypassed      : BOOL;           // Condition 1 is bypassed
+
+    // Individual Condition 2
+    Condition2Name          : STRING(80);     // Description/name of condition 2
+    Condition2Met           : BOOL;           // Condition 2 is satisfied
+    Condition2Bypassed      : BOOL;           // Condition 2 is bypassed
+
+    // Individual Condition 3
+    Condition3Name          : STRING(80);     // Description/name of condition 3
+    Condition3Met           : BOOL;           // Condition 3 is satisfied
+    Condition3Bypassed      : BOOL;           // Condition 3 is bypassed
+
+    // Individual Condition 4
+    Condition4Name          : STRING(80);     // Description/name of condition 4
+    Condition4Met           : BOOL;           // Condition 4 is satisfied
+    Condition4Bypassed      : BOOL;           // Condition 4 is bypassed
+
+    // Individual Condition 5
+    Condition5Name          : STRING(80);     // Description/name of condition 5
+    Condition5Met           : BOOL;           // Condition 5 is satisfied
+    Condition5Bypassed      : BOOL;           // Condition 5 is bypassed
+
+    // Individual Condition 6
+    Condition6Name          : STRING(80);     // Description/name of condition 6
+    Condition6Met           : BOOL;           // Condition 6 is satisfied
+    Condition6Bypassed      : BOOL;           // Condition 6 is bypassed
+
+    // Statistics and Diagnostics
+    TotalViolations         : UDINT;          // Total number of times chain was violated
+    LastViolationTime       : STRING(80);     // Timestamp of last violation
+    ViolatedConditionName   : STRING(80);     // Name of the condition that was last violated
+    ChainResponseTime       : LREAL;          // Last measured chain response time in milliseconds
+    BypassedConditionCount  : UDINT;          // Current number of bypassed conditions
+    EvaluationCount         : UDINT;          // Total number of chain evaluations performed
+
+    // Commands (Button type for rising edge detection)
+    Reset                   : Button;         // Reset the interlock chain after violation
+    Acknowledge             : Button;         // Acknowledge warning or alarm condition
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

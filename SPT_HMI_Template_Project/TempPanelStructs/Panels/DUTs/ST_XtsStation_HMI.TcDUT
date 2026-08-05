@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_XtsStation_HMI" Id="{e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b}">
+    <Declaration><![CDATA[TYPE ST_XtsStation_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Information
+    Position                : LREAL;          // Station position in mm
+    MoverPresent            : BOOL;           // Mover is present at station
+    Enabled                 : BOOL;           // Station is enabled
+
+    // Current Mover Information
+    CurrentMoverName        : STRING(80);     // Name of current mover at station
+    CurrentMoverId          : UINT;           // ID of current mover at station
+
+    // Station Configuration
+    TargetPosition          : LREAL;          // Target position for station (mm)
+    NumberMoversEnroute     : UINT;           // Number of movers enroute to station
+
+    // Control Commands (Button type for rising edge detection)
+    Enable                  : Button;         // Enable station command
+    Disable                 : Button;         // Disable station command
+
+    // Local Log
+    LocalLog                : ST_LocalLog;    // Log messages structure
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

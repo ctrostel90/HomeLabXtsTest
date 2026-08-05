@@ -1,0 +1,637 @@
+<div id="Compressor_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-creator-viewport-width="820" data-tchmi-creator-viewport-height="450" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+    <div id="compressor-grid-main" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-height-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+        <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+            [
+              {
+                "height": 1.2,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 1.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              },
+              {
+                "height": 3.0,
+                "heightMode": "Value",
+                "heightUnit": "factor",
+                "maxHeightUnit": "px",
+                "minHeightUnit": "px",
+                "overflow": false
+              }
+            ]
+        </script>
+
+        <div id="compressor-grid-status" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                [
+                  "grouping-container"
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                [
+                  {
+                    "height": 1,
+                    "heightMode": "Value",
+                    "heightUnit": "factor",
+                    "maxHeightUnit": "px",
+                    "minHeightUnit": "px",
+                    "overflow": false
+                  },
+                  {
+                    "height": 1,
+                    "heightMode": "Value",
+                    "heightUnit": "factor",
+                    "maxHeightUnit": "px",
+                    "minHeightUnit": "px",
+                    "overflow": false
+                  }
+                ]
+            </script>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="compressor-ddt-pressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Pressure" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%f%%pp%data::Pressure%/pp%.toFixed(1) + ' bar'%/f%" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10">
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="compressor-ddt-runtime" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Runtime" data-tchmi-value="%f%%pp%data::Runtime%/pp%.toFixed(0) + ' hrs'%/f%" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10">
+            </div>
+
+            <div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="0" id="compressor-ddt-maintenance" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Next Maintenance" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%f%%pp%data::MaintenanceInterval%/pp%.toFixed(0) + ' hrs'%/f%" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10">
+            </div>
+
+            <div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="1" id="compressor-ddt-temperature" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Temperature" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-value="%f%%pp%data::Temperature%/pp%.toFixed(1) + ' °C'%/f%" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Right" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10">
+            </div>
+
+            <div id="compressor-grid-error" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="3" data-tchmi-grid-row-index="0" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 50.0,
+                        "widthMode": "Value",
+                        "widthUnit": "px"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1.0,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="compressor-img-error" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-src="Images/Icons/error.svg" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-bottom="0" data-tchmi-right="0">
+                </div>
+
+                <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="compressor-ddt-errorid" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-label="Error ID" data-tchmi-label-to-value-ratio="1:1" data-tchmi-value-font-size="14" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-font-size="12" data-tchmi-label-position="Left" data-tchmi-value="%pp%data::ErrorId%/pp%">
+                </div>
+
+                <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%pp%data::HasFault%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%data::HasFault%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%compressor-grid-error::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%compressor-grid-error::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Collapsed"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+            </div>
+
+            <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="2" id="compressor-si-running" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Running" data-tchmi-label-position="Right" data-tchmi-label-font-size="14" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::Running%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+
+            <div data-tchmi-grid-row-index="1" data-tchmi-grid-column-index="2" id="compressor-si-enabled" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-label-word-wrap="True" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-label="Enabled" data-tchmi-label-position="Right" data-tchmi-label-font-size="14" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::Enabled%/pp%" data-tchmi-left="10" data-tchmi-top="5" data-tchmi-right="10" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+            </div>
+
+        </div>
+
+        <div id="compressor-grid-maincontrol" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="10" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+            <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                [
+                  "grouping-container"
+                ]
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 110.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <div id="compressor-btn-start" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Start%/pp%" data-tchmi-icon="Images/Icons/start.svg">
+            </div>
+
+            <div id="compressor-btn-stop" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-icon="Images/Icons/stop.svg" data-tchmi-button="%pp%data::Stop%/pp%">
+
+                <script data-tchmi-target-attribute="data-tchmi-bgcolor" type="application/json">
+                    {
+                      "color": "rgba(239, 73, 73, 1)"
+                    }
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "icon-dark"
+                    ]
+                </script>
+            </div>
+
+            <div id="compressor-btn-reset" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/CoreButton.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="2.5" data-tchmi-bottom="5" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-button="%pp%data::Reset%/pp%" data-tchmi-icon="Images/Icons/reset.svg">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "icon-dark"
+                    ]
+                </script>
+            </div>
+
+        </div>
+
+        <div id="compressor-grid-control" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="10" data-tchmi-bottom="10">
+
+            <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                [
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 100.0,
+                    "widthMode": "Value",
+                    "widthUnit": "px"
+                  },
+                  {
+                    "maxWidthUnit": "px",
+                    "minWidthUnit": "px",
+                    "overflow": false,
+                    "width": 1,
+                    "widthMode": "Value",
+                    "widthUnit": "factor"
+                  }
+                ]
+            </script>
+
+            <div id="compressor-grid-select" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="5" data-tchmi-bottom="0" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <div id="compressor-btn-navcontrol" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-text="Control" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="5" data-tchmi-bottom="2.5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="compressor-select" data-tchmi-toggle-state="Active" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/target.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%">
+
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%compressor-grid-parameters::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%compressor-grid-statistics::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+                        {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 2,
+                          "leftUnit": "px",
+                          "rightUnit": "px",
+                          "topUnit": "px",
+                          "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                        [
+                          "icon-dark"
+                        ]
+                    </script>
+                </div>
+
+                <div id="compressor-btn-navstatistics" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-text="Statistics" data-tchmi-word-wrap="True" data-tchmi-right="5" data-tchmi-left="5" data-tchmi-top="2.5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-toggle-group="compressor-select" data-tchmi-text-vertical-alignment="Bottom" data-tchmi-icon="Images/Icons/info.svg" data-tchmi-icon-width="80" data-tchmi-icon-height="65" data-tchmi-icon-vertical-alignment="Top" data-tchmi-icon-width-unit="%" data-tchmi-icon-height-unit="%">
+
+                    <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%compressor-grid-parameters::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Collapsed"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%compressor-grid-statistics::Visibility%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:framework#/definitions/Visibility",
+          "value": "Visible"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]</script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-text-padding" type="application/json">
+                        {
+                          "left": 0,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 2,
+                          "leftUnit": "px",
+                          "rightUnit": "px",
+                          "topUnit": "px",
+                          "bottomUnit": "px"
+                        }
+                    </script>
+
+                    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                        [
+                          "icon-dark"
+                        ]
+                    </script>
+                </div>
+            </div>
+
+            <div id="compressor-grid-parameters" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Visible">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="compressor-inp-targetpressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="1" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::TargetPressure|BindingMode=TwoWay%/pp%" data-tchmi-unit="bar" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Target Pressure" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True" data-tchmi-label-horizontal-alignment="Right">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="compressor-inp-maxpressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="1" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::MaxPressure|BindingMode=TwoWay%/pp%" data-tchmi-unit="bar" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Max Pressure" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True" data-tchmi-label-horizontal-alignment="Right">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="compressor-inp-minpressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="1" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::MinPressure|BindingMode=TwoWay%/pp%" data-tchmi-unit="bar" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Min Pressure" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True" data-tchmi-label-horizontal-alignment="Right">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="compressor-inp-maxtemp" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.LabeledNumericInput" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-auto-focus-out="True" data-tchmi-decimal-digits="1" data-tchmi-label-word-wrap="True" data-tchmi-reset-to-last-valid-value="True" data-tchmi-value="%pp%data::MaxTemperature|BindingMode=TwoWay%/pp%" data-tchmi-unit="°C" data-tchmi-input-processing-point="InteractionFinished" data-tchmi-system-keyboard-input-mode="numeric" data-tchmi-decimal-precision-mode="Round" data-tchmi-label="Max Temperature" data-tchmi-label-to-input-ratio="1:1" data-tchmi-right="10" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-auto-select-text="True" data-tchmi-label-horizontal-alignment="Right">
+                    <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                        {
+                          "top": 3,
+                          "right": 3,
+                          "bottom": 3,
+                          "left": 3
+                        }
+                    </script>
+                </div>
+
+                <div id="compressor-si-atpressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="At Pressure" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::AtPressure%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%">
+
+                </div>
+
+                <div id="compressor-si-overtemp" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.StatusIndicator" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Over Temperature" data-tchmi-label-position="Right" data-tchmi-label-font-style="Normal" data-tchmi-label-font-weight="Normal" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-horizontal-alignment="Center" data-tchmi-label-vertical-alignment="Center" data-tchmi-state-symbol="%pp%data::OverTemperature%/pp%" data-tchmi-fill-color-false="%tr%DefaultGrey%/tr%" data-tchmi-fill-color-true="%tr%DefaultRed%/tr%">
+
+                </div>
+
+            </div>
+
+            <div id="compressor-grid-statistics" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-left="2.5" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-visibility="Collapsed">
+
+                <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+                    [
+                      "grouping-container"
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+                    [
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      },
+                      {
+                        "height": 1,
+                        "heightMode": "Value",
+                        "heightUnit": "factor",
+                        "maxHeightUnit": "px",
+                        "minHeightUnit": "px",
+                        "overflow": false
+                      }
+                    ]
+                </script>
+
+                <script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+                    [
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      },
+                      {
+                        "maxWidthUnit": "px",
+                        "minWidthUnit": "px",
+                        "overflow": false,
+                        "width": 1,
+                        "widthMode": "Value",
+                        "widthUnit": "factor"
+                      }
+                    ]
+                </script>
+
+                <div id="compressor-ddt-totalstarts" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Total Starts" data-tchmi-label-to-value-ratio="2:1" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-position="Right" data-tchmi-value="%pp%data::TotalStarts%/pp%">
+                </div>
+
+                <div id="compressor-ddt-totalruntime" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="0" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Total Runtime" data-tchmi-label-to-value-ratio="2:1" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-position="Right" data-tchmi-value="%f%%pp%data::TotalRuntime%/pp%.toFixed(0) + ' hrs'%/f%">
+                </div>
+
+                <div id="compressor-ddt-avgpressure" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Avg Pressure" data-tchmi-label-to-value-ratio="2:1" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-position="Right" data-tchmi-value="%f%%pp%data::AvgPressure%/pp%.toFixed(1) + ' bar'%/f%">
+                </div>
+
+                <div id="compressor-ddt-avgtemp" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="1" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Avg Temperature" data-tchmi-label-to-value-ratio="2:1" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-position="Right" data-tchmi-value="%f%%pp%data::AvgTemperature%/pp%.toFixed(1) + ' °C'%/f%">
+                </div>
+
+                <div id="compressor-ddt-lastmaintenance" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Last Maintenance" data-tchmi-label-to-value-ratio="2:1" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-position="Right" data-tchmi-value="%pp%data::LastMaintenanceDate%/pp%">
+                </div>
+
+                <div id="compressor-ddt-hourstomaintenance" data-tchmi-type="TcHmi.Controls.TcHmiExtendedControls.DataDisplayTile" data-tchmi-grid-column-index="1" data-tchmi-grid-row-index="2" data-tchmi-label-word-wrap="True" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-label="Hours to Maintenance" data-tchmi-label-to-value-ratio="2:1" data-tchmi-right="10" data-tchmi-bottom="10" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-label-position="Right" data-tchmi-value="%f%%pp%data::HoursToMaintenance%/pp%.toFixed(0) + ' hrs'%/f%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

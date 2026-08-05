@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_XtsPositionTrigger_HMI" Id="{d31de94d-29c6-4ba6-9b37-cb903f39c7e0}">
+    <Declaration><![CDATA[TYPE ST_XtsPositionTrigger_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Information
+    Position                : LREAL;          // Position trigger location in mm
+    MoverPresent            : BOOL;           // Mover is present at trigger position
+    Enabled                 : BOOL;           // Position trigger is enabled
+
+    // Current Mover Information
+    CurrentMoverName        : STRING(80);     // Name of current mover at trigger
+    CurrentMoverId          : UINT;           // ID of current mover at trigger
+
+    // Trigger Configuration
+    NumberMoversEnroute  : UINT;           // Number of movers registered to this trigger
+    NumberEventsInQueue     : UINT;           // Number of events pending in queue
+
+    // Control Commands
+    Enable                  : BOOL;           // Enable position trigger command
+    Disable                 : BOOL;           // Disable position trigger command
+	TargetPosition: LREAL;
+
+    // Local Log
+    LocalLog                : ST_LocalLog;    // Log messages structure
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

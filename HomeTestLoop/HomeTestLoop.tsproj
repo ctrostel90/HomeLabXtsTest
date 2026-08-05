@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.25">
+	<Project ProjectGUID="{24C06BE9-EA94-4C52-8092-856E82FF0FD8}" TargetNetId="192.168.1.107.1.1" Target64Bit="true" ShowHideConfigurations="#x6">
+		<System>
+			<Settings MaxCpus="8" NonWinCpus="4">
+				<Cpu CpuId="1"/>
+				<Cpu CpuId="5"/>
+				<Cpu CpuId="6" BaseTime="2500"/>
+				<Cpu CpuId="7" BaseTime="2500"/>
+				<IoIdleTask Affinity="#x00000002"/>
+			</Settings>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" Affinity="#x00000002" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+				<Task Id="4" Priority="1" CycleTime="2500" AmsPort="351" Affinity="#x00000080" AdtTasks="true">
+					<Name>XTS Task 1</Name>
+				</Task>
+				<Task Id="5" Priority="2" CycleTime="2500" AmsPort="352" Affinity="#x00000040" AdtTasks="true">
+					<Name>XTS AUX Task 1</Name>
+				</Task>
+				<Task Id="8" Priority="32" AdtTasks="true" JobTask="true">
+					<Name>Job Task</Name>
+					<ImageId>327</ImageId>
+				</Task>
+			</Tasks>
+			<Modules>
+				<Module File="XTS ProcessingUnit 1.xti"/>
+				<Module File="XTS Parameter Set 1.xti"/>
+			</Modules>
+		</System>
+		<Motion>
+			<NC File="NC.xti"/>
+		</Motion>
+		<Plc>
+			<Project File="Code.xti"/>
+		</Plc>
+		<Io>
+			<Device File="Device 1 (EtherCAT).xti" Id="1"/>
+			<Device File="Device 2 (EtherCAT).xti" Id="2"/>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030030"/>
+		<MappingInfo Identifier="{05000010-2001-0850-1000-120500205008}" Id="#x02030020" Watchdog="14000000040000000400000004000000"/>
+		<MappingInfo Identifier="{05000010-2001-0850-5000-040300205008}" Id="#x02030010" Watchdog="14000000040000000400000004000000"/>
+	</Mappings>
+</TcSmProject>

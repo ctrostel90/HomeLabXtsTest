@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_HeaterCooler_HMI" Id="{821d5009-0868-494f-8ec2-f29fd98208e1}">
+    <Declaration><![CDATA[TYPE ST_HeaterCooler_HMI EXTENDS ST_HmiFunction :
+STRUCT
+	
+	// Status Data
+    ActualTemperature       : LREAL;          // Current temperature in °C
+    TargetTemperature       : LREAL;          // Target/setpoint temperature in °C
+    PowerOutput             : LREAL;          // Current power output in %
+    EnergyConsumption       : LREAL;          // Total energy consumed in kWh
+    
+    // Operating Mode
+    HeatingMode             : BOOL;           // TRUE = Heating, FALSE = Cooling
+    Enabled                 : BOOL;           // System enabled status
+    AutoMode                : BOOL;           // TRUE = Auto, FALSE = Manual
+    AtSetpoint              : BOOL;           // Temperature at setpoint within tolerance
+    
+    // Safety & Protection
+    ThermalProtectionActive : BOOL;           // Thermal protection triggered
+    OverheatAlarm           : BOOL;           // Overheat alarm active
+    HasError                : BOOL;           // Error present
+    ErrorCode               : UDINT;          // Error code
+    
+    // Control Parameters
+    MaxPowerOutput          : LREAL;          // Maximum power output limit in %
+    RampRate                : LREAL;          // Temperature ramp rate in °C/min
+    
+    // Limits
+    TemperatureMax          : LREAL;          // Maximum allowed temperature in °C
+    TemperatureMin          : LREAL;          // Minimum allowed temperature in °C
+    OverheatTemperature     : LREAL;          // Overheat protection temperature in °C
+    TemperatureTolerance    : LREAL;          // Temperature tolerance for at-setpoint in °C
+    
+    // Commands (buttons)
+    Enable                  : Button;
+    Disable                 : Button;
+    Reset                   : Button;
+    Stop                    : Button;
+    SwitchMode              : Button;  // Switch between heating and cooling
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

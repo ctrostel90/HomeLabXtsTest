@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Conveyor_HMI" Id="{a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d}">
+    <Declaration><![CDATA[TYPE ST_Conveyor_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Information
+    Running                 : BOOL;           // Conveyor is currently running
+    Enabled                 : BOOL;           // Conveyor is enabled
+    AutoMode                : BOOL;           // Operating in automatic mode
+    JamDetected             : BOOL;           // Jam condition detected
+    ReverseDirection        : BOOL;           // Currently running in reverse direction
+
+    // Error Information
+    HasError                : BOOL;           // Error condition present
+    ErrorCode               : UDINT;          // Specific error code
+
+    // Speed and Motor Information
+    ActualSpeed             : LREAL;          // Current conveyor speed
+    TargetSpeed             : LREAL;          // Target speed setpoint
+    SpeedUnit               : STRING(10);     // Speed unit (e.g., "m/min", "ft/min")
+    MotorLoad               : LREAL;          // Motor load percentage (0-100)
+    MotorCurrent            : LREAL;          // Motor current in Amps
+    MotorTemperature        : LREAL;          // Motor temperature in Celsius
+
+    // Direction Information
+    DirectionText           : STRING(20);     // Direction text for display (e.g., "Forward", "Reverse", "Stopped")
+
+    // Tracking and Statistics
+    ItemCount               : UDINT;          // Total items transported
+    RuntimeHours            : LREAL;          // Total runtime hours
+    JamCount                : UDINT;          // Total number of jams detected
+    LastJamTime             : STRING(80);     // Timestamp of last jam event
+
+    // Maintenance Information
+    MaintenanceDue          : LREAL;          // Hours until maintenance is due
+    LastMaintenanceDate     : STRING(80);     // Date of last maintenance
+    MaintenanceRequired     : BOOL;           // Maintenance is required
+    ResetMaintenance        : BOOL;           // Command to reset maintenance counter
+
+    // Commands (Button type for rising edge detection)
+    Start                   : Button;         // Start conveyor command
+    Stop                    : Button;         // Stop conveyor command
+    Reset                   : Button;         // Reset faults/errors command
+    Acknowledge             : Button;         // Acknowledge alarms/warnings command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

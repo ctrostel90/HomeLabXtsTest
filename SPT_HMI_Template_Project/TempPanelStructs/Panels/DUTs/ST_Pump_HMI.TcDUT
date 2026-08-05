@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Pump_HMI" Id="{f52f2887-bd28-46c7-a0b0-5fc2c1d25482}">
+    <Declaration><![CDATA[TYPE ST_Pump_HMI EXTENDS ST_HmiFunction :
+STRUCT
+    
+    // Process Values
+    FlowRate            : LREAL;
+    FlowUnit            : STRING(20) := 'L/min';
+    Pressure            : LREAL;
+    PressureUnit        : STRING(20) := 'bar';
+    MotorCurrent        : LREAL;
+    Speed               : LREAL;  // RPM
+    
+    // Status
+    Running             : BOOL;
+    Enabled             : BOOL;
+    HasError            : BOOL;
+    ErrorCode           : DINT;
+    AutoMode            : BOOL;
+    AlarmActive         : BOOL;
+    
+    // Control Setpoints
+    TargetSpeed         : LREAL;
+    TargetFlowRate      : LREAL;
+    
+    // Commands
+    Start               : Button;
+    Stop                : Button;
+    Reset               : Button;
+    
+    // Maintenance Data
+    RuntimeHours        : LREAL;
+    StartCount          : UDINT;
+    MaintenanceDue      : LREAL;  // Hours until maintenance
+    LastMaintenanceDate : STRING(20);
+    MotorTemperature    : LREAL;  // °C
+    VibrationLevel      : LREAL;  // mm/s
+    MaintenanceRequired : BOOL;
+    ResetMaintenance    : BOOL;	
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

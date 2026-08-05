@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_MixingStation_HMI" Id="{a8c3f5e7-4b2d-4f1a-9e3c-7d8f6a2b5c4e}">
+    <Declaration><![CDATA[TYPE ST_MixingStation_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    RecipeProgress      : LREAL;        // Recipe completion percentage (0-100%)
+    MotorSpeed          : LREAL;        // Current motor speed in RPM
+
+    // Display Parameters - Popup Data Points
+    IngredientALevel    : LREAL;        // Ingredient A level percentage (0-100%)
+    IngredientBLevel    : LREAL;        // Ingredient B level percentage (0-100%)
+
+    // Status Indicators
+    Enabled             : BOOL;         // Station is enabled
+    Busy                : BOOL;         // Station is busy processing
+    Mixing              : BOOL;         // Mixing process active
+    RecipeComplete      : BOOL;         // Recipe completed successfully
+    HasFault            : BOOL;         // Fault condition present
+
+    // Fault Information
+    ErrorId             : DINT;         // Active error code
+
+    // Control Setpoints
+    TargetSpeed         : LREAL;        // Target motor speed in RPM
+    MixingTime          : LREAL;        // Target mixing time in seconds
+    IngredientATarget   : LREAL;        // Target percentage for Ingredient A (0-100%)
+    IngredientBTarget   : LREAL;        // Target percentage for Ingredient B (0-100%)
+
+    // Command Buttons (rising edge triggered)
+    Enable              : Button;       // Enable station command
+    Disable             : Button;       // Disable station command
+    Reset               : Button;       // Reset fault command
+
+    // Statistics
+    TotalCycles         : UDINT;        // Total number of mixing cycles completed
+    Runtime             : LREAL;        // Total runtime in hours
+    LastCycleTime       : LREAL;        // Last cycle time in seconds
+    AvgCycleTime        : LREAL;        // Average cycle time in seconds
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

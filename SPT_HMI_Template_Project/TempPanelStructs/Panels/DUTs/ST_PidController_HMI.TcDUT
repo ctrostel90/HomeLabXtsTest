@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_PidController_HMI" Id="{6cb2c2a0-2f33-4ecf-b818-e67bf8e66b71}">
+    <Declaration><![CDATA[TYPE ST_PidController_HMI EXTENDS ST_HmiFunction :
+STRUCT
+	
+	Unit                : STRING(20);           // Unit of measurement (e.g., '°C', 'bar', '%')
+    
+    // Process Values
+    Setpoint            : LREAL;                // Desired value
+    ActualValue         : LREAL;                // Current measured value
+    Output              : LREAL;                // Controller output (0-100%)
+    Error               : LREAL;                // Current error (Setpoint - ActualValue)
+    
+    // Status
+    Enabled             : BOOL;                 // Controller is enabled
+    HasError            : BOOL;                 // Error condition present
+    ErrorCode           : DINT;                 // Specific error code
+    AutoMode            : BOOL;                 // TRUE = Auto, FALSE = Manual
+    ReverseActing       : BOOL;                 // TRUE = output decreases as PV increases
+    WindupReset         : BOOL;                 // Integral windup reset active
+    
+    // PID Tuning Parameters
+    Kp                  : LREAL;                // Proportional gain
+    Ki                  : LREAL;                // Integral gain
+    Kd                  : LREAL;                // Derivative gain
+    SampleTime          : LREAL;                // Sample time in seconds
+    Deadband            : LREAL;                // Error deadband (no action within this range)
+    
+    // Output Limits
+    OutputMax           : LREAL := 100.0;       // Maximum output limit (%)
+    OutputMin           : LREAL := 0.0;         // Minimum output limit (%)
+    ManualOutput        : LREAL;                // Manual mode output value (%)
+    
+    // Integral Limits (Anti-windup)
+    IntegralMax         : LREAL := 100.0;       // Maximum integral term (%)
+    IntegralMin         : LREAL := -100.0;      // Minimum integral term (%)
+    
+    // Commands (FB_Button structures - pulse on press)
+    Enable              : Button;            // Enable controller command
+    Disable             : Button;            // Disable controller command
+    Reset               : Button;            // Reset controller command
+    AutoTune            : Button;            // Start auto-tuning command
+    Hold                : Button;            // Hold current output command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

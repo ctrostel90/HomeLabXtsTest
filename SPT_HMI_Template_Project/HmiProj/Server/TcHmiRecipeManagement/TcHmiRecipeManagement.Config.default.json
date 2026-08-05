@@ -1,0 +1,41 @@
+{
+    "recipeList": {
+        "Recipes": {
+            "Recipe1": {
+                "recipeTypeName": "RecipeType",
+                "values": {
+                    "ADS.PLC1.MAIN.VFFS.Recipe_HMI.PullWheels.Length": 85
+                }
+            },
+            "Recipe2": {
+                "recipeTypeName": "RecipeType",
+                "values": {
+                    "ADS.PLC1.MAIN.VFFS.Recipe_HMI.PullWheels.Length": 100.0
+                }
+            }
+        }
+    },
+    "recipeTypeList": {
+        "RecipeType": {
+            "members": {
+                "ADS.PLC1.MAIN.VFFS.Recipe_HMI.PullWheels.Length": {
+                    "defaultValue": 100.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 0,
+                    "schema": {
+                        "maximum": 150.0,
+                        "minimum": 50.0
+                    },
+                    "symbol": "ADS.PLC1.MAIN.VFFS.Recipe_HMI::PullWheels::Length",
+                    "unit": "mm",
+                    "version": 1.0
+                }
+            },
+            "options": {
+                "enabled": "None"
+            },
+            "recipeTypeNames": []
+        }
+    }
+}

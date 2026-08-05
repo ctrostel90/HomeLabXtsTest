@@ -1,0 +1,149 @@
+<div id="Home_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-creator-viewport-height="1000" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="1536">
+<div id="home-grid-main" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="-16" data-tchmi-bottom="-10">
+
+
+<div id="XtsView_1" data-tchmi-type="TcHmi.XTS.Controls.XtsView" data-tchmi-displaydimensions="False" data-tchmi-displaystations="True" data-tchmi-height="849" data-tchmi-height-unit="px" data-tchmi-invertdimensions="False" data-tchmi-layout="SystemView" data-tchmi-left="90" data-tchmi-left-unit="px" data-tchmi-lockpan="False" data-tchmi-lockzoom="False" data-tchmi-movertype="SystemView" data-tchmi-refreshrate="16" data-tchmi-selectionmode="SingleSelection" data-tchmi-showdriveerrors="True" data-tchmi-showdrivewarnings="True" data-tchmi-targetname="Local" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-viewrotation="0" data-tchmi-width="1203" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-toolarray" type="application/json">
+[]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-infoimages" type="application/json">
+[]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-parttransformation" type="application/json">
+[
+  {
+    "OffsetX": 200.0,
+    "OffsetY": 0,
+    "PartIndex": 1.0,
+    "PartSide": "Back",
+    "ProcessingUnitIndex": 0,
+    "Rotation": 0,
+    "ValueScaleX": 1,
+    "ValueScaleY": 1,
+    "Visible": true
+  },
+  {
+    "OffsetX": 0,
+    "OffsetY": 600.0,
+    "PartIndex": 2.0,
+    "PartSide": "Back",
+    "ProcessingUnitIndex": 1,
+    "Rotation": 0,
+    "ValueScaleX": 1,
+    "ValueScaleY": 1,
+    "Visible": true
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-transformation" type="application/json">
+[]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-custommoverlayout" type="application/json">
+{
+  "ImageSrcFrontSide": null,
+  "ImageWidthFrontSide": 70,
+  "ImageHeightFrontSide": 126,
+  "XOffsetFrontSide": 0,
+  "YOffsetFrontSide": 0,
+  "ImageSrcBackSide": "",
+  "ImageWidthBackSide": 70,
+  "ImageHeightBackSide": 80,
+  "XOffsetBackSide": 0,
+  "YOffsetBackSide": 0
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-moverselection" type="application/json">
+[]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-moduleselection" type="application/json">
+[]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-moduleselectioncolor" type="application/json">
+{
+  "color": "Transparent"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-moverselectioncolor" type="application/json">
+{
+  "color": "Transparent"
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stationoptions" type="application/json">
+{
+  "DisplacementToFirst": 150,
+  "SpaceBetweenStackedStations": 25,
+  "Thickness": 8,
+  "Text": "None",
+  "TextInfoBarPlacement": "Left",
+  "TextDisplacement": 10,
+  "zIndex": 1000,
+  "TextOptions": {
+    "FontStyle": "Normal",
+    "FontWeight": "Normal",
+    "FontFamily": "",
+    "HorizontalAlignment": "Left",
+    "VerticalAlignment": "Bottom",
+    "FontSize": 20
+  }
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-stationmarkeroptions" type="application/json">
+{
+  "MarkerType": "Diamond",
+  "Size": 20,
+  "Thickness": 8,
+  "Text": "None",
+  "TextDisplacement": 20,
+  "zIndex": 1100,
+  "TextOptions": {
+    "FontStyle": "Normal",
+    "FontWeight": "Normal",
+    "FontFamily": "",
+    "HorizontalAlignment": "Center",
+    "VerticalAlignment": "Bottom",
+    "FontSize": 20
+  }
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-dimensionoptions" type="application/json">
+{
+  "Displacement": 100,
+  "InfoBarThickness": 8,
+  "MarkerThickness": 5,
+  "MarkerSize": 25,
+  "MarkerType": "Tick",
+  "TextPattern": 2,
+  "TextDisplacement": 10,
+  "zIndex": 1200,
+  "InfoBarColor": {
+    "color": "black"
+  },
+  "MarkerColor": {
+    "color": "black"
+  },
+  "TextOptions": {
+    "FontStyle": "Normal",
+    "FontWeight": "Normal",
+    "FontFamily": "",
+    "HorizontalAlignment": "Center",
+    "VerticalAlignment": "Bottom",
+    "FontSize": 20,
+    "Color": {
+      "color": "black"
+    }
+  }
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-infobars" type="application/json">
+[]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-infobaroptions" type="application/json">
+{
+  "DisplacementToFirst": 150,
+  "SpaceBetweenInfoBars": 25
+}
+</script>
+
+</div>
+</div>
+</div>

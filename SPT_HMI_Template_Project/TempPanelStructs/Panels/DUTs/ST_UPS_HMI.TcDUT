@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_UPS_HMI" Id="{a1b2c3d4-e5f6-7890-abcd-ef1234567890}">
+    <Declaration><![CDATA[TYPE ST_UPS_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    BatteryStatus           : STRING(50);   // Battery status text (e.g., "Normal", "Low", "Critical")
+    RuntimeRemaining        : REAL;         // Runtime remaining on battery in minutes
+    BatteryCharge           : REAL;         // Battery charge level in percent (0-100)
+
+    // Display Parameters - Popup Data Points
+    LoadPercentage          : REAL;         // Current load on UPS in percent (0-100)
+    InputVoltage            : REAL;         // Input voltage in Volts
+    OutputVoltage           : REAL;         // Output voltage in Volts
+    BatteryTemperature      : REAL;         // Battery temperature in degrees Celsius
+
+    // Control Parameters
+    LowBatteryThreshold     : REAL := 20.0; // Low battery warning threshold in percent
+    ShutdownDelay           : DINT := 300;  // Delay before shutdown in seconds
+
+    // Status Indicators
+    Enabled                 : BOOL;         // UPS is enabled
+    OnBattery               : BOOL;         // UPS is running on battery power
+    Charging                : BOOL;         // Battery is charging
+    LowBattery              : BOOL;         // Battery charge below threshold
+    Overload                : BOOL;         // UPS is overloaded
+    ReplaceBattery          : BOOL;         // Battery needs replacement
+    HasFault                : BOOL;         // Fault condition present
+
+    // Fault Information
+    ErrorId                 : DINT;         // Active fault code
+
+    // Command Buttons (rising edge triggered)
+    Enable                  : Button;       // Enable UPS command
+    Disable                 : Button;       // Disable UPS command
+    Reset                   : Button;       // Reset fault command
+
+    // Statistics
+    TotalBatteryCycles      : DINT;         // Total number of battery charge/discharge cycles
+    TotalRuntimeOnBattery   : REAL;         // Total runtime on battery power in hours
+    LastPowerOutage         : STRING(50);   // Timestamp of last power outage
+
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Vision_HMI" Id="{a7b8c9d0-e1f2-4a3b-8c5d-6e7f8a9b0c1d}">
+    <Declaration><![CDATA[TYPE ST_Vision_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    PassCount           : UDINT;        // Number of passed inspections
+    FailCount           : UDINT;        // Number of failed inspections
+    Calibrated          : BOOL;         // Camera calibration status
+
+    // Display Parameters - Popup Data Points
+    ImageQuality        : REAL;         // Current image quality score (0-100%)
+
+    // Status Indicators
+    Enabled             : BOOL;         // Vision system is enabled
+    Busy                : BOOL;         // Inspection in progress
+    HasFault            : BOOL;         // Fault condition present
+
+    // Fault Information
+    ErrorId             : DINT;         // Active error code
+
+    // Control Setpoints
+    ExposureTime        : LREAL;        // Camera exposure time in ms
+    Gain                : LREAL;        // Camera gain in dB
+    Threshold           : LREAL;        // Detection threshold in %
+    Brightness          : LREAL;        // Brightness adjustment in %
+    Contrast            : LREAL;        // Contrast adjustment in %
+    MinQualityThreshold : LREAL;        // Minimum acceptable quality in %
+
+    // Command Buttons (rising edge triggered)
+    Enable              : Button;       // Enable vision system command
+    Disable             : Button;       // Disable vision system command
+    Reset               : Button;       // Reset fault command
+    TriggerInspection   : Button;       // Trigger single inspection command
+    Calibrate           : Button;       // Start calibration command
+
+    // Statistics
+    TotalInspections    : UDINT;        // Total number of inspections completed
+    PassRate            : REAL;         // Pass rate in %
+    Runtime             : LREAL;        // Total runtime in hours
+    AvgInspectionTime   : LREAL;        // Average inspection time in ms
+    LastInspectionTime  : LREAL;        // Last inspection time in ms
+    AvgQuality          : REAL;         // Average quality score in %
+    LastCalibrationDate : STRING;       // Last calibration date/time
+    ImagesSaved         : UDINT;        // Number of images saved to disk
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Dispenser_HMI" Id="{b9d4e6f8-5c3e-4d2b-8f4d-9e7a3b6c5d8f}">
+    <Declaration><![CDATA[TYPE ST_Dispenser_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Display Parameters - Panel Data Points
+    VolumeDispensed     : LREAL;        // Current volume dispensed in mL
+    Pressure            : LREAL;        // Current pressure in bar
+    NozzleOpen          : BOOL;         // Nozzle open status
+
+    // Display Parameters - Popup Data Points
+    FlowRate            : LREAL;        // Current flow rate in mL/s
+    Temperature         : LREAL;        // Current temperature in °C
+
+    // Status Indicators
+    Enabled             : BOOL;         // Dispenser is enabled
+    Dispensing          : BOOL;         // Dispensing in progress
+    Ready               : BOOL;         // Ready to dispense
+    HasFault            : BOOL;         // Fault condition present
+
+    // Fault Information
+    ErrorId             : DINT;         // Active error code
+
+    // Control Setpoints
+    TargetVolume        : LREAL;        // Target volume to dispense in mL
+    TargetPressure      : LREAL;        // Target pressure in bar
+    DispenseTime        : LREAL;        // Target dispense time in seconds
+    NozzleSize          : LREAL;        // Nozzle diameter in mm
+
+    // Command Buttons (rising edge triggered)
+    Enable              : Button;       // Enable dispenser command
+    Disable             : Button;       // Disable dispenser command
+    Reset               : Button;       // Reset fault command
+    Dispense            : Button;       // Start dispense cycle command
+
+    // Statistics
+    TotalDispenses      : UDINT;        // Total number of dispense cycles completed
+    TotalVolume         : LREAL;        // Total volume dispensed in liters
+    Runtime             : LREAL;        // Total runtime in hours
+    AvgDispenseTime     : LREAL;        // Average dispense time in seconds
+    LastDispenseVolume  : LREAL;        // Last dispense volume in mL
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

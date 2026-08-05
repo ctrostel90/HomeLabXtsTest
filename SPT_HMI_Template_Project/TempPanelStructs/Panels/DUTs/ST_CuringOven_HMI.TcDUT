@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_CuringOven_HMI" Id="{00feeeb3-4e7a-4c14-bb41-c80a145037e7}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE ST_CuringOven_HMI EXTENDS ST_HmiFunction :
+STRUCT
+	// Display values
+	Zone1Temperature		: LREAL;		// Zone 1 current temperature in °C
+	Zone2Temperature		: LREAL;		// Zone 2 current temperature in °C
+	Zone3Temperature		: LREAL;		// Zone 3 current temperature in °C
+	ConveyorSpeed			: LREAL;		// Current conveyor speed in m/min
+	DoorOpen				: BOOL;			// Door open status
+	ZonesAtTemperature		: BOOL;			// All zones at target temperature
+	Heating					: BOOL;			// Heating active status
+	Ready					: BOOL;			// Ready for operation status
+    Enabled             : BOOL;         // Dispenser is enabled
+    HasFault            : BOOL;         // Fault condition present
+
+    // Fault Information
+    ErrorId             : DINT;         // Active error code
+
+	// Control setpoints
+	Zone1Setpoint			: LREAL;		// Zone 1 target temperature in °C
+	Zone2Setpoint			: LREAL;		// Zone 2 target temperature in °C
+	Zone3Setpoint			: LREAL;		// Zone 3 target temperature in °C
+	ConveyorSpeedSetpoint	: LREAL;		// Target conveyor speed in m/min
+	CureTime				: LREAL;		// Cure time in seconds
+
+	// Command buttons
+	Enable					: Button;		// Enable curing oven command
+	Disable					: Button;		// Disable curing oven command
+	Reset					: Button;		// Reset curing oven command
+	OpenDoor				: Button;		// Open door command
+
+	// Statistics
+	TotalCycles				: ULINT;		// Total number of curing cycles
+	Runtime					: LREAL;		// Total runtime in hours
+	AvgCureTime				: LREAL;		// Average cure time in seconds
+	EnergyUsed				: LREAL;		// Total energy used in kWh
+	LastCycleTime			: LREAL;		// Last cycle time in seconds
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

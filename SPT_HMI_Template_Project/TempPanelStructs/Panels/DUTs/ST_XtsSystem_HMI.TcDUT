@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_XtsSystem_HMI" Id="{a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d}">
+    <Declaration><![CDATA[TYPE ST_XtsSystem_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Information
+    CurrentTask             : STRING(80);     // Current task being executed
+    LastTask                : STRING(80);     // Last completed task
+    Enabled                 : BOOL;           // System is enabled
+    Busy                    : BOOL;           // System is busy executing a task
+    Initialized             : BOOL;           // System has been initialized
+    CaGroup                 : UINT;           // Collision Avoidance Group number
+    SystemEnabled           : BOOL;           // System enable state
+    Simulated               : BOOL;           // System is in simulation mode
+	MoversEnabled			: BOOL;
+
+    // Power Supply Status
+    Vdc24Okay               : BOOL;           // 24 VDC power supply OK
+    Vdc48Okay               : BOOL;           // 48 VDC power supply OK
+
+    // Error Information
+    HasError                : BOOL;           // Error condition present
+    ErrorId                 : UDINT;          // Specific error ID
+    ErrorText               : STRING(255);    // Error description text
+
+    // Peeker Data for diagnostics
+    PeekerData              : ARRAY[0..19] OF ST_PeekerEntry;  // Array of peeker values
+
+    // Local Log
+    LocalLog                : ST_LocalLog;    // Log messages structure
+
+    // Commands (Button type for rising edge detection)
+    Enable                  : Button;         // Enable system command
+    Disable                 : Button;         // Disable system command
+    Reset                   : Button;         // Reset faults/errors command
+    PeekerUp                : Button;         // Increment peeker index
+    PeekerDown              : Button;         // Decrement peeker index
+    PeekerPageUp            : Button;         // Increment peeker by page
+    PeekerPageDown          : Button;         // Decrement peeker by page
+    ClearLog                : Button;         // Clear local log command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

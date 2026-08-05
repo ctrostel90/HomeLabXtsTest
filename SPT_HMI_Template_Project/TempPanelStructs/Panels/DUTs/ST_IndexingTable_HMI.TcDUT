@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_IndexingTable_HMI" Id="{9b2f4d1e-8c5a-4f7b-a3d1-2e6f9b4a7c8e}">
+    <Declaration><![CDATA[TYPE ST_IndexingTable_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+    // Status and Control
+    Enabled                 : BOOL;
+    Busy                    : BOOL;
+    HasError                : BOOL;
+    ErrorCode               : DINT;
+
+    // Position Status
+    CurrentPosition         : DINT;             // Current position number (1-based)
+    TargetPosition          : DINT;             // Target position number (1-based)
+    CurrentPositionName     : STRING(40);       // Name of current position
+    TargetPositionName      : STRING(40);       // Name of target position
+    PositionCount           : DINT;             // Total number of positions available
+    AtPosition              : BOOL;             // True when at target position
+    CurrentAngle            : LREAL;            // Current angle in degrees
+
+    // Manual Control Setpoints
+    TargetAngle             : LREAL;            // Target angle setpoint in degrees
+    RotationSpeedSetpoint   : LREAL;            // Rotation speed setpoint in degrees/second
+    ClampPressure           : LREAL;            // Clamp pressure setpoint in bar
+
+    // Rotation
+    RotationSpeed           : LREAL;            // Current rotation speed in degrees/second
+
+    // Clamping System
+    Clamped                 : BOOL;             // Clamping is active
+
+    // Cycle Data
+    IndexCount              : UDINT;            // Total index count
+    LastIndexTime           : LREAL;            // Last index time in seconds
+    RuntimeHours            : LREAL;            // Total runtime hours
+
+    // Operating Mode
+    AutoMode                : BOOL;             // Automatic mode active
+
+    // Commands
+    Index                   : Button;           // Index to next position command
+    Clamp                   : Button;           // Clamp command
+    Unclamp                 : Button;           // Unclamp command
+    Home                    : Button;           // Home command
+    Reset                   : Button;           // Reset error command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

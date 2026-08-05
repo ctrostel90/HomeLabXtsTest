@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_XtsMover_HMI" Id="{d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a}">
+    <Declaration><![CDATA[TYPE ST_XtsMover_HMI EXTENDS ST_HmiFunction :
+STRUCT
+
+	// Status Information
+    CurrentTask             : STRING(80);     // Current task being executed
+    Position                : LREAL;          // Current mover position in mm
+    Velocity                : LREAL;          // Current velocity in mm/s
+    Acceleration            : LREAL;          // Current acceleration in mm/s2
+    Deceleration            : LREAL;          // Current deceleration in mm/s2
+    Jerk                    : LREAL;          // Current jerk in mm/s3
+
+    // State Flags
+    Busy                    : BOOL;           // Mover is busy executing a command
+    Enabled                 : BOOL;           // Mover is enabled
+    Done                    : BOOL;           // Move command completed
+    Initialized             : BOOL;           // Mover has been initialized
+    AvoidingCollision       : BOOL;           // Mover is avoiding a collision
+
+    // Group Information
+    IdentInGroup            : UINT;           // Mover identification number in group
+    MoverInGroup            : UINT;           // Mover number in group
+
+    // Commanded Values
+    CommandedPosition       : LREAL;          // Commanded position in mm
+    CommandedStationName    : STRING(80);     // Name of commanded station
+
+    // Error Information
+    HasError                : BOOL;           // Error condition present
+    ErrorId                 : UDINT;          // Specific error ID
+
+    // Target Values for Move Commands
+    TargetPosition          : LREAL;          // Target position for move commands (mm)
+    TargetVelocity          : LREAL;          // Target velocity (mm/s)
+    TargetAcceleration      : LREAL;          // Target acceleration (mm/s2)
+    TargetDeceleration      : LREAL;          // Target deceleration (mm/s2)
+    TargetGap               : LREAL;          // Target gap distance (mm)
+    TargetStation           : STRING(80);     // Target station name
+
+    // Local Log
+    LocalLog                : ST_LocalLog;    // Log messages structure
+
+    // Jog Commands (Button type for rising edge detection)
+    JogBackwardFast         : Button;         // Jog backward fast command
+    JogBackwardSlow         : Button;         // Jog backward slow command
+    JogForwardSlow          : Button;         // Jog forward slow command
+    JogForwardFast          : Button;         // Jog forward fast command
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

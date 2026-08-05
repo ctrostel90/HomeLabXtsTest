@@ -1,0 +1,5104 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.25" ClassName="CTComObjDef">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{58DE55F4-070E-420C-9B1A-9FED83EFDA5B}" Namespace="XTS">NctAbortCommandOption</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[All]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllQueued]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllRunning]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllAsync]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllQueuedAsync]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllRunningAsync]]></Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllSync]]></Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllQueuedSync]]></Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllRunningSync]]></Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>All</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+			<Hides>
+				<Hide GUID="{D164FC92-BE53-4185-8A16-37827932E57F}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{D164FC92-BE53-4185-8A16-37827932E57F}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{7FCCE9C9-FC9B-4044-ADDE-288CF09A623E}" Namespace="XTS">NctCommandType</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[Empty]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[TestAsync]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[TestComposite]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[TestSync]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Init]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[UpdateProcessData]]></Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ReadRegister]]></Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[WriteRegister]]></Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ReadMultipleRegisters]]></Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[GetStatus]]></Text>
+				<Enum>9</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ReadDiagMessages]]></Text>
+				<Enum>10</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[QuickRequest]]></Text>
+				<Enum>11</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PrimitiveRestoreDefaults]]></Text>
+				<Enum>12</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PrimitiveRestoreFactoryDefaults]]></Text>
+				<Enum>13</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PrimitiveRestart]]></Text>
+				<Enum>14</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PrimitiveStartBootloader]]></Text>
+				<Enum>15</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[RestoreDefaults]]></Text>
+				<Enum>16</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[RestoreFactoryDefaults]]></Text>
+				<Enum>17</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Restart]]></Text>
+				<Enum>18</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[StartBootloader]]></Text>
+				<Enum>19</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ReadDiagCommunicationLog]]></Text>
+				<Enum>20</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderUpdateFirmware]]></Text>
+				<Enum>21</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderTransferFirmware]]></Text>
+				<Enum>22</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderGetStatus]]></Text>
+				<Enum>23</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderReadyForBlock]]></Text>
+				<Enum>24</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderValidateBlock]]></Text>
+				<Enum>25</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderWriteBlockToEeprom]]></Text>
+				<Enum>26</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderUpdateId]]></Text>
+				<Enum>27</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderEraseFlash]]></Text>
+				<Enum>28</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderProgramFlash]]></Text>
+				<Enum>29</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderStartApplication]]></Text>
+				<Enum>30</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderReset]]></Text>
+				<Enum>31</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderDataPacket]]></Text>
+				<Enum>32</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderTransferBlock]]></Text>
+				<Enum>33</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>Empty</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+			<Hides>
+				<Hide GUID="{45913BCE-5DA6-48E7-BFC8-A436C9B89CD2}"/>
+				<Hide GUID="{DFB48640-912F-41F0-B00C-DCDAABCFD25B}"/>
+				<Hide GUID="{9C52841C-66E8-45EF-97DC-502E777775E1}"/>
+				<Hide GUID="{32BC4732-FDA0-47D0-B61E-FE4C4109B979}"/>
+				<Hide GUID="{FB9B82E2-3CD4-4D00-AB7A-BDA146A55E30}"/>
+				<Hide GUID="{1F637239-7E31-415F-92F5-4FD616435F75}"/>
+				<Hide GUID="{BB006673-4275-46A1-89C9-8FDAA135FCD8}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{45913BCE-5DA6-48E7-BFC8-A436C9B89CD2}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{DFB48640-912F-41F0-B00C-DCDAABCFD25B}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{9C52841C-66E8-45EF-97DC-502E777775E1}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{32BC4732-FDA0-47D0-B61E-FE4C4109B979}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{FB9B82E2-3CD4-4D00-AB7A-BDA146A55E30}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{1F637239-7E31-415F-92F5-4FD616435F75}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{BB006673-4275-46A1-89C9-8FDAA135FCD8}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{16DB78DE-A8F9-4D75-85D8-9A852EAB5DF7}" Namespace="XTS">Nct5ByteData</Name>
+			<BitSize>40</BitSize>
+			<SubItem>
+				<Name>b0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>b1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>b2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>b3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>b4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{E282C747-A25B-4A9C-A76F-64F699118BCA}" Namespace="XTS">NctFrameStats</Name>
+			<BitSize>192</BitSize>
+			<SubItem>
+				<Name>sent</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>received</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>missed</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{23030FBA-50CB-47E4-99FA-7D241D3EBE5D}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{23030FBA-50CB-47E4-99FA-7D241D3EBE5D}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{91ADC0D0-EB6F-40EB-BF82-DB9AAB549ABD}" Namespace="XTS">NctCommandStatus</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[NotDefined]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsQueued]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsWaitingForStartConditions]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsWaitingToResume]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsInitFailedDueToCorruptedArgs]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsInitFailedDueToInvalidArgs]]></Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsInitFailedDueToNoMemory]]></Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsInitFailedDueToNotSupportedRegister]]></Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsRunning]]></Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsSucceeded]]></Text>
+				<Enum>9</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsFailed]]></Text>
+				<Enum>10</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsFailedDueToChildCommand]]></Text>
+				<Enum>11</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsAbortedByUser]]></Text>
+				<Enum>12</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[IsAbortedByArea]]></Text>
+				<Enum>13</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>NotDefined</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+			<Hides>
+				<Hide GUID="{30021285-CB75-48B8-B318-B1A8F9B8F25F}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{30021285-CB75-48B8-B318-B1A8F9B8F25F}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{A5F9BCA7-0DA9-4BC6-A3E2-8BE79DDC22DE}" Namespace="XTS">NctCommandInfo</Name>
+			<BitSize>256</BitSize>
+			<SubItem>
+				<Name>status</Name>
+				<Type GUID="{91ADC0D0-EB6F-40EB-BF82-DB9AAB549ABD}" Namespace="XTS">NctCommandStatus</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dataLength</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>frameStats</Name>
+				<Type GUID="{E282C747-A25B-4A9C-A76F-64F699118BCA}" Namespace="XTS">NctFrameStats</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{D74E97B9-0D08-4BAE-B778-1951208EDFBC}"/>
+				<Hide GUID="{229E0A36-DF02-45B9-A9C5-A756BED96E9C}"/>
+				<Hide GUID="{4C9B0A74-069B-4E16-869C-A35F9A19CD18}"/>
+				<Hide GUID="{DB64BD89-2EF2-4476-8275-170A5417E11A}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{D74E97B9-0D08-4BAE-B778-1951208EDFBC}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{229E0A36-DF02-45B9-A9C5-A756BED96E9C}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{4C9B0A74-069B-4E16-869C-A35F9A19CD18}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{DB64BD89-2EF2-4476-8275-170A5417E11A}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{B0CB8F64-0840-4B26-9D30-ACAF860EFF6C}" Namespace="XTS">IXtsNctCommandInterface</Name>
+			<BitSize X64="64">32</BitSize>
+			<BaseType GUID="{00000001-0000-0000-E000-000000000064}">ITcUnknown</BaseType>
+			<Method>
+				<Name>Abort</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+			</Method>
+			<Method>
+				<Name>Copy5ByteDataTo</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>out</Name>
+					<Type GUID="{16DB78DE-A8F9-4D75-85D8-9A852EAB5DF7}" Namespace="XTS" ReferenceTo="true">Nct5ByteData</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>CopyDataTo</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>offset</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+					<BitSize>32</BitSize>
+				</Parameter>
+				<Parameter>
+					<Name>size</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+					<BitSize>32</BitSize>
+				</Parameter>
+				<Parameter>
+					<Name>pOutData</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>GetDataLength</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+			</Method>
+			<Method>
+				<Name>GetFramesMissed</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</ReturnType>
+				<ReturnBitSize>64</ReturnBitSize>
+			</Method>
+			<Method>
+				<Name>GetFramesReceived</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</ReturnType>
+				<ReturnBitSize>64</ReturnBitSize>
+			</Method>
+			<Method>
+				<Name>GetFramesSent</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</ReturnType>
+				<ReturnBitSize>64</ReturnBitSize>
+			</Method>
+			<Method>
+				<Name>GetFrameStats</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>out</Name>
+					<Type GUID="{E282C747-A25B-4A9C-A76F-64F699118BCA}" Namespace="XTS" ReferenceTo="true">NctFrameStats</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>GetInfo</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>out</Name>
+					<Type GUID="{A5F9BCA7-0DA9-4BC6-A3E2-8BE79DDC22DE}" Namespace="XTS" ReferenceTo="true">NctCommandInfo</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>GetStatus</Name>
+				<ReturnType GUID="{91ADC0D0-EB6F-40EB-BF82-DB9AAB549ABD}" Namespace="XTS">NctCommandStatus</ReturnType>
+				<ReturnBitSize>8</ReturnBitSize>
+			</Method>
+			<Method>
+				<Name>Update</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+			</Method>
+			<Hides>
+				<Hide GUID="{2EB91BC2-7686-480D-96B8-42C6004755BA}"/>
+				<Hide GUID="{C83E7B9F-014D-43C7-97E9-FC15B41B5D8F}"/>
+				<Hide GUID="{E88E767B-3997-4948-842A-B0D4AA9B48CC}"/>
+				<Hide GUID="{5931E7C8-912B-4D41-823D-6A115A66F545}"/>
+				<Hide GUID="{368E4739-673E-4009-A833-D6BC6169261F}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{2EB91BC2-7686-480D-96B8-42C6004755BA}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{C83E7B9F-014D-43C7-97E9-FC15B41B5D8F}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{E88E767B-3997-4948-842A-B0D4AA9B48CC}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{5931E7C8-912B-4D41-823D-6A115A66F545}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{368E4739-673E-4009-A833-D6BC6169261F}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{7E2A8BE8-EA73-48F4-8067-3340A80F123A}" Namespace="XTS">IXtsNctBaseUnitInterface</Name>
+			<BitSize X64="64">32</BitSize>
+			<BaseType GUID="{00000001-0000-0000-E000-000000000064}">ITcUnknown</BaseType>
+			<Method>
+				<Name>AbortCommands</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>option</Name>
+					<Type GUID="{58DE55F4-070E-420C-9B1A-9FED83EFDA5B}" Namespace="XTS">NctAbortCommandOption</Type>
+					<BitSize>32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>AddCommand</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>commandType</Name>
+					<Type GUID="{7FCCE9C9-FC9B-4044-ADDE-288CF09A623E}" Namespace="XTS">NctCommandType</Type>
+					<BitSize>16</BitSize>
+				</Parameter>
+				<Parameter>
+					<Name>nData</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+					<BitSize>32</BitSize>
+				</Parameter>
+				<Parameter>
+					<Name>pData</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+				<Parameter>
+					<Name>pOutCommand</Name>
+					<Type GUID="{B0CB8F64-0840-4B26-9D30-ACAF860EFF6C}" Namespace="XTS" PointerTo="2">IXtsNctCommandInterface</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Hides>
+				<Hide GUID="{F542359D-8704-47DF-9806-7CA5E7E0495D}"/>
+				<Hide GUID="{1EEB9CB7-6860-44AB-B6F2-E903733787E0}"/>
+				<Hide GUID="{BA2B9730-E07A-4C55-8752-2BF4465883C5}"/>
+				<Hide GUID="{F58113A6-2272-401F-B1DD-87B45CA7924D}"/>
+				<Hide GUID="{77075EB1-F31B-4B57-A945-458C4F68FF8B}"/>
+				<Hide GUID="{EC22C680-CF69-4131-BD72-B392C00321C1}"/>
+				<Hide GUID="{F328EA4B-F4AA-4B20-92B5-26BBD8CB85BC}"/>
+				<Hide GUID="{F0FA45A8-0200-471F-96EC-1FD5834A465D}"/>
+				<Hide GUID="{99120D3F-72E6-479D-90C5-A529401508D1}"/>
+				<Hide GUID="{3E9F8113-1C9A-4682-A5C8-57470F94B82A}"/>
+				<Hide GUID="{8007F87F-5263-44BF-BC96-C4D6B806DB9B}"/>
+				<Hide GUID="{96BA0019-BFE8-49F3-9CD7-56FA5138C923}"/>
+				<Hide GUID="{AB32B373-BAAC-4899-8420-B60F135A71AC}"/>
+				<Hide GUID="{F9030BEE-8514-46B6-AC1D-AC99B2C29E8E}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{F542359D-8704-47DF-9806-7CA5E7E0495D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{1EEB9CB7-6860-44AB-B6F2-E903733787E0}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{BA2B9730-E07A-4C55-8752-2BF4465883C5}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{F58113A6-2272-401F-B1DD-87B45CA7924D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{77075EB1-F31B-4B57-A945-458C4F68FF8B}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{EC22C680-CF69-4131-BD72-B392C00321C1}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{F328EA4B-F4AA-4B20-92B5-26BBD8CB85BC}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{F0FA45A8-0200-471F-96EC-1FD5834A465D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{99120D3F-72E6-479D-90C5-A529401508D1}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3E9F8113-1C9A-4682-A5C8-57470F94B82A}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{8007F87F-5263-44BF-BC96-C4D6B806DB9B}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{96BA0019-BFE8-49F3-9CD7-56FA5138C923}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{AB32B373-BAAC-4899-8420-B60F135A71AC}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{F9030BEE-8514-46B6-AC1D-AC99B2C29E8E}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{B16E550F-5F13-4667-A43A-46F3A817D5FF}" Namespace="XTS" CName="OTCID">MoverOTCID</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+			<Properties>
+				<Property>
+					<Name>OTCID</Name>
+				</Property>
+				<Property>
+					<Name>TcCategoryOID</Name>
+					<Value>XtsMover</Value>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{F2E6D259-7A91-44E8-87BD-8B2146B5B608}" Namespace="XTS">NctTriggerAppDutyCycleUpdateArguments</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>dutyCycle</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>activeTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>rampUpTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>rampDownTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{FABEA7FA-6549-48BA-B855-A880457D4479}" Namespace="XTS">NctAbortCommandParameterOption</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[All]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllQueued]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllRunning]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllAsync]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllQueuedAsync]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllRunningAsync]]></Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllSync]]></Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllQueuedSync]]></Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[AllRunningSync]]></Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ById]]></Text>
+				<Enum>9</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>ById</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{3F734823-BCBE-432C-B2F0-9FCD38A485A7}" Namespace="XTS">NctAbortCommandArguments</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>option</Name>
+				<Type GUID="{FABEA7FA-6549-48BA-B855-A880457D4479}" Namespace="XTS">NctAbortCommandParameterOption</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>id</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{2163D328-4B63-4931-9FF6-D25A866CE28A}"/>
+				<Hide GUID="{4EDF58B0-5BA6-474C-A374-56D12907676C}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{2163D328-4B63-4931-9FF6-D25A866CE28A}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{4EDF58B0-5BA6-474C-A374-56D12907676C}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[UntilSuccess]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[UntilSuccessMaxContinuousErros]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[UntilSuccessMaxErrors]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Infinite]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+			<Hides>
+				<Hide GUID="{63DD9432-26F7-4BE8-B7D5-A7F3D35B30E8}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{63DD9432-26F7-4BE8-B7D5-A7F3D35B30E8}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{B58BB83C-5800-44ED-883E-1ED209CF2DB9}" Namespace="XTS">NctGetStatusCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isUpdateAddressOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{39163057-93A9-4A2A-B304-DB65A6AFD3BC}" Namespace="XTS">NctGetStatusCommandArguments</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{B58BB83C-5800-44ED-883E-1ED209CF2DB9}" Namespace="XTS">NctGetStatusCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{C34314C6-F334-42BE-9D76-DD759687126F}"/>
+				<Hide GUID="{A7D01E0B-5A53-4EE5-9183-9940C7C22059}"/>
+				<Hide GUID="{4200BD37-FD7C-42DD-B3B3-8C85C8D49A6F}"/>
+				<Hide GUID="{A4195105-ACB4-4499-8FC6-07F004323BDE}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{C34314C6-F334-42BE-9D76-DD759687126F}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{A7D01E0B-5A53-4EE5-9183-9940C7C22059}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{4200BD37-FD7C-42DD-B3B3-8C85C8D49A6F}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{A4195105-ACB4-4499-8FC6-07F004323BDE}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{A36B22FA-21E9-4227-B9F2-3FBCE66FF196}" Namespace="XTS">NctInitCommandArguments</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{8A5323E5-38DC-4C82-978A-C68D73EC70F5}"/>
+				<Hide GUID="{70652EE4-39CD-4CA0-B039-C86DC490E8CA}"/>
+				<Hide GUID="{37268D0B-B75A-47F3-A0A6-728D08D45F74}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{8A5323E5-38DC-4C82-978A-C68D73EC70F5}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{70652EE4-39CD-4CA0-B039-C86DC490E8CA}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{37268D0B-B75A-47F3-A0A6-728D08D45F74}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{533B865F-6495-4188-AA71-64B0286F60F9}" Namespace="XTS">NctUpdateFirmwareCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{8F39E90A-DC19-4EC2-B27C-BDAE0E7EB35C}" Namespace="XTS">NctUpdateFirmwareCommandArguments</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{533B865F-6495-4188-AA71-64B0286F60F9}" Namespace="XTS">NctUpdateFirmwareCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{C8781D40-3B81-4881-A31A-B138793767E2}"/>
+				<Hide GUID="{0AD3DED6-5E50-485D-8620-0CFC0380B567}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{C8781D40-3B81-4881-A31A-B138793767E2}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{0AD3DED6-5E50-485D-8620-0CFC0380B567}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{EB53CE0E-7407-4D39-AF83-C1056B469B8C}" Namespace="XTS">NctUpdateProcessDataCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isUpdateAddressOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isStoreAllValuesOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{CECD7FF5-E1A6-470D-8F96-0E18265B7F80}"/>
+				<Hide GUID="{93684931-5033-45BE-8C81-674867D00F06}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{CECD7FF5-E1A6-470D-8F96-0E18265B7F80}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{93684931-5033-45BE-8C81-674867D00F06}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{039F38CF-3D84-4239-8E73-0C2A5BDEF804}" Namespace="XTS">NctUpdateProcessDataCommandArguments</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{EB53CE0E-7407-4D39-AF83-C1056B469B8C}" Namespace="XTS">NctUpdateProcessDataCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>data</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>5</Elements>
+				</ArrayInfo>
+				<BitSize>40</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{810FA13E-A86E-4E91-B605-08D8A22675F1}"/>
+				<Hide GUID="{3A8A18B0-21D6-4089-BB57-12E4E68B129C}"/>
+				<Hide GUID="{7C23FC38-DA88-442C-961D-BE0990125602}"/>
+				<Hide GUID="{9A3F3BED-1013-4814-B7AD-26806B565EE7}"/>
+				<Hide GUID="{C2B34E08-583B-4924-A989-A897D74BA0B5}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{810FA13E-A86E-4E91-B605-08D8A22675F1}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3A8A18B0-21D6-4089-BB57-12E4E68B129C}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{7C23FC38-DA88-442C-961D-BE0990125602}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{9A3F3BED-1013-4814-B7AD-26806B565EE7}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{C2B34E08-583B-4924-A989-A897D74BA0B5}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{FB142C3F-89CD-4169-BC0B-E0A43D865C4A}" Namespace="XTS">NctQuickRequestCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{5DFF4535-C9C0-404C-9515-0045EADA9E31}" Namespace="XTS">NctQuickRequestType</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[ActivateEEPromAutoSave]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[SaveEEPromRegisters]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DeactivateEEPromAutoSave]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>ActivateEEPromAutoSave</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{5251D7CE-FC21-4959-84A4-1F1502F94001}" Namespace="XTS">NctQuickRequestCommandArguments</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{FB142C3F-89CD-4169-BC0B-E0A43D865C4A}" Namespace="XTS">NctQuickRequestCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>quickRequest</Name>
+				<Type GUID="{5DFF4535-C9C0-404C-9515-0045EADA9E31}" Namespace="XTS">NctQuickRequestType</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+				<Default>
+					<EnumText>DeactivateEEPromAutoSave</EnumText>
+				</Default>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{78272ADB-FC62-4A38-B964-AC1B218C6B83}" Namespace="XTS">NctReadDiagMessagesCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isClearMessagesAfterReadOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{471BE0F2-39F3-4814-8A88-F4776DD4CC6E}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{471BE0F2-39F3-4814-8A88-F4776DD4CC6E}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{EA5D25A5-6264-41F7-9610-F9C9319C72B7}" Namespace="XTS">NctReadDiagMessagesCommandArguments</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{78272ADB-FC62-4A38-B964-AC1B218C6B83}" Namespace="XTS">NctReadDiagMessagesCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{303B4C08-2AF1-453D-9B21-C99C6BD46D72}"/>
+				<Hide GUID="{CEBB7A05-FD58-4155-8FF0-DA887C81E560}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{303B4C08-2AF1-453D-9B21-C99C6BD46D72}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{CEBB7A05-FD58-4155-8FF0-DA887C81E560}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{E47B612B-40D3-4243-9A39-39A351A81C86}" Namespace="XTS">NctReadRegisterCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{390B3142-0E15-4C59-A40A-ED3CC534E12D}" Namespace="XTS">NctRegisterType</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[Unknown]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DeviceId]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DeviceName]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[HardwareVersion]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[SoftwareVersion]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[BootloaderVersion]]></Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Identity]]></Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[LocalAddress]]></Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[MoverGuid]]></Text>
+				<Enum>9</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[UserData]]></Text>
+				<Enum>11</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[UserDataEE]]></Text>
+				<Enum>12</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[CommunicationVersion]]></Text>
+				<Enum>14</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[StackVersion]]></Text>
+				<Enum>15</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ApplicationVersion]]></Text>
+				<Enum>16</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[MoverUserName]]></Text>
+				<Enum>17</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ControlVoltage]]></Text>
+				<Enum>18</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[SupplyVoltage]]></Text>
+				<Enum>19</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[SupplyCurrent]]></Text>
+				<Enum>20</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Bic]]></Text>
+				<Enum>21</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DiagInfo]]></Text>
+				<Enum>22</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DiagHistoryStatus]]></Text>
+				<Enum>23</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DiagHistoryControl]]></Text>
+				<Enum>24</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DiagHistoryBuffer]]></Text>
+				<Enum>25</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Any]]></Text>
+				<Enum>33</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[DiagRuntimeCounter]]></Text>
+				<Enum>38</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[OverloadProtectionThresholdOn]]></Text>
+				<Enum>43</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[OverloadProtectionThresholdOff]]></Text>
+				<Enum>44</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[OverloadProtectionSettings]]></Text>
+				<Enum>45</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[OverloadProtectionTurnOffDelay]]></Text>
+				<Enum>46</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[OverloadProtectionControl]]></Text>
+				<Enum>47</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[OverloadProtectionStatus]]></Text>
+				<Enum>48</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PowerMonitorCurrentSensorOffset]]></Text>
+				<Enum>53</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PowerMonitorCurrentSensorGainN]]></Text>
+				<Enum>54</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PowerMonitorCurrentSensorGainD]]></Text>
+				<Enum>55</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PowerMonitorCurrentSensorRaw]]></Text>
+				<Enum>56</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[PowerMonitorValue]]></Text>
+				<Enum>57</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>DeviceId</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+			<Hides>
+				<Hide GUID="{E47ECA94-A3B1-415E-9CAF-D4A7156A9877}"/>
+				<Hide GUID="{4927DA8C-21C0-4FC4-9C2F-5E409BEAD9C3}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{E47ECA94-A3B1-415E-9CAF-D4A7156A9877}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{4927DA8C-21C0-4FC4-9C2F-5E409BEAD9C3}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{D5B385E4-4B5A-42BF-8EDB-A98E5BBFB03B}" Namespace="XTS">NctReadRegisterCommandArguments</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{E47B612B-40D3-4243-9A39-39A351A81C86}" Namespace="XTS">NctReadRegisterCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>registerType</Name>
+				<Type GUID="{390B3142-0E15-4C59-A40A-ED3CC534E12D}" Namespace="XTS">NctRegisterType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+				<Default>
+					<EnumText>DeviceId</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>offset</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>size</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>96</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{62AC7999-2963-4DDF-BEE4-CECD1FC1ABE8}"/>
+				<Hide GUID="{0C5F5BD8-9114-4FEA-B577-B61379BB94B7}"/>
+				<Hide GUID="{A7270493-2E65-4159-90EE-5E958BD98AFB}"/>
+				<Hide GUID="{76E8BDBB-4E85-4D9A-8975-3FEB5A1F561D}"/>
+				<Hide GUID="{425E02A4-650E-4AD9-B32A-92340B7B760B}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{62AC7999-2963-4DDF-BEE4-CECD1FC1ABE8}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{0C5F5BD8-9114-4FEA-B577-B61379BB94B7}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{A7270493-2E65-4159-90EE-5E958BD98AFB}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{76E8BDBB-4E85-4D9A-8975-3FEB5A1F561D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{425E02A4-650E-4AD9-B32A-92340B7B760B}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{6C9D7A70-729F-49A4-8A25-6BA1609BE614}" Namespace="XTS">NctReadMultipleRegistersCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{6D291991-B992-45B8-814D-F67F57B538D1}" Namespace="XTS">NctReadMultipleRegistersCommandArguments</Name>
+			<BitSize>512</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{6C9D7A70-729F-49A4-8A25-6BA1609BE614}" Namespace="XTS">NctReadMultipleRegistersCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>registerTypes</Name>
+				<Type GUID="{390B3142-0E15-4C59-A40A-ED3CC534E12D}" Namespace="XTS">NctRegisterType</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>28</Elements>
+				</ArrayInfo>
+				<BitSize>448</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{808D4AEE-2A35-40BD-BCC2-250B43BEAA74}"/>
+				<Hide GUID="{B581E4C3-E944-4F3E-A935-2D09BC832601}"/>
+				<Hide GUID="{3C876EF3-3186-4105-B5AE-A27689DE9085}"/>
+				<Hide GUID="{4A5546B7-20A5-4357-B1F4-0C019C10F03B}"/>
+				<Hide GUID="{F43989AA-7D03-40E5-A498-DE49C3E8ABA9}"/>
+				<Hide GUID="{EF839DF4-7B7E-485B-B4F4-AC111CB93562}"/>
+				<Hide GUID="{1B64DD77-BD22-40FD-8819-D92ED610E0B5}"/>
+				<Hide GUID="{3740A1B2-1C16-41C6-8213-47C69A37D9D0}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{808D4AEE-2A35-40BD-BCC2-250B43BEAA74}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{B581E4C3-E944-4F3E-A935-2D09BC832601}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3C876EF3-3186-4105-B5AE-A27689DE9085}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{4A5546B7-20A5-4357-B1F4-0C019C10F03B}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{F43989AA-7D03-40E5-A498-DE49C3E8ABA9}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{EF839DF4-7B7E-485B-B4F4-AC111CB93562}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{1B64DD77-BD22-40FD-8819-D92ED610E0B5}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3740A1B2-1C16-41C6-8213-47C69A37D9D0}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{F9D0772E-C11F-4E47-ABBC-FC685B14407E}" Namespace="XTS">NctWriteRegisterCommandOptions</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isBroadcastOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isSkipInitCheckOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{44CE6B14-CFE5-4BB5-8DC9-6C38F95A8BEE}" Namespace="XTS">NctWriteRegisterCommandArguments</Name>
+			<BitSize>2176</BitSize>
+			<SubItem>
+				<Name>iterationCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Value>1</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>maxErrorCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+				<Default>
+					<Value>4</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>executionMode</Name>
+				<Type GUID="{02FF7DA8-C320-4777-9818-B0BBD4D31655}" Namespace="XTS">NctCommandExecutionMode</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>options</Name>
+				<Type GUID="{F9D0772E-C11F-4E47-ABBC-FC685B14407E}" Namespace="XTS">NctWriteRegisterCommandOptions</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>optionalBufferPoolId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[When set to zero the standard pool is used, otherwise the pool with the specified ID is used.]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Default>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>registerType</Name>
+				<Type GUID="{390B3142-0E15-4C59-A40A-ED3CC534E12D}" Namespace="XTS">NctRegisterType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+				<Default>
+					<EnumText>DeviceId</EnumText>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>offset</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>size</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>data</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>256</Elements>
+				</ArrayInfo>
+				<BitSize>2048</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{F18C2948-77C2-4CD5-A602-596C7CF5ADC0}"/>
+				<Hide GUID="{B5C75710-D97D-4C16-BFB4-116FF1D42164}"/>
+				<Hide GUID="{A04262F0-27AC-4F1A-8CAB-1DF1C74379C0}"/>
+				<Hide GUID="{FF4C233D-1C6B-46C8-A5DD-6A5CAA2187C4}"/>
+				<Hide GUID="{B16A7B9B-4A09-46A5-8C97-8BBA68257A6E}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{F18C2948-77C2-4CD5-A602-596C7CF5ADC0}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{B5C75710-D97D-4C16-BFB4-116FF1D42164}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{A04262F0-27AC-4F1A-8CAB-1DF1C74379C0}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{FF4C233D-1C6B-46C8-A5DD-6A5CAA2187C4}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{B16A7B9B-4A09-46A5-8C97-8BBA68257A6E}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{332423E5-0787-47BB-8BAC-23263B13AF2D}" Namespace="XTS">NctInitMode</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[UseDefaultOfNctController]]></Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[FullInit]]></Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[ManualInit]]></Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[Reinit]]></Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[SimpleInit]]></Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<Default>
+				<EnumText>UseDefaultOfNctController</EnumText>
+			</Default>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{4F012BF2-7C2F-4F36-AC28-C364F59C9F44}" Namespace="XTS">NctBaseUnitDiagMessageId</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+			<EnumInfo>
+				<Text><![CDATA[C0100_OperationSuccessful]]></Text>
+				<Enum>256</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C0101_EepromDataWritten]]></Text>
+				<Enum>257</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C0200_ReinitializationSuccessful]]></Text>
+				<Enum>512</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C0201_SupplyVoltageInsufficient]]></Text>
+				<Enum>513</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1000_RegisterGeneralAccessError]]></Text>
+				<Enum>4096</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1001_RegisterInvalidError]]></Text>
+				<Enum>4097</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1003_RegisterReadAccessError]]></Text>
+				<Enum>4099</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1004_RegisterWriteAccessError]]></Text>
+				<Enum>4100</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1005_RegisterWriteBusyError]]></Text>
+				<Enum>4101</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1007_FactoryResetSuccessful]]></Text>
+				<Enum>4103</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1008_EepromChecksumWritten]]></Text>
+				<Enum>4104</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1009_EepromChecksumError]]></Text>
+				<Enum>4105</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C100A_FirmwareNewRegisterTable]]></Text>
+				<Enum>4106</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C100B_FastCommandInvalid]]></Text>
+				<Enum>4107</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1120_ProcessDataIndexInvalid]]></Text>
+				<Enum>4384</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1121_ProcessDataIndexInvalid]]></Text>
+				<Enum>4385</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1140_TemperatureCritical]]></Text>
+				<Enum>4416</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1141_OverTemperatureError]]></Text>
+				<Enum>4417</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1200_InputPinError]]></Text>
+				<Enum>4608</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1201_InputPinInvalidOperation]]></Text>
+				<Enum>4609</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1220_InputPinInvalidMode]]></Text>
+				<Enum>4640</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1221_InputPinFilterModeNotSupported]]></Text>
+				<Enum>4641</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text><![CDATA[C1240_BridgeModeNotSupported]]></Text>
+				<Enum>4672</Enum>
+			</EnumInfo>
+			<Properties>
+				<Property>
+					<Name>plcAttribute_qualified_only</Name>
+				</Property>
+			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{A7B28FAB-738E-43B7-91D2-7C2389C06ACA}" Namespace="XTS" IecDeclaration="ARRAY[1..8] OF BYTE;">NctBaseUnitDiagHistoryMessage</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>timeStamp</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000022}">UINT24</Type>
+				<BitSize>24</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>messageId</Name>
+				<Type GUID="{4F012BF2-7C2F-4F36-AC28-C364F59C9F44}" Namespace="XTS">NctBaseUnitDiagMessageId</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>data</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>3</Elements>
+				</ArrayInfo>
+				<BitSize>24</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{5813E367-AB92-489A-9907-D9C2637FE5D1}" Namespace="XTS">NctBaseUnitDiagHistoryControl</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isClearOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>messageCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000015}">BIT6</Type>
+				<BitSize>6</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{8721FD10-CCC9-4E1C-900F-FB922D35A335}"/>
+				<Hide GUID="{1BD66E58-78E2-4B8B-9516-A61DCF8BBE4E}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{8721FD10-CCC9-4E1C-900F-FB922D35A335}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{1BD66E58-78E2-4B8B-9516-A61DCF8BBE4E}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{004DAD10-4028-4C46-8976-12A5934E2B12}" Namespace="XTS">NctBaseUnitDiagHistoryStatus</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>messageCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000015}">BIT6</Type>
+				<BitSize>6</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isFull</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{1EC63745-8DEE-41E3-A93D-CE6D14350001}" Namespace="XTS">ProductIdentity</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>vendor</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>code</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>revision</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>serial</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{4D8FBA4C-B8BF-4B5D-83C0-0963736B995E}" Namespace="XTS" IecDeclaration="BYTE;">NctOverloadProtectionControl</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>reset</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>forceOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>forceOff</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{8B2CC568-FC57-4688-9542-B1296268459E}" Namespace="XTS" IecDeclaration="BYTE;">NctOverloadProtectionSettings</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isEnabled</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isAutomaticEnabled</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{F2743A75-4AEE-455B-AFA7-DF4CA85CDB5E}" Namespace="XTS" IecDeclaration="BYTE;">NctOverloadProtectionStatus</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isReady</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{25A2D7BE-0550-4AC4-8286-6DA5BB31F0FF}" Namespace="XTS">NctCommandFlags</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>isAddedViaParameter</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isAsync</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isComposite</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isInternal</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isResumeOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{A8E1AAED-18E6-4B34-AABB-71F33D5385D8}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{A8E1AAED-18E6-4B34-AABB-71F33D5385D8}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{7BBCDE3C-4128-491B-9E51-23880A2975B9}" Namespace="XTS">NctCommandAddInfo</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>commandType</Name>
+				<Type GUID="{7FCCE9C9-FC9B-4044-ADDE-288CF09A623E}" Namespace="XTS">NctCommandType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>flags</Name>
+				<Type GUID="{25A2D7BE-0550-4AC4-8286-6DA5BB31F0FF}" Namespace="XTS">NctCommandFlags</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>id</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>parentId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{99857A1F-EAFA-4815-978F-458FB58AA3C9}"/>
+				<Hide GUID="{2635B807-69C2-43AD-B60F-B0A2F2002C3E}"/>
+				<Hide GUID="{C1E54865-8BD0-469B-AAF0-E52E931E439C}"/>
+				<Hide GUID="{FC8DE227-85D2-4ED3-9305-BE195B41B5EA}"/>
+				<Hide GUID="{844CEBEE-500F-4A0B-9822-A36C9590B842}"/>
+				<Hide GUID="{A7B5E945-D7AC-4C9B-8571-070B5C56E002}"/>
+				<Hide GUID="{7F0A37DA-A5B8-4C8B-A061-3C5894376006}"/>
+				<Hide GUID="{1DAA2488-B6F2-4606-A649-A3B80256FB75}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{99857A1F-EAFA-4815-978F-458FB58AA3C9}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{2635B807-69C2-43AD-B60F-B0A2F2002C3E}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{C1E54865-8BD0-469B-AAF0-E52E931E439C}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{FC8DE227-85D2-4ED3-9305-BE195B41B5EA}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{844CEBEE-500F-4A0B-9822-A36C9590B842}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{A7B5E945-D7AC-4C9B-8571-070B5C56E002}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{7F0A37DA-A5B8-4C8B-A061-3C5894376006}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{1DAA2488-B6F2-4606-A649-A3B80256FB75}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>commandType</Name>
+				<Type GUID="{7FCCE9C9-FC9B-4044-ADDE-288CF09A623E}" Namespace="XTS">NctCommandType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>flags</Name>
+				<Type GUID="{25A2D7BE-0550-4AC4-8286-6DA5BB31F0FF}" Namespace="XTS">NctCommandFlags</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>priority</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>id</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{880AE5D7-0FD4-47F4-AA7C-4E28A0677F26}"/>
+				<Hide GUID="{0D8EE824-59DB-4EB5-8F21-5B1C2909D14B}"/>
+				<Hide GUID="{F86DAA51-797B-424C-B281-BA81BF74109C}"/>
+				<Hide GUID="{29B9EE07-1E83-457C-A398-3C451A4A2DE8}"/>
+				<Hide GUID="{7D81A639-525A-44A8-8726-89DE5CAFA515}"/>
+				<Hide GUID="{C73CCC63-FC03-4B92-86A9-A3C4C62A9FEB}"/>
+				<Hide GUID="{4E79E5BF-B12F-4DAF-8BD9-747DA7456EC0}"/>
+				<Hide GUID="{08768CC8-4C6D-4BB7-8D44-6D853A2BF3F8}"/>
+				<Hide GUID="{8FDA7B3E-9C27-48C8-AB16-8FC046CFEE16}"/>
+				<Hide GUID="{8200D85C-D6DB-4B34-B4A2-192785C1BA91}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{880AE5D7-0FD4-47F4-AA7C-4E28A0677F26}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{0D8EE824-59DB-4EB5-8F21-5B1C2909D14B}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{F86DAA51-797B-424C-B281-BA81BF74109C}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{29B9EE07-1E83-457C-A398-3C451A4A2DE8}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{7D81A639-525A-44A8-8726-89DE5CAFA515}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{C73CCC63-FC03-4B92-86A9-A3C4C62A9FEB}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{4E79E5BF-B12F-4DAF-8BD9-747DA7456EC0}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{08768CC8-4C6D-4BB7-8D44-6D853A2BF3F8}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{8FDA7B3E-9C27-48C8-AB16-8FC046CFEE16}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{8200D85C-D6DB-4B34-B4A2-192785C1BA91}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{B1C35696-64BC-4FBF-99A0-99B05197E4AF}" Namespace="XTS">NctCommandProcessedInfo</Name>
+			<BitSize>320</BitSize>
+			<SubItem>
+				<Name>commandType</Name>
+				<Type GUID="{7FCCE9C9-FC9B-4044-ADDE-288CF09A623E}" Namespace="XTS">NctCommandType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>flags</Name>
+				<Type GUID="{25A2D7BE-0550-4AC4-8286-6DA5BB31F0FF}" Namespace="XTS">NctCommandFlags</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>status</Name>
+				<Type GUID="{91ADC0D0-EB6F-40EB-BF82-DB9AAB549ABD}" Namespace="XTS">NctCommandStatus</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>id</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>parentId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>dataLength</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>framesSent</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>framesReceived</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>framesMissed</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{310F33B8-677B-4539-8074-F83FBCFDA59D}"/>
+				<Hide GUID="{2AEA5ED8-3C2B-4FB4-BDDA-97A4E82D3419}"/>
+				<Hide GUID="{7039C2D2-C8CB-46B7-8E6C-96F0CE840C5D}"/>
+				<Hide GUID="{57D439B2-145E-46D6-AC6C-B05DF1E6F22D}"/>
+				<Hide GUID="{3EB9BF4C-5F58-4B0D-9327-EFC7C904B4FE}"/>
+				<Hide GUID="{B95E5E22-CCBB-48B5-BA5E-C697A9A10934}"/>
+				<Hide GUID="{3DF41366-F9EA-4DEF-97DC-EFA1E4DBBB07}"/>
+				<Hide GUID="{54C30EDE-67C2-4213-9758-393B81A4E867}"/>
+				<Hide GUID="{803D0A5D-6B29-440D-BE19-50316CCDA833}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{310F33B8-677B-4539-8074-F83FBCFDA59D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{2AEA5ED8-3C2B-4FB4-BDDA-97A4E82D3419}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{7039C2D2-C8CB-46B7-8E6C-96F0CE840C5D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{57D439B2-145E-46D6-AC6C-B05DF1E6F22D}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3EB9BF4C-5F58-4B0D-9327-EFC7C904B4FE}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{B95E5E22-CCBB-48B5-BA5E-C697A9A10934}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3DF41366-F9EA-4DEF-97DC-EFA1E4DBBB07}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{54C30EDE-67C2-4213-9758-393B81A4E867}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{803D0A5D-6B29-440D-BE19-50316CCDA833}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{F414D4F5-4BEC-4324-8E7B-461B00FF6D29}" Namespace="XTS">NctCommandRegisterInfo</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>commandId</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>refCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{B5CEEB1D-0C46-4DF0-9343-835F8F773E9C}" Namespace="XTS">NctBaseUnitStatus</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name>isOnCommunicationArea</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isOnEnergyArea</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasNeighborNctModuleOnCurrentSide</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isCurrentNctModuleReady</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>areAllUsedNctModulesReady</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isEnergyOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>areAllUsedEnergyCoilsOn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isMoverPositionValid</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isMinActivationTimePassed</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isReadyToInitialize</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isInitialized</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isLocalAddressValid</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isReadyToQueueAsyncCommands</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isReadyToQueueSyncCommands</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isReadyToProcessAsyncCommands</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>isReadyToProcessSyncCommands</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasActiveAsyncCommand</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasActiveAsyncInternalCommand</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>17</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasActiveSyncCommand</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>18</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasActiveCommunication</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>19</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasDiagData</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>20</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasOtherBaseUnitsInActiveRegion</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>21</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>hasI2tWarning</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>22</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{96E1FBA5-2E7C-4F53-B6A0-544E390298B1}"/>
+				<Hide GUID="{3DC7C3FA-51A1-4508-9DBC-CC07AB493324}"/>
+				<Hide GUID="{A33BB179-68C8-44BE-A2CE-D4B583F418E5}"/>
+				<Hide GUID="{FCFC184C-A457-4869-9414-E56965D37B02}"/>
+			</Hides>
+			<Relations>
+				<Relation>
+					<Type GUID="{96E1FBA5-2E7C-4F53-B6A0-544E390298B1}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{3DC7C3FA-51A1-4508-9DBC-CC07AB493324}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{A33BB179-68C8-44BE-A2CE-D4B583F418E5}"></Type>
+				</Relation>
+				<Relation>
+					<Type GUID="{FCFC184C-A457-4869-9414-E56965D37B02}"></Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{C8A3EBBF-E67F-491F-AAC6-16D5D5E9699B}" Namespace="XTS">TcVersion</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>Major</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Minor</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Build</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Revision</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424d360400000000000036000000280000001000000010000000010020000000000000000000c30e0000c30e000000000000000000009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300d5d4d400d2d0d000cfcdcd00cbc9c900c8c6c600c5c3c300c2bfbf00bebcbc00bbb8b800b8b5b500b4b2b200b1aeae00aeabab00aaa7a7009393930093939300d9d7d700d5d4d400d2d0d000cfcdcd00bdbbcd008c8ad600706fdb006f6dd9008382d000aeabbd00b8b5b500b4b2b200b1aeae00aeabab009393930093939300dcdbdb00d9d7d700bebed9004d4ceb000909fa000303fb000303fb000303fb000303fb000808f9004241e400a4a1bd00b4b2b200b1aeae009393930093939300dfdede00a09fe4001212f8000303fb000505fa003a39ee005a59e5005958e4003737ec000606fa000303fb000f0ff7008481c900b4b2b2009393930093939300b6b4e6000d0dfa000303fb004545f000bebdd900d2d0d000cfcdcd00cccaca00c8c6c600b2b0c9004140e7000303fb000a09f800908ec5009393930093939300c1c0e8003232f6005b5bf000dcdbdb00d9d7d700d5d4d400d2d0d000cfcdcd00cbc9c900c8c6c600c5c3c3005352e2003d3ce700aba8be009393930093939300e9e8e800e2e1e500dfdde100dbdadf008180e8003332f3000f0ff9000f0ef8003131f1007876dd00c4c2c700c3c1c300c2bfbf00bebcbc009393930093939300edecec00e9e8e800cfcfe8002d2cf6000303fb000303fb000303fb000303fb000303fb000303fb002929f200b5b3cb00c5c3c300c2bfbf009393930093939300f0efef00edecec00c3c2eb001e1ef8002525f8009898e800d0cfdd00cccad900908fe1002121f5001212f7009f9dd400c8c6c600c5c3c3009393930093939300eeeded00f0efef00edecec00d2d1ea00d7d6e700e3e1e100dfdede00dcdbdb00d9d7d700c6c5d700b5b3d500cfcdcd00cccaca00c8c6c6009393930093939300ecebeb00eeeded00f0efef00edecec00e9e8e800e6e5e500e3e1e1005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00cbc9c9009393930093939300ebe9e9005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00cfcdcd009393930093939300e9e7e7005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00dfdede005d5c5c00d9d7d7005d5c5c00d2d0d0009393930093939300e7e5e500e9e7e700ebe9e900ecebeb00eeeded00f0efef00edecec00e9e8e800e6e5e500e3e1e100dfdede00dcdbdb00d9d7d700d5d4d4009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300</ImageData>
+	</ImageDatas>
+	<Module Id="#x010100b0" KeepUnrestoredLinks="2" ClassFactoryId="Beckhoff Automation GmbH|TcIoXts|4.4.38.0">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<TmcDesc GUID="{E422A534-515F-4B0E-8769-A963AC987917}" ClassFactoryId="Beckhoff Automation GmbH|TcIoXts|4.4.38.0">
+			<Name>XtsNctBaseUnitInterface</Name>
+			<CLSID ClassFactory="TcIoXts">{80D6DF92-7251-471B-9FEB-3B65F93AEB84}</CLSID>
+			<Info>
+				<ImageData>424d360400000000000036000000280000001000000010000000010020000000000000000000c30e0000c30e000000000000000000009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300d5d4d400d2d0d000cfcdcd00cbc9c900c8c6c600c5c3c300c2bfbf00bebcbc00bbb8b800b8b5b500b4b2b200b1aeae00aeabab00aaa7a7009393930093939300d9d7d700d5d4d400d2d0d000cfcdcd00bdbbcd008c8ad600706fdb006f6dd9008382d000aeabbd00b8b5b500b4b2b200b1aeae00aeabab009393930093939300dcdbdb00d9d7d700bebed9004d4ceb000909fa000303fb000303fb000303fb000303fb000808f9004241e400a4a1bd00b4b2b200b1aeae009393930093939300dfdede00a09fe4001212f8000303fb000505fa003a39ee005a59e5005958e4003737ec000606fa000303fb000f0ff7008481c900b4b2b2009393930093939300b6b4e6000d0dfa000303fb004545f000bebdd900d2d0d000cfcdcd00cccaca00c8c6c600b2b0c9004140e7000303fb000a09f800908ec5009393930093939300c1c0e8003232f6005b5bf000dcdbdb00d9d7d700d5d4d400d2d0d000cfcdcd00cbc9c900c8c6c600c5c3c3005352e2003d3ce700aba8be009393930093939300e9e8e800e2e1e500dfdde100dbdadf008180e8003332f3000f0ff9000f0ef8003131f1007876dd00c4c2c700c3c1c300c2bfbf00bebcbc009393930093939300edecec00e9e8e800cfcfe8002d2cf6000303fb000303fb000303fb000303fb000303fb000303fb002929f200b5b3cb00c5c3c300c2bfbf009393930093939300f0efef00edecec00c3c2eb001e1ef8002525f8009898e800d0cfdd00cccad900908fe1002121f5001212f7009f9dd400c8c6c600c5c3c3009393930093939300eeeded00f0efef00edecec00d2d1ea00d7d6e700e3e1e100dfdede00dcdbdb00d9d7d700c6c5d700b5b3d500cfcdcd00cccaca00c8c6c6009393930093939300ecebeb00eeeded00f0efef00edecec00e9e8e800e6e5e500e3e1e1005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00cbc9c9009393930093939300ebe9e9005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00cfcdcd009393930093939300e9e7e7005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00dfdede005d5c5c00d9d7d7005d5c5c00d2d0d0009393930093939300e7e5e500e9e7e700ebe9e900ecebeb00eeeded00f0efef00edecec00e9e8e800e6e5e500e3e1e100dfdede00dcdbdb00d9d7d700d5d4d4009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300</ImageData>
+			</Info>
+			<InitSequence>PSO</InitSequence>
+			<Contexts>
+				<Context>
+					<Id>1</Id>
+					<ManualConfig>
+						<OTCID>#x02010040</OTCID>
+					</ManualConfig>
+					<Priority>1</Priority>
+					<CycleTime>250000</CycleTime>
+				</Context>
+			</Contexts>
+			<Interfaces>
+				<Interface>
+					<Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+				</Interface>
+				<Interface>
+					<Type GUID="{7E2A8BE8-EA73-48F4-8067-3340A80F123A}" Namespace="XTS">IXtsNctBaseUnitInterface</Type>
+				</Interface>
+			</Interfaces>
+			<Parameters>
+				<Group><![CDATA[Info]]></Group>
+				<Group><![CDATA[General]]></Group>
+				<Group><![CDATA[NCT Energy]]></Group>
+				<Group><![CDATA[NCT Firmware Update]]></Group>
+				<Group><![CDATA[NCT Command System]]></Group>
+				<Group><![CDATA[Advanced]]></Group>
+				<Group><![CDATA[NCT Communication]]></Group>
+				<Group><![CDATA[NCT Registers]]></Group>
+				<Group><![CDATA[Diagnostics]]></Group>
+				<Group><![CDATA[Structure]]></Group>
+				<Parameter HideParameter="true" Group="Info">
+					<Name>AdsPort</Name>
+					<Comment><![CDATA[Gets/sets the ads port. The port should be used to read/write parameters via ADS.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03002090</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter HideParameter="true" Group="Info">
+					<Name>TaskOID</Name>
+					<Comment><![CDATA[Gets/Sets the XTS Task that is used for calculations for the XtsNctBaseUnitInterface.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+					<Default>
+						<Value>#x00000000</Value>
+					</Default>
+					<PTCID>#x03002060</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="General">
+					<Name>LinkedMoverObjectId</Name>
+					<Comment><![CDATA[Gets/Sets the object ID of the mover from which the base unit should be used for communication.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{B16E550F-5F13-4667-A43A-46F3A817D5FF}" Namespace="XTS">MoverOTCID</BaseType>
+					<Default>
+						<Value>#x00000000</Value>
+					</Default>
+					<PTCID>#x0308034b</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Energy">
+					<Name>IsEnergyEnabled</Name>
+					<Comment><![CDATA[Enables/disables the energy transmission for a single base unit. If energy is turned off via the NCT Controller then no energy is transmitted at all!]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+					<Default>
+						<EnumText>TRUE</EnumText>
+					</Default>
+					<PTCID>#x0308035b</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Energy">
+					<Name>TriggerAppDutyCycleUpdate</Name>
+					<Comment><![CDATA[On set the application duty cycle is activated with the current settings.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{F2E6D259-7A91-44E8-87BD-8B2146B5B608}" Namespace="XTS">NctTriggerAppDutyCycleUpdateArguments</BaseType>
+					<PTCID>#x03080366</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AbortCommand</Name>
+					<Comment><![CDATA[On set the specified abort operation is executed.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{3F734823-BCBE-432C-B2F0-9FCD38A485A7}" Namespace="XTS">NctAbortCommandArguments</BaseType>
+					<PTCID>#x03080522</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddGetStatusCommand</Name>
+					<Comment><![CDATA[On set the get-status-command will be added to the async command queue.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{39163057-93A9-4A2A-B304-DB65A6AFD3BC}" Namespace="XTS">NctGetStatusCommandArguments</BaseType>
+					<PTCID>#x03080524</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddInitCommand</Name>
+					<Comment><![CDATA[On set the init-command will be added to the async command queue.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{A36B22FA-21E9-4227-B9F2-3FBCE66FF196}" Namespace="XTS">NctInitCommandArguments</BaseType>
+					<PTCID>#x03080523</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter HideParameter="true" Group="NCT Command System">
+					<Name>AddUpdateFirmwareCommand</Name>
+					<Comment><![CDATA[Preview Feature! On set the update-firmware-command will be added to the async command queue.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{8F39E90A-DC19-4EC2-B27C-BDAE0E7EB35C}" Namespace="XTS">NctUpdateFirmwareCommandArguments</BaseType>
+					<PTCID>#x030806a4</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddUpdateProcessDataCommand</Name>
+					<Comment><![CDATA[On set the update process data command will be added to the sync command queue.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{039F38CF-3D84-4239-8E73-0C2A5BDEF804}" Namespace="XTS">NctUpdateProcessDataCommandArguments</BaseType>
+					<PTCID>#x03080525</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter HideParameter="true" Group="NCT Command System">
+					<Name>AddQuickRequestCommand</Name>
+					<Comment><![CDATA[On set the quick-request-command will be added to the async command queue.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{5251D7CE-FC21-4959-84A4-1F1502F94001}" Namespace="XTS">NctQuickRequestCommandArguments</BaseType>
+					<PTCID>#x030805bd</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddReadDiagMessagesCommand</Name>
+					<Comment><![CDATA[On set the read-diag-messags command will be added to the async command queue.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{EA5D25A5-6264-41F7-9610-F9C9319C72B7}" Namespace="XTS">NctReadDiagMessagesCommandArguments</BaseType>
+					<PTCID>#x0308053b</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddReadRegisterCommand</Name>
+					<Comment><![CDATA[On set the read-register-command will be added to the async command queue.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{D5B385E4-4B5A-42BF-8EDB-A98E5BBFB03B}" Namespace="XTS">NctReadRegisterCommandArguments</BaseType>
+					<PTCID>#x03080526</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddReadMultipleRegistersCommand</Name>
+					<Comment><![CDATA[On set the read-multiple-registers-command will be added to the async command queue.]]></Comment>
+					<BitSize>512</BitSize>
+					<BaseType GUID="{6D291991-B992-45B8-814D-F67F57B538D1}" Namespace="XTS">NctReadMultipleRegistersCommandArguments</BaseType>
+					<PTCID>#x0308056a</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>AddWriteRegisterCommand</Name>
+					<Comment><![CDATA[On set the write-register-command will be added to the async command queue.]]></Comment>
+					<BitSize>2176</BitSize>
+					<BaseType GUID="{44CE6B14-CFE5-4BB5-8DC9-6C38F95A8BEE}" Namespace="XTS">NctWriteRegisterCommandArguments</BaseType>
+					<PTCID>#x03080527</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>InitMode</Name>
+					<Comment><![CDATA[Gets/sets the init mode which is used for base unit initialization.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{332423E5-0787-47BB-8BAC-23263B13AF2D}" Namespace="XTS">NctInitMode</BaseType>
+					<Default>
+						<EnumText>UseDefaultOfNctController</EnumText>
+					</Default>
+					<PTCID>#x03080529</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter Group="NCT Command System">
+					<Name>SelectedCommandId</Name>
+					<Comment><![CDATA[Gets/sets the id of the command which should be shown by the online parameter.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+					<Default>
+						<Value>1</Value>
+					</Default>
+					<PTCID>#x03080541</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter HideParameter="true" Group="Advanced">
+					<Name>InitialPriority</Name>
+					<Comment><![CDATA[Gets/sets the initial priority. The base unit with the greatest priority in a local area will send first.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x0308050d</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Communication">
+					<Name>DataReceived</Name>
+					<Comment><![CDATA[Returns the current data which has been received.]]></Comment>
+					<BitSize>40</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">5</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080374</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Communication">
+					<Name>DataToSend</Name>
+					<Comment><![CDATA[Returns the current data which is or will be written (again).]]></Comment>
+					<BitSize>40</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">5</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080373</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Communication">
+					<Name>AutomaticLocalInitAddress</Name>
+					<Comment><![CDATA[Gets the automatically generated local address which will be used for the base unit.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+					<Default>
+						<Value>255</Value>
+					</Default>
+					<PTCID>#x030805aa</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Communication">
+					<Name>ManualLocalInitAddress</Name>
+					<Comment><![CDATA[Gets the local address which will be used in manual mode to initialize the base unit. Configure the address on the mover object itself.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+					<Default>
+						<Value>255</Value>
+					</Default>
+					<PTCID>#x03080567</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Energy">
+					<Name>AppDutyCycle</Name>
+					<Comment><![CDATA[Gets the duty cycle value which is additionally applied.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000D}">REAL</BaseType>
+					<Unit><![CDATA[%]]></Unit>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080367</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Energy">
+					<Name>AppDutyCycleTimeElapsed</Name>
+					<Comment><![CDATA[Gets the time left which defines how long the application duty cycle is be applied.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000D}">REAL</BaseType>
+					<Unit><![CDATA[s]]></Unit>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x0308036b</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>Any</Name>
+					<Comment><![CDATA[Returns the bytes which have been read using the Any register type.]]></Comment>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">256</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080569</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>ApplicationVersion</Name>
+					<Comment><![CDATA[Returns the current application version.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x0308038f</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>BIC</Name>
+					<Comment><![CDATA[Returns the current data of the BIC.]]></Comment>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">256</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080394</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>BootloaderVersion</Name>
+					<Comment><![CDATA[Returns the current bootloader version.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x0308037e</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>CommunicationVersion</Name>
+					<Comment><![CDATA[Returns the current communication version.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x0308038d</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>ControlVoltage</Name>
+					<Comment><![CDATA[Returns the current control voltage value.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080391</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>DeviceId</Name>
+					<Comment><![CDATA[Returns the current device id.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x0308037a</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>DeviceName</Name>
+					<Comment><![CDATA[Returns the current device name.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x0308037b</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>DiagHistoryBuffer</Name>
+					<Comment><![CDATA[Returns the current data of the diag history.]]></Comment>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{A7B28FAB-738E-43B7-91D2-7C2389C06ACA}" Namespace="XTS">NctBaseUnitDiagHistoryMessage</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">32</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080398</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>DiagHistoryControl</Name>
+					<Comment><![CDATA[Returns the current diag history control value.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{5813E367-AB92-489A-9907-D9C2637FE5D1}" Namespace="XTS">NctBaseUnitDiagHistoryControl</BaseType>
+					<PTCID>#x03080397</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>DiagHistoryStatus</Name>
+					<Comment><![CDATA[Returns the current diag history status value.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{004DAD10-4028-4C46-8976-12A5934E2B12}" Namespace="XTS">NctBaseUnitDiagHistoryStatus</BaseType>
+					<PTCID>#x03080396</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>DiagInfo</Name>
+					<Comment><![CDATA[Returns the current diag info value.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080395</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>HardwareVersion</Name>
+					<Comment><![CDATA[Returns the current hardware version.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000100000003}">STRING(3)</BaseType>
+					<PTCID>#x0308037c</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>Identity</Name>
+					<Comment><![CDATA[Returns the identity of the base unit.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{1EC63745-8DEE-41E3-A93D-CE6D14350001}" Namespace="XTS">ProductIdentity</BaseType>
+					<PTCID>#x0308037f</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>LocalAddress</Name>
+					<Comment><![CDATA[Returns the local address of base unit which is used for communication.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+					<PTCID>#x0308036d</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>MoverGuid</Name>
+					<Comment><![CDATA[Returns the mover guid stored in the base unit.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000021}">GUID</BaseType>
+					<Default>
+						<Data>00000000000000000000000000000000</Data>
+					</Default>
+					<PTCID>#x03080381</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>MoverUsername</Name>
+					<Comment><![CDATA[Returns the current mover name (user).]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x03080390</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>OverloadProtectionControl</Name>
+					<Comment><![CDATA[Returns the current value of the overload protection control register.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{4D8FBA4C-B8BF-4B5D-83C0-0963736B995E}" Namespace="XTS">NctOverloadProtectionControl</BaseType>
+					<PTCID>#x030805eb</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>OverloadProtectionSettings</Name>
+					<Comment><![CDATA[Returns the current value of the overload protection settings register.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{8B2CC568-FC57-4688-9542-B1296268459E}" Namespace="XTS">NctOverloadProtectionSettings</BaseType>
+					<PTCID>#x030805e9</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>OverloadProtectionStatus</Name>
+					<Comment><![CDATA[Returns the current value of the overload protection status register.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{F2743A75-4AEE-455B-AFA7-DF4CA85CDB5E}" Namespace="XTS">NctOverloadProtectionStatus</BaseType>
+					<PTCID>#x030805ec</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>OverloadProtectionThresholdOff</Name>
+					<Comment><![CDATA[Returns the current value of the overload protection threshold-off register.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Unit><![CDATA[mV]]></Unit>
+					<PTCID>#x030805e8</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>OverloadProtectionThresholdOn</Name>
+					<Comment><![CDATA[Returns the current value of the overload protection threshold-on register.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Unit><![CDATA[mV]]></Unit>
+					<PTCID>#x030805e7</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>OverloadProtectionTurnOffDelay</Name>
+					<Comment><![CDATA[Returns the current value of the overload protection turn-off-delay register.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+					<Unit><![CDATA[ms]]></Unit>
+					<PTCID>#x030805ea</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>PowerMonitorValue</Name>
+					<Comment><![CDATA[Returns the current value of the power monitor's value register.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Unit><![CDATA[0.01 W]]></Unit>
+					<PTCID>#x030805f5</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="NCT Registers">
+					<Name>RunTimeCounter</Name>
+					<Comment><![CDATA[Returns the number of seconds since the starting (power on) of the base unit.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+					<Unit><![CDATA[s]]></Unit>
+					<PTCID>#x030805df</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>SoftwareVersion</Name>
+					<Comment><![CDATA[Returns the current software version.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x0308037d</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>StackVersion</Name>
+					<Comment><![CDATA[Returns the current stack version.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000001F}">STRING(31)</BaseType>
+					<PTCID>#x0308038e</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>SupplyCurrent</Name>
+					<Comment><![CDATA[Returns the current supply current value.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080393</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>SupplyVoltage</Name>
+					<Comment><![CDATA[Returns the current supply voltage value.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080392</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>UserData</Name>
+					<Comment><![CDATA[Returns the current data of the user data registers.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">32</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080383</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Registers">
+					<Name>UserDataEE</Name>
+					<Comment><![CDATA[Returns the current data of the user data (EEPROM) registers.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">32</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080386</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>AddedCommandLog</Name>
+					<Comment><![CDATA[Returns a list of commands in the order they have been added.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{7BBCDE3C-4128-491B-9E51-23880A2975B9}" Namespace="XTS">NctCommandAddInfo</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="128">1</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080534</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>AddedCommandLogEntryCount</Name>
+					<Comment><![CDATA[Returns the count of entries in the added command log.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080544</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>ActiveAsyncCommand</Name>
+					<Comment><![CDATA[Returns data about the currently executed async command.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</BaseType>
+					<PTCID>#x03080530</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>ActiveAsyncCommandInfo</Name>
+					<Comment><![CDATA[Returns info data about the currently executed async command.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{A5F9BCA7-0DA9-4BC6-A3E2-8BE79DDC22DE}" Namespace="XTS">NctCommandInfo</BaseType>
+					<PTCID>#x030805db</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>ActiveSyncCommand</Name>
+					<Comment><![CDATA[Returns data about the currently executed sync command.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</BaseType>
+					<PTCID>#x03080531</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>ActiveSyncCommandInfo</Name>
+					<Comment><![CDATA[Returns info data about the currently executed sync command.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{A5F9BCA7-0DA9-4BC6-A3E2-8BE79DDC22DE}" Namespace="XTS">NctCommandInfo</BaseType>
+					<PTCID>#x030805dc</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>AsyncCommandQueue</Name>
+					<Comment><![CDATA[Returns the async command queue.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="32">1</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080542</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>LastGeneratedCommandViaInterface</Name>
+					<Comment><![CDATA[Returns the info of the last generated command which has been created via the interface.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{7BBCDE3C-4128-491B-9E51-23880A2975B9}" Namespace="XTS">NctCommandAddInfo</BaseType>
+					<PTCID>#x0308056e</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>LastGeneratedCommandViaParameter</Name>
+					<Comment><![CDATA[Returns the info of the last generated command which has been created via the parameters.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{7BBCDE3C-4128-491B-9E51-23880A2975B9}" Namespace="XTS">NctCommandAddInfo</BaseType>
+					<PTCID>#x0308056d</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>ProcessedCommandLog</Name>
+					<Comment><![CDATA[Returns a list of commands in the order they have been finished.]]></Comment>
+					<BitSize>320</BitSize>
+					<BaseType GUID="{B1C35696-64BC-4FBF-99A0-99B05197E4AF}" Namespace="XTS">NctCommandProcessedInfo</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="128">1</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080538</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>ProcessedCommandLogEntryCount</Name>
+					<Comment><![CDATA[Returns the count of entries in the processed command log.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080545</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>RegisteredCommandInfos</Name>
+					<Comment><![CDATA[Returns a list of registered command infos.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{F414D4F5-4BEC-4324-8E7B-461B00FF6D29}" Namespace="XTS">NctCommandRegisterInfo</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="32">1</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080520</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>SelectedCommandData</Name>
+					<Comment><![CDATA[Gets the data of the selected command.]]></Comment>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="0">256</Elements>
+					</ArrayInfo>
+					<PTCID>#x0308056c</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>SelectedCommandInfo</Name>
+					<Comment><![CDATA[Gets the info data of the selected command.]]></Comment>
+					<BitSize>256</BitSize>
+					<BaseType GUID="{A5F9BCA7-0DA9-4BC6-A3E2-8BE79DDC22DE}" Namespace="XTS">NctCommandInfo</BaseType>
+					<PTCID>#x0308056b</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
+					<Name>SyncCommandQueue</Name>
+					<Comment><![CDATA[Returns the sync command queue.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements Min="0" Max="32">1</Elements>
+					</ArrayInfo>
+					<PTCID>#x03080543</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="Diagnostics">
+					<Name>AffectedBaseUnitCount</Name>
+					<Comment><![CDATA[Returns the count of affected base units.]]></Comment>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080511</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Diagnostics">
+					<Name>ControlVoltageLastFrame</Name>
+					<Comment><![CDATA[Returns the control voltage of the last frame.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000D}">REAL</BaseType>
+					<Unit><![CDATA[V]]></Unit>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x030805a3</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Diagnostics">
+					<Name>MissedFrameCount</Name>
+					<Comment><![CDATA[Returns the count of missed frames.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080539</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Diagnostics">
+					<Name>ReceivedFrameCount</Name>
+					<Comment><![CDATA[Returns the count of received frames.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080376</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Diagnostics">
+					<Name>SendFrameCount</Name>
+					<Comment><![CDATA[Returns the count of send frames.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080375</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Diagnostics">
+					<Name>SupplyVoltageLastFrame</Name>
+					<Comment><![CDATA[Returns the supply voltage of the last frame.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000D}">REAL</BaseType>
+					<Unit><![CDATA[V]]></Unit>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x030805a4</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Info">
+					<Name>ActiveTime</Name>
+					<Comment><![CDATA[Gets the active time of the base unit on a NCT area with energy enabled.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000D}">REAL</BaseType>
+					<Unit><![CDATA[s]]></Unit>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03080508</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Info">
+					<Name>Status</Name>
+					<Comment><![CDATA[Gets the status of the base unit.]]></Comment>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{B5CEEB1D-0C46-4DF0-9343-835F8F773E9C}" Namespace="XTS">NctBaseUnitStatus</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x0308051c</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="Info">
+					<Name>Priority</Name>
+					<Comment><![CDATA[Gets the current priority. The base unit with the greatest priority in a local area will send first.]]></Comment>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x0308050e</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" HideParameter="true" ReadOnly="true" Group="Info">
+					<Name>VersionString</Name>
+					<Comment><![CDATA[Returns the version string of the driver.]]></Comment>
+					<BitSize>384</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00010000002F}">STRING(47)</BaseType>
+					<PTCID>#x03080287</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Info">
+					<Name>Version</Name>
+					<Comment><![CDATA[Returns the version of the driver.]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{C8A3EBBF-E67F-491F-AAC6-16D5D5E9699B}" Namespace="XTS">TcVersion</BaseType>
+					<PTCID>#x03080510</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+				<Parameter HideParameter="true" ReadOnly="true" Group="Structure">
+					<Name>ModuleId</Name>
+					<Comment><![CDATA[Module ID of this TcCOM module (read only).]]></Comment>
+					<BitSize>128</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000021}">GUID</BaseType>
+					<Default>
+						<Data>34a522e45f510e4b8769a963ac987917</Data>
+					</Default>
+					<PTCID>#x03080001</PTCID>
+					<ContextId>1</ContextId>
+				</Parameter>
+			</Parameters>
+			<EventMessages>
+				<EventMessage>
+					<Id>9029</Id>
+					<Message><![CDATA[Could not register by {0}.]]></Message>
+				</EventMessage>
+			</EventMessages>
+			<Properties>
+				<Property>
+					<Name>Category</Name>
+					<Value>XTS</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>TcIoXts</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>NCT</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>XtsNctControllerChild</Value>
+				</Property>
+				<Property>
+					<Name>ChildCategory</Name>
+					<Value>XtsNctBaseUnitInterfaceChild</Value>
+				</Property>
+			</Properties>
+			<ParentOTCID>#x01010090</ParentOTCID>
+			<ParameterValues>
+				<Value>
+					<Name>AdsPort</Name>
+					<Value>351</Value>
+				</Value>
+				<Value>
+					<Name>TaskOID</Name>
+					<Value>33620032</Value>
+				</Value>
+				<Value>
+					<Name>LinkedMoverObjectId</Name>
+					<Value>16842960</Value>
+				</Value>
+				<Value>
+					<Name>IsEnergyEnabled</Name>
+					<EnumText>TRUE</EnumText>
+				</Value>
+				<Value>
+					<Name>TriggerAppDutyCycleUpdate.dutyCycle</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>TriggerAppDutyCycleUpdate.activeTime</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>TriggerAppDutyCycleUpdate.rampUpTime</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>TriggerAppDutyCycleUpdate.rampDownTime</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AbortCommand.option</Name>
+					<EnumText>All</EnumText>
+				</Value>
+				<Value>
+					<Name>AbortCommand.id</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.options.isUpdateAddressOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddGetStatusCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddInitCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddInitCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddInitCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateFirmwareCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.options.isUpdateAddressOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.options.isStoreAllValuesOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.data[0]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.data[1]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.data[2]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.data[3]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddUpdateProcessDataCommand.data[4]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddQuickRequestCommand.quickRequest</Name>
+					<EnumText>DeactivateEEPromAutoSave</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.options.isClearMessagesAfterReadOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadDiagMessagesCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.registerType</Name>
+					<EnumText>DeviceId</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.offset</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadRegisterCommand.size</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[0]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[1]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[2]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[3]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[4]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[5]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[6]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[7]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[8]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[9]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[10]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[11]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[12]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[13]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[14]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[15]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[16]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[17]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[18]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[19]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[20]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[21]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[22]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[23]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[24]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[25]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[26]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddReadMultipleRegistersCommand.registerTypes[27]</Name>
+					<EnumText>Unknown</EnumText>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.iterationCount</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.maxErrorCount</Name>
+					<Value>4</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.executionMode</Name>
+					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.priority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.options.isBroadcastOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.options.isResumeOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.options.isSkipInitCheckOn</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.optionalBufferPoolId</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.registerType</Name>
+					<EnumText>DeviceId</EnumText>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.offset</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.size</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[0]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[1]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[2]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[3]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[4]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[5]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[6]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[7]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[8]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[9]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[10]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[11]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[12]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[13]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[14]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[15]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[16]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[17]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[18]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[19]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[20]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[21]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[22]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[23]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[24]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[25]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[26]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[27]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[28]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[29]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[30]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[31]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[32]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[33]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[34]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[35]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[36]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[37]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[38]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[39]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[40]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[41]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[42]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[43]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[44]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[45]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[46]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[47]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[48]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[49]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[50]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[51]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[52]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[53]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[54]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[55]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[56]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[57]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[58]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[59]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[60]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[61]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[62]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[63]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[64]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[65]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[66]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[67]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[68]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[69]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[70]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[71]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[72]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[73]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[74]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[75]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[76]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[77]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[78]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[79]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[80]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[81]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[82]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[83]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[84]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[85]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[86]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[87]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[88]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[89]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[90]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[91]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[92]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[93]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[94]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[95]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[96]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[97]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[98]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[99]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[100]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[101]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[102]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[103]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[104]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[105]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[106]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[107]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[108]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[109]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[110]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[111]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[112]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[113]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[114]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[115]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[116]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[117]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[118]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[119]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[120]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[121]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[122]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[123]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[124]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[125]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[126]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[127]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[128]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[129]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[130]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[131]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[132]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[133]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[134]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[135]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[136]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[137]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[138]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[139]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[140]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[141]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[142]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[143]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[144]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[145]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[146]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[147]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[148]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[149]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[150]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[151]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[152]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[153]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[154]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[155]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[156]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[157]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[158]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[159]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[160]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[161]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[162]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[163]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[164]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[165]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[166]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[167]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[168]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[169]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[170]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[171]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[172]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[173]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[174]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[175]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[176]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[177]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[178]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[179]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[180]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[181]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[182]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[183]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[184]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[185]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[186]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[187]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[188]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[189]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[190]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[191]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[192]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[193]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[194]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[195]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[196]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[197]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[198]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[199]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[200]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[201]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[202]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[203]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[204]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[205]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[206]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[207]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[208]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[209]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[210]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[211]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[212]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[213]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[214]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[215]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[216]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[217]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[218]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[219]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[220]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[221]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[222]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[223]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[224]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[225]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[226]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[227]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[228]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[229]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[230]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[231]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[232]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[233]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[234]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[235]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[236]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[237]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[238]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[239]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[240]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[241]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[242]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[243]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[244]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[245]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[246]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[247]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[248]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[249]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[250]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[251]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[252]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[253]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[254]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>AddWriteRegisterCommand.data[255]</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>InitMode</Name>
+					<EnumText>UseDefaultOfNctController</EnumText>
+				</Value>
+				<Value>
+					<Name>SelectedCommandId</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>InitialPriority</Name>
+					<Value>0</Value>
+				</Value>
+				<Value>
+					<Name>ModuleId</Name>
+					<Data>34a522e45f510e4b8769a963ac987917</Data>
+				</Value>
+			</ParameterValues>
+		</TmcDesc>
+	</Module>
+</TcSmItem>
