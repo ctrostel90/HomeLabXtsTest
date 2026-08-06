@@ -1430,9 +1430,7 @@ External Setpoint Generation:
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
-			<EncPara ModuloFactor="1500">
-				<ParameterChanged>9</ParameterChanged>
-			</EncPara>
+			<EncPara ModuloFactor="1500"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>

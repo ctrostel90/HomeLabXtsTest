@@ -3,21 +3,36 @@
   <POU Name="MAIN" Id="{ca052151-d944-4048-8176-ae57a0c29f6c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	Xts			 : XtsSystem('XTS ProcessingUnit 1');
-	Movers		 : ARRAY[1..2] OF XtsMover[('Mover 1', 0, Xts), ('Mover 2', 0, Xts)];
-	VirtualMover : XtsMover('Virtual Mover', 0, Xts);
-	WholeTrack	 : XtsZone('Whole Track', Xts.Movers, 0, 1500, Xts);
-	MoveVelocity : XtsMoverMoveVelocity;
-	Halt		 : XtsMoverHalt;
-	tmp AT %I*	 : UINT;
-	State		 : UDINT;
-	Hmi			 : XtsBasicHmi<3, 1, 1, 1>('Hmi', Xts);
+	Xts				  : XtsSystem('XTS ProcessingUnit 1');
+	Movers			  : ARRAY[1..2] OF XtsMover[('Mover 1', 0, Xts), ('Mover 2', 0, Xts)];
+	VirtualCollection : XtsMoverCollection;
+	ReleaseTrigger	  : XtsPositionTrigger('Release Trigger', 0, VirtualCollection, Xts);
+	VirtualMover	  : XtsMover('Virtual Mover', 0, Xts);
+	WholeTrack		  : XtsZone('Whole Track', Xts.Movers, 0, 1500, Xts);
+	MoveVelocity	  : XtsMoverMoveVelocity;
+	Halt			  : XtsMoverHalt;
+	tmp AT %I*		  : UINT;
+	State			  : UDINT;
+	Hmi				  : XtsBasicHmi<3, 1, 1, 1>('Hmi', Xts);
 
 	//
 	startVirtualPosition : LREAL;
 	SetPosition			 : MC_SetPosition;
+	MoveToPos			 : ARRAY[1..2] OF MC_MoveAbsolute;
+	GearIn				 : ARRAY[1..2] OF MC_GearIn;
+	PhaseAxis			 : ARRAY[1..2] OF MC_PhasingRelative;
+	OpenCloseDistance	 : LREAL := 60;
 	commandedPosition	 : ARRAY[1..2] OF LREAL;
-	Gap					 : LREAL := 115;
+	Gap					 : LREAL := 60;
+	newPosition			 : LREAL;
+
+	//
+	PickupPosition : LREAL := 875;
+	DelayTimer	   : TON;
+	PrePickupTime  : TIME  := T#5S;
+	PostPickupTIme : TIME  := T#2S;
+	ProductSpeed   : LREAL := 400;
+	OpenVelocity   : LREAL := 600;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF NOT Xts.Initialized THEN
@@ -28,7 +43,13 @@ END_VAR]]></Declaration>
 	Xts.Parameters.Jerk			 := 100_000;
 	Xts.Parameters.Gap			 := 100;
 	VirtualMover.VirtualMover	 := TRUE;
+	Movers[1].ManualGroupControl := TRUE;
+	Movers[2].ManualGroupControl := TRUE;
 	Hmi.BuildHMI();
+	IF VirtualCollection.IsEmpty THEN
+		VirtualCollection.AddItem(VirtualMover);
+	END_IF
+
 	RETURN;
 END_IF
 
@@ -72,7 +93,7 @@ CASE State OF
 	110:
 		startVirtualPosition := (Movers[2].Position - Movers[1].Position) / 2 + Movers[1].Position;
 		SetPosition(Axis := VirtualMover.Axis, Position := startVirtualPosition, Execute := TRUE);
-		IF SetPosition.Done THEN
+		IF SetPosition.Done OR SetPosition.Error THEN
 			State := 120;
 			SetPosition(Axis := VirtualMover.Axis, Execute := FALSE);
 		END_IF
@@ -87,30 +108,148 @@ CASE State OF
 		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
 		VirtualMover.Parameters.Gap := 0;
 		VirtualMover.MoveToPosition(VirtualMover.Position);
-		
 		Movers[1].Parameters.CopyFrom(Xts.Parameters);
 		Movers[2].Parameters.CopyFrom(Xts.Parameters);
-		Movers[1].Parameters.Gap := 50;
-		Movers[2].Parameters.Gap := 50;
-		commandedPosition[1] :=  startVirtualPosition - Gap;
-		commandedPosition[2] :=  startVirtualPosition + Gap;
-		IF commandedPosition[1] < 0 THEN
-			commandedPosition[1] := commandedPosition[1] + Movers[1].Status.CurrentTrack.Length;
-		ELSIF commandedPosition[1] > Movers[1].Status.CurrentTrack.Length THEN
-			commandedPosition[1] := commandedPosition[1] - Movers[1].Status.CurrentTrack.Length;
-		END_IF
-		IF commandedPosition[2] < 0 THEN
-			commandedPosition[2] := commandedPosition[2] + Movers[1].Status.CurrentTrack.Length;
-		ELSIF commandedPosition[2] > Movers[1].Status.CurrentTrack.Length THEN
-			commandedPosition[2] := commandedPosition[2] - Movers[1].Status.CurrentTrack.Length;
-		END_IF
-		Movers[1].MoveToPosition(commandedPosition[1], XtsCore.Tc3_Mc3Definitions.MC_DIRECTION.mcDirectionShortestWay);
-		Movers[2].MoveToPosition(commandedPosition[2], XtsCore.Tc3_Mc3Definitions.MC_DIRECTION.mcDirectionShortestWay);
-		State := 122;
+		commandedPosition[1] := startVirtualPosition - Gap;
+		commandedPosition[2] := startVirtualPosition + Gap;
+		MoveToPos[1](Axis		  := Movers[1].Axis,
+					 Execute	  := TRUE,
+					 Position	  := commandedPosition[1],
+					 Velocity	  := 300,
+					 Acceleration := 5000,
+					 Deceleration := 5000,
+					 Jerk		  := 100000);
 
-	122:
-		IF NOT Movers[1].Busy AND NOT Movers[2].Busy THEN
-			State := 130;
+		MoveToPos[2](Axis		  := Movers[2].Axis,
+					 Execute	  := TRUE,
+					 Position	  := commandedPosition[2],
+					 Velocity	  := 300,
+					 Acceleration := 5000,
+					 Deceleration := 5000,
+					 Jerk		  := 100000);
+
+		IF MoveToPos[1].Error OR MoveToPos[2].Error OR (MoveToPos[1].Done AND MoveToPos[2].Done) THEN
+			MoveToPos[1](Axis := Movers[1].Axis, Execute := FALSE);
+			MoveToPos[2](Axis := Movers[2].Axis, Execute := FALSE);
+			State := 123;
+		END_IF
+
+	125:
+		GearIn[1](Master	   := VirtualMover.Axis,
+				  Slave		   := Movers[1].Axis,
+				  Execute	   := TRUE,
+				  Acceleration := 10_000,
+				  Deceleration := 10_000,
+				  Jerk		   := 100_000);
+
+		GearIn[2](Master	   := VirtualMover.Axis,
+				  Slave		   := Movers[2].Axis,
+				  Execute	   := TRUE,
+				  Acceleration := 10_000,
+				  Deceleration := 10_000,
+				  Jerk		   := 100_000);
+
+		IF GearIn[1].InGear AND GearIn[2].InGear THEN
+			GearIn[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
+			GearIn[2](Master := VirtualMover.Axis, Slave := Movers[2].Axis, Execute := FALSE);
+			State := 150;
+		END_IF
+
+	130:
+		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
+		VirtualMover.MoveToPosition(newPosition);
+		State := 131;
+
+	140:
+		PhaseAxis[1](Master		  := VirtualMover.Axis,
+					 Slave		  := Movers[1].Axis,
+					 Execute	  := TRUE,
+					 PhaseShift	  := OpenCloseDistance,
+					 Velocity	  := Xts.Parameters.Velocity * 1.2,
+					 Acceleration := 10_000,
+					 Deceleration := 10_000,
+					 Jerk		  := 100_000);
+
+		PhaseAxis[2](Master		  := VirtualMover.Axis,
+					 Slave		  := Movers[2].Axis,
+					 Execute	  := FALSE,
+					 PhaseShift	  := OpenCloseDistance,
+					 Velocity	  := Xts.Parameters.Velocity * 1.2,
+					 Acceleration := 10_000,
+					 Deceleration := 10_000,
+					 Jerk		  := 100_000);
+
+		IF PhaseAxis[1].Error OR PhaseAxis[1].Done THEN
+			PhaseAxis[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
+			PhaseAxis[2](Master := VirtualMover.Axis, Slave := Movers[2].Axis, Execute := FALSE);
+			State := 150;
+		END_IF
+
+	200:
+		//Move to pick up position
+
+		//Wait at pickup up position for PickupTime
+
+		//Phase to close and pickup the ball
+
+		//Move velocity
+
+		//Trigger Active, tell Mover[1] to phase open distance
+		//Phase Done, go back to repeat
+		VirtualMover.MoveToPosition(PickupPosition);
+		IF NOT VirtualMover.CurrentTask.Busy AND VirtualMover.InPosition THEN
+			State := 210;
+		END_IF
+
+	210:
+		DelayTimer(IN := TRUE, PT := PrePickupTime);
+		IF DelayTimer.Q THEN
+			DelayTimer(IN := FALSE);
+			State := 211;
+		END_IF
+
+	211:
+		PhaseAxis[1](Master		  := VirtualMover.Axis,
+					 Slave		  := Movers[1].Axis,
+					 Execute	  := TRUE,
+					 PhaseShift	  := OpenCloseDistance,
+					 Velocity	  := Xts.Parameters.Velocity * 1.2,
+					 Acceleration := 10_000,
+					 Deceleration := 10_000,
+					 Jerk		  := 100_000);
+
+		IF PhaseAxis[1].Error OR PhaseAxis[1].Done THEN
+			PhaseAxis[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
+			State := 212;
+		END_IF
+
+	212:
+		DelayTimer(IN := TRUE, PT := PostPickupTime);
+		IF DelayTimer.Q THEN
+			DelayTimer(IN := FALSE);
+			VirtualMover.MoveVelocity(ProductSpeed);
+			State := 213;
+		END_IF
+
+	213:
+		IF ReleaseTrigger.MoverIsPresent THEN
+			ReleaseTrigger.GetMover();
+			State := 220;
+		END_IF
+
+	220:
+		PhaseAxis[1](Master		  := VirtualMover.Axis,
+					 Slave		  := Movers[1].Axis,
+					 Execute	  := TRUE,
+					 PhaseShift	  := -OpenCloseDistance,
+					 Velocity	  := OpenVelocity,
+					 Acceleration := 10_000,
+					 Deceleration := 10_000,
+					 Jerk		  := 100_000);
+
+		IF PhaseAxis[1].Error OR PhaseAxis[1].Done THEN
+			PhaseAxis[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
+			State := 200;
 		END_IF
 END_CASE
 

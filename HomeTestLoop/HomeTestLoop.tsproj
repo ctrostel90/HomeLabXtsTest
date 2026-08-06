@@ -26,7 +26,8 @@
 			</Tasks>
 			<Modules>
 				<Module File="XTS ProcessingUnit 1.xti"/>
-				<Module File="XTS Parameter Set 1.xti"/>
+				<Module File="LeadMover.xti"/>
+				<Module File="TailMover.xti"/>
 			</Modules>
 		</System>
 		<Motion>
@@ -41,8 +42,8 @@
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030030"/>
-		<MappingInfo Identifier="{05000010-2001-0850-1000-120500205008}" Id="#x02030020" Watchdog="14000000040000000400000004000000"/>
-		<MappingInfo Identifier="{05000010-2001-0850-5000-040300205008}" Id="#x02030010" Watchdog="14000000040000000400000004000000"/>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{05000010-2001-0850-1000-120500205008}" Id="#x02030030" Watchdog="14000000040000000400000004000000"/>
+		<MappingInfo Identifier="{05000010-2001-0850-5000-040300205008}" Id="#x02030020" Watchdog="14000000040000000400000004000000"/>
 	</Mappings>
 </TcSmProject>

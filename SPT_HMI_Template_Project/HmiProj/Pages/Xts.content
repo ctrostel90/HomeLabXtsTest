@@ -84,5 +84,7 @@
 </div>
 <div id="XtsMoverPanel_4" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="2" data-tchmi-grid-row-index="1" data-tchmi-target-user-control="UserControls/Panels/XtsMoverPanel.usercontrol" data-tchmi-right="5" data-tchmi-bottom="5" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-left="5" data-tchmi-top="5" data-tchmi-data="%s%ADS.PLC1.MAIN.Hmi._MoverHmiObjects.2.Mover_HMI%/s%">
 </div>
+<div id="XtsPositionTriggerPanel_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/Panels/XtsPositionTriggerPanel.usercontrol" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-right="5" data-tchmi-bottom="5" data-tchmi-height-unit="%" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-data="%s%ADS.PLC1.MAIN.Hmi._PositionTriggerHmiObjects.0.PositionTrigger_HMI%/s%">
+</div>
 </div>
 </div>

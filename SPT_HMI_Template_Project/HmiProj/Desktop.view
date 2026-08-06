@@ -338,7 +338,7 @@
   }
 ]
 </script>
-<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="desktop-uc-pmlcontrol" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="2" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/PackMLControl.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="10" data-tchmi-bottom-unit="px" data-tchmi-width="%f%%ctrl%desktop-grid-machinecontrol::RenderedHeight%/ctrl%*0.4-12%/f%" data-tchmi-statemachinehmi="%s%ADS.PLC1.MAIN.PingPongDemo._Hmi.Statemachine_HMI%/s%">
+<div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="1" id="desktop-uc-pmlcontrol" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-left="2" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserControls/PackMLControl.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-right="0" data-tchmi-bottom="10" data-tchmi-bottom-unit="px" data-tchmi-width="%f%%ctrl%desktop-grid-machinecontrol::RenderedHeight%/ctrl%*0.4-12%/f%">
 
 <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
 [
