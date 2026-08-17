@@ -2910,7 +2910,7 @@
 					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="0">5</Elements>
+						<Elements>5</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080374</PTCID>
 					<ContextId>1</ContextId>
@@ -2922,7 +2922,7 @@
 					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="0">5</Elements>
+						<Elements>5</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080373</PTCID>
 					<ContextId>1</ContextId>
@@ -3000,7 +3000,7 @@
 					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="0">256</Elements>
+						<Elements>256</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080394</PTCID>
 					<ContextId>1</ContextId>

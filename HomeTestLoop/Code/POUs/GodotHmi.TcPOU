@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="GodotHmi" Id="{72cdee3b-11dc-4f9b-b672-51f90687abc8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK GodotHmi
+VAR
+	_Mover : I_XtsMover;
+	{attribute 'godot'}
+	productPosition : LREAL;
+	{attribute 'godot'}
+	setVelocity	  : LREAL;
+	tccomPosition : LREAL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="CyclicLogic" Id="{89438dfc-d303-4142-a2ac-c6f8d6c21da8}">
+      <Declaration><![CDATA[METHOD CyclicLogic
+VAR_INPUT
+END_VAR
+VAR_INST
+	PositionInfo : REFERENCE TO XtsCore.Tc3_XTS_Utility.ST_PositionInfo;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[productPosition := _Mover.Position;
+setVelocity		:= _Mover.Axis.NcToPlc.SetVelo;
+PositionInfo	REF= _Mover.MoverUtility.GetPositionInfo();
+tccomPosition	:= PositionInfo.fTrackPosition;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_Init" Id="{7a5d4926-e994-480d-bac3-4afb1c8f860a}">
+      <Declaration><![CDATA[//FB_Init is always available implicitly and it is used primarily for initialization.
+
+//The return value is not evaluated. For a specific influence, you can also declare the
+
+//methods explicitly and provide additional code there with the standard initialization
+
+//code. You can evaluate the return value.
+METHOD FB_Init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // TRUE: the retain variables are initialized (reset warm / reset cold)
+	bInCopyCode	 : BOOL; // TRUE: the instance will be copied to the copy code afterward (online change)   
+	Mover		 : I_XtsMover;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_Mover := Mover;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

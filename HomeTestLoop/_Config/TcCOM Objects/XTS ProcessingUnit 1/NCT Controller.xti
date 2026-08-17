@@ -1569,122 +1569,122 @@
 			<DisplayName TxtId=""><![CDATA[NctControllerEventClass]]></DisplayName>
 			<EventId>
 				<Name Id="0">C0100_OperationSuccessfulInfo</Name>
-				<DisplayName TxtId="0"><![CDATA[{0} (Code: 0x0100): Operation was successful.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x0100): Operation was successful.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="1">C0101_EepromDataWrittenInfo</Name>
-				<DisplayName TxtId="1"><![CDATA[{0} (Code: 0x0101): EEPROM data has been written.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x0101): EEPROM data has been written.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="2">C0200_ReinitializationSuccessfulInfo</Name>
-				<DisplayName TxtId="2"><![CDATA[{0} (Code: 0x0200): Reinitialization was successful.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x0200): Reinitialization was successful.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="3">C1007_FactoryResetSuccessfulInfo</Name>
-				<DisplayName TxtId="3"><![CDATA[{0} (Code: 0x1007): Factory reset was successful.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1007): Factory reset was successful.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="4">C1008_EepromChecksumWrittenInfo</Name>
-				<DisplayName TxtId="4"><![CDATA[{0} (Code: 0x1008): EEPROM checksum is written.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1008): EEPROM checksum is written.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="5">C100A_FirmwareNewRegisterTableInfo</Name>
-				<DisplayName TxtId="5"><![CDATA[{0} (Code: 0x100A): Firmware update has introduced new registers. Defaults are set. Register Version = {0}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x100A): Firmware update has introduced new registers. Defaults are set. Register Version = {0}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="5000">C1140_TemperatureCriticalWarning</Name>
-				<DisplayName TxtId="5000"><![CDATA[{0} (Code: 0x1140): Temperature is critical.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1140): Temperature is critical.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9000">C0201_SupplyVoltageInsufficientError</Name>
-				<DisplayName TxtId="9000"><![CDATA[{0} (Code: 0x0201): Required supply voltage is insufficient. (< 9V)]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x0201): Required supply voltage is insufficient. (< 9V)]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9001">C1000_RegisterGeneralAccessErrorError</Name>
-				<DisplayName TxtId="9001"><![CDATA[{0} (Code: 0x1000): General access error. Register = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1000): General access error. Register = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9002">C1001_RegisterInvalidErrorError</Name>
-				<DisplayName TxtId="9002"><![CDATA[{0} (Code: 0x1001): Access to unknown or invalid register. Register = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1001): Access to unknown or invalid register. Register = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9003">C1003_RegisterReadAccessErrorError</Name>
-				<DisplayName TxtId="9003"><![CDATA[{0} (Code: 0x1003): Read access error. Register = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1003): Read access error. Register = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9004">C1004_RegisterWriteAccessErrorError</Name>
-				<DisplayName TxtId="9004"><![CDATA[{0} (Code: 0x1004): Write access error. Register = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1004): Write access error. Register = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9005">C1005_RegisterWriteBusyErrorError</Name>
-				<DisplayName TxtId="9005"><![CDATA[{0} (Code: 0x1005): Write error because device is busy. Register = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1005): Write error because device is busy. Register = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9006">C1009_EepromChecksumErrorError</Name>
-				<DisplayName TxtId="9006"><![CDATA[{0} (Code: 0x1009): EEPROM checksum does not match. Remanent data is lost.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1009): EEPROM checksum does not match. Remanent data is lost.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9007">C100B_FastCommandInvalidError</Name>
-				<DisplayName TxtId="9007"><![CDATA[{0} (Code: 0x100B): Fast command invalid.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x100B): Fast command invalid.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9008">C1120_ProcessDataIndexInvalidError</Name>
-				<DisplayName TxtId="9008"><![CDATA[{0} (Code: 0x1120): Process data index is invalid (module to base unit). Register cannot be written cyclically. Register = {1}, Process data index = {2}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1120): Process data index is invalid (module to base unit). Register cannot be written cyclically. Register = {1}, Process data index = {2}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9009">C1121_ProcessDataIndexInvalidError</Name>
-				<DisplayName TxtId="9009"><![CDATA[{0} (Code: 0x1121): Process data index is invalid (base unit to module). Register cannot be read cyclically. Register = {1}, Process data index = {2}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1121): Process data index is invalid (base unit to module). Register cannot be read cyclically. Register = {1}, Process data index = {2}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9010">C1141_OverTemperatureErrorError</Name>
-				<DisplayName TxtId="9010"><![CDATA[{0} (Code: 0x1141): Overtemperature error.]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1141): Overtemperature error.]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9011">C1200_InputPinErrorError</Name>
-				<DisplayName TxtId="9011"><![CDATA[{0} (Code: 0x1200): Input-pin configuration error. Pin = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1200): Input-pin configuration error. Pin = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9012">C1201_InputPinInvalidOperationError</Name>
-				<DisplayName TxtId="9012"><![CDATA[{0} (Code: 0x1201): Invalid operation mode for input-pin detected. Pin = {1}, Invalid operation = {2}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1201): Invalid operation mode for input-pin detected. Pin = {1}, Invalid operation = {2}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9013">C1220_InputPinInvalidModeError</Name>
-				<DisplayName TxtId="9013"><![CDATA[{0} (Code: 0x1220): Invalid mode for input-pin detected. Pin = {1}, Mode = {2}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1220): Invalid mode for input-pin detected. Pin = {1}, Mode = {2}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9014">C1221_InputPinFilterModeNotSupportedError</Name>
-				<DisplayName TxtId="9014"><![CDATA[{0} (Code: 0x1221): Filter mode for input-pin not supported. Pin = {1}, Filter Mode = {2}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1221): Filter mode for input-pin not supported. Pin = {1}, Filter Mode = {2}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="9015">C1240_BridgeModeNotSupportedError</Name>
-				<DisplayName TxtId="9015"><![CDATA[{0} (Code: 0x1240): Mode for selected bridge is not supported. Bridge = {1}]]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[{0} (Code: 0x1240): Mode for selected bridge is not supported. Bridge = {1}]]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 			<EventId>
 				<Name Id="15000">MessageDebug</Name>
-				<DisplayName TxtId="15000"><![CDATA[DEBUG-MSG: '{0}', '{1}', '{2}', '{3}']]></DisplayName>
+				<DisplayName TxtId=""><![CDATA[DEBUG-MSG: '{0}', '{1}', '{2}', '{3}']]></DisplayName>
 				<Severity>Verbose</Severity>
 			</EventId>
 		</DataType>

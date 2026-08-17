@@ -1309,7 +1309,7 @@ and will return to Group State Standby when the situation permits.
 			</SubItem>
 		</DataType>
 	</DataTypes>
-	<Instance TmcHash="{56E93B93-E3C3-A05B-6C81-850AB4407C28}">
+	<Instance TmcHash="{AFE6C0EF-6C9B-1758-D899-F790A96C3680}">
 		<Vars VarGrpType="1">
 			<Name>PlcTask Inputs</Name>
 			<Var>
@@ -1319,6 +1319,10 @@ and will return to Group State Standby when the situation permits.
 			<Var>
 				<Name>MAIN.tmp</Name>
 				<Type>UINT</Type>
+			</Var>
+			<Var>
+				<Name>MAIN.Xts._AxesGroupRef.NcToPlc</Name>
+				<Type GUID="{467F4325-10DF-4BC1-88DD-E8240EB4F8E3}" Namespace="MC">CDT_MCTOPLC_GROUP</Type>
 			</Var>
 			<Var>
 				<Name>MAIN.Movers[1]._Axis.NcToPlc</Name>
@@ -1333,8 +1337,8 @@ and will return to Group State Standby when the situation permits.
 				<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 			</Var>
 			<Var>
-				<Name>MAIN.Xts._AxesGroupRef.NcToPlc</Name>
-				<Type GUID="{467F4325-10DF-4BC1-88DD-E8240EB4F8E3}" Namespace="MC">CDT_MCTOPLC_GROUP</Type>
+				<Name>MAIN.FeedAxis.NcToPlc</Name>
+				<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 			</Var>
 		</Vars>
 		<Vars VarGrpType="2" AreaNo="1">
@@ -1342,6 +1346,10 @@ and will return to Group State Standby when the situation permits.
 			<Var>
 				<Name>NullObjects.Axis.NullAxis.PlcToNc</Name>
 				<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+			</Var>
+			<Var>
+				<Name>MAIN.Xts._AxesGroupRef.PlcToNc</Name>
+				<Type GUID="{0E2E3852-A98C-4AF3-81E2-209EE128940C}" Namespace="MC">CDT_PLCTOMC_GROUP</Type>
 			</Var>
 			<Var>
 				<Name>MAIN.Movers[1]._Axis.PlcToNc</Name>
@@ -1356,8 +1364,8 @@ and will return to Group State Standby when the situation permits.
 				<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 			</Var>
 			<Var>
-				<Name>MAIN.Xts._AxesGroupRef.PlcToNc</Name>
-				<Type GUID="{0E2E3852-A98C-4AF3-81E2-209EE128940C}" Namespace="MC">CDT_PLCTOMC_GROUP</Type>
+				<Name>MAIN.FeedAxis.PlcToNc</Name>
+				<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 			</Var>
 		</Vars>
 	</Instance>

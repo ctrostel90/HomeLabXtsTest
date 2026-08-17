@@ -4,13 +4,14 @@
 		<System>
 			<Settings MaxCpus="8" NonWinCpus="4">
 				<Cpu CpuId="1"/>
+				<Cpu CpuId="4" BaseTime="2500"/>
 				<Cpu CpuId="5"/>
 				<Cpu CpuId="6" BaseTime="2500"/>
 				<Cpu CpuId="7" BaseTime="2500"/>
 				<IoIdleTask Affinity="#x00000002"/>
 			</Settings>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" Affinity="#x00000002" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="20000" AmsPort="350" Affinity="#x00000002" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 				<Task Id="4" Priority="1" CycleTime="2500" AmsPort="351" Affinity="#x00000080" AdtTasks="true">
@@ -19,7 +20,7 @@
 				<Task Id="5" Priority="2" CycleTime="2500" AmsPort="352" Affinity="#x00000040" AdtTasks="true">
 					<Name>XTS AUX Task 1</Name>
 				</Task>
-				<Task Id="8" Priority="32" AdtTasks="true" JobTask="true">
+				<Task Id="8" Priority="32" Affinity="#x00000002" AdtTasks="true" JobTask="true">
 					<Name>Job Task</Name>
 					<ImageId>327</ImageId>
 				</Task>
@@ -43,7 +44,7 @@
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
-		<MappingInfo Identifier="{05000010-2001-0850-1000-120500205008}" Id="#x02030030" Watchdog="14000000040000000400000004000000"/>
-		<MappingInfo Identifier="{05000010-2001-0850-5000-040300205008}" Id="#x02030020" Watchdog="14000000040000000400000004000000"/>
+		<MappingInfo Identifier="{05000010-2001-0850-1000-120500205008}" Id="#x02030030" Watchdog="04000000040000000400000004000000"/>
+		<MappingInfo Identifier="{05000010-2001-0850-5000-040300205008}" Id="#x02030020" Watchdog="04000000040000000400000004000000"/>
 	</Mappings>
 </TcSmProject>

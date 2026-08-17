@@ -19,6 +19,7 @@
 		<Axis File="Mover Axis 1.xti" Id="1"/>
 		<Axis File="Mover Axis 2.xti" Id="2"/>
 		<Axis File="VirtualMaster.xti" Id="3"/>
+		<Axis File="FeedAxis.xti" Id="4"/>
 		<Instance Id="#x05000100" KeepUnrestoredLinks="2">
 			<Name>Mc-Instance for NcPtp</Name>
 			<ImageId>4</ImageId>

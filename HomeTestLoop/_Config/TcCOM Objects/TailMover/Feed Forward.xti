@@ -293,6 +293,14 @@
 					<PTCID>#x03080001</PTCID>
 					<ContextId>1</ContextId>
 				</Parameter>
+				<Parameter Group="Advanced">
+					<Name>OpenLoopMoveForce</Name>
+					<Comment><![CDATA[Set the open loop move force with the position command as commutation angle.]]></Comment>
+					<BitSize>64</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+					<Unit><![CDATA[N]]></Unit>
+					<PTCID>#x0308044c</PTCID>
+				</Parameter>
 			</Parameters>
 			<Properties>
 				<Property>
@@ -377,6 +385,10 @@
 				<Value>
 					<Name>ModuleId</Name>
 					<Data>5e158b7e661ee1489d280607fa48fc11</Data>
+				</Value>
+				<Value>
+					<Name>OpenLoopMoveForce</Name>
+					<Value>23</Value>
 				</Value>
 			</ParameterValues>
 		</TmcDesc>

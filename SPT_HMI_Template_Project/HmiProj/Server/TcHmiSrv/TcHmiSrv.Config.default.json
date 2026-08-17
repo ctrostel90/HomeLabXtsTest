@@ -9,7 +9,7 @@
     "CACHEMAXAGE": "P30D",
     "CACHEMAXENTRYSIZE": 1048576,
     "CACHEMAXSIZE": 2097152,
-    "CERTIFICATE": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVIRENDQXdTZ0F3SUJBZ0lKQUk5S2VpK1lUTGdOTUEwR0NTcUdTSWIzRFFFQkN3VUFNRVV4Q3pBSkJnTlYKQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4R1RBWEJnTlZCQU1NRUVoaApjbWx6UVMxdVlqQXlYM0p2YjNRd0lCY05Nall3T0RBMk1UTXpOVEV4V2hnUE1qQTJOREV5TURReE16TTFNVEZhCk1FRXhDekFKQmdOVkJBWVRBa1JGTVJzd0dRWURWUVFLREJKVWQybHVRMEZVSUVoTlNTQlRaWEoyWlhJeEZUQVQKQmdOVkJBTU1ERU52Ym01dmNsUXRibUl3TVRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQwpnZ0VCQUxuamNjYjlTK1QyVTRwMTJMRUhIY1VXNlJja0ljNzRxMi8vQzNGRDdnY3JKcFZBOXNXbWRzVERJTDZFCkllUWQ2UlpZVjFWdjVsRXh6N1VVOFh5V256anIvVTVJcUVsS1pWR3BYcjc5dXBLS2Y3aXZaY1grQjRNNkxEMk4KckJidDkwczhTVXhGU3B2RThpUHZjMHBlV2E0VFkxQjNzbkFyWHNSMm9kYUpFZ09wZStaaUV2SzYyenRJcFJOagpqMkxaS0V4K05NbFNadEsxOWd5SHVvZ2F4OHJ4Q3I1aDZ3YTBhQmZQMWVNYWs2R010Y0piT3pvaWg5Q29HTzlyCi9uaFRWVm5HNndCV3MyU0hOUmFyNjNQd3hCNCtEWEMraU1TVlVwbDBDUHE2YlVRcU1TandIUUk1LzRnREF6T0sKMXNveTh2RG92OHJ2V1NIaHorMkRQcXRFQ1c4Q0F3RUFBYU9DQVE4d2dnRUxNSUdxQmdOVkhSRUVnYUl3Z1orQwpDV3h2WTJGc2FHOXpkSWNFZndBQUFZY1FBQUFBQUFBQUFBQUFBQUFBQUFBQUFZSU1RMjl1Ym05eVZDMXVZakF4CmdneERiMjV1YjNKVUxXNWlNREdIQkFyUFhObUhCS3dlSUFHSEJNQ292OW1IQk1Db0E5YUhFUDZBQUFBQUFBQUEKcC9KaDM1a2VTVENIRVA2QUFBQUFBQUFBcjh0UldXSkt5R21IRVA2QUFBQUFBQUFBNFgrVmpuWkNJcWFIRVA2QQpBQUFBQUFBQStpSU1ndi9iVmxBd0hRWURWUjBPQkJZRUZEeWhSMWZmVE1EZGtsVHYvVHFtdmlmZmhLMXBNQjhHCkExVWRJd1FZTUJhQUZERTIvLzdLY04xd3k0TVJrTjdrMGEwUVR0RUFNQXdHQTFVZEV3RUIvd1FDTUFBd0RnWUQKVlIwUEFRSC9CQVFEQWdXZ01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQTNiclpnbDNCM285aEtUN2FjRmI0UQpCdXhVTHBoeW8rMktxMDBTU3o0QkIyN0VZMDRaWjF5S01seEdBeGJyczM4K0IyMGhqZjd5bnIydy9qd2M3ZDFzCnUwcW5XSnNqVkZ5c1pIZ1JLdWxJcnZUVlVIRmZYb2dvUXBaMjV3SW8rK094L1RZN0FBRXlZSmlvZ3dNcWFDU0UKNG1YQUx6Y1hWNUkwL2hQQ1lYazBpMko1aVJ2Y3ppSU9CdnRYVG5Gd2hieERsbEQ3WGxud09Lb3djdDNaRXRCbwpFczVaTDZUdzJpa1hKR1hWaDdCeHRYVkxleHhHb05xUS8yYWxVeTA5blNjK1lTNDk0bG5zQ3RiMWwzVUhpU2RzCndwdzFoRzNGYjVCc2dBZ3loNEl3bElGUnBuVUpxRkRqSjNIK3RGdjM5MHlWZXFyaFVMRWxmaWN1alZtRngrZ0MKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJRUZqQ0NBdjZnQXdJQkFnSUpBUHR5WC96NHdoTHlNQTBHQ1NxR1NJYjNEUUVCQ3dVQU1FVXhDekFKQmdOVgpCQVlUQWtSRk1Sc3dHUVlEVlFRS0RCSlVkMmx1UTBGVUlFaE5TU0JUWlhKMlpYSXhHVEFYQmdOVkJBTU1FRWhoCmNtbHpRUzF1WWpBeVgzSnZiM1F3SUJjTk1qWXdOakV3TVRneE5UUTFXaGdQTWpBMk5ERXdNRGd4T0RFMU5EVmEKTUVVeEN6QUpCZ05WQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4R1RBWApCZ05WQkFNTUVFaGhjbWx6UVMxdVlqQXlYM0p2YjNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3CmdnRUtBb0lCQVFDbWt5ai84VkpKMUFpVHFwSTU0NTZ0MUN6RWRRZ0ZMVTdiWXR6elRJTlVBR0dXUUFQYUV2VWsKbUl2bWtMWWhIOWNDQ21wSm90UC9pVWxneUt6VmJ2cTlTektqbjZldjdOdm5LNGQ4QWZxdUp1YmMwclo5aElFMwpCeUY1Y2lCdkRUSVlvb1QxS1phL0p1TSs2ZCswcGNhY3IvOWJPOUdyNmVOQ0gwakZtVWc3alVPVVRwak93dHBXCnBIMFhNQ0xxdGRPZ1daZi9jdXVpUG1Kajc0a08vZE44WTFLN0ZtNHNCUVBBbGpXbTFCMTVuQ3RmbVY3UzZpUFoKLzFMWWFVWmNvVHl6d3h4YzNIUGNUTGNTWnJObWx3QjRNTXdEUWkzUEttN1V6ZXdGamJHVGUrZkl1MHVoWGpaZQo3Q3VOZmRNN3k1UVE3NHpXcDFNQWV0ZUpDWWgvcXhHREFnTUJBQUdqZ2dFRk1JSUJBVENCblFZRFZSMFJCSUdWCk1JR1NnZ2xzYjJOaGJHaHZjM1NIQkg4QUFBR0hFQUFBQUFBQUFBQUFBQUFBQUFBQUFBR0NDMGhoY21selFTMXUKWWpBeWdoaElZWEpwYzBFdGJtSXdNaTVpWldOcmFHOW1aaTVqYjIySEJNQ29TZ0dIQk1Db1N3R0hCTUNvVmllSApFUDZBQUFBQUFBQUFxMmhneGV6RGlvQ0hFUDZBQUFBQUFBQUE4eGF5QVBSSCtDYUhFUDZBQUFBQUFBQUE4NFo0CjNGOHVYamN3SFFZRFZSME9CQllFRkRFMi8vN0tjTjF3eTRNUmtON2swYTBRVHRFQU1COEdBMVVkSXdRWU1CYUEKRkRFMi8vN0tjTjF3eTRNUmtON2swYTBRVHRFQU1BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0RnWURWUjBQQVFILwpCQVFEQWdFR01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQjVEdk5ua21Zb2VXOWJ5WndpZ0I2dmdJbCtscnZhClJYTUQzaGh5b3JJNWlkM3dkME9tRGpFRDRmTVZXNmtkYkNsaHlqTGpHWUNYUk5mL2tYUWVkTTJFeW9JRlpMQmYKcmFYTDRyYldBUFJ1TDhYY1RWc20yK090MXdKM29Jbk5iblNYUklKZjl1L3FodElXY1NSSVBpcjBmSG55U0pMLwpYMFpJdWJibmYxaFlBZjBLcXZBaDdKMFFjRVRGd2ZYQ29jTkEyWXJtb1J0RUh4aUc2RlBmN3hjdTZ3Y2hGSlpYCnpmVmhQZkFtaDNSOXVYUzV6WllKb0V5bEVnV0dUTFRKNXhzRHlUSlRHM1NhQndxVWFDWkZJVnhDclNFYU53c3MKUGZ3V1V3ZWVQQmJwNkwrekZPZjdWWXZhTGlaWXZ6UXZ0UWM4SmFDMGZzMlFtYWdYbzc3NDI4aG0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=",
+    "CERTIFICATE": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVIRENDQXdTZ0F3SUJBZ0lKQUo4SlFjOTRsYnVQTUEwR0NTcUdTSWIzRFFFQkN3VUFNRVV4Q3pBSkJnTlYKQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4R1RBWEJnTlZCQU1NRUVoaApjbWx6UVMxdVlqQXlYM0p2YjNRd0lCY05Nall3T0RFd01USXpNelF4V2hnUE1qQTJOREV5TURneE1qTXpOREZhCk1FRXhDekFKQmdOVkJBWVRBa1JGTVJzd0dRWURWUVFLREJKVWQybHVRMEZVSUVoTlNTQlRaWEoyWlhJeEZUQVQKQmdOVkJBTU1ERU52Ym01dmNsUXRibUl3TVRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQwpnZ0VCQU1mM2hCRTQxdFJsMm1RbE5pOTVrYWJiNzlOcjd2MHF1K0pUR3hPSlg1ODVmbkxQS2NaZTNyVVpqcDU3CnpqeHhQTy8xcWJBTUxBdExvbmc1TytvTnlBblFuM3VZZitVMFlwK0MyUWxVN1l4T2dkQjY1RzdiZmNwVS83aFUKN0lzRjB6R2JxaURwYVVvUiszelpVb3FqRVNXdTJXcWJPMDFhMjJHNG53Vk13TDFEM1oydEIxTVJ1b0ZBQkhoaQpjVmlFWFpsQm5qdmJXYnhNV1FJOW5BVHdYWXpsTk13ZlFUR0tjeGdlTFNKczNQbit6M29oWHducjhENHZOSHNGCnNsNFdNUStEZHhjT1daMEFSZWdWbEFyYzVxb1h5d3VhV2s2TEsxWThLQmRrQTYzR3gyQm42OC9BUEY1eHRLQWQKemMyT1N4NmVIdGFlQU9NZ3BNMnRhUFl5b3FzQ0F3RUFBYU9DQVE4d2dnRUxNSUdxQmdOVkhSRUVnYUl3Z1orQwpDV3h2WTJGc2FHOXpkSWNFZndBQUFZY1FBQUFBQUFBQUFBQUFBQUFBQUFBQUFZSU1RMjl1Ym05eVZDMXVZakF4CmdneERiMjV1YjNKVUxXNWlNREdIQkFyUFhObUhCS3dlSUFHSEJNQ292OW1IQk1Db0E5YUhFUDZBQUFBQUFBQUEKcC9KaDM1a2VTVENIRVA2QUFBQUFBQUFBcjh0UldXSkt5R21IRVA2QUFBQUFBQUFBNFgrVmpuWkNJcWFIRVA2QQpBQUFBQUFBQStpSU1ndi9iVmxBd0hRWURWUjBPQkJZRUZESkkvMjlRdUNWMG1YVDdlREdjeHZDTXVmL2RNQjhHCkExVWRJd1FZTUJhQUZERTIvLzdLY04xd3k0TVJrTjdrMGEwUVR0RUFNQXdHQTFVZEV3RUIvd1FDTUFBd0RnWUQKVlIwUEFRSC9CQVFEQWdXZ01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQXl3ZVhPTjdBNzc4SlhQbUNuUFdqZAppZ1hxdWNtN0o5cXplck55TDZjQ09HSEMxaEdzZFplampVdklsSnlIUlBYRjVhdkltRDc0Y0dQaGRnUTBxVWFHCkxFanZwdGo0M2t3ckVFYUIyYUxiU2VCZkczbEhHZE5PZ2t0ZTdhSTdOcFltaGIvY1cvMmhrNzFUeXdLc1BDQjUKZ1NwaCtCYmFZSU9pbUVaRXpoMkpoOVpNeDdRQXlqRTZHOUlqT0tSMkJ0M3pYa1B6T1U5a3I1cnUvQW1FZUtlbwpMR1g4V0N1TWdrNmlHWXFLQTFNNWVLYkRGcjN0OWxuRzI0d1lFWXNDQTdGSWV6T2JLcGd3TmMzZUdLaHY4SElwCnZaSVYvWFBhaUNOWmVIbkFmTkRXOWRnRGhWU2tUZjY1M0VnTmJtd1kzWUVhZE5WTkgwM3BMSFhhZ3d3d3VsK1kKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQotLS0tLUJFR0lOIENFUlRJRklDQVRFLS0tLS0KTUlJRUZqQ0NBdjZnQXdJQkFnSUpBUHR5WC96NHdoTHlNQTBHQ1NxR1NJYjNEUUVCQ3dVQU1FVXhDekFKQmdOVgpCQVlUQWtSRk1Sc3dHUVlEVlFRS0RCSlVkMmx1UTBGVUlFaE5TU0JUWlhKMlpYSXhHVEFYQmdOVkJBTU1FRWhoCmNtbHpRUzF1WWpBeVgzSnZiM1F3SUJjTk1qWXdOakV3TVRneE5UUTFXaGdQTWpBMk5ERXdNRGd4T0RFMU5EVmEKTUVVeEN6QUpCZ05WQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4R1RBWApCZ05WQkFNTUVFaGhjbWx6UVMxdVlqQXlYM0p2YjNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3CmdnRUtBb0lCQVFDbWt5ai84VkpKMUFpVHFwSTU0NTZ0MUN6RWRRZ0ZMVTdiWXR6elRJTlVBR0dXUUFQYUV2VWsKbUl2bWtMWWhIOWNDQ21wSm90UC9pVWxneUt6VmJ2cTlTektqbjZldjdOdm5LNGQ4QWZxdUp1YmMwclo5aElFMwpCeUY1Y2lCdkRUSVlvb1QxS1phL0p1TSs2ZCswcGNhY3IvOWJPOUdyNmVOQ0gwakZtVWc3alVPVVRwak93dHBXCnBIMFhNQ0xxdGRPZ1daZi9jdXVpUG1Kajc0a08vZE44WTFLN0ZtNHNCUVBBbGpXbTFCMTVuQ3RmbVY3UzZpUFoKLzFMWWFVWmNvVHl6d3h4YzNIUGNUTGNTWnJObWx3QjRNTXdEUWkzUEttN1V6ZXdGamJHVGUrZkl1MHVoWGpaZQo3Q3VOZmRNN3k1UVE3NHpXcDFNQWV0ZUpDWWgvcXhHREFnTUJBQUdqZ2dFRk1JSUJBVENCblFZRFZSMFJCSUdWCk1JR1NnZ2xzYjJOaGJHaHZjM1NIQkg4QUFBR0hFQUFBQUFBQUFBQUFBQUFBQUFBQUFBR0NDMGhoY21selFTMXUKWWpBeWdoaElZWEpwYzBFdGJtSXdNaTVpWldOcmFHOW1aaTVqYjIySEJNQ29TZ0dIQk1Db1N3R0hCTUNvVmllSApFUDZBQUFBQUFBQUFxMmhneGV6RGlvQ0hFUDZBQUFBQUFBQUE4eGF5QVBSSCtDYUhFUDZBQUFBQUFBQUE4NFo0CjNGOHVYamN3SFFZRFZSME9CQllFRkRFMi8vN0tjTjF3eTRNUmtON2swYTBRVHRFQU1COEdBMVVkSXdRWU1CYUEKRkRFMi8vN0tjTjF3eTRNUmtON2swYTBRVHRFQU1BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0RnWURWUjBQQVFILwpCQVFEQWdFR01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQjVEdk5ua21Zb2VXOWJ5WndpZ0I2dmdJbCtscnZhClJYTUQzaGh5b3JJNWlkM3dkME9tRGpFRDRmTVZXNmtkYkNsaHlqTGpHWUNYUk5mL2tYUWVkTTJFeW9JRlpMQmYKcmFYTDRyYldBUFJ1TDhYY1RWc20yK090MXdKM29Jbk5iblNYUklKZjl1L3FodElXY1NSSVBpcjBmSG55U0pMLwpYMFpJdWJibmYxaFlBZjBLcXZBaDdKMFFjRVRGd2ZYQ29jTkEyWXJtb1J0RUh4aUc2RlBmN3hjdTZ3Y2hGSlpYCnpmVmhQZkFtaDNSOXVYUzV6WllKb0V5bEVnV0dUTFRKNXhzRHlUSlRHM1NhQndxVWFDWkZJVnhDclNFYU53c3MKUGZ3V1V3ZWVQQmJwNkwrekZPZjdWWXZhTGlaWXZ6UXZ0UWM4SmFDMGZzMlFtYWdYbzc3NDI4aG0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=",
     "CERTIFICATEEXPIRATION": "P14000D",
     "CHECKSUMENABLED": true,
     "CHUNKSIZE": 1048576,
@@ -105,12 +105,22 @@
                 "startOffset": 1,
                 "type": "array"
             },
+            "ADS-PLC1.ARRAY_1..3_OF-LREAL": {
+                "items": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "startOffset": 1,
+                "type": "array"
+            },
             "ADS-PLC1.ApplicationBase.Button": {
                 "additionalProperties": false,
                 "attributes": {
                     "$implements": [
                         "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.I_Button"
                     ],
+                    "PouType": "FunctionBlock",
                     "TcImplements": "ApplicationBase.I_Button"
                 },
                 "properties": {
@@ -248,6 +258,7 @@
                     "$implements": [
                         "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.I_Permissive"
                     ],
+                    "PouType": "FunctionBlock",
                     "TcImplements": "ApplicationBase.I_Permissive"
                 },
                 "properties": {
@@ -289,6 +300,328 @@
                     "_OK",
                     "Permissive",
                     "PermissiveReason"
+                ],
+                "type": "object"
+            },
+            "ADS-PLC1.ApplicationBase.ST_AxisPTP_HMI": {
+                "additionalProperties": false,
+                "attributes": {
+                    "$extends": [
+                        "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.ST_HmiFunction"
+                    ],
+                    "TcExtends": "ApplicationBase.ST_HmiFunction"
+                },
+                "properties": {
+                    "ActualAcceleration": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 7
+                            }
+                        ]
+                    },
+                    "ActualPosition": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 8
+                            }
+                        ]
+                    },
+                    "ActualPositionModulo": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 9
+                            }
+                        ]
+                    },
+                    "ActualTorque": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 10
+                            }
+                        ]
+                    },
+                    "ActualVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 11
+                            }
+                        ]
+                    },
+                    "Busy": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 4
+                            }
+                        ]
+                    },
+                    "Disable": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 14
+                            }
+                        ]
+                    },
+                    "Enable": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 13
+                            }
+                        ]
+                    },
+                    "Error": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 5
+                            }
+                        ]
+                    },
+                    "ErrorId": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/UDINT"
+                            },
+                            {
+                                "propertyOrder": 6
+                            }
+                        ]
+                    },
+                    "HmiEnabled": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "Home": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 20
+                            }
+                        ]
+                    },
+                    "JogBackwardFast": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
+                    "JogBackwardSlow": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 17
+                            }
+                        ]
+                    },
+                    "JogForwardFast": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
+                    "JogForwardSlow": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 16
+                            }
+                        ]
+                    },
+                    "MoveAbsolute": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 22
+                            }
+                        ]
+                    },
+                    "MoveModulo": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 28
+                            }
+                        ]
+                    },
+                    "MoveRelative": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 26
+                            }
+                        ]
+                    },
+                    "MoveVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 24
+                            }
+                        ]
+                    },
+                    "Name": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/STRING%2880%29"
+                            },
+                            {
+                                "propertyOrder": 1
+                            }
+                        ]
+                    },
+                    "Reset": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 21
+                            }
+                        ]
+                    },
+                    "Status": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.Tc2_MC2.ST_AxisStatus"
+                            },
+                            {
+                                "propertyOrder": 12
+                            }
+                        ]
+                    },
+                    "Stop": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 15
+                            }
+                        ]
+                    },
+                    "TargetDistance": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 27
+                            }
+                        ]
+                    },
+                    "TargetPosition": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 23
+                            }
+                        ]
+                    },
+                    "TargetVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 25
+                            }
+                        ]
+                    },
+                    "Unit": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/STRING%2880%29"
+                            },
+                            {
+                                "propertyOrder": 3
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "Name",
+                    "HmiEnabled",
+                    "Unit",
+                    "Busy",
+                    "Error",
+                    "ErrorId",
+                    "ActualAcceleration",
+                    "ActualPosition",
+                    "ActualPositionModulo",
+                    "ActualTorque",
+                    "ActualVelocity",
+                    "Status",
+                    "Enable",
+                    "Disable",
+                    "Stop",
+                    "JogForwardSlow",
+                    "JogBackwardSlow",
+                    "JogForwardFast",
+                    "JogBackwardFast",
+                    "Home",
+                    "Reset",
+                    "MoveAbsolute",
+                    "TargetPosition",
+                    "MoveVelocity",
+                    "TargetVelocity",
+                    "MoveRelative",
+                    "TargetDistance",
+                    "MoveModulo"
                 ],
                 "type": "object"
             },
@@ -1664,6 +1997,91 @@
                     }
                 ]
             },
+            "ADS-PLC1.ST_AsyncSyncProductProcessConfig": {
+                "additionalProperties": false,
+                "properties": {
+                    "FeederAccel": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 5
+                            }
+                        ]
+                    },
+                    "FeederDecel": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 6
+                            }
+                        ]
+                    },
+                    "FeederPausePosition": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "FeederPitch": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 3
+                            }
+                        ]
+                    },
+                    "Feedrate": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 4
+                            }
+                        ]
+                    },
+                    "ReleaseVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 7
+                            }
+                        ]
+                    },
+                    "SyncPosition": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 1
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "SyncPosition",
+                    "FeederPausePosition",
+                    "FeederPitch",
+                    "Feedrate",
+                    "FeederAccel",
+                    "FeederDecel",
+                    "ReleaseVelocity"
+                ],
+                "type": "object"
+            },
             "ADS-PLC1.ST_CameraModule_Hmi": {
                 "additionalProperties": false,
                 "attributes": {
@@ -1680,6 +2098,16 @@
                             },
                             {
                                 "propertyOrder": 12
+                            }
+                        ]
+                    },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
                             }
                         ]
                     },
@@ -1833,6 +2261,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -1861,7 +2299,9 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -3906,6 +4346,16 @@
                             }
                         ]
                     },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
                     "Busy": {
                         "allOf": [
                             {
@@ -4056,6 +4506,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -4084,7 +4544,9 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -4416,6 +4878,16 @@
                             }
                         ]
                     },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
                     "Busy": {
                         "allOf": [
                             {
@@ -4566,6 +5038,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -4594,7 +5076,85 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
+                ],
+                "type": "object"
+            },
+            "ADS-PLC1.ST_Hopper_Config": {
+                "additionalProperties": false,
+                "properties": {
+                    "LiftingRate": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Rate at which to run the lift mechanism at",
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "PhaseOperationAccel": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 4
+                            }
+                        ]
+                    },
+                    "PhaseOperationDecel": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 5
+                            }
+                        ]
+                    },
+                    "PhaseOperationJerk": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 6
+                            }
+                        ]
+                    },
+                    "PhaseOperationVel": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 3
+                            }
+                        ]
+                    },
+                    "PickupOpenDistance": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Distance for the leading mover to move when picking up the mover",
+                                "propertyOrder": 1
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "PickupOpenDistance",
+                    "LiftingRate",
+                    "PhaseOperationVel",
+                    "PhaseOperationAccel",
+                    "PhaseOperationDecel",
+                    "PhaseOperationJerk"
                 ],
                 "type": "object"
             },
@@ -4617,6 +5177,16 @@
                             }
                         ]
                     },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
                     "Busy": {
                         "allOf": [
                             {
@@ -4767,6 +5337,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -4795,7 +5375,9 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -6812,6 +7394,47 @@
                 ],
                 "type": "object"
             },
+            "ADS-PLC1.ST_PairedMoverProcessConfig": {
+                "additionalProperties": false,
+                "properties": {
+                    "DwellSimTime": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/TIME"
+                            },
+                            {
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "PairSizes": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ARRAY_1..3_OF-LREAL"
+                            },
+                            {
+                                "propertyOrder": 1
+                            }
+                        ]
+                    },
+                    "ReleaseVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "propertyOrder": 3
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "PairSizes",
+                    "DwellSimTime",
+                    "ReleaseVelocity"
+                ],
+                "type": "object"
+            },
             "ADS-PLC1.ST_PeekerEntry": {
                 "additionalProperties": false,
                 "properties": {
@@ -7534,6 +8157,229 @@
                     "Reset",
                     "AutoTune",
                     "Hold"
+                ],
+                "type": "object"
+            },
+            "ADS-PLC1.ST_ProductProcess_Hmi": {
+                "additionalProperties": false,
+                "attributes": {
+                    "$extends": [
+                        "tchmi:server#/definitions/ADS-PLC1.ST_EquipmentModule_Hmi"
+                    ],
+                    "TcExtends": "ST_EquipmentModule_Hmi"
+                },
+                "properties": {
+                    "Abort": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 12
+                            }
+                        ]
+                    },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
+                    "Busy": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 3
+                            }
+                        ]
+                    },
+                    "ClearLog": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 17
+                            }
+                        ]
+                    },
+                    "CurrentTaskName": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.Tc2_System.T_MaxString"
+                            },
+                            {
+                                "propertyOrder": 7
+                            }
+                        ]
+                    },
+                    "Disable": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 11
+                            }
+                        ]
+                    },
+                    "Enable": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 10
+                            }
+                        ]
+                    },
+                    "Enabled": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 8
+                            }
+                        ]
+                    },
+                    "Error": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 4
+                            }
+                        ]
+                    },
+                    "ErrorId": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/UDINT"
+                            },
+                            {
+                                "propertyOrder": 5
+                            }
+                        ]
+                    },
+                    "Execute": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 14
+                            }
+                        ]
+                    },
+                    "HmiEnabled": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "LastTaskName": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.Tc2_System.T_MaxString"
+                            },
+                            {
+                                "propertyOrder": 6
+                            }
+                        ]
+                    },
+                    "LogMessages": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ARRAY_0..19_OF-Tc2_System.T_MaxString"
+                            },
+                            {
+                                "propertyOrder": 9
+                            }
+                        ]
+                    },
+                    "Name": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/STRING%2880%29"
+                            },
+                            {
+                                "propertyOrder": 1
+                            }
+                        ]
+                    },
+                    "Recover": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 15
+                            }
+                        ]
+                    },
+                    "Reset": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 13
+                            }
+                        ]
+                    },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
+                    "Stop": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 16
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "Name",
+                    "HmiEnabled",
+                    "Busy",
+                    "Error",
+                    "ErrorId",
+                    "LastTaskName",
+                    "CurrentTaskName",
+                    "Enabled",
+                    "LogMessages",
+                    "Enable",
+                    "Disable",
+                    "Abort",
+                    "Reset",
+                    "Execute",
+                    "Recover",
+                    "Stop",
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -8644,6 +9490,16 @@
                             }
                         ]
                     },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
                     "Busy": {
                         "allOf": [
                             {
@@ -8794,6 +9650,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -8822,7 +9688,9 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -9790,6 +10658,16 @@
                             }
                         ]
                     },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
+                            }
+                        ]
+                    },
                     "Busy": {
                         "allOf": [
                             {
@@ -9940,6 +10818,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -9968,7 +10856,9 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -10332,6 +11222,86 @@
                 ],
                 "type": "object"
             },
+            "ADS-PLC1.ST_XtsLoopSyncManager_Config": {
+                "additionalProperties": false,
+                "properties": {
+                    "HandoverOpenDistance": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Distance for the leading mover to move when handing over the product",
+                                "propertyOrder": 1
+                            }
+                        ]
+                    },
+                    "HandoverOpenVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Velocity for the leading mover when needing to open",
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "HandoverVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Velocity for the handover process, should be slower than the OpenVelocity",
+                                "propertyOrder": 3
+                            }
+                        ]
+                    },
+                    "NctSyncPosition": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Absolute distance on the Horizontal NCT loop for the sync to occur",
+                                "propertyOrder": 6
+                            }
+                        ]
+                    },
+                    "PairSyncPosition": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Absolute distance on teh Vertical Paired loop for the sync to occur",
+                                "propertyOrder": 5
+                            }
+                        ]
+                    },
+                    "ReleaseVelocity": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/LREAL"
+                            },
+                            {
+                                "comment": "Speed at which to release the movers from the sequence when complete",
+                                "propertyOrder": 4
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "HandoverOpenDistance",
+                    "HandoverOpenVelocity",
+                    "HandoverVelocity",
+                    "ReleaseVelocity",
+                    "PairSyncPosition",
+                    "NctSyncPosition"
+                ],
+                "type": "object"
+            },
             "ADS-PLC1.ST_XtsLoopSyncManager_Hmi": {
                 "additionalProperties": false,
                 "attributes": {
@@ -10348,6 +11318,16 @@
                             },
                             {
                                 "propertyOrder": 12
+                            }
+                        ]
+                    },
+                    "ApplyConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 18
                             }
                         ]
                     },
@@ -10501,6 +11481,16 @@
                             }
                         ]
                     },
+                    "ResetConfig": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.Button"
+                            },
+                            {
+                                "propertyOrder": 19
+                            }
+                        ]
+                    },
                     "Stop": {
                         "allOf": [
                             {
@@ -10529,7 +11519,9 @@
                     "Execute",
                     "Recover",
                     "Stop",
-                    "ClearLog"
+                    "ClearLog",
+                    "ApplyConfig",
+                    "ResetConfig"
                 ],
                 "type": "object"
             },
@@ -14419,7 +15411,7 @@
     "HTTP_FLOODPROTECTION": 100,
     "INITTIMEOUT": "PT10S",
     "KEEP_ALIVE": "PT40S",
-    "KEY": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRQzU0M0hHL1V2azlsT0sKZGRpeEJ4M0ZGdWtYSkNITytLdHYvd3R4USs0SEt5YVZRUGJGcG5iRXd5QytoQ0hrSGVrV1dGZFZiK1pSTWMrMQpGUEY4bHA4NDYvMU9TS2hKU21WUnFWNisvYnFTaW4rNHIyWEYvZ2VET2l3OWphd1c3ZmRMUEVsTVJVcWJ4UElqCjczTktYbG11RTJOUWQ3SndLMTdFZHFIV2lSSURxWHZtWWhMeXV0czdTS1VUWTQ5aTJTaE1malRKVW1iU3RmWU0KaDdxSUdzZks4UXErWWVzR3RHZ1h6OVhqR3BPaGpMWENXenM2SW9mUXFCanZhLzU0VTFWWnh1c0FWck5raHpVVwpxK3R6OE1RZVBnMXd2b2pFbFZLWmRBajZ1bTFFS2pFbzhCMENPZitJQXdNeml0YktNdkx3NkwvSzcxa2g0Yy90Cmd6NnJSQWx2QWdNQkFBRUNnZ0VBQzUyUWxxc1lRQ0tRODN0MnJXVXc4VEpaSVZiaTBwczJUSkFjSjhQalkvT2QKMGNEQlNzdDM2M0ZOVFZVQXNIcEZVNGlmVGNRK3c1UnJFcmtsZDlxMDhLcDFFSEc0MWsrUzhqTTFBT3ZtUHlidQp0b2NsN2JwNGFncExYbWllWXNFVVFxYkRPOFFFQVU5MnJxa3FtVVhqc1FnZXgydEdBcWdBZFhmN2wrWWJ4K1VHCjNpdWlma2RlLytsT0NMbXcrN0FPb09kWjNxd001ZjZpTUh4OVdHUnV2NXNpbTFIaFh2UGR6eUcyaDJyZklZZHAKdDJjOHg5TTZDczhvOWtxdnRVSWs2Y1h1UmJhMWllT3BXZVVHdnJBc2hlNC9XZE55cWlSQVVZRlZldTh4cjl4MQpZNjNmL1htRVZuYzM4b1B6bnU1bHlLckh1N1ZVdEFlYk84ZTN5VHlLNlFLQmdRRGJGRDhNUFovRzN5aTFLY2xDCjJNQjVFUnM5ZG5PWGlMYlo0YXRzRkRoNXpVbmlkMCtwUUppQ1U2OFJFYlhNRmZvNmIxenFxRVMrcjlPSWc3NjEKeXlYM1hCQldvNDZQMk80WWhmUU1OYnBRVEhpMTBtOVlZTTNRNW03SzJPekUrMWRSZjJoODI2eDcyVVUwRkl0QgplaHdqTHFPc0lHQnlhOU14LzEyMVFDbjh1UUtCZ1FEWk4wQkFSdElzRzRKZDZZUUZZRk15allUbllhdUdLQ0lyCkRHS0ZlS053ZHRTcDZUV1RPbHQ4NUFkbzdTL1JXRmNjVGxGNTliQXppeUdJRnE1N2FMUXFSRmRzQXdrWU9XNzIKaGRhWlJ5TGlGZGM1WU9TSy9HWWltZmJWbldhanBRZ0R3VFNoSGxlajRMSXRQWDEwV3VtL1RiWDdKQ0dLYmlYcQo3cU9zUXZxelp3S0JnRi9vdmkxS3NTOHNOVE1TaHhTbnRhT0sxS1VVdlVnaXh3SWQ1S0VkUFJnOXdsSE5yK2RGCjZ6NXJDbUpyb1c0bVZQVE9HaHgwN0J1YTkvMTB4OEhvbk1kczI0NUNia0FWVlM4UlBhVTJ4RWt4SVV0Z1EvU3AKOUpDMndOdzNHWGluSERRR2xpVExPdmpCUnFXbE5NM0dlcGtBYXhFSTM1QllHZzV5WUlEZ0JVR3BBb0dCQU11UQpWZXhtOG94WGM0TmpWbEJiaDF5Mjk3aUg5ZUVTTjRNMFpoaERpSmZiSlUzZXVsQ3h2Zzk2Kzk2L2ViS3RJV1hyCmw3dStIbFVQckdzSEpwbU05RnN3Rk9XcXFwbERLZFJxZFVUTVA4cTFRVEFLdCtQd3loN2ZQMDNONXVTeHdxTVMKSzZwYTd6TXJYbys3TXBrYW9qaWdNVTJjL0xub3BDeFpYSllSWnpVOUFvR0FVeGlSM3FBdUJwT2N5MklFeHlLeQpadS9vMTlTbXRLaDA3Y3ZzU014L0laOW14b0V2bk42OGFmcE8yM1o3Wk51YWNwcGcxN1g3OHNSbytBbXdobEhwCk5nK1dENlEwL2lET1UrQVB1SjlVbk5WT0JaNjI3dUpIZHg3R0lEblhLcXNlR3g2QkNMaTlaOUl5UG5jQ2xWQ20KMkM2Q1lyNXFadmhqaE1MK2FxTWxtbGc9Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K",
+    "KEY": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRREg5NFFST05iVVpkcGsKSlRZdmVaR20yKy9UYSs3OUtydmlVeHNUaVYrZk9YNXl6eW5HWHQ2MUdZNmVlODQ4Y1R6djlhbXdEQ3dMUzZKNApPVHZxRGNnSjBKOTdtSC9sTkdLZmd0a0pWTzJNVG9IUWV1UnUyMzNLVlArNFZPeUxCZE14bTZvZzZXbEtFZnQ4CjJWS0tveEVscnRscW16dE5XdHRodUo4RlRNQzlROTJkclFkVEVicUJRQVI0WW5GWWhGMlpRWjQ3MjFtOFRGa0MKUFp3RThGMk01VFRNSDBFeGluTVlIaTBpYk56NS9zOTZJVjhKNi9BK0x6UjdCYkplRmpFUGczY1hEbG1kQUVYbwpGWlFLM09hcUY4c0xtbHBPaXl0V1BDZ1haQU90eHNkZ1ordlB3RHhlY2JTZ0hjM05qa3Nlbmg3V25nRGpJS1ROCnJXajJNcUtyQWdNQkFBRUNnZ0VBT2lKMmJiOVZqWWhTOXB4dTVWeDFnTW9lTGh3SjdlWTNtelBJQW1VRXZMaXQKVDFsMDdxdjBHVGhsNHlOaE1PZEc3UWhCbmVIY0NDaWtBa201Wm5FOVA4VThLR1dNZ1NrNnB0OFdsQVR4enNHZwpNZWtZY2pZem10Z2RSQXpFZkNKa1pONjVsam5sbDFnbEFnWDRYai9NSTJWeTVmQmRURDdtMnNFZTBoNmZSaVpwCjhHbHhWWlJYTldXZHRIcTJrSmU1RWN6ZmlST3dzNjNYSGFPVStlb090NTMyQVhYRzliWnZGZE9wUDVxNTBhNm8KaDJjcThmemsrVkxHcGtCMHJBV3JtYkcxRTIwVlJKNloxTEswOGNCQ0pOYmU0aERFVmNza25TNjc1TnhSRHN4MQpPbjl0R2E0dHhaSEJqN0FodjNWMG1uYW1FcG1HaEhSU1RIS0FRZEljT1FLQmdRRHlXLzY2K3dGWjVpa25Zck12Cko1SE1wZE83WmZ2SWFIVml0TDNWRWtEejVHQlZlWVAvaEtKRTE3OGxmd2xNdmdhZmlVeUhhOE1uWHlTWTZGZ0UKYkQ2L25NSXk5MEg2T0IrRzZvQTJGQzJlZklBN0d3NHdGcm1rb3FyVnRBL3R1R2V5QTVqOVdIMUdHL0gwUG4xbgpESUU4UXF3QXJBTVFacWNBNEVrRjJVY3Ezd0tCZ1FEVE9MYTU0NXB6WGNUU0hwWlNBOU1ybTZhNjZzcGEyaWQyCkQ2Z0dFL3JMZHZ2c0ZOZlpJcHBTRWFGTDBzck5NRmM3YllseWNPdjVFR0h1RWlWemFRQ3ZGck1LVG5KYXF5TTQKNjR0N21RU29NU0FsSDJkOS9EanozY0N1OUprT0RuTXJrcnVDRm9mVWNiaGVzYlhoU010VHlia1BmYUlJT25BNQprY1g2Y013TnRRS0JnRG9RS2kzM3RySW4veElOaG1vMHE2eUF5Z0lxZzdEV3ZkREJCbjNHbXNNVG9yUzNvUlVWClhKN3JwVUxCZGFQcUhzSVg3YnEvNlloRU5ndGdGcjR3aExQNVJWbGFmWGNKL1J1Z2tNamorcTN1bS9ZTkhGQVAKRWJqTXMrcnc4YVA5T3ZLZUJBZ21MQlVnMnMydUx2TUNQdkFGOVJsUUhJZlFZQkJJcTVYNElTRzNBb0dBTldxOApXMXFDTHZiaDFibkNqazlGVWx2MDJJU1VWRkdqZFNvVWRpVUxZZlZmVko4WXoyTCs0QTV4V2ptZTdERnpmaVgvCmdwK29MYjdFNVc1VlpsQ0J5Y1hWMVo5dE1Cemp0WHRzTlAvSHU3bGd4Y0toYTYwandoaXNxQkpYdXNSUXdBNUYKdVdwMVEzYlhCNnV0c2FHMU9pVmoxZFVSNno3TUx1TDh6STlHSzVrQ2dZRUE0SGlaNUNXcU1TMDYxQlM4T2tuMQpobnhMWVFOVTdhdVdLWEpzUUtWWFRNdFY5Y3NPc3p6RmtZZEF4ditOV3hBa01pRkFlSGF6Sm1qUE1tSVlkcEhTCkZsZXl4anRYdG9hdy9sUEdRWjBFN1JEYlpsbk4xWkhQSlBLemZmNFp2R1I1S2xzdE9UbEV1R0F6YlJRS3pXaWcKSEhNNk9nc1dtZWJyelY4ejVDbTVCelk9Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K",
     "KEYPASSWORD": "",
     "MAXCONNECTIONSPERCLIENT": 32,
     "MAXHTTPHEADERSIZE": 32768,
@@ -15134,6 +16126,1271 @@
                         "propertyOrder": 5,
                         "userGroups": [
                             "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.MachineHmiTree.SystemHmiTree": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::MachineHmiTree::SystemHmiTree",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.STRING-10000"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 1,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._AsynSyncProcess._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_AsynSyncProcess::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_ProductProcess_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._AsynSyncProcess._Hmi._Config": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_AsynSyncProcess::_Hmi::_Config",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_AsyncSyncProductProcessConfig"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 7,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._AsynSyncProcess._Screw_Hmi.AxisPTP_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_AsynSyncProcess::_Screw_Hmi::AxisPTP_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.ST_AxisPTP_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultCamera._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultCamera::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_CameraModule_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHopper._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHopper::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_HopperModule_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHopper._Hmi._Config": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHopper::_Hmi::_Config",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Hopper_Config"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 7,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHopper._ProductSensorHmi.DigitalInput_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHopper::_ProductSensorHmi::DigitalInput_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.ST_DigitalInput_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_HorizontalXts_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.0.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[0]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.1.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[1]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.2.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[2]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.3.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[3]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.4.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[4]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.5.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[5]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.6.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[6]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.7.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[7]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.8.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[8]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.9.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_MoverHmiObjects[9]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.0.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_PositionTriggerHmiObjects[0]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.1.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_PositionTriggerHmiObjects[1]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.2.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_PositionTriggerHmiObjects[2]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.3.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_PositionTriggerHmiObjects[3]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.4.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_PositionTriggerHmiObjects[4]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.5.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_PositionTriggerHmiObjects[5]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.0.Station_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_StationHmiObjects[0]::Station_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsStation_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.1.Station_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_StationHmiObjects[1]::Station_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsStation_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.2.Station_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_StationHmiObjects[2]::Station_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsStation_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.3.Station_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_StationHmiObjects[3]::Station_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsStation_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._SystemHmi.System_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_SystemHmi::System_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsSystem_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._ZoneHmiObjects.0.Zone_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_ZoneHmiObjects[0]::Zone_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsZone_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._ZoneHmiObjects.1.Zone_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_ZoneHmiObjects[1]::Zone_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsZone_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._ZoneHmiObjects.2.Zone_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultHorizontalXts::_XtsHmi::_ZoneHmiObjects[2]::Zone_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsZone_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultLoopSyncManager._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultLoopSyncManager::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_XtsLoopSyncManager_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultLoopSyncManager._Hmi._Config": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultLoopSyncManager::_Hmi::_Config",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_XtsLoopSyncManager_Config"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 7,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultStarwheel._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultStarwheel::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_StarwheelModule_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_VerticalXts_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.0.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_MoverHmiObjects[0]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.1.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_MoverHmiObjects[1]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.2.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_MoverHmiObjects[2]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.3.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_MoverHmiObjects[3]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.4.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_MoverHmiObjects[4]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.5.Mover_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_MoverHmiObjects[5]::Mover_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsMover_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._PositionTriggerHmiObjects.0.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_PositionTriggerHmiObjects[0]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._PositionTriggerHmiObjects.1.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_PositionTriggerHmiObjects[1]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._PositionTriggerHmiObjects.2.PositionTrigger_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_PositionTriggerHmiObjects[2]::PositionTrigger_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsPositionTrigger_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._StationHmiObjects.0.Station_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_StationHmiObjects[0]::Station_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsStation_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._SystemHmi.System_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_SystemHmi::System_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsSystem_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._ZoneHmiObjects.0.Zone_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_ZoneHmiObjects[0]::Zone_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsZone_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._ZoneHmiObjects.1.Zone_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_ZoneHmiObjects[1]::Zone_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsZone_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._ZoneHmiObjects.2.Zone_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_DefaultVerticalXts::_XtsHmi::_ZoneHmiObjects[2]::Zone_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.XtsCore.ST_XtsZone_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._Hmi.Demo_Hmi": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_Hmi::Demo_Hmi",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Demo_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 10,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._Hmi.Statemachine_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_Hmi::Statemachine_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ApplicationBase.ST_PackMLStatemachine_HMI"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 6,
+                        "userGroups": [
+                            "Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._PairedMoverProcess._Hmi.Module_HMI": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_PairedMoverProcess::_Hmi::Module_HMI",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_ProductProcess_Hmi"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 5,
+                        "userGroups": [
+                            " Admin",
+                            "__SystemAdministrators"
+                        ]
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.MAIN.PingPongDemo._PairedMoverProcess._Hmi._Config": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::PingPongDemo::_PairedMoverProcess::_Hmi::_Config",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_PairedMoverProcessConfig"
+                    },
+                    {
+                        "addSymbol": true,
+                        "propertyOrder": 7,
+                        "userGroups": [
+                            " Admin",
                             "__SystemAdministrators"
                         ]
                     }
@@ -20565,27 +22822,63 @@
                 "ADS.PLC1.MAIN.Machine._StemPlace.Station_HMI.Station_HMI": 3,
                 "ADS.PLC1.MAIN.Machine._TcpHandler_HMI.TcpHandler_HMI": 3,
                 "ADS.PLC1.MAIN.MachineHmiTree.LinkRoot": 3,
+                "ADS.PLC1.MAIN.MachineHmiTree.SystemHmiTree": 3,
                 "ADS.PLC1.MAIN.MyTestVar.Station_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._AsynSyncProcess._Hmi.Module_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._AsynSyncProcess._Hmi._Config": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._AsynSyncProcess._Screw_Hmi.AxisPTP_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultCamera._Hmi.Module_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHopper._Hmi.Module_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHopper._Hmi._Config": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHopper._ProductSensorHmi.DigitalInput_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._Hmi.Module_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.0.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.1.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.2.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.3.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.4.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.5.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.6.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.7.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.8.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._MoverHmiObjects.9.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.0.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.1.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.2.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.3.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.4.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._PositionTriggerHmiObjects.5.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.0.Station_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.1.Station_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.2.Station_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._StationHmiObjects.3.Station_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._SystemHmi.System_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._ZoneHmiObjects.0.Zone_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._ZoneHmiObjects.1.Zone_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmi._ZoneHmiObjects.2.Zone_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultHorizontalXts._XtsHmiTree.SystemHmiTree": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultLoopSyncManager._Hmi.Module_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultLoopSyncManager._Hmi._Config": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultStarwheel._Hmi.Module_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._Hmi.Module_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.0.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.1.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.2.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.3.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.4.Mover_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._MoverHmiObjects.5.Mover_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._PositionTriggerHmiObjects.0.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._PositionTriggerHmiObjects.1.PositionTrigger_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._PositionTriggerHmiObjects.2.PositionTrigger_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._StationHmiObjects.0.Station_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._SystemHmi.System_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._ZoneHmiObjects.0.Zone_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._ZoneHmiObjects.1.Zone_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._DefaultVerticalXts._XtsHmi._ZoneHmiObjects.2.Zone_HMI": 3,
                 "ADS.PLC1.MAIN.PingPongDemo._Hmi.Demo_Hmi": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._Hmi.Statemachine_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._PairedMoverProcess._Hmi.Module_HMI": 3,
+                "ADS.PLC1.MAIN.PingPongDemo._PairedMoverProcess._Hmi._Config": 3,
                 "ADS.PLC1.MAIN.PlasmaR2R._Unwind.UnwindAxis_HMI.AxisPTP_HMI": 3,
                 "ADS.PLC1.MAIN.Test.Module1._Hmi.Statemachine_HMI": 3,
                 "ADS.PLC1.MAIN.VFFS.Custom_HMI.Custom_HMI": 3,

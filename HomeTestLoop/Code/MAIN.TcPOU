@@ -13,7 +13,7 @@ VAR
 	Halt			  : XtsMoverHalt;
 	tmp AT %I*		  : UINT;
 	State			  : UDINT;
-	Hmi				  : XtsBasicHmi<3, 1, 1, 1>('Hmi', Xts);
+	Hmi				  : XtsBasicHmi<3, 1, 3, 1>('Hmi', Xts);
 
 	//
 	startVirtualPosition : LREAL;
@@ -33,9 +33,30 @@ VAR
 	PostPickupTIme : TIME  := T#2S;
 	ProductSpeed   : LREAL := 400;
 	OpenVelocity   : LREAL := 600;
+
+	//Reversing Sequence
+	stopReversing : BOOL;
+	DwellTime	  : TIME := T#3S;
+	DwellTimer	  : TON;
+	Pos1		  : LREAL := 750;
+	Pos2		  : LREAL := 1000;
+	godotHmi	  : GodotHmi(Movers[1]);
+
+	//BallScrew Sample
+	SyncTrigger	  : XtsPositionTrigger('SyncTrigger', 750, VirtualCollection, Xts);
+	DesyncTrigger : XtsPositionTrigger('DesyncTrigger', 1000, VirtualCollection, Xts);
+	FeedAxis	  : AXIS_REF;
+	Feeder		  : AxisPTP('Feeder', FeedAxis);
+	DeSyncedSpeed : LREAL := 200;
+	AxisSpeed	  : LREAL := 200;
+	Mover		  : I_XtsMover;
+	Pitch		  : LREAL := 50;
+	SyncPosition  : LREAL := 1100;
+	_NextPocket	  : UDINT;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF NOT Xts.Initialized THEN
+      <ST><![CDATA[IF NOT Xts.Initialized OR NOT Feeder.Initialized THEN
+	Feeder.Initialize();
 	Xts.Initialize();
 	Xts.Parameters.Velocity		 := 200;
 	Xts.Parameters.Acceleration	 := 5_000;
@@ -58,6 +79,10 @@ CASE State OF
 	1:
 		Xts.Reset();
 		State := 0;
+
+	5:
+		Xts.Utility.SetConfiguredDetectionCount(Xts.Utility.GetDetectedMoverCount());
+		State := 1;
 
 	10:
 		Xts.Enable();
@@ -131,7 +156,7 @@ CASE State OF
 		IF MoveToPos[1].Error OR MoveToPos[2].Error OR (MoveToPos[1].Done AND MoveToPos[2].Done) THEN
 			MoveToPos[1](Axis := Movers[1].Axis, Execute := FALSE);
 			MoveToPos[2](Axis := Movers[2].Axis, Execute := FALSE);
-			State := 123;
+			State := 125;
 		END_IF
 
 	125:
@@ -157,8 +182,50 @@ CASE State OF
 
 	130:
 		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
-		VirtualMover.MoveToPosition(newPosition);
-		State := 131;
+		VirtualMover.MoveToPosition(newPosition, XtsCore.Tc3_Mc3Definitions.MC_DIRECTION.mcDirectionShortestWay);
+		State := 150;
+
+	135:
+		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
+		VirtualMover.MoveVelocity(Xts.Parameters.Velocity);
+		State := 150;
+
+	136:
+		VirtualMover.Halt(Xts.Parameters.Deceleration, Xts.Parameters.Gap);
+		State := 150;
+
+	//Reversing Sequence 150-155
+	160:
+		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
+		VirtualMover.MoveToPosition(Pos1, XtsCore.Tc3_Mc3Definitions.MC_DIRECTION.mcDirectionShortestWay);
+		State := 161;
+
+	161:
+		DwellTimer(IN := VirtualMover.InPosition, PT := DwellTime);
+		IF DwellTimer.Q THEN
+			DwellTimer(IN := FALSE);
+			State := 162;
+		END_IF
+
+	162:
+		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
+		VirtualMover.MoveToPosition(Pos2, XtsCore.Tc3_Mc3Definitions.MC_DIRECTION.mcDirectionShortestWay);
+		State := 163;
+
+	163:
+		DwellTimer(IN := VirtualMover.InPosition, PT := DwellTime);
+		IF DwellTimer.Q THEN
+			DwellTimer(IN := FALSE);
+			State := 164;
+		END_IF
+
+	164:
+		IF stopReversing THEN
+			stopReversing := FALSE;
+			State		  := 150;
+		ELSE
+			State := 160;
+		END_IF
 
 	140:
 		PhaseAxis[1](Master		  := VirtualMover.Axis,
@@ -251,8 +318,85 @@ CASE State OF
 			PhaseAxis[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
 			State := 200;
 		END_IF
+
+	//Start of the BallScrew Sample Code
+	300:
+		//Set Master Position to 0
+		Feeder.Home();
+		IF NOT Feeder.Busy THEN
+			State := 301;
+		END_IF
+
+	301:
+		//Enable Master
+		Feeder.Enable();
+		IF Feeder.Enabled THEN
+			State := 302;
+		END_IF
+
+	302:
+		//enable the PosTrigger
+		SyncTrigger.Enable();
+		IF SyncTrigger.Enabled THEN
+			State := 303;
+			SyncTrigger.MoverQueue.Clear();
+		END_IF
+
+	303:
+		//MoveVelocity on Master
+		VirtualMover.MoveVelocity(DeSyncedSpeed);
+		Feeder.MoveVelocity(AxisSpeed);
+		State := 305;
+
+	305:
+		_NextPocket := DINT_TO_UDINT(TRUNC(Feeder.SetPosition / Pitch) + 1);
+		//Monitor Trigger
+		IF SyncTrigger.MoverIsPresent THEN
+			Mover														  := SyncTrigger.GetMover();
+			Mover.Parameters.Velocity									  := AxisSpeed * 2;
+			Mover.Parameters.Acceleration								  := 10_000;
+			Mover.Parameters.Deceleration								  := 10_000;
+			Mover.Parameters.Jerk										  := 100_000;
+			Mover.Parameters.SyncAxis.Options_CA.DirectionReversalAllowed := FALSE;
+			Mover.Parameters.SyncAxis.SyncMode							  := XtsCore.Tc3_McCollisionAvoidance.MC_SYNC_MODE.mcSyncModePositive;
+			Mover.SyncToAxis(Master := FeedAxis, MasterSyncPosition := _NextPocket * Pitch, SlaveSyncPosition := SyncPosition); //TOOD: Fix Position calcs
+		END_IF
+
+		IF DeSyncTrigger.MoverIsPresent THEN
+			Mover := DeSyncTrigger.GetMover();
+			Mover.MoveVelocity(DeSyncedSpeed);
+		END_IF
+
+	310:
+		//Disable Trigger
+		SyncTrigger.Disable();
+
+		//Stop Master
+		Feeder.Stop();
+		IF Feeder.Stopped THEN
+			State := 311;
+		END_IF
+
+	311:
+		//Stop Zone
+		VirtualMover.Halt(Xts.Parameters.Deceleration, Xts.Parameters.Gap);
+		State := 312;
+
+	312:
+		IF NOT Halt.Busy THEN
+			State := 313;
+		END_IF
+
+	313:
+		Feeder.Disable();
+		//Disable Master		
+		IF NOT Feeder.Enabled THEN
+			State := 150;
+		END_IF
 END_CASE
 
+Feeder.CyclicLogic();
+godotHmi.CyclicLogic();
 Xts.CyclicLogic();
 Hmi.CyclicLogic();]]></ST>
     </Implementation>

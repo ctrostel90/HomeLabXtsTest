@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="Godot" Id="{25ca116f-cc26-4fba-af85-d3cc1123b179}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Godot
+VAR
+	on : BOOL;
+	//_Godot : GodotHmi(Main.Movers[1]);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT on THEN
+	RETURN;
+END_IF
+
+//_Godot.CyclicLogic();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -11,7 +11,7 @@
 					<OTCID>#x02010030</OTCID>
 				</ManualConfig>
 				<Priority>20</Priority>
-				<CycleTime>10000000</CycleTime>
+				<CycleTime>2000000</CycleTime>
 			</Context>
 		</Contexts>
 		<JsonDynPous><![CDATA[null]]></JsonDynPous>
@@ -23,6 +23,10 @@
 		<OwnerA>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 3 (EL9227-5500)">
 				<Link VarA="PlcTask Inputs^MAIN.tmp" VarB="OCP Inputs Channel 1^Voltage In"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1^Axes^FeedAxis">
+				<Link VarA="PlcTask Inputs^MAIN.FeedAxis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^MAIN.FeedAxis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1^Axes^Mover Axis 1">
 				<Link VarA="PlcTask Inputs^MAIN.Movers[1]._Axis.NcToPlc" VarB="Outputs^ToPlc"/>
