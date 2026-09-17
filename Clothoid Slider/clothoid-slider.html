@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clothoid slider — constant pitch on the orange path</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --axis:           #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6;  /* blue  — track centreline */
+    --series-2:       #eb6834;  /* orange — 99 mm offset path */
+    --hover:          rgba(11,11,11,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --axis:           #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-2:       #d95926;
+      --hover:          rgba(255,255,255,0.07);
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --axis:           #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --series-2:       #d95926;
+    --hover:          rgba(255,255,255,0.07);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--page); }
+  .viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 28px 20px 64px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+
+  h1 { font-size: 21px; font-weight: 650; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { font-size: 13.5px; color: var(--text-secondary); margin: 0 0 22px; line-height: 1.5; max-width: 72ch; }
+
+  .panel {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px 12px;
+    margin-bottom: 16px;
+  }
+  .panel-title { font-size: 14px; font-weight: 620; margin: 0 0 2px; }
+  .panel-note { font-size: 12.5px; color: var(--text-secondary); margin: 0 0 10px; line-height: 1.45; }
+
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  /* ---- controls ---- */
+  .controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .slider-row { display: flex; align-items: center; gap: 12px; flex: 1 1 340px; min-width: 260px; }
+  input[type=range] {
+    flex: 1; accent-color: var(--series-2); height: 22px; cursor: pointer; margin: 0;
+  }
+  .btn {
+    font: inherit; font-size: 13px; font-weight: 550;
+    background: var(--surface-1); color: var(--text-primary);
+    border: 1px solid var(--axis); border-radius: 7px;
+    padding: 6px 13px; cursor: pointer;
+  }
+  .btn:hover { background: var(--hover); }
+  .btn[aria-pressed="true"] { border-color: var(--series-2); color: var(--series-2); }
+  .travel-val {
+    font-size: 13px; color: var(--text-secondary);
+    font-variant-numeric: tabular-nums; min-width: 118px; text-align: right;
+  }
+  .travel-val b { color: var(--text-primary); font-weight: 620; }
+
+  /* ---- stat tiles ---- */
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  @media (max-width: 720px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  .tile {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 14px 13px;
+  }
+  .tile-label {
+    font-size: 11.5px; font-weight: 560; color: var(--text-secondary);
+    display: flex; align-items: center; gap: 6px; margin-bottom: 5px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .tile-val { font-size: 25px; font-weight: 640; letter-spacing: -0.02em; line-height: 1.1; }
+  .tile-val .unit { font-size: 13px; font-weight: 520; color: var(--text-secondary); margin-left: 3px; }
+  .tile-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 3px; }
+
+  /* ---- legend ---- */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); margin: 0 0 6px 2px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 20px; height: 0; border-top-width: 2px; border-top-style: solid; }
+
+  /* ---- tooltip ---- */
+  .chart-host { position: relative; }
+  .tt {
+    position: absolute; pointer-events: none; opacity: 0; transition: opacity .09s;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 7px; padding: 8px 10px; font-size: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.14); white-space: nowrap; z-index: 5;
+    color: var(--text-primary);
+  }
+  .tt-head { font-weight: 620; margin-bottom: 5px; }
+  .tt-row { display: flex; align-items: center; gap: 7px; line-height: 1.55; }
+  .tt-row .k { color: var(--text-secondary); }
+  .tt-row .v { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 580; }
+
+  /* ---- table ---- */
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 5px 9px; border-bottom: 1px solid var(--grid); }
+  th { color: var(--text-secondary); font-weight: 580; text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  .tbl-scroll { max-height: 340px; overflow: auto; }
+
+  /* ---- cam table ---- */
+  .cam-err { font-size: 12.5px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .cam-err b { color: var(--text-primary); font-weight: 620; }
+  #cam-tbl td, #cam-tbl th { padding: 5px 8px; }
+  #cam-tbl .seg { text-align: left; color: var(--text-secondary); font-size: 11.5px; }
+  #cam-tbl .here { width: 66px; text-align: left; white-space: nowrap; }
+  #cam-tbl tr.active td { background: var(--hover); }
+  /* identity is a colored dot plus the letter in ink, never color-on-color text */
+  .mk { display: inline-flex; align-items: center; gap: 3px; margin-right: 7px;
+        font-weight: 650; color: var(--text-primary); }
+  .chip { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .chip-a { background: var(--series-2); }
+  .chip-b { background: var(--series-1); }
+  .dash { color: var(--text-muted); }
+
+  .foot { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-top: 18px; }
+  .foot code { font-size: 11.5px; background: var(--hover); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+<div class="wrap">
+
+  <h1>Clothoid oval — two carriers at constant 115 mm pitch on the orange path</h1>
+  <p class="sub">
+    The blue line is the closed track centreline: two 250 mm straights joined by two 500 mm clothoid U-turns,
+    1500 mm per lap. The orange line is its true parallel offset, 99 mm to the outside.
+    Carriers <b>A</b> and <b>B</b> start on the bottom straight at 65 mm and 180 mm along the orange path and
+    hold that 115 mm spacing right around the loop. Master zero is marked <b>0</b> in the drawing, where the
+    left curve meets the bottom straight; the path is measured from there, rightwards along the bottom first.
+  </p>
+
+  <div class="panel">
+    <p class="panel-title">Path geometry</p>
+    <p class="panel-note">
+      The thick highlight is the span occupied between A and B. It stays the same length on orange and visibly
+      shortens on blue through the curve.
+    </p>
+    <div id="geo-host"></div>
+  </div>
+
+  <div class="panel">
+    <div class="controls">
+      <div class="slider-row">
+        <button class="btn" id="play" aria-pressed="false">▶ Play</button>
+        <input type="range" id="travel" min="0" max="100" step="0.05" value="0" aria-label="Travel along the orange path">
+        <span class="travel-val">travel <b id="uval">0</b> mm</span>
+      </div>
+      <button class="btn" id="reset">Reset</button>
+      <button class="btn" id="tbl-toggle" aria-pressed="false">Table view</button>
+      <button class="btn" id="theme">Dark</button>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="tile-label"><span class="dot" style="background:var(--series-2)"></span>Pitch on orange</div>
+      <div class="tile-val">115.0<span class="unit">mm</span></div>
+      <div class="tile-sub">held constant by definition</div>
+    </div>
+    <div class="tile">
+      <div class="tile-label"><span class="dot" style="background:var(--series-1)"></span>Pitch on blue, now</div>
+      <div class="tile-val" id="t-bluepitch">115.0<span class="unit">mm</span></div>
+      <div class="tile-sub" id="t-bluepitch-sub">100.0% of orange pitch</div>
+    </div>
+    <div class="tile">
+      <div class="tile-label"><span class="dot" style="background:var(--series-1)"></span>Tightest blue pitch</div>
+      <div class="tile-val" id="t-minpitch">—</div>
+      <div class="tile-sub" id="t-minpitch-sub">—</div>
+    </div>
+    <div class="tile">
+      <div class="tile-label"><span class="dot" style="background:var(--text-muted)"></span>Blue speed ÷ orange speed</div>
+      <div class="tile-val" id="t-ratio">1.000<span class="unit">×</span></div>
+      <div class="tile-sub" id="t-ratio-sub">at carrier A</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <p class="panel-title">Position along each path while moving</p>
+    <p class="panel-note">
+      Arc length of each carrier, measured from the start of its own path. Solid is carrier A, dashed is carrier B.
+      The orange pair keeps a constant vertical gap; the blue pair closes up through the curve.
+    </p>
+    <div class="legend" id="legend-pos"></div>
+    <div class="chart-host" id="pos-host"></div>
+  </div>
+
+  <div class="panel">
+    <p class="panel-title">Pitch between A and B</p>
+    <p class="panel-note">
+      Distance from A to B measured along each path. Orange is flat at 115 mm; blue is what the two movers
+      actually have to do on the track.
+    </p>
+    <div class="legend" id="legend-pitch"></div>
+    <div class="chart-host" id="pitch-host"></div>
+  </div>
+
+  <div class="panel">
+    <p class="panel-title">Cam table</p>
+    <p class="panel-note">
+      Master is position along the orange path, slave is position along the blue path.
+      The lap is one straight-plus-curve unit repeated twice, so <b>the table is periodic</b>: it covers
+      <b id="cam-period"></b> and TwinCAT repeats it. <b>A and B ride that same table</b>, offset by 115 mm of
+      master, so one table drives both. A enters at master 65 mm, B at 180 mm, both measured from the zero mark
+      in the drawing. The straight is <code>Polynomial1</code>; the curve is <code>Polynomial5_MM</code>, which
+      carries a slave velocity and acceleration at each point.
+    </p>
+    <div class="controls" style="margin-bottom:12px">
+      <span style="font-size:12.5px;color:var(--text-secondary)">Points:</span>
+      <span id="cam-variants"></span>
+      <span class="cam-err" id="cam-err"></span>
+      <button class="btn" id="cam-copy" style="margin-left:auto">Copy CSV</button>
+      <button class="btn" id="cam-copy-st" style="margin-left:6px">Copy TwinCAT ST</button>
+    </div>
+    <table id="cam-tbl"></table>
+    <p class="panel-note" style="margin:14px 0 2px">
+      Deviation of the fitted cam from the exact clothoid, in micrometres. Dots are the cam points.
+    </p>
+    <div class="chart-host" id="cam-err-host"></div>
+  </div>
+
+  <div class="panel" id="tbl-panel" hidden>
+    <p class="panel-title">Table view</p>
+    <p class="panel-note">Sampled every 25 mm of travel. All values in mm.</p>
+    <div class="tbl-scroll"><table id="tbl"></table></div>
+  </div>
+
+  <p class="foot" id="foot"></p>
+
+</div>
+</div>
+
+<script>
+/* ============================ geometry ============================ */
+// Closed clothoid oval, AT2050-0500 style.
+//
+//   blue  = track centreline, one lap = 1500 mm:
+//             [   0,  250]  bottom straight,  heading 0
+//             [ 250,  750]  right U-turn,     heading 0 -> pi
+//             [ 750, 1000]  top straight,     heading pi
+//             [1000, 1500]  left U-turn,      heading pi -> 2pi
+//   orange = true parallel offset 99 mm to the OUTSIDE of the oval.
+//
+// Each U-turn is a symmetric clothoid pair with no constant-radius arc:
+//   kappa(t) = c*t for 0<=t<=250, kappa(t) = c*(500-t) for 250<=t<=500,
+// with c chosen so each turn is exactly pi. Curvature is therefore continuous
+// everywhere on the lap and zero at every straight/curve join.
+
+const L_STRAIGHT = 250;   // mm, each straight
+const L_CURVE = 500;      // mm, arc length of each 180 deg curve module
+const OFFSET = 99;        // mm, lateral offset of the orange path
+const L_BLUE = 2 * (L_STRAIGHT + L_CURVE);   // 1500 mm, one lap
+
+// blue arc length at each segment boundary
+const S_C1_IN = L_STRAIGHT;                    //  250  bottom straight -> right curve
+const S_C1_OUT = S_C1_IN + L_CURVE;            //  750  right curve -> top straight
+const S_C2_IN = S_C1_OUT + L_STRAIGHT;         // 1000  top straight -> left curve
+const S_C2_OUT = S_C2_IN + L_CURVE;            // 1500  left curve -> bottom straight
+
+const C_SHARP = Math.PI / ((L_CURVE / 2) ** 2);
+const KAPPA_MAX = C_SHARP * (L_CURVE / 2);
+const R_MIN = 1 / KAPPA_MAX;
+
+const wrap = s => ((s % L_BLUE) + L_BLUE) % L_BLUE;
+
+/** Heading gained inside one U-turn, t in [0, L_CURVE]. Runs 0 -> pi. */
+function turn(t) {
+  if (t <= 0) return 0;
+  if (t >= L_CURVE) return Math.PI;
+  if (t <= L_CURVE / 2) return (C_SHARP * t * t) / 2;
+  const r = L_CURVE - t;
+  return Math.PI - (C_SHARP * r * r) / 2;
+}
+
+/** Cumulative heading (rad) at blue arc length s. Gains 2*pi per lap. */
+function theta(s) {
+  const lap = Math.floor(s / L_BLUE);
+  const u = s - lap * L_BLUE;
+  let th;
+  if (u <= S_C1_IN) th = 0;
+  else if (u <= S_C1_OUT) th = turn(u - S_C1_IN);
+  else if (u <= S_C2_IN) th = Math.PI;
+  else th = Math.PI + turn(u - S_C2_IN);
+  return th + lap * 2 * Math.PI;
+}
+
+/** Curvature (1/mm) at blue arc length s. Always >= 0: the lap turns one way. */
+function kappa(s) {
+  const u = wrap(s);
+  let t = null;
+  if (u > S_C1_IN && u < S_C1_OUT) t = u - S_C1_IN;
+  else if (u > S_C2_IN && u < S_C2_OUT) t = u - S_C2_IN;
+  if (t === null) return 0;
+  return t <= L_CURVE / 2 ? C_SHARP * t : C_SHARP * (L_CURVE - t);
+}
+
+// --- Orange arc length -------------------------------------------------------
+// Q(s) = P(s) + d*n_right(s)  =>  dQ/ds = (1 + d*kappa) * T, and integral(kappa ds)
+// is just the heading, so the master/slave map has a closed form.
+
+/** Orange arc length at blue arc length s. Strictly increasing. */
+function blueToOrange(s) {
+  return s + OFFSET * theta(s);
+}
+
+const L_ORANGE = blueToOrange(L_BLUE);   // 1500 + 99*2pi
+
+// The lap is one straight-plus-curve unit repeated twice, so the cam repeats
+// after half a lap: SO_HALF of master buys SB_HALF of slave.
+const SO_HALF = L_ORANGE / 2;            // 750 + 99*pi
+const SB_HALF = L_BLUE / 2;              // 750
+
+/** Inverse of blueToOrange, by bisection within a lap. */
+function orangeToBlue(so) {
+  const lap = Math.floor(so / L_ORANGE);
+  const r = so - lap * L_ORANGE;
+  let lo = 0, hi = L_BLUE;
+  for (let i = 0; i < 70; i++) {
+    const mid = (lo + hi) / 2;
+    if (blueToOrange(mid) < r) lo = mid; else hi = mid;
+  }
+  return lap * L_BLUE + (lo + hi) / 2;
+}
+
+// --- Cartesian positions -----------------------------------------------------
+// No closed form for the clothoid, so integrate one lap once (Simpson per step)
+// and interpolate. Positions are periodic in s.
+
+const N = 30000;
+const H = L_BLUE / N;
+const XS = new Float64Array(N + 1);
+const YS = new Float64Array(N + 1);
+
+XS[0] = -L_STRAIGHT;   // s = 0 sits at the left end of the bottom straight
+YS[0] = 0;
+for (let i = 0; i < N; i++) {
+  const s0 = i * H, sm = s0 + H / 2, s1 = s0 + H;
+  const t0 = theta(s0), tm = theta(sm), t1 = theta(s1);
+  XS[i + 1] = XS[i] + (H / 6) * (Math.cos(t0) + 4 * Math.cos(tm) + Math.cos(t1));
+  YS[i + 1] = YS[i] + (H / 6) * (Math.sin(t0) + 4 * Math.sin(tm) + Math.sin(t1));
+}
+
+/** Perpendicular distance between the two straights. */
+const TRACK_SEP = YS[Math.round(S_C1_OUT / H)];
+
+/** Point on the blue path at arc length s (periodic). */
+function bluePoint(s) {
+  const u = wrap(s) / H;
+  const i = Math.min(Math.floor(u), N - 1);
+  const fr = u - i;
+  return { x: XS[i] + (XS[i + 1] - XS[i]) * fr, y: YS[i] + (YS[i + 1] - YS[i]) * fr };
+}
+
+/** Point on the orange path, given the BLUE arc length of its normal foot. */
+function orangePoint(s) {
+  const p = bluePoint(s);
+  const th = theta(s);
+  // right-hand normal = (sin th, -cos th); the lap turns left, so this is the outside
+  return { x: p.x + OFFSET * Math.sin(th), y: p.y - OFFSET * Math.cos(th) };
+}
+
+/** Full state of one carrier, addressed by its position along the ORANGE path. */
+function carrierAt(so) {
+  const sb = orangeToBlue(so);
+  return { so, sb, blue: bluePoint(sb), orange: orangePoint(sb), theta: theta(sb), kappa: kappa(sb) };
+}
+
+/* ============================ setup ============================ */
+// Master zero is where the left curve meets the bottom straight; the orange path
+// is measured from there, running right along the bottom straight first.
+const A0 = 65, B0 = 180, PITCH = B0 - A0;          // mm along the orange path
+const U_MAX = L_ORANGE;                             // one full lap of travel
+const fmt = (v, n = 1) => v.toFixed(n);
+
+// Precomputed travel series
+const NS = 900;
+const SERIES = [];
+for (let i = 0; i <= NS; i++) {
+  const u = (i / NS) * U_MAX;
+  const sbA = orangeToBlue(A0 + u), sbB = orangeToBlue(B0 + u);
+  SERIES.push({ u, soA: A0 + u, soB: B0 + u, sbA, sbB, pitch: sbB - sbA, ratio: 1 / (1 + OFFSET * kappa(sbA)) });
+}
+let MIN = SERIES[0];
+for (const r of SERIES) if (r.pitch < MIN.pitch) MIN = r;
+// refine the minimum
+for (let u = Math.max(0, MIN.u - U_MAX / NS); u <= MIN.u + U_MAX / NS; u += 0.02) {
+  const p = orangeToBlue(B0 + u) - orangeToBlue(A0 + u);
+  if (p < MIN.pitch) MIN = { u, pitch: p };
+}
+// the pitch repeats every half lap; always report the first of the two dips
+if (MIN.u >= SO_HALF) MIN = { u: MIN.u - SO_HALF, pitch: MIN.pitch };
+
+const $ = id => document.getElementById(id);
+const SVGNS = 'http://www.w3.org/2000/svg';
+const el = (tag, attrs = {}, parent = null) => {
+  const n = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+};
+
+/* ============================ geometry view ============================ */
+const GEO = (() => {
+  // sample both paths
+  const NP = 1400;
+  const blue = [], orange = [];
+  for (let i = 0; i <= NP; i++) {
+    const s = (i / NP) * L_BLUE;
+    blue.push(bluePoint(s));
+    orange.push(orangePoint(s));
+  }
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const p of [...blue, ...orange]) {
+    x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x);
+    y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y);
+  }
+  const PAD = 34, K = 1.18;                       // px per mm
+  const W = (x1 - x0) * K + 2 * PAD, H = (y1 - y0) * K + 2 * PAD;
+  const X = mm => PAD + (mm - x0) * K;
+  const Y = mm => H - PAD - (mm - y0) * K;
+  const d = pts => pts.map((p, i) => (i ? 'L' : 'M') + X(p.x).toFixed(2) + ' ' + Y(p.y).toFixed(2)).join(' ');
+
+  const svg = el('svg', { viewBox: `0 0 ${W.toFixed(1)} ${H.toFixed(1)}`, role: 'img',
+    'aria-label': 'Track centreline and its 99 mm offset path, with carriers A and B' });
+  $('geo-host').appendChild(svg);
+
+  // guides where each straight meets each curve
+  const guides = el('g', { stroke: 'var(--grid)', 'stroke-width': 1, 'stroke-dasharray': '3 4' }, svg);
+  for (const s of [S_C1_IN, S_C1_OUT, S_C2_IN, S_C2_OUT]) {
+    const b = bluePoint(s), o = orangePoint(s);
+    el('line', { x1: X(b.x), y1: Y(b.y), x2: X(o.x), y2: Y(o.y) }, guides);
+  }
+  const gl = el('g', { fill: 'var(--text-muted)', 'font-size': 10.5, 'text-anchor': 'middle' }, svg);
+  el('text', { x: X(-125), y: Y(0) + 24 }, gl).textContent = 'straight 250 mm';
+  el('text', { x: X(-125), y: Y(TRACK_SEP) - 14 }, gl).textContent = 'straight 250 mm';
+  // the curves are left unlabelled: a label there collides with the carriers
+
+  // Master zero, where the left curve meets the bottom straight. The join guide
+  // and the cam tick already fix the spot, so this only names it and shows which
+  // way the path is measured.
+  {
+    const z = orangePoint(0), zx = X(z.x), zy = Y(z.y) + 21;
+    const zg = el('g', {}, svg);
+    el('text', { x: zx - 4, y: zy, 'text-anchor': 'end', 'dominant-baseline': 'central',
+      'font-size': 12, 'font-weight': 700, fill: 'var(--text-primary)' }, zg).textContent = '0';
+    el('path', { d: `M ${zx + 3} ${zy} l 15 0 m -4.5 -3.5 l 4.5 3.5 l -4.5 3.5`,
+      fill: 'none', stroke: 'var(--text-primary)', 'stroke-width': 1.4,
+      'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, zg);
+  }
+
+  // base paths
+  el('path', { d: d(blue), fill: 'none', stroke: 'var(--series-1)', 'stroke-width': 2, opacity: .32, 'stroke-linecap': 'round' }, svg);
+  el('path', { d: d(orange), fill: 'none', stroke: 'var(--series-2)', 'stroke-width': 2, opacity: .32, 'stroke-linecap': 'round' }, svg);
+
+  // cam-point ticks across the orange path
+  const camG = el('g', { stroke: 'var(--text-muted)', 'stroke-width': 1.5 }, svg);
+  function camTicks(points) {
+    while (camG.firstChild) camG.removeChild(camG.firstChild);
+    // the table is one half-lap unit, so every point appears twice on the loop
+    for (const p of points) for (const rep of [0, SO_HALF]) {
+      const sb = orangeToBlue(p.x + rep), o = orangePoint(sb), th = theta(sb);
+      const nx = Math.sin(th), ny = -Math.cos(th);
+      el('line', { x1: X(o.x - nx * 5), y1: Y(o.y - ny * 5),
+                   x2: X(o.x + nx * 7), y2: Y(o.y + ny * 7) }, camG);
+    }
+  }
+
+  // highlighted spans A..B
+  const hlB = el('path', { fill: 'none', stroke: 'var(--series-1)', 'stroke-width': 4.5, 'stroke-linecap': 'round' }, svg);
+  const hlO = el('path', { fill: 'none', stroke: 'var(--series-2)', 'stroke-width': 4.5, 'stroke-linecap': 'round' }, svg);
+
+  // normal tie-lines (99 mm links)
+  const ties = el('g', { stroke: 'var(--text-muted)', 'stroke-width': 1.25, 'stroke-dasharray': '4 3', opacity: .85 }, svg);
+  const tie = () => el('line', {}, ties);
+  const tieA = tie(), tieB = tie();
+
+  // carrier markers: surface ring + fill
+  const mk = color => {
+    const g = el('g', {}, svg);
+    el('circle', { r: 7.5, fill: 'var(--surface-1)' }, g);
+    el('circle', { r: 5.5, fill: color }, g);
+    return g;
+  };
+  const mBlueA = mk('var(--series-1)'), mBlueB = mk('var(--series-1)');
+  const mOrgA = mk('var(--series-2)'), mOrgB = mk('var(--series-2)');
+
+  const lab = () => el('text', { 'font-size': 11.5, 'font-weight': 680, fill: 'var(--text-primary)',
+    'text-anchor': 'middle', 'dominant-baseline': 'central' }, svg);
+  const lA = lab(), lB = lab();
+  lA.textContent = 'A'; lB.textContent = 'B';
+
+  function sub(fn, s0, s1) {
+    const n = 220, out = [];
+    for (let i = 0; i <= n; i++) out.push(fn(s0 + ((s1 - s0) * i) / n));
+    return d(out);
+  }
+
+  function update(st) {
+    hlB.setAttribute('d', sub(bluePoint, st.a.sb, st.b.sb));
+    hlO.setAttribute('d', sub(orangePoint, st.a.sb, st.b.sb));
+    for (const [t, c] of [[tieA, st.a], [tieB, st.b]]) {
+      t.setAttribute('x1', X(c.blue.x)); t.setAttribute('y1', Y(c.blue.y));
+      t.setAttribute('x2', X(c.orange.x)); t.setAttribute('y2', Y(c.orange.y));
+    }
+    const put = (g, p) => g.setAttribute('transform', `translate(${X(p.x).toFixed(2)},${Y(p.y).toFixed(2)})`);
+    put(mBlueA, st.a.blue); put(mBlueB, st.b.blue);
+    put(mOrgA, st.a.orange); put(mOrgB, st.b.orange);
+    // label sits just outside the orange marker, pushed along the outward normal
+    for (const [t, c] of [[lA, st.a], [lB, st.b]]) {
+      const nx = Math.sin(c.theta), ny = -Math.cos(c.theta);
+      t.setAttribute('x', X(c.orange.x + nx * 15));
+      t.setAttribute('y', Y(c.orange.y + ny * 15));
+    }
+  }
+  return { update, camTicks };
+})();
+
+/* ============================ generic line chart ============================ */
+function lineChart(hostId, cfg) {
+  const host = $(hostId);
+  const W = 900, H = cfg.height, M = { t: 16, r: 92, b: 40, l: 62 };
+  const iw = W - M.l - M.r, ih = H - M.t - M.b;
+  const [xa, xb] = cfg.x.domain, [ya, yb] = cfg.y.domain;
+  const X = v => M.l + ((v - xa) / (xb - xa)) * iw;
+  const Y = v => M.t + ih - ((v - ya) / (yb - ya)) * ih;
+
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': cfg.aria });
+  host.appendChild(svg);
+
+  // gridlines + y axis
+  const grid = el('g', {}, svg);
+  for (const t of cfg.y.ticks) {
+    el('line', { x1: M.l, x2: M.l + iw, y1: Y(t), y2: Y(t), stroke: 'var(--grid)', 'stroke-width': 1 }, grid);
+    el('text', { x: M.l - 10, y: Y(t), 'text-anchor': 'end', 'dominant-baseline': 'central',
+      'font-size': 11, fill: 'var(--text-muted)', style: 'font-variant-numeric:tabular-nums' }, grid).textContent = t;
+  }
+  el('line', { x1: M.l, x2: M.l + iw, y1: Y(ya), y2: Y(ya), stroke: 'var(--axis)', 'stroke-width': 1 }, svg);
+  for (const t of cfg.x.ticks) {
+    el('text', { x: X(t), y: M.t + ih + 17, 'text-anchor': 'middle',
+      'font-size': 11, fill: 'var(--text-muted)', style: 'font-variant-numeric:tabular-nums' }, svg).textContent = t;
+  }
+  el('text', { x: M.l + iw / 2, y: H - 4, 'text-anchor': 'middle', 'font-size': 11.5,
+    fill: 'var(--text-secondary)' }, svg).textContent = cfg.x.label;
+  el('text', { x: 12, y: M.t + ih / 2, 'text-anchor': 'middle', 'font-size': 11.5,
+    fill: 'var(--text-secondary)', transform: `rotate(-90 12 ${M.t + ih / 2})` }, svg).textContent = cfg.y.label;
+
+  // vertical reference lines (e.g. where the cam table repeats)
+  for (const vl of cfg.vlines || []) {
+    el('line', { x1: X(vl.x), x2: X(vl.x), y1: M.t, y2: M.t + ih, stroke: 'var(--axis)',
+      'stroke-width': 1, 'stroke-dasharray': '2 4' }, svg);
+    el('text', { x: X(vl.x) + 6, y: M.t + 9, 'font-size': 10.5, fill: 'var(--text-muted)' },
+      svg).textContent = vl.label;
+  }
+
+  // annotations behind the marks
+  for (const an of cfg.annotations || []) {
+    el('line', { x1: X(an.x), x2: X(an.x), y1: Y(ya), y2: Y(an.y), stroke: 'var(--axis)',
+      'stroke-width': 1, 'stroke-dasharray': '3 3' }, svg);
+    el('circle', { cx: X(an.x), cy: Y(an.y), r: 4.5, fill: 'var(--surface-1)',
+      stroke: an.color, 'stroke-width': 2 }, svg);
+    el('text', { x: X(an.x) + 9, y: Y(an.y) - 9, 'font-size': 11.5, 'font-weight': 600,
+      fill: 'var(--text-primary)' }, svg).textContent = an.text;
+  }
+
+  // series
+  const cursorDots = [];
+  for (const s of cfg.series) {
+    const d = s.points.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(2) + ' ' + Y(p[1]).toFixed(2)).join(' ');
+    el('path', { d, fill: 'none', stroke: s.color, 'stroke-width': 2, 'stroke-linejoin': 'round',
+      'stroke-linecap': 'round', ...(s.dash ? { 'stroke-dasharray': '7 5' } : {}) }, svg);
+    // direct label at the line end; labelDy separates series that finish at the same value
+    const last = s.points[s.points.length - 1];
+    el('text', { x: X(last[0]) + 9, y: Y(last[1]) + (s.labelDy || 0), 'dominant-baseline': 'central',
+      'font-size': 11.5, 'font-weight': 600, fill: s.color }, svg).textContent = s.label;
+  }
+
+  // cursor (current slider position)
+  const cur = el('g', {}, svg);
+  const curLine = el('line', { y1: M.t, y2: M.t + ih, stroke: 'var(--text-primary)',
+    'stroke-width': 1.25, opacity: .5 }, cur);
+  for (const s of cfg.series) {
+    const g = el('g', {}, cur);
+    el('circle', { r: 6, fill: 'var(--surface-1)' }, g);
+    el('circle', { r: 4, fill: s.color }, g);
+    cursorDots.push({ g, s });
+  }
+
+  // hover crosshair + tooltip
+  const hov = el('line', { y1: M.t, y2: M.t + ih, stroke: 'var(--text-muted)',
+    'stroke-width': 1, 'stroke-dasharray': '3 3', opacity: 0 }, svg);
+  const tt = document.createElement('div');
+  tt.className = 'tt';
+  host.appendChild(tt);
+  const hit = el('rect', { x: M.l, y: M.t, width: iw, height: ih, fill: 'transparent',
+    style: 'cursor:crosshair' }, svg);
+
+  hit.addEventListener('pointermove', ev => {
+    const r = svg.getBoundingClientRect();
+    const px = ((ev.clientX - r.left) / r.width) * W;
+    const u = Math.min(U_MAX, Math.max(0, xa + ((px - M.l) / iw) * (xb - xa)));
+    const row = SERIES[Math.round((u / U_MAX) * NS)];
+    hov.setAttribute('opacity', 1);
+    hov.setAttribute('x1', X(row.u)); hov.setAttribute('x2', X(row.u));
+    tt.innerHTML = `<div class="tt-head">travel ${fmt(row.u)} mm</div>` +
+      cfg.series.map(s => `<div class="tt-row"><span class="dot" style="background:${s.color}"></span>` +
+        `<span class="k">${s.tip}</span><span class="v">${fmt(s.value(row))} mm</span></div>`).join('');
+    const hx = (X(row.u) / W) * r.width;
+    tt.style.opacity = 1;
+    tt.style.left = Math.min(r.width - tt.offsetWidth - 4, Math.max(4, hx + 14)) + 'px';
+    tt.style.top = '8px';
+    if (ev.buttons & 1) setTravel(row.u);
+  });
+  hit.addEventListener('pointerdown', ev => {
+    const r = svg.getBoundingClientRect();
+    const px = ((ev.clientX - r.left) / r.width) * W;
+    setTravel(Math.min(U_MAX, Math.max(0, xa + ((px - M.l) / iw) * (xb - xa))));
+  });
+  hit.addEventListener('pointerleave', () => { hov.setAttribute('opacity', 0); tt.style.opacity = 0; });
+
+  return function update(row) {
+    curLine.setAttribute('x1', X(row.u)); curLine.setAttribute('x2', X(row.u));
+    for (const { g, s } of cursorDots) {
+      g.setAttribute('transform', `translate(${X(row.u).toFixed(2)},${Y(s.value(row)).toFixed(2)})`);
+    }
+  };
+}
+
+const C1 = 'var(--series-1)', C2 = 'var(--series-2)';
+const XTICKS = [0, 400, 800, 1200, 1600, 2000];
+const VLINES = [{ x: SO_HALF, label: 'cam table repeats' }];
+const XLABEL = 'travel along the orange path (mm) — one lap is ' + L_ORANGE.toFixed(1) + ' mm';
+
+const posSeries = [
+  { label: 'orange B', tip: 'B on orange', color: C2, dash: true,  value: r => r.soB },
+  { label: 'orange A', tip: 'A on orange', color: C2, dash: false, value: r => r.soA },
+  { label: 'blue B',   tip: 'B on blue',   color: C1, dash: true,  value: r => r.sbB },
+  { label: 'blue A',   tip: 'A on blue',   color: C1, dash: false, value: r => r.sbA },
+];
+for (const s of posSeries) s.points = SERIES.map(r => [r.u, s.value(r)]);
+
+const updPos = lineChart('pos-host', {
+  height: 320,
+  aria: 'Arc-length position of carriers A and B on the orange and blue paths versus travel',
+  x: { domain: [0, U_MAX], ticks: XTICKS, label: XLABEL },
+  y: { domain: [0, 2400], ticks: [0, 400, 800, 1200, 1600, 2000, 2400],
+       label: 'position along own path (mm)' },
+  vlines: VLINES,
+  series: posSeries,
+});
+
+// both lines finish at 115 mm, so their end labels are nudged apart
+const pitchSeries = [
+  { label: 'orange path', tip: 'pitch on orange', color: C2, dash: false, labelDy: -10, value: () => PITCH },
+  { label: 'blue path',   tip: 'pitch on blue',   color: C1, dash: false, labelDy:  10, value: r => r.pitch },
+];
+for (const s of pitchSeries) s.points = SERIES.map(r => [r.u, s.value(r)]);
+
+const updPitch = lineChart('pitch-host', {
+  height: 280,
+  aria: 'Pitch between carriers A and B measured along each path, versus travel',
+  x: { domain: [0, U_MAX], ticks: XTICKS, label: XLABEL },
+  y: { domain: [0, 140], ticks: [0, 20, 40, 60, 80, 100, 120, 140], label: 'pitch A to B (mm)' },
+  vlines: VLINES,
+  series: pitchSeries,
+  annotations: [{ x: MIN.u, y: MIN.pitch, color: C1, text: fmt(MIN.pitch) + ' mm' }],
+});
+
+/* ============================ legends ============================ */
+function legend(hostId, items) {
+  $(hostId).innerHTML = items.map(i =>
+    `<span class="legend-item"><span class="legend-swatch" style="border-top-color:${i.color};` +
+    `${i.dash ? 'border-top-style:dashed;' : ''}"></span>${i.label}</span>`).join('');
+}
+legend('legend-pos', [
+  { label: 'carrier A on orange path', color: C2 },
+  { label: 'carrier B on orange path', color: C2, dash: true },
+  { label: 'carrier A on blue path', color: C1 },
+  { label: 'carrier B on blue path', color: C1, dash: true },
+]);
+legend('legend-pitch', [
+  { label: 'pitch along orange path (constant 115 mm)', color: C2 },
+  { label: 'pitch along blue path', color: C1 },
+]);
+
+/* ============================ driver ============================ */
+const slider = $('travel');
+slider.max = U_MAX;
+let u = 0;
+
+function setTravel(v) {
+  u = Math.min(U_MAX, Math.max(0, v));
+  slider.value = u;
+  render();
+}
+
+function render() {
+  const a = carrierAt(A0 + u), b = carrierAt(B0 + u);
+  const pitch = b.sb - a.sb;
+  const ratio = 1 / (1 + OFFSET * a.kappa);
+  GEO.update({ a, b });
+  const row = { u, soA: a.so, soB: b.so, sbA: a.sb, sbB: b.sb, pitch };
+  updPos(row); updPitch(row);
+  $('uval').textContent = fmt(u);
+  $('t-bluepitch').innerHTML = fmt(pitch) + '<span class="unit">mm</span>';
+  $('t-bluepitch-sub').textContent = fmt((pitch / PITCH) * 100) + '% of orange pitch';
+  $('t-ratio').innerHTML = ratio.toFixed(3) + '<span class="unit">×</span>';
+  updateCamRows(a.so, b.so);
+}
+
+$('t-minpitch').innerHTML = fmt(MIN.pitch) + '<span class="unit">mm</span>';
+$('t-minpitch-sub').textContent = 'at travel ' + fmt(MIN.u, 0) + ' mm · ' + fmt((MIN.pitch / PITCH) * 100) + '% of orange';
+
+slider.addEventListener('input', () => setTravel(+slider.value));
+$('reset').addEventListener('click', () => { stop(); setTravel(0); });
+
+let raf = null, last = 0;
+const SPEED = 260; // mm of orange travel per second
+function stop() { if (raf) cancelAnimationFrame(raf); raf = null; $('play').setAttribute('aria-pressed', 'false'); $('play').textContent = '▶ Play'; }
+function tick(ts) {
+  if (last) {
+    const next = u + ((ts - last) / 1000) * SPEED;
+    setTravel(next >= U_MAX ? 0 : next);   // loop back to the start
+  }
+  last = ts;
+  raf = requestAnimationFrame(tick);
+}
+$('play').addEventListener('click', () => {
+  if (raf) { stop(); return; }
+  last = 0; $('play').setAttribute('aria-pressed', 'true'); $('play').textContent = '❚❚ Pause';
+  raf = requestAnimationFrame(tick);
+});
+
+/* ============================ cam table ============================ */
+const CAM = {
+  "recommended": 7,
+  "masterPeriod": 1061.0177,
+  "slavePeriod": 750,
+  "lapMaster": 2122.0353,
+  "lapSlave": 1500,
+  "variants": {
+    "5": {
+      "points": [
+        {
+          "x": 0,
+          "y": 0,
+          "v": 1,
+          "a": 0.004673199,
+          "seg": "Polynomial1"
+        },
+        {
+          "x": 250,
+          "y": 250,
+          "v": 1,
+          "a": -0.004673199,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 549.1465,
+          "y": 449.8099,
+          "v": 0.5014264,
+          "a": -0.000482311,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 761.8712,
+          "y": 550.1901,
+          "v": 0.5014264,
+          "a": 0.000482311,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 1061.0177,
+          "y": 750,
+          "v": 1,
+          "a": 0.004673199,
+          "seg": "Polynomial1"
+        }
+      ],
+      "err": 0.06366453777400238
+    },
+    "7": {
+      "points": [
+        {
+          "x": 0,
+          "y": 0,
+          "v": 1,
+          "a": 0.004918105,
+          "seg": "Polynomial1"
+        },
+        {
+          "x": 250,
+          "y": 250,
+          "v": 1,
+          "a": -0.004918105,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 370.6368,
+          "y": 347.1523,
+          "v": 0.6741009,
+          "a": -0.001509822,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 638.6455,
+          "y": 492.4217,
+          "v": 0.4532354,
+          "a": -0.000453758,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 672.3722,
+          "y": 507.5783,
+          "v": 0.4532354,
+          "a": 0.000453758,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 940.3808,
+          "y": 652.8477,
+          "v": 0.6741009,
+          "a": 0.001509822,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 1061.0177,
+          "y": 750,
+          "v": 1,
+          "a": 0.004918105,
+          "seg": "Polynomial1"
+        }
+      ],
+      "err": 0.003064780874524331
+    },
+    "9": {
+      "points": [
+        {
+          "x": 0,
+          "y": 0,
+          "v": 1,
+          "a": 0.004928218,
+          "seg": "Polynomial1"
+        },
+        {
+          "x": 250,
+          "y": 250,
+          "v": 1,
+          "a": -0.004928218,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 362.2284,
+          "y": 341.4293,
+          "v": 0.6872957,
+          "a": -0.001602554,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 603.2346,
+          "y": 476.0707,
+          "v": 0.47059,
+          "a": -0.000509905,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 637.0257,
+          "y": 491.687,
+          "v": 0.4539877,
+          "a": -0.000357875,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 673.992,
+          "y": 508.313,
+          "v": 0.4539877,
+          "a": 0.000357875,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 707.7831,
+          "y": 523.9293,
+          "v": 0.47059,
+          "a": 0.000509905,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 948.7893,
+          "y": 658.5707,
+          "v": 0.6872957,
+          "a": 0.001602554,
+          "seg": "Polynomial5_MM"
+        },
+        {
+          "x": 1061.0177,
+          "y": 750,
+          "v": 1,
+          "a": 0.004928218,
+          "seg": "Polynomial1"
+        }
+      ],
+      "err": 0.002300306433426158
+    }
+  }
+};
+
+let camKey = String(CAM.recommended);
+const camPts = () => CAM.variants[camKey].points;
+
+/** Master reduced into one table period, plus how many periods were taken off. */
+function camFold(x) {
+  const k = Math.floor(x / CAM.masterPeriod);
+  return { k, r: x - k * CAM.masterPeriod };
+}
+
+/** Evaluate the fitted cam periodically: master (orange mm) -> slave (blue mm). */
+function camEval(x) {
+  const P = camPts(), { k, r } = camFold(x);
+  let i = 0;
+  while (i < P.length - 2 && r > P[i + 1].x) i++;
+  const p0 = P[i], p1 = P[i + 1], h = p1.x - p0.x, t = Math.min(1, Math.max(0, (r - p0.x) / h));
+  const base = k * CAM.slavePeriod;
+  if (p0.seg === 'Polynomial1') return base + p0.y + (p1.y - p0.y) * t;
+  const t2 = t * t, t3 = t2 * t, t4 = t3 * t, t5 = t4 * t;
+  return base +
+         (1 - 10 * t3 + 15 * t4 - 6 * t5) * p0.y +
+         (t - 6 * t3 + 8 * t4 - 3 * t5) * h * p0.v +
+         (t2 / 2 - 1.5 * t3 + 1.5 * t4 - t5 / 2) * h * h * p0.a +
+         (10 * t3 - 15 * t4 + 6 * t5) * p1.y +
+         (-4 * t3 + 7 * t4 - 3 * t5) * h * p1.v +
+         (t3 / 2 - t4 + t5 / 2) * h * h * p1.a;
+}
+
+/** Which row's segment a carrier sitting at master x is inside. */
+function camSeg(x) {
+  const P = camPts(), { r } = camFold(x);
+  for (let i = 0; i < P.length - 1; i++) if (r >= P[i].x && r <= P[i + 1].x) return i;
+  return -1;
+}
+
+/** Travels within one lap at which a carrier offset `off` sits at unit master x. */
+function passes(x, off) {
+  const out = [];
+  for (let k = 0; k < 2; k++) {                       // two units per lap
+    let u = x + k * CAM.masterPeriod - off;
+    if (u < -0.01) u += L_ORANGE;
+    if (u >= -0.01 && u < L_ORANGE - 0.01) out.push(Math.max(u, 0));
+  }
+  return out.sort((a, b) => a - b).map(v => fmt(v)).join(' · ') || '<span class="dash">—</span>';
+}
+
+function renderCamTable() {
+  const P = camPts();
+  const head = ['', '#', 'master (mm)', 'slave (mm)', 'slave velocity', 'slave accel (1/mm)',
+    'segment to next', 'A passes at', 'B passes at'];
+  let html = '<thead><tr>' + head.map((h, i) =>
+    `<th${i === 6 ? ' class="seg"' : ''}${i === 0 ? ' class="here"' : ''}>${h}</th>`).join('') + '</tr></thead><tbody>';
+  P.forEach((p, i) => {
+    const wrapRow = i === P.length - 1;
+    html += `<tr id="cam-row-${i}">` +
+      `<td class="here" id="cam-here-${i}"></td><td>${i}</td>` +
+      `<td>${p.x.toFixed(3)}</td><td>${p.y.toFixed(3)}</td>` +
+      `<td>${p.v.toFixed(6)}</td><td>${p.a.toFixed(7)}</td>` +
+      `<td class="seg">${wrapRow ? 'wraps to row 0' : p.seg}</td>` +
+      // the wrap row is row 0 one period on, so its pass times are already listed there
+      `<td>${wrapRow ? '<span class="dash">—</span>' : passes(p.x, A0)}</td>` +
+      `<td>${wrapRow ? '<span class="dash">—</span>' : passes(p.x, B0)}</td></tr>`;
+  });
+  $('cam-tbl').innerHTML = html + '</tbody>';
+  $('cam-err').innerHTML = `worst deviation from the exact clothoid <b>${(CAM.variants[camKey].err * 1000).toFixed(1)} µm</b>`;
+}
+
+function camCSV() {
+  return 'index,master_mm,slave_mm,slave_velocity,slave_acceleration_per_mm,segment_type\n' +
+    camPts().map((p, i) => [i, p.x.toFixed(4), p.y.toFixed(4), p.v.toFixed(7), p.a.toFixed(9),
+      p.seg || 'end'].join(',')).join('\n');
+}
+
+/** Small residual-error chart, redrawn whenever the variant changes. */
+function renderCamError() {
+  const host = $('cam-err-host');
+  host.innerHTML = '';
+  const W = 900, H = 190, M = { t: 14, r: 92, b: 38, l: 62 };
+  const iw = W - M.l - M.r, ih = H - M.t - M.b;
+  const P = camPts();
+  const pts = [];
+  let lim = 0;
+  for (let i = 0; i <= 2400; i++) {
+    const x = (i / 2400) * L_ORANGE;
+    const e = (camEval(x) - orangeToBlue(x)) * 1000;   // µm
+    pts.push([x, e]);
+    lim = Math.max(lim, Math.abs(e));
+  }
+  lim = Math.max(1, Math.ceil(lim * 1.25));
+  const X = v => M.l + (v / L_ORANGE) * iw;
+  const Y = v => M.t + ih / 2 - (v / lim) * (ih / 2);
+
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img',
+    'aria-label': 'Deviation of the fitted cam from the exact clothoid, in micrometres' });
+  host.appendChild(svg);
+  for (const t of [-lim, -lim / 2, 0, lim / 2, lim]) {
+    el('line', { x1: M.l, x2: M.l + iw, y1: Y(t), y2: Y(t),
+      stroke: t === 0 ? 'var(--axis)' : 'var(--grid)', 'stroke-width': 1 }, svg);
+    el('text', { x: M.l - 10, y: Y(t), 'text-anchor': 'end', 'dominant-baseline': 'central',
+      'font-size': 11, fill: 'var(--text-muted)' }, svg).textContent = (+t.toFixed(2));
+  }
+  for (const t of [0, 400, 800, 1200, 1600, 2000]) {
+    el('text', { x: X(t), y: M.t + ih + 16, 'text-anchor': 'middle', 'font-size': 11,
+      fill: 'var(--text-muted)' }, svg).textContent = t;
+  }
+  el('line', { x1: X(SO_HALF), x2: X(SO_HALF), y1: M.t, y2: M.t + ih, stroke: 'var(--axis)',
+    'stroke-width': 1, 'stroke-dasharray': '2 4' }, svg);
+  el('text', { x: X(SO_HALF) + 6, y: M.t + 9, 'font-size': 10.5,
+    fill: 'var(--text-muted)' }, svg).textContent = 'table repeats';
+  el('text', { x: M.l + iw / 2, y: H - 3, 'text-anchor': 'middle', 'font-size': 11.5,
+    fill: 'var(--text-secondary)' }, svg).textContent = 'master — position along the orange path, one full lap (mm)';
+  el('text', { x: 12, y: M.t + ih / 2, 'text-anchor': 'middle', 'font-size': 11.5,
+    fill: 'var(--text-secondary)', transform: `rotate(-90 12 ${M.t + ih / 2})` }, svg).textContent = 'deviation (µm)';
+  el('path', { d: pts.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(2) + ' ' + Y(p[1]).toFixed(2)).join(' '),
+    fill: 'none', stroke: 'var(--series-1)', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+  for (const p of P) for (const rep of [0, CAM.masterPeriod]) {
+    if (p.x + rep > L_ORANGE + 0.01) continue;
+    el('circle', { cx: X(p.x + rep), cy: Y(0), r: 4, fill: 'var(--surface-1)',
+      stroke: 'var(--series-2)', 'stroke-width': 2 }, svg);
+  }
+  el('text', { x: M.l + iw + 10, y: Y(0), 'dominant-baseline': 'central', 'font-size': 11.5,
+    'font-weight': 600, fill: 'var(--series-2)' }, svg).textContent = P.length + ' points';
+}
+
+function buildCamVariants() {
+  $('cam-variants').innerHTML = Object.keys(CAM.variants)
+    .map(k => `<button class="btn" data-cam="${k}" aria-pressed="${k === camKey}" ` +
+      `style="margin-right:6px">${k}</button>`).join('');
+  $('cam-variants').querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    camKey = b.dataset.cam;
+    buildCamVariants(); renderCamTable(); renderCamError(); GEO.camTicks(camPts()); render();
+  }));
+}
+// Formats a fitted cam table as TwinCAT structured text in the project's house
+// style: `_Camming` instance, MasterPos/SlavePos first, and every `:=` aligned to
+// one tab stop with hard tabs.
+//
+// FunctionType on a point describes the segment that STARTS at that point, and a
+// point's SlaveVelo / SlaveAcc serve as the end condition of the incoming segment
+// and the start condition of the outgoing one. The POLYNOM1 segments ignore them;
+// the POLYNOM5_MM segments need them.
+
+const FUNC = {
+  Polynomial1: 'MOTIONFUNCTYPE_POLYNOM1',
+  Polynomial5_MM: 'MOTIONFUNCTYPE_POLYNOM5_MM',
+};
+
+const TAB = 4;    // editor tab width the alignment is built for
+const COL = 56;   // column every ":=" starts at
+
+/** One assignment line: hard-tab indent, then tabs out to the := column. */
+function asg(indent, lvalue, rvalue) {
+  const lead = '\t'.repeat(indent);
+  let col = indent * TAB + lvalue.length;
+  let pad;
+  if (col >= COL) pad = ' ';
+  else if (COL - col === 1) pad = ' ';         // a tab here would look identical
+  else {
+    pad = '';
+    while (col < COL) { pad += '\t'; col = Math.floor(col / TAB) * TAB + TAB; }
+  }
+  return `${lead}${lvalue}${pad}:= ${rvalue};`;
+}
+
+const num = (v, d) => (Object.is(v, -0) ? 0 : v).toFixed(d);
+
+function toST(points, opts = {}) {
+  const name = opts.name || '_Camming';
+  const id = opts.camTableId ?? 1;
+  const n = points.length;
+  const fld = f => `${name}.camPoints[point].${f}`;
+
+  const head = [
+    `\t// Clothoid oval cam, ${n} points, generated from cam-table.json.`,
+    `\t// Master = position along the orange (outer, 99 mm offset) path.`,
+    `\t// Slave  = position along the blue (track centreline) path.`,
+    `\t// Periodic: ${num(opts.masterPeriod, 4)} mm of master -> ${num(opts.slavePeriod, 4)} mm of slave,`,
+    `\t// which is half a lap. Run it twice for a full lap.`,
+    `\t// Worst deviation from the exact clothoid: ${opts.errUm} um.`,
+    `\t// Master zero is where the left curve meets the bottom straight.`,
+    `\t// Carrier A enters at master ${opts.aStart ?? 65} mm, carrier B at ${opts.bStart ?? 180} mm.`,
+  ];
+
+  const body = points.map((p, i) => [
+    asg(1, 'point', i + 1),
+    asg(3, fld('MasterPos'), num(p.x, 4)),
+    asg(3, fld('SlavePos'), num(p.y, 4)),
+    asg(3, fld('PointIndex'), 'point'),
+    asg(3, fld('FunctionType'), `MC_MotionFunctionType.${FUNC[p.seg]}`),
+    asg(3, fld('PointType'), `MC_MotionPointType.MOTIONPOINTTYPE_${i === 0 ? 'ACTIVATION' : 'MOTION'}`),
+    asg(3, fld('RelIndexNextPoint'), i === n - 1 ? 0 : 1),
+    asg(3, fld('SlaveVelo'), num(p.v, 7)),
+    asg(3, fld('SlaveAcc'), num(p.a, 9)),
+    asg(3, fld('SlaveJerk'), '0.00'),
+  ].join('\n')).join('\n\n');
+
+  const ref = f => `${name}.camRef.${f}`;
+  const tail = [
+    asg(1, ref('NoOfColumns'), 1),
+    asg(1, ref('NoOfRows'), 'point'),
+    asg(1, ref('TableType'), 'MC_TableType.MC_TABLETYPE_MOTIONFUNCTION'),
+    asg(1, ref('ArraySize'), `SIZEOF(${name}.camPoints)`),
+    asg(1, ref('pArray'), `ADR(${name}.camPoints)`),
+    '',
+    `\t${name}.camTableSelect(\tCamTable\t\t:= ${name}.camRef,`,
+    `\t\t\t\t\t\t\t\tExecute\t\t\t:= TRUE,`,
+    `\t\t\t\t\t\t\t\tPeriodic\t\t:= TRUE,`,
+    `\t\t\t\t\t\t\t\tCamTableID\t\t:= ${id} );`,
+    '',
+    `\tIF ${name}.camTableSelect.Done THEN`,
+    `\t\tTrace.Info(__POUNAME() ,'Cam Table Clothoid Built - ID ${id}');`,
+    `\t\t${name}.camTableSelect(\tCamTable\t\t:= ${name}.camRef,`,
+    `\t\t\t\t\t\t\t\t\tExecute\t\t\t:= FALSE);`,
+    `\t\tGenCamClothoid := TRUE;`,
+    `\tEND_IF`,
+  ];
+
+  return [...head, '', body, '', ...tail, ''].join('\n');
+}
+
+function camST() {
+  return toST(camPts(), {
+    name: 'Slave_Clothoid_Cam',
+    masterPeriod: CAM.masterPeriod,
+    slavePeriod: CAM.slavePeriod,
+    errUm: (CAM.variants[camKey].err * 1000).toFixed(1),
+    camTableId: 1,
+    aStart: A0,
+    bStart: B0,
+  });
+}
+
+function copyButton(id, label, text) {
+  $(id).addEventListener('click', async e => {
+    const btn = e.currentTarget;
+    try { await navigator.clipboard.writeText(text()); btn.textContent = 'Copied'; }
+    catch { btn.textContent = 'Copy failed'; }
+    setTimeout(() => { btn.textContent = label; }, 1400);
+  });
+}
+copyButton('cam-copy', 'Copy CSV', camCSV);
+copyButton('cam-copy-st', 'Copy TwinCAT ST', camST);
+
+/** Highlight the cam segments A and B are currently inside. */
+function updateCamRows(soA, soB) {
+  const P = camPts();
+  const iA = camSeg(soA), iB = camSeg(soB);
+  for (let i = 0; i < P.length; i++) {
+    const row = $('cam-row-' + i), cell = $('cam-here-' + i);
+    if (!row) continue;
+    let chips = '';
+    if (i === iA) chips += '<span class="mk"><span class="chip chip-a"></span>A</span>';
+    if (i === iB) chips += '<span class="mk"><span class="chip chip-b"></span>B</span>';
+    cell.innerHTML = chips;
+    row.classList.toggle('active', chips !== '');
+  }
+}
+
+$('cam-period').textContent =
+  `${CAM.masterPeriod.toFixed(3)} mm of master → ${CAM.slavePeriod.toFixed(0)} mm of slave, half a lap`;
+buildCamVariants(); renderCamTable(); renderCamError(); GEO.camTicks(camPts());
+
+/* ============================ table + theme ============================ */
+(function buildTable() {
+  const head = ['travel', 'A orange', 'B orange', 'A blue', 'B blue', 'pitch orange', 'pitch blue', 'blue ÷ orange'];
+  let html = '<thead><tr>' + head.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+  for (let t = 0; t <= U_MAX + 1e-9; t += 25) {
+    const tv = Math.min(t, U_MAX);
+    const sbA = orangeToBlue(A0 + tv), sbB = orangeToBlue(B0 + tv), p = sbB - sbA;
+    html += '<tr>' + [tv, A0 + tv, B0 + tv, sbA, sbB, PITCH, p].map(v => `<td>${fmt(v)}</td>`).join('') +
+      `<td>${(p / PITCH).toFixed(3)}</td></tr>`;
+  }
+  $('tbl').innerHTML = html + '</tbody>';
+})();
+$('tbl-toggle').addEventListener('click', e => {
+  const on = $('tbl-panel').hidden;
+  $('tbl-panel').hidden = !on;
+  e.currentTarget.setAttribute('aria-pressed', String(on));
+});
+$('theme').addEventListener('click', e => {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+  e.currentTarget.textContent = dark ? 'Dark' : 'Light';
+});
+
+$('foot').innerHTML =
+  `Each curve module: 500 mm arc length, 180° total turn, pure clothoid pair with no constant-radius arc — ` +
+  `curvature ramps linearly 0 → ${KAPPA_MAX.toFixed(5)} mm⁻¹ over the first 250 mm and back to 0 over the second. ` +
+  `Minimum radius ${R_MIN.toFixed(1)} mm, track separation ${TRACK_SEP.toFixed(1)} mm. ` +
+  `Blue lap ${L_BLUE.toFixed(0)} mm; orange lap ${L_ORANGE.toFixed(1)} mm = 1500 + 198π, ` +
+  `so the outer path runs ${(L_ORANGE - L_BLUE).toFixed(1)} mm longer per lap. ` +
+  `Blue pitch obeys <code>115 − 99·Δθ</code> exactly, where Δθ is the heading change between the two carriers. ` +
+  `At 115 mm orange pitch a closed train does not divide the lap evenly ` +
+  `(${(L_ORANGE / 115).toFixed(2)} carriers), so a full ring would need ` +
+  `${(L_ORANGE / 18).toFixed(1)} mm for 18 or ${(L_ORANGE / 19).toFixed(1)} mm for 19.`;
+
+// ?u=<mm> opens at a given travel position, ?theme=dark|light forces a mode
+const Q = new URLSearchParams(location.search);
+if (Q.get('theme') === 'dark' || Q.get('theme') === 'light') {
+  document.documentElement.setAttribute('data-theme', Q.get('theme'));
+  $('theme').textContent = Q.get('theme') === 'dark' ? 'Light' : 'Dark';
+}
+const qu = parseFloat(Q.get('u'));
+setTravel(Number.isFinite(qu) ? qu : 0);
+</script>
+</body>
+</html>

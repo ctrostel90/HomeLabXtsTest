@@ -1,0 +1,39 @@
+point := 1;
+Slave_Bag_Cam.camPoints[point].PointIndex := 1;
+Slave_Bag_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+Slave_Bag_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+Slave_Bag_Cam.camPoints[point].RelIndexNextPoint := 1;
+Slave_Bag_Cam.camPoints[point].MasterPos := 0;
+Slave_Bag_Cam.camPoints[point].SlavePos := 0;
+Slave_Bag_Cam.camPoints[point].SlaveVelo := 0.00;
+Slave_Bag_Cam.camPoints[point].SlaveAcc := 0.00;
+Slave_Bag_Cam.camPoints[point].SlaveJerk := 0.00;
+
+point := 2;
+Slave_Bag_Cam.camPoints[point].PointIndex := point;
+Slave_Bag_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+Slave_Bag_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+Slave_Bag_Cam.camPoints[point].RelIndexNextPoint := 0;
+Slave_Bag_Cam.camPoints[point].MasterPos := Recipe.bagLenght;
+Slave_Bag_Cam.camPoints[point].SlavePos := Recipe.bagLenght;
+Slave_Bag_Cam.camPoints[point].SlaveVelo := 0.00;
+Slave_Bag_Cam.camPoints[point].SlaveAcc := 0.00;
+Slave_Bag_Cam.camPoints[point].SlaveJerk := 0.00;
+
+Slave_Bag_Cam.camRef.NoOfColumns := 1;
+Slave_Bag_Cam.camRef.NoOfRows := point;
+Slave_Bag_Cam.camRef.TableType := MC_TableType.MC_TABLETYPE_MOTIONFUNCTION;
+Slave_Bag_Cam.camRef.ArraySize := SIZEOF(Slave_Bag_Cam.camPoints);
+Slave_Bag_Cam.camRef.pArray := ADR(Slave_Bag_Cam.camPoints);
+
+Slave_Bag_Cam.camTableSelect(   CamTable := Slave_Bag_Cam.camRef, 
+                                Execute := TRUE, 
+                                Periodic := TRUE, 
+                                CamTableID := 1 );
+
+IF Slave_Bag_Cam.camTableSelect.Done THEN     
+    Trace.Info(__POUNAME() ,'Cam Table Bag Cam Built - ID 1'); 
+    Slave_Bag_Cam.camTableSelect(   CamTable := Slave_Bag_Cam.camRef, 
+                                    Execute := FALSE);  
+    GenCamBag := TRUE;
+END_IF

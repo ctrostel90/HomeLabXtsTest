@@ -1,0 +1,81 @@
+	// Clothoid oval cam, 5 points, generated from cam-table.json.
+	// Master = position along the orange (outer, 99 mm offset) path.
+	// Slave  = position along the blue (track centreline) path.
+	// Periodic: 1061.0177 mm of master -> 750.0000 mm of slave,
+	// which is half a lap. Run it twice for a full lap.
+	// Worst deviation from the exact clothoid: 63.7 um.
+	// Master zero is where the left curve meets the bottom straight.
+	// Carrier A enters at master 65 mm, carrier B at 180 mm.
+
+	point												:= 1;
+			Slave_Clothoid_Cam.camPoints[point].MasterPos := 0.0000;
+			Slave_Clothoid_Cam.camPoints[point].SlavePos := 0.0000;
+			Slave_Clothoid_Cam.camPoints[point].PointIndex := point;
+			Slave_Clothoid_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			Slave_Clothoid_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+			Slave_Clothoid_Cam.camPoints[point].RelIndexNextPoint := 1;
+			Slave_Clothoid_Cam.camPoints[point].SlaveVelo := 1.0000000;
+			Slave_Clothoid_Cam.camPoints[point].SlaveAcc := 0.004673199;
+			Slave_Clothoid_Cam.camPoints[point].SlaveJerk := 0.00;
+
+	point												:= 2;
+			Slave_Clothoid_Cam.camPoints[point].MasterPos := 250.0000;
+			Slave_Clothoid_Cam.camPoints[point].SlavePos := 250.0000;
+			Slave_Clothoid_Cam.camPoints[point].PointIndex := point;
+			Slave_Clothoid_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			Slave_Clothoid_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			Slave_Clothoid_Cam.camPoints[point].RelIndexNextPoint := 1;
+			Slave_Clothoid_Cam.camPoints[point].SlaveVelo := 1.0000000;
+			Slave_Clothoid_Cam.camPoints[point].SlaveAcc := -0.004673199;
+			Slave_Clothoid_Cam.camPoints[point].SlaveJerk := 0.00;
+
+	point												:= 3;
+			Slave_Clothoid_Cam.camPoints[point].MasterPos := 549.1465;
+			Slave_Clothoid_Cam.camPoints[point].SlavePos := 449.8099;
+			Slave_Clothoid_Cam.camPoints[point].PointIndex := point;
+			Slave_Clothoid_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			Slave_Clothoid_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			Slave_Clothoid_Cam.camPoints[point].RelIndexNextPoint := 1;
+			Slave_Clothoid_Cam.camPoints[point].SlaveVelo := 0.5014264;
+			Slave_Clothoid_Cam.camPoints[point].SlaveAcc := -0.000482311;
+			Slave_Clothoid_Cam.camPoints[point].SlaveJerk := 0.00;
+
+	point												:= 4;
+			Slave_Clothoid_Cam.camPoints[point].MasterPos := 761.8712;
+			Slave_Clothoid_Cam.camPoints[point].SlavePos := 550.1901;
+			Slave_Clothoid_Cam.camPoints[point].PointIndex := point;
+			Slave_Clothoid_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			Slave_Clothoid_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			Slave_Clothoid_Cam.camPoints[point].RelIndexNextPoint := 1;
+			Slave_Clothoid_Cam.camPoints[point].SlaveVelo := 0.5014264;
+			Slave_Clothoid_Cam.camPoints[point].SlaveAcc := 0.000482311;
+			Slave_Clothoid_Cam.camPoints[point].SlaveJerk := 0.00;
+
+	point												:= 5;
+			Slave_Clothoid_Cam.camPoints[point].MasterPos := 1061.0177;
+			Slave_Clothoid_Cam.camPoints[point].SlavePos := 750.0000;
+			Slave_Clothoid_Cam.camPoints[point].PointIndex := point;
+			Slave_Clothoid_Cam.camPoints[point].FunctionType := MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			Slave_Clothoid_Cam.camPoints[point].PointType := MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			Slave_Clothoid_Cam.camPoints[point].RelIndexNextPoint := 0;
+			Slave_Clothoid_Cam.camPoints[point].SlaveVelo := 1.0000000;
+			Slave_Clothoid_Cam.camPoints[point].SlaveAcc := 0.004673199;
+			Slave_Clothoid_Cam.camPoints[point].SlaveJerk := 0.00;
+
+	Slave_Clothoid_Cam.camRef.NoOfColumns				:= 1;
+	Slave_Clothoid_Cam.camRef.NoOfRows					:= point;
+	Slave_Clothoid_Cam.camRef.TableType					:= MC_TableType.MC_TABLETYPE_MOTIONFUNCTION;
+	Slave_Clothoid_Cam.camRef.ArraySize					:= SIZEOF(Slave_Clothoid_Cam.camPoints);
+	Slave_Clothoid_Cam.camRef.pArray					:= ADR(Slave_Clothoid_Cam.camPoints);
+
+	Slave_Clothoid_Cam.camTableSelect(	CamTable		:= Slave_Clothoid_Cam.camRef,
+								Execute			:= TRUE,
+								Periodic		:= TRUE,
+								CamTableID		:= 1 );
+
+	IF Slave_Clothoid_Cam.camTableSelect.Done THEN
+		Trace.Info(__POUNAME() ,'Cam Table Clothoid Built - ID 1');
+		Slave_Clothoid_Cam.camTableSelect(	CamTable		:= Slave_Clothoid_Cam.camRef,
+									Execute			:= FALSE);
+		GenCamClothoid := TRUE;
+	END_IF
