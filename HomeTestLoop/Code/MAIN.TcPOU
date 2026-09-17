@@ -218,7 +218,7 @@ CASE State OF
 		IF MoveToPos[1].Error OR MoveToPos[2].Error OR (MoveToPos[1].Done AND MoveToPos[2].Done) THEN
 			MoveToPos[1](Axis := Movers[1].Axis, Execute := FALSE);
 			MoveToPos[2](Axis := Movers[2].Axis, Execute := FALSE);
-			State := 125;
+			State := 150;
 		END_IF
 
 	125:
