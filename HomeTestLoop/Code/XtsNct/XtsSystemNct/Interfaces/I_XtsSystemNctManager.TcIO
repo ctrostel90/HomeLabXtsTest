@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <Itf Name="I_XtsSystemNctManager" Id="{804ddc44-c73c-4877-90a2-51374a429fbd}">
+    <Declaration><![CDATA[INTERFACE I_XtsSystemNctManager EXTENDS I_Base, I_XtsTask, XtsCore.I_Cyclic
+]]></Declaration>
+    <Property Name="NctController" Id="{af7ad85a-ff70-48dd-a662-0b0355854eea}">
+      <Declaration><![CDATA[PROPERTY NctController : I_TcIoXtsNctController]]></Declaration>
+      <Get Name="Get" Id="{3133fdf4-4bb9-44f6-8097-f7c1051686ed}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+  </Itf>
+</TcPlcObject>

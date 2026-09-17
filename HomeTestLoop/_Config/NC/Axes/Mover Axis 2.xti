@@ -2310,7 +2310,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PosDiffControl Range="10"/>
+				<PosDiffControl Range="50"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
@@ -3065,7 +3065,7 @@ External Setpoint Generation:
 					</Value>
 					<Value>
 						<Name>DefaultParameterSet</Name>
-						<Value>16842768</Value>
+						<Value>16843136</Value>
 					</Value>
 					<Value>
 						<Name>ParameterSetChange</Name>

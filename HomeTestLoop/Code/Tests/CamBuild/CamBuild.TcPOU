@@ -1,0 +1,1343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="CamBuild" Id="{0163117f-87e6-4a6f-b082-09f43dcc539d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK CamBuild IMPLEMENTS I_CamBuildSequence
+VAR
+	_State	 : UDINT;
+	_Camming : ST_Camming;
+	point	 : UDINT;
+	_Custom	 : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="Busy" Id="{32bab40b-2ed3-4308-bbad-3eb18c8c118f}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Busy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{ac546d29-bed1-4dbf-b555-720476af5887}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Busy := _State <> 0;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="CyclicLogic" Id="{51ed1758-caec-4998-b4a4-d13cd934fb3c}">
+      <Declaration><![CDATA[METHOD CyclicLogic
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE _State OF
+	0:
+	10:
+		IF NOT _Custom THEN
+			point										:= 1;
+			_Camming.camPoints[point].MasterPos			:= 180;
+			_Camming.camPoints[point].SlavePos			:= 65;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 2;
+			_Camming.camPoints[point].MasterPos			:= 281;
+			_Camming.camPoints[point].SlavePos			:= 169;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 3;
+			_Camming.camPoints[point].MasterPos			:= 329.4;
+			_Camming.camPoints[point].SlavePos			:= 242.7;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			//
+			point										:= 4;
+			_Camming.camPoints[point].MasterPos			:= 353.6;
+			_Camming.camPoints[point].SlavePos			:= 288.8;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 5;
+			_Camming.camPoints[point].MasterPos			:= 412;
+			_Camming.camPoints[point].SlavePos			:= 349.6;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 6;
+			_Camming.camPoints[point].MasterPos			:= 700;
+			_Camming.camPoints[point].SlavePos			:= 641;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 7;
+			_Camming.camPoints[point].MasterPos			:= 727.3;
+			_Camming.camPoints[point].SlavePos			:= 657.6;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 8;
+			_Camming.camPoints[point].MasterPos			:= 791.4;
+			_Camming.camPoints[point].SlavePos			:= 690.2;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 9;
+			_Camming.camPoints[point].MasterPos			:= 834;
+			_Camming.camPoints[point].SlavePos			:= 723;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 10;
+			_Camming.camPoints[point].MasterPos			:= 1036;
+			_Camming.camPoints[point].SlavePos			:= 924;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 11;
+			_Camming.camPoints[point].MasterPos			:= 1073;
+			_Camming.camPoints[point].SlavePos			:= 980;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 12;
+			_Camming.camPoints[point].MasterPos			:= 1100;
+			_Camming.camPoints[point].SlavePos			:= 1033;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 13;
+			_Camming.camPoints[point].MasterPos			:= 1147;
+			_Camming.camPoints[point].SlavePos			:= 1085;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;			
+
+			//
+			point										:= 14;
+			_Camming.camPoints[point].MasterPos			:= 1432;
+			_Camming.camPoints[point].SlavePos			:= 1373;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 15;
+			_Camming.camPoints[point].MasterPos			:= 1481;
+			_Camming.camPoints[point].SlavePos			:= 1409;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+			//
+			point										:= 16;
+			_Camming.camPoints[point].MasterPos			:= 1536;
+			_Camming.camPoints[point].SlavePos			:= 1437;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 17;
+			_Camming.camPoints[point].MasterPos			:= 1580;
+			_Camming.camPoints[point].SlavePos			:= 1468;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 1;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+			
+			//
+			point										:= 18;
+			_Camming.camPoints[point].MasterPos			:= 1680;
+			_Camming.camPoints[point].SlavePos			:= 1565;
+			_Camming.camPoints[point].PointIndex		:= point;
+			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+			_Camming.camPoints[point].RelIndexNextPoint := 0;
+			_Camming.camPoints[point].SlaveVelo			:= 0.00;
+			_Camming.camPoints[point].SlaveAcc			:= 0.00;
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+		END_IF
+
+		//
+		_Camming.camRef.NoOfColumns := 1;
+		_Camming.camRef.NoOfRows	:= point;
+		_Camming.camRef.TableType	:= MC_TableType.MC_TABLETYPE_MOTIONFUNCTION;
+		_Camming.camRef.ArraySize	:= SIZEOF(_Camming.camPoints);
+		_Camming.camRef.pArray		:= ADR(_Camming.camPoints);
+
+		//
+		_Camming.camTableSelect(CamTable   := _Camming.camRef,
+								Execute	   := TRUE,
+								Periodic   := TRUE,
+								CamTableID := 1);
+
+		IF _Camming.camTableSelect.Done THEN
+			Trace.Info(__POUNAME(), 'Curve Cam Built - ID 1');
+			_Camming.camTableSelect(CamTable := _Camming.camRef, Execute := FALSE);
+			SetStep(_State, 0);
+		END_IF
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="MultiplePoints" Id="{9378867f-9338-42b4-a7a7-6c7b4bf97b42}">
+      <Declaration><![CDATA[METHOD MultiplePoints
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[point										:= 1;
+_Camming.camPoints[point].MasterPos			:= 180.000;
+_Camming.camPoints[point].SlavePos			:= 65.000;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 2;
+_Camming.camPoints[point].MasterPos			:= 250.500;
+_Camming.camPoints[point].SlavePos			:= 135.500;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 3;
+_Camming.camPoints[point].MasterPos			:= 260.367;
+_Camming.camPoints[point].SlavePos			:= 145.398;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.011583;
+_Camming.camPoints[point].SlaveAcc			:= 0.00312668;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 4;
+_Camming.camPoints[point].MasterPos			:= 270.233;
+_Camming.camPoints[point].SlavePos			:= 155.622;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.070556;
+_Camming.camPoints[point].SlaveAcc			:= 0.00898229;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 5;
+_Camming.camPoints[point].MasterPos			:= 280.100;
+_Camming.camPoints[point].SlavePos			:= 166.716;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.187356;
+_Camming.camPoints[point].SlaveAcc			:= 0.01442322;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 6;
+_Camming.camPoints[point].MasterPos			:= 289.967;
+_Camming.camPoints[point].SlavePos			:= 179.194;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.346759;
+_Camming.camPoints[point].SlaveAcc			:= 0.01732695;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 7;
+_Camming.camPoints[point].MasterPos			:= 299.833;
+_Camming.camPoints[point].SlavePos			:= 193.327;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.516335;
+_Camming.camPoints[point].SlaveAcc			:= 0.01633779;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 8;
+_Camming.camPoints[point].MasterPos			:= 309.700;
+_Camming.camPoints[point].SlavePos			:= 209.017;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.655944;
+_Camming.camPoints[point].SlaveAcc			:= 0.01140889;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 9;
+_Camming.camPoints[point].MasterPos			:= 319.567;
+_Camming.camPoints[point].SlavePos			:= 225.802;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.735262;
+_Camming.camPoints[point].SlaveAcc			:= 0.00466021;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 10;
+_Camming.camPoints[point].MasterPos			:= 329.433;
+_Camming.camPoints[point].SlavePos			:= 243.059;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.755026;
+_Camming.camPoints[point].SlaveAcc			:= 0.00009489;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 11;
+_Camming.camPoints[point].MasterPos			:= 339.300;
+_Camming.camPoints[point].SlavePos			:= 260.346;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.737154;
+_Camming.camPoints[point].SlaveAcc			:= -0.00845956;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 12;
+_Camming.camPoints[point].MasterPos			:= 349.167;
+_Camming.camPoints[point].SlavePos			:= 276.699;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.547397;
+_Camming.camPoints[point].SlaveAcc			:= -0.02615257;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 13;
+_Camming.camPoints[point].MasterPos			:= 359.033;
+_Camming.camPoints[point].SlavePos			:= 290.717;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.302751;
+_Camming.camPoints[point].SlaveAcc			:= -0.02131854;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 14;
+_Camming.camPoints[point].MasterPos			:= 368.900;
+_Camming.camPoints[point].SlavePos			:= 302.681;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.136789;
+_Camming.camPoints[point].SlaveAcc			:= -0.01261846;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 15;
+_Camming.camPoints[point].MasterPos			:= 378.767;
+_Camming.camPoints[point].SlavePos			:= 313.397;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.045962;
+_Camming.camPoints[point].SlaveAcc			:= -0.00622413;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 16;
+_Camming.camPoints[point].MasterPos			:= 388.633;
+_Camming.camPoints[point].SlavePos			:= 323.492;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.007263;
+_Camming.camPoints[point].SlaveAcc			:= -0.00195545;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 17;
+_Camming.camPoints[point].MasterPos			:= 398.500;
+_Camming.camPoints[point].SlavePos			:= 333.378;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 18;
+_Camming.camPoints[point].MasterPos			:= 666.600;
+_Camming.camPoints[point].SlavePos			:= 601.478;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 19;
+_Camming.camPoints[point].MasterPos			:= 676.495;
+_Camming.camPoints[point].SlavePos			:= 611.354;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.992814;
+_Camming.camPoints[point].SlaveAcc			:= -0.00190944;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 20;
+_Camming.camPoints[point].MasterPos			:= 686.390;
+_Camming.camPoints[point].SlavePos			:= 621.030;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.957206;
+_Camming.camPoints[point].SlaveAcc			:= -0.00535633;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 21;
+_Camming.camPoints[point].MasterPos			:= 696.285;
+_Camming.camPoints[point].SlavePos			:= 630.186;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.888425;
+_Camming.camPoints[point].SlaveAcc			:= -0.00834680;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 22;
+_Camming.camPoints[point].MasterPos			:= 706.180;
+_Camming.camPoints[point].SlavePos			:= 638.538;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.797621;
+_Camming.camPoints[point].SlaveAcc			:= -0.00966634;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 23;
+_Camming.camPoints[point].MasterPos			:= 716.075;
+_Camming.camPoints[point].SlavePos			:= 645.962;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.704244;
+_Camming.camPoints[point].SlaveAcc			:= -0.00885381;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 24;
+_Camming.camPoints[point].MasterPos			:= 725.970;
+_Camming.camPoints[point].SlavePos			:= 652.534;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.628520;
+_Camming.camPoints[point].SlaveAcc			:= -0.00621225;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 25;
+_Camming.camPoints[point].MasterPos			:= 735.865;
+_Camming.camPoints[point].SlavePos			:= 658.505;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.583944;
+_Camming.camPoints[point].SlaveAcc			:= -0.00279152;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 26;
+_Camming.camPoints[point].MasterPos			:= 745.760;
+_Camming.camPoints[point].SlavePos			:= 664.195;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.570311;
+_Camming.camPoints[point].SlaveAcc			:= -0.00028497;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 27;
+_Camming.camPoints[point].MasterPos			:= 755.655;
+_Camming.camPoints[point].SlavePos			:= 669.834;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.569785;
+_Camming.camPoints[point].SlaveAcc			:= -0.00000641;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 28;
+_Camming.camPoints[point].MasterPos			:= 765.550;
+_Camming.camPoints[point].SlavePos			:= 675.476;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.571122;
+_Camming.camPoints[point].SlaveAcc			:= 0.00033576;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 29;
+_Camming.camPoints[point].MasterPos			:= 775.445;
+_Camming.camPoints[point].SlavePos			:= 681.153;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.577454;
+_Camming.camPoints[point].SlaveAcc			:= 0.00098723;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 30;
+_Camming.camPoints[point].MasterPos			:= 785.340;
+_Camming.camPoints[point].SlavePos			:= 686.929;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.591500;
+_Camming.camPoints[point].SlaveAcc			:= 0.00188997;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 31;
+_Camming.camPoints[point].MasterPos			:= 795.235;
+_Camming.camPoints[point].SlavePos			:= 692.892;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.615664;
+_Camming.camPoints[point].SlaveAcc			:= 0.00303751;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 32;
+_Camming.camPoints[point].MasterPos			:= 805.130;
+_Camming.camPoints[point].SlavePos			:= 699.155;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.652442;
+_Camming.camPoints[point].SlaveAcc			:= 0.00443439;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 33;
+_Camming.camPoints[point].MasterPos			:= 815.025;
+_Camming.camPoints[point].SlavePos			:= 705.854;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.704402;
+_Camming.camPoints[point].SlaveAcc			:= 0.00609093;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 34;
+_Camming.camPoints[point].MasterPos			:= 824.920;
+_Camming.camPoints[point].SlavePos			:= 713.150;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.773096;
+_Camming.camPoints[point].SlaveAcc			:= 0.00774577;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 35;
+_Camming.camPoints[point].MasterPos			:= 834.815;
+_Camming.camPoints[point].SlavePos			:= 721.200;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.855433;
+_Camming.camPoints[point].SlaveAcc			:= 0.00865192;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 36;
+_Camming.camPoints[point].MasterPos			:= 844.710;
+_Camming.camPoints[point].SlavePos			:= 730.077;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.936508;
+_Camming.camPoints[point].SlaveAcc			:= 0.00721864;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 37;
+_Camming.camPoints[point].MasterPos			:= 854.605;
+_Camming.camPoints[point].SlavePos			:= 739.636;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.988558;
+_Camming.camPoints[point].SlaveAcc			:= 0.00301892;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 38;
+_Camming.camPoints[point].MasterPos			:= 864.500;
+_Camming.camPoints[point].SlavePos			:= 749.500;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 39;
+_Camming.camPoints[point].MasterPos			:= 1000.500;
+_Camming.camPoints[point].SlavePos			:= 885.500;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 40;
+_Camming.camPoints[point].MasterPos			:= 1010.367;
+_Camming.camPoints[point].SlavePos			:= 895.398;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.011583;
+_Camming.camPoints[point].SlaveAcc			:= 0.00312668;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 41;
+_Camming.camPoints[point].MasterPos			:= 1020.233;
+_Camming.camPoints[point].SlavePos			:= 905.622;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.070556;
+_Camming.camPoints[point].SlaveAcc			:= 0.00898229;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 42;
+_Camming.camPoints[point].MasterPos			:= 1030.100;
+_Camming.camPoints[point].SlavePos			:= 916.716;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.187356;
+_Camming.camPoints[point].SlaveAcc			:= 0.01442322;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 43;
+_Camming.camPoints[point].MasterPos			:= 1039.967;
+_Camming.camPoints[point].SlavePos			:= 929.194;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.346759;
+_Camming.camPoints[point].SlaveAcc			:= 0.01732695;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 44;
+_Camming.camPoints[point].MasterPos			:= 1049.833;
+_Camming.camPoints[point].SlavePos			:= 943.327;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.516335;
+_Camming.camPoints[point].SlaveAcc			:= 0.01633779;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 45;
+_Camming.camPoints[point].MasterPos			:= 1059.700;
+_Camming.camPoints[point].SlavePos			:= 959.017;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.655944;
+_Camming.camPoints[point].SlaveAcc			:= 0.01140889;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 46;
+_Camming.camPoints[point].MasterPos			:= 1069.567;
+_Camming.camPoints[point].SlavePos			:= 975.802;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.735262;
+_Camming.camPoints[point].SlaveAcc			:= 0.00466021;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 47;
+_Camming.camPoints[point].MasterPos			:= 1079.433;
+_Camming.camPoints[point].SlavePos			:= 993.059;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.755026;
+_Camming.camPoints[point].SlaveAcc			:= 0.00009489;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 48;
+_Camming.camPoints[point].MasterPos			:= 1089.300;
+_Camming.camPoints[point].SlavePos			:= 1010.346;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.737154;
+_Camming.camPoints[point].SlaveAcc			:= -0.00845956;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 49;
+_Camming.camPoints[point].MasterPos			:= 1099.167;
+_Camming.camPoints[point].SlavePos			:= 1026.699;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.547397;
+_Camming.camPoints[point].SlaveAcc			:= -0.02615257;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 50;
+_Camming.camPoints[point].MasterPos			:= 1109.033;
+_Camming.camPoints[point].SlavePos			:= 1040.717;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.302751;
+_Camming.camPoints[point].SlaveAcc			:= -0.02131854;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 51;
+_Camming.camPoints[point].MasterPos			:= 1118.900;
+_Camming.camPoints[point].SlavePos			:= 1052.681;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.136789;
+_Camming.camPoints[point].SlaveAcc			:= -0.01261846;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 52;
+_Camming.camPoints[point].MasterPos			:= 1128.767;
+_Camming.camPoints[point].SlavePos			:= 1063.397;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.045962;
+_Camming.camPoints[point].SlaveAcc			:= -0.00622413;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 53;
+_Camming.camPoints[point].MasterPos			:= 1138.633;
+_Camming.camPoints[point].SlavePos			:= 1073.492;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.007263;
+_Camming.camPoints[point].SlaveAcc			:= -0.00195545;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 54;
+_Camming.camPoints[point].MasterPos			:= 1148.500;
+_Camming.camPoints[point].SlavePos			:= 1083.378;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 55;
+_Camming.camPoints[point].MasterPos			:= 1416.600;
+_Camming.camPoints[point].SlavePos			:= 1351.478;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 56;
+_Camming.camPoints[point].MasterPos			:= 1426.495;
+_Camming.camPoints[point].SlavePos			:= 1361.354;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.992814;
+_Camming.camPoints[point].SlaveAcc			:= -0.00190944;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 57;
+_Camming.camPoints[point].MasterPos			:= 1436.390;
+_Camming.camPoints[point].SlavePos			:= 1371.030;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.957206;
+_Camming.camPoints[point].SlaveAcc			:= -0.00535633;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 58;
+_Camming.camPoints[point].MasterPos			:= 1446.285;
+_Camming.camPoints[point].SlavePos			:= 1380.186;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.888425;
+_Camming.camPoints[point].SlaveAcc			:= -0.00834680;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 59;
+_Camming.camPoints[point].MasterPos			:= 1456.180;
+_Camming.camPoints[point].SlavePos			:= 1388.538;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.797621;
+_Camming.camPoints[point].SlaveAcc			:= -0.00966634;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 60;
+_Camming.camPoints[point].MasterPos			:= 1466.075;
+_Camming.camPoints[point].SlavePos			:= 1395.962;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.704244;
+_Camming.camPoints[point].SlaveAcc			:= -0.00885381;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 61;
+_Camming.camPoints[point].MasterPos			:= 1475.970;
+_Camming.camPoints[point].SlavePos			:= 1402.534;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.628520;
+_Camming.camPoints[point].SlaveAcc			:= -0.00621225;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 62;
+_Camming.camPoints[point].MasterPos			:= 1485.865;
+_Camming.camPoints[point].SlavePos			:= 1408.505;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.583944;
+_Camming.camPoints[point].SlaveAcc			:= -0.00279152;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 63;
+_Camming.camPoints[point].MasterPos			:= 1495.760;
+_Camming.camPoints[point].SlavePos			:= 1414.195;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.570311;
+_Camming.camPoints[point].SlaveAcc			:= -0.00028497;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 64;
+_Camming.camPoints[point].MasterPos			:= 1505.655;
+_Camming.camPoints[point].SlavePos			:= 1419.834;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.569785;
+_Camming.camPoints[point].SlaveAcc			:= -0.00000641;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 65;
+_Camming.camPoints[point].MasterPos			:= 1515.550;
+_Camming.camPoints[point].SlavePos			:= 1425.476;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.571122;
+_Camming.camPoints[point].SlaveAcc			:= 0.00033576;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 66;
+_Camming.camPoints[point].MasterPos			:= 1525.445;
+_Camming.camPoints[point].SlavePos			:= 1431.153;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.577454;
+_Camming.camPoints[point].SlaveAcc			:= 0.00098723;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 67;
+_Camming.camPoints[point].MasterPos			:= 1535.340;
+_Camming.camPoints[point].SlavePos			:= 1436.929;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.591500;
+_Camming.camPoints[point].SlaveAcc			:= 0.00188997;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 68;
+_Camming.camPoints[point].MasterPos			:= 1545.235;
+_Camming.camPoints[point].SlavePos			:= 1442.892;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.615664;
+_Camming.camPoints[point].SlaveAcc			:= 0.00303751;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 69;
+_Camming.camPoints[point].MasterPos			:= 1555.130;
+_Camming.camPoints[point].SlavePos			:= 1449.155;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.652442;
+_Camming.camPoints[point].SlaveAcc			:= 0.00443439;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 70;
+_Camming.camPoints[point].MasterPos			:= 1565.025;
+_Camming.camPoints[point].SlavePos			:= 1455.854;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.704402;
+_Camming.camPoints[point].SlaveAcc			:= 0.00609093;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 71;
+_Camming.camPoints[point].MasterPos			:= 1574.920;
+_Camming.camPoints[point].SlavePos			:= 1463.150;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.773096;
+_Camming.camPoints[point].SlaveAcc			:= 0.00774577;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 72;
+_Camming.camPoints[point].MasterPos			:= 1584.815;
+_Camming.camPoints[point].SlavePos			:= 1471.200;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.855433;
+_Camming.camPoints[point].SlaveAcc			:= 0.00865192;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 73;
+_Camming.camPoints[point].MasterPos			:= 1594.710;
+_Camming.camPoints[point].SlavePos			:= 1480.077;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.936508;
+_Camming.camPoints[point].SlaveAcc			:= 0.00721864;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 74;
+_Camming.camPoints[point].MasterPos			:= 1604.605;
+_Camming.camPoints[point].SlavePos			:= 1489.636;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 0.988558;
+_Camming.camPoints[point].SlaveAcc			:= 0.00301892;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 75;
+_Camming.camPoints[point].MasterPos			:= 1614.500;
+_Camming.camPoints[point].SlavePos			:= 1499.500;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 1;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+//
+point										:= 76;
+_Camming.camPoints[point].MasterPos			:= 1680.000;
+_Camming.camPoints[point].SlavePos			:= 1565.000;
+_Camming.camPoints[point].PointIndex		:= point;
+_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
+_Camming.camPoints[point].RelIndexNextPoint := 0;
+_Camming.camPoints[point].SlaveVelo			:= 1.000000;
+_Camming.camPoints[point].SlaveAcc			:= 0.00000000;
+_Camming.camPoints[point].SlaveJerk			:= 0.00;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Old" Id="{af94e39a-b3fd-4384-abf7-06b673d9775a}">
+      <Declaration><![CDATA[METHOD Old
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF NOT _Custom THEN
+	point										:= 1;
+	_Camming.camPoints[point].MasterPos			:= 250;
+	_Camming.camPoints[point].SlavePos			:= 135;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 2;
+	_Camming.camPoints[point].MasterPos			:= 291;
+	_Camming.camPoints[point].SlavePos			:= 176;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 3;
+	_Camming.camPoints[point].MasterPos			:= 377.1;
+	_Camming.camPoints[point].SlavePos			:= 317.3;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 4;
+	_Camming.camPoints[point].MasterPos			:= 704.5;
+	_Camming.camPoints[point].SlavePos			:= 643.0;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 5;
+	_Camming.camPoints[point].MasterPos			:= 815;
+	_Camming.camPoints[point].SlavePos			:= 700;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 6;
+	_Camming.camPoints[point].MasterPos			:= 1037;
+	_Camming.camPoints[point].SlavePos			:= 922;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 7;
+	_Camming.camPoints[point].MasterPos			:= 1117;
+	_Camming.camPoints[point].SlavePos			:= 1057;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 8;
+	_Camming.camPoints[point].MasterPos			:= 1449;
+	_Camming.camPoints[point].SlavePos			:= 1389;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 9;
+	_Camming.camPoints[point].MasterPos			:= 1589;
+	_Camming.camPoints[point].SlavePos			:= 1474;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 1;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
+	//
+	point										:= 10;
+	_Camming.camPoints[point].MasterPos			:= 1750;
+	_Camming.camPoints[point].SlavePos			:= 1635;
+	_Camming.camPoints[point].PointIndex		:= point;
+	_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
+	_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_ACTIVATION;
+	_Camming.camPoints[point].RelIndexNextPoint := 0;
+	_Camming.camPoints[point].SlaveVelo			:= 0.00;
+	_Camming.camPoints[point].SlaveAcc			:= 0.00;
+	_Camming.camPoints[point].SlaveJerk			:= 0.00;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Reset" Id="{62bb3210-1354-477f-bd61-e0e221bf5359}">
+      <Declaration><![CDATA[METHOD Reset
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[SetStep(_State, 0);
+_Camming.camTableSelect(CamTable := _Camming.camRef, Execute := FALSE);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Start" Id="{11ca0b76-56e2-4369-847d-a9ac2f691af1}">
+      <Declaration><![CDATA[METHOD Start
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[NextStep(_State);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Stop" Id="{6ef248b1-2e0e-4061-b342-6ec8bffcab7c}">
+      <Declaration><![CDATA[{warning 'Add method implementation '}
+METHOD Stop
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

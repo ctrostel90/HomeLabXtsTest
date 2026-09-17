@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <DUT Name="ST_NctProcessImage" Id="{c5db1936-506b-44b2-86da-e2b0d43eba08}">
+    <Declaration><![CDATA[TYPE ST_NctProcessImage :
+STRUCT
+	DigitalInput11	: BOOL;		//Bit
+	DigitalInput12	: BOOL;		//Bit
+	DigitalInput13	: BOOL;		//Bit
+	DigitalInput14	: BOOL;		//Bit
+	DigitalOutput11	: BOOL;		//Bit
+	DigitalOutput12	: BOOL;		//Bit
+	DigitalOutput13	: BOOL;		//Bit
+	DigitalOutput14	: BOOL;		//Bit
+	AnalogInput1	: LREAL;	//0-10V
+	AnalogInput2	: LREAL;	//0-10V
+	PwmFrequnecy	: LREAL;	//32kHz-128kHz
+	PwmChannel1		: LREAL;	//0-100%
+	PwmChannel2		: LREAL;	//0-100%
+	PwmChannel3		: LREAL;	//0-100%
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

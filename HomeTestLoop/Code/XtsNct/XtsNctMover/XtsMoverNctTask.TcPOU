@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="XtsMoverNctTask" Id="{c4d6f204-c5c0-4759-aac5-41330eed750b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK XtsMoverNctTask EXTENDS XtsCore.XtsMoverTaskResult IMPLEMENTS I_XtsMoverTask, I_XtsNctMoverTask
+VAR
+	_Axis		: XtsCore.I_AxisRef;
+	_System		: I_XtsSystem;
+	_DefaultNct : XtsNctBaseUnit;
+	_Nct		: I_XtsNctBaseUnit := _DefaultNct;
+	_State		: UDINT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="Constructor" Id="{f89fc7eb-cb1b-4603-b4dd-869c20756a02}" />
+    <Property Name="Axis" Id="{6e38082e-2782-407d-877b-c66258cf1236}">
+      <Declaration><![CDATA[PROPERTY Axis : XtsCore.I_AxisRef]]></Declaration>
+      <Get Name="Get" Id="{a596a4fa-21e9-4ccc-bbab-6d3f378326d3}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Axis := _Axis;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{558d6dff-fdab-4c3e-a42b-f2d11bf57397}">
+        <Declaration><![CDATA[VAR
+	Mover : I_XtsMover;
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_Axis := Axis;
+__QUERYINTERFACE(_Axis, Mover);
+_Mover := Mover;
+__QUERYINTERFACE(Mover.TracePublisher, _Logger);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="CyclicLogic" Id="{f2a170b2-9336-437d-bac4-2559323b9c3f}">
+      <Declaration><![CDATA[METHOD CyclicLogic
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _System = 0 THEN
+	RETURN;
+END_IF
+
+SUPER^.CyclicLogic(); //Watchdog handling
+CASE _State OF
+	0:
+		
+		IF _Mover.MoverId = 0 THEN
+			RETURN;
+		END_IF
+
+		_Nct.AssignInterface(_System.Utility.NctControllerTcIo().BaseUnitInterfaceTcIo(UDINT_TO_UINT(_Mover.MoverId)));
+		_State := 1;
+
+	1:
+		_Nct.Initalize(_Nct.Status.isReadyToInitialize);
+		IF _Nct.Status.isInitialized THEN
+			_State := 10;
+		END_IF
+
+	10:
+		IF NOT _Nct.IsInterfaceAssigned THEN
+			//We shouldn't ever lose the interface mid cycle once assigned
+			LogMessage.Severity	 := 4;
+			LogMessage.Message	 := 'NCT Interface lost after being assigned';
+			//LogMessage.MessageId := E_XtsLogMessage.MoverCommandedToHalt;
+			_Logger.LogMessageInstance(LogSource, LogMessage);
+			_Error := TRUE;
+			_State := 0;
+			RETURN;
+		END_IF
+
+		IF NOT _Nct.Status.isInitialized THEN
+			_State := 1;
+			RETURN;
+		END_IF
+
+		_Nct.UpdateProcessData(_Nct.Status.isOnCommunicationArea AND _Nct.Status.isReadyToProcessSyncCommands);
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Execute" Id="{8998026a-5464-41fa-9a46-dbc499eba7d1}">
+      <Declaration><![CDATA[METHOD Execute : I_XtsMoverTaskResult]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Execute			:= THIS^;
+ExecuteWatchdog := ExecuteWatchdog + 1;
+
+//Protect against repeated calls
+IF _Busy OR _CommandExecuted THEN
+	RETURN;
+END_IF
+
+_Error				 := FALSE;
+_ErrorID			 := 0;
+_Busy				 := TRUE;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_Init" Id="{36ffd55e-fa41-401d-91b6-a081ca3156ce}" FolderPath="Constructor\">
+      <Declaration><![CDATA[//FB_Init is always available implicitly and it is used primarily for initialization.
+
+//The return value is not evaluated. For a specific influence, you can also declare the
+
+//methods explicitly and provide additional code there with the standard initialization
+
+//code. You can evaluate the return value.
+METHOD FB_Init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // TRUE: the retain variables are initialized (reset warm / reset cold)
+	bInCopyCode	 : BOOL; // TRUE: the instance will be copied to the copy code afterward (online change)
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_TaskName			 := 'Nct Cyclic';
+_TaskId				 := MoverTaskId.NCT; 
+LogSource.SourceName := _TaskName;
+LogSource.SourceId	 := _TaskId;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Interrupted" Id="{5be10101-c763-46ba-8c84-de7f90c6b855}">
+      <Declaration><![CDATA[PROPERTY Interrupted : BOOL]]></Declaration>
+      <Get Name="Get" Id="{1d06db6a-b74a-4385-9668-6cf408337f9b}">
+        <Declaration><![CDATA[VAR
+	Mover : I_XtsMover;
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Interrupted := FALSE;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="Nct" Id="{87e666f2-f7d8-4bf2-82b7-e683a7eb82c8}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Nct : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{9081d5ee-4c26-400f-b51c-d8edf2e724d8}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{29640f25-eec5-446a-a15b-8ed93c591ac2}">
+        <Declaration><![CDATA[
+VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_Nct := Nct;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="NctReady" Id="{4320834d-b216-47cd-827e-200045134ce6}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY NctReady : BOOL]]></Declaration>
+      <Get Name="Get" Id="{ad43369f-4705-42ae-88d7-f8b093c950ac}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctReady := _Nct.IsInterfaceAssigned AND_THEN _Nct.Status.isInitialized;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Reset" Id="{b6394ab1-0ee2-4242-b5c7-d79a497c5b3e}">
+      <Declaration><![CDATA[METHOD Reset
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _Error THEN
+	_State := 0;
+END_IF
+
+_Error			 := FALSE;
+_ErrorID		 := 0;
+_Busy			 := FALSE;
+ExecuteWatchdog	 := 0;
+_CommandExecuted := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="XtsSystem" Id="{4f160afa-d37b-4280-b162-cd8617a56d2e}">
+      <Declaration><![CDATA[PROPERTY XtsSystem : I_XtsSystem]]></Declaration>
+      <Get Name="Get" Id="{d9cda854-b17f-4f53-9c4b-27cc162f67d0}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[XtsSystem := _System;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{b1b77ff1-8660-4009-a8f4-68d739f7587c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_System := XtsSystem;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>

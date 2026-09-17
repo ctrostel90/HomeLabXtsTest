@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <Itf Name="I_XtsNctMoverTask" Id="{7ef7b844-ffde-4b80-b0ff-745e7794ae50}">
+    <Declaration><![CDATA[INTERFACE I_XtsNctMoverTask EXTENDS I_Base
+]]></Declaration>
+    <Property Name="Nct" Id="{ad47e2e1-fa6f-4092-832a-b8df116fca4e}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Nct : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{c1ce2f25-879c-477c-acd6-4d748ddd5aee}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{197cd2d2-cae3-4c83-8283-620dea66c6ba}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+    <Property Name="NctReady" Id="{21ae2e4e-0a59-484a-b35c-3f52e257e30d}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY NctReady : BOOL]]></Declaration>
+      <Get Name="Get" Id="{498ccfc9-881d-4c09-958b-7e37db9ec421}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="XtsSystem" Id="{7169686e-93a6-4208-bab7-4316be719037}">
+      <Declaration><![CDATA[PROPERTY XtsSystem : I_XtsSystem]]></Declaration>
+      <Get Name="Get" Id="{6160254a-acd6-4dcb-bf1e-3f20300b59d9}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{3abe7364-130d-4269-9d5a-252f3905db9e}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+  </Itf>
+</TcPlcObject>

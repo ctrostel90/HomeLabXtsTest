@@ -1,0 +1,1647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="XtsNctBaseUnit" Id="{25e40d8a-37aa-4645-83af-87ca20d4b927}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK XtsNctBaseUnit IMPLEMENTS I_XtsNctBaseUnit
+
+VAR
+	//NCT Base Unit Interface interface
+	_ipTcIoXtsNctBaseUnitInterface	: I_TcIoXtsNctBaseUnitInterface; //Reference to initalized XtsBaseUnitInteraface Function Block
+
+	//ProcessData Input
+	_stNctProcessDataIn		: ST_NctProcessData;
+	
+	//ProcessData Output
+	_stNctProcessDataOut	: ST_NctProcessData;
+	
+	//Registers Output
+	_aADCCalibration			: ARRAY[1..32] OF BYTE;
+	_aADCCalibrationChannel3	: ARRAY[1..8] OF BYTE;
+	_aADCCalibrationChannel4	: ARRAY[1..8] OF BYTE;
+	_nADCInputChannel3			: INT;
+	_nADCInputChannel4			: INT;
+	_nADCRawInputChannel3		: INT;
+	_nADCRawInputChannel4		: INT;
+	_aAntennaValues				: ARRAY[1..4] OF BYTE;
+	_aAny						: ARRAY[1..256] OF BYTE;
+	_sApplicationVersion		: STRING(31);
+	_aBIC						: ARRAY[1..256] OF BYTE;
+	_sBootloaderVersion			: STRING(31);
+	_nCodeword					: UDINT;
+	_sCommunicationVersion		: STRING(31);
+	_nControlVoltage			: UINT;
+	_nDeviceId					: UDINT;
+	_sDeviceName				: STRING(31);
+	_aDiagHistoryBuffer			: ARRAY[1..256] OF BYTE;
+	_nDiagHistoryControl		: USINT;
+	_nDiagHistoryStatus			: USINT;
+	_nDiagInfo					: UINT;
+	_sHardwareVersion			: STRING(3);
+	_stIdentity					: ProductIdentity;
+	_nMTSHeaderSettings			: BYTE;
+	_stMoverGuid				: GUID;
+	_sMoverUsername				: STRING(31);
+	_aRFIDSettings				: ARRAY[1..4] OF BYTE;
+	_nLocalAddress				: USINT;
+	_sSoftwareVersion			: STRING(31);
+	_sStackVersion				: STRING(31);
+	_nSupplyCurrent				: UINT;
+	_nSupplyVoltage				: UINT;
+	_aUserData					: ARRAY[1..32] OF BYTE;
+	_aUserDataEE				: ARRAY[1..32] OF BYTE;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="Methods" Id="{a47b80f8-ed51-4282-abcc-5736c64e074e}">
+      <Folder Name="Adminstrative" Id="{13d578fc-8f0d-4bb0-a22d-df8b02e4b0dc}" />
+      <Folder Name="Communication" Id="{8a2996d0-d499-4263-807f-5ddc90bbc103}" />
+    </Folder>
+    <Folder Name="Properties" Id="{12e69cfc-0db5-4df1-8755-574369fb11d0}">
+      <Folder Name="Administrative" Id="{7f2ef2db-3747-4837-a3ad-464cedd4d80e}" />
+      <Folder Name="ProcessData" Id="{a81f9a37-e03d-4eb7-a6c3-d323c91982ac}" />
+      <Folder Name="ProcessImage" Id="{2d55111d-98d0-43d1-9a25-f6ff06ad7cb6}" />
+      <Folder Name="Registers" Id="{df633edb-9076-43ca-8e62-28ab083f11e5}" />
+    </Folder>
+    <Property Name="ActiveTime" Id="{d982a443-7f11-4f70-bf7d-a64ad4b128ed}" FolderPath="Properties\Administrative\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ActiveTime : REAL]]></Declaration>
+      <Get Name="Get" Id="{4b4d8079-bc3f-4b06-9292-f7176de33b94}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	ActiveTime := _ipTcIoXtsNctBaseUnitInterface.GetActiveTime();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="AnalogInput1" Id="{555c483f-7c6a-4b7e-96b1-b598c38b9cc9}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY AnalogInput1 : LREAL
+]]></Declaration>
+      <Get Name="Get" Id="{f1d55fdf-4f27-4663-b788-9a06d4d236dc}">
+        <Declaration><![CDATA[VAR
+	nAnalogInput: UINT;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[//Lowbyte
+nAnalogInput.0 := _stNctProcessDataIn.AppData1.0;
+nAnalogInput.1 := _stNctProcessDataIn.AppData1.1;
+nAnalogInput.2 := _stNctProcessDataIn.AppData1.2;
+nAnalogInput.3 := _stNctProcessDataIn.AppData1.3;
+nAnalogInput.4 := _stNctProcessDataIn.AppData1.4;
+nAnalogInput.5 := _stNctProcessDataIn.AppData1.5;
+nAnalogInput.6 := _stNctProcessDataIn.AppData1.6;
+nAnalogInput.7 := _stNctProcessDataIn.AppData1.7;
+
+//Highbyte
+nAnalogInput.8 	:= _stNctProcessDataIn.AppData2.0;
+nAnalogInput.9 	:= _stNctProcessDataIn.AppData2.1;
+nAnalogInput.10 := _stNctProcessDataIn.AppData2.2;
+nAnalogInput.11 := _stNctProcessDataIn.AppData2.3;
+nAnalogInput.12 := _stNctProcessDataIn.AppData2.4;
+nAnalogInput.13 := _stNctProcessDataIn.AppData2.5;
+nAnalogInput.14 := _stNctProcessDataIn.AppData2.6;
+nAnalogInput.15 := _stNctProcessDataIn.AppData2.7;
+
+//Convert to 10V scale
+AnalogInput1:=(10.0/(4095)*nAnalogInput);]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="AnalogInput2" Id="{724681b7-6a54-4778-9847-6c487514ae63}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY AnalogInput2 : LREAL
+]]></Declaration>
+      <Get Name="Get" Id="{8d564365-9af7-4225-a554-2fd232b5ccce}">
+        <Declaration><![CDATA[VAR
+	nAnalogInput: UINT;
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[//Lowbyte
+nAnalogInput.0 := _stNctProcessDataIn.AppData3.0;
+nAnalogInput.1 := _stNctProcessDataIn.AppData3.1;
+nAnalogInput.2 := _stNctProcessDataIn.AppData3.2;
+nAnalogInput.3 := _stNctProcessDataIn.AppData3.3;
+nAnalogInput.4 := _stNctProcessDataIn.AppData3.4;
+nAnalogInput.5 := _stNctProcessDataIn.AppData3.5;
+nAnalogInput.6 := _stNctProcessDataIn.AppData3.6;
+nAnalogInput.7 := _stNctProcessDataIn.AppData3.7;
+
+//Highbyte
+nAnalogInput.8 	:= _stNctProcessDataIn.AppData4.0;
+nAnalogInput.9 	:= _stNctProcessDataIn.AppData4.1;
+nAnalogInput.10 := _stNctProcessDataIn.AppData4.2;
+nAnalogInput.11 := _stNctProcessDataIn.AppData4.3;
+nAnalogInput.12 := _stNctProcessDataIn.AppData4.4;
+nAnalogInput.13 := _stNctProcessDataIn.AppData4.5;
+nAnalogInput.14 := _stNctProcessDataIn.AppData4.6;
+nAnalogInput.15 := _stNctProcessDataIn.AppData4.7;
+
+//Convert to 10V scale
+AnalogInput2:=(10.0/4095)*(nAnalogInput);]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="AssignInterface" Id="{54d81c9a-a37c-4b46-8e3b-95376869ad26}" FolderPath="Methods\Adminstrative\">
+      <Declaration><![CDATA[METHOD AssignInterface : PVOID
+
+VAR_INPUT
+	ipTcIoXtsNctBaseUnitInterface	: I_TcIoXtsNctBaseUnitInterface;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//Nct Base Unit Interface-------------------------------------------------------------------
+NctBaseUnitInterface	:= ipTcIoXtsNctBaseUnitInterface;
+//Nct Base Unit Interface-------------------------------------------------------------------]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="BIC" Id="{52a057e5-2233-4c7c-b7a3-211aadd8f8b3}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[PROPERTY BIC : ARRAY[1..256] OF BYTE]]></Declaration>
+      <Get Name="Get" Id="{d55f88fb-1250-48c6-8f85-4ebeedc30eb7}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	BIC := _ipTcIoXtsNctBaseUnitInterface.GetBIC();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{a4852f7e-31ca-4a21-9650-37c347d7ff78}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_aBIC	:= BIC;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="ControlVoltage" Id="{d901f5aa-fe12-4030-ac5e-f753cd8ef375}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ControlVoltage : UINT]]></Declaration>
+      <Get Name="Get" Id="{361165c7-23ca-4d59-94d9-cdb6308df054}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	ControlVoltage := _ipTcIoXtsNctBaseUnitInterface.GetControlVoltage();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{b8cc8a0a-ff9e-4e04-85f5-7f4c1a62da2b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_nControlVoltage	:= ControlVoltage;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="DeviceName" Id="{84ef183c-78a2-4d26-bbb9-2dd3403d04ec}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DeviceName : STRING(31)]]></Declaration>
+      <Get Name="Get" Id="{f1c0ec60-2aec-4bd5-b660-406d639e53f1}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	DeviceName := _ipTcIoXtsNctBaseUnitInterface.GetDeviceName();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{5b7ef64a-f268-4ed4-86b7-5cb2b6ed6cb7}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_sDeviceName	:= DeviceName;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="DigitalInput1" Id="{a6357498-01d4-4e4e-827b-e98ae5ba0c11}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalInput1 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{19a8b87f-b217-4986-ab34-c315f4842e09}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalInput1 := _stNctProcessDataIn.AppData0.0;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="DigitalInput2" Id="{734eea78-5d8b-476f-bebd-2185c7105d86}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalInput2 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{ed700cbf-b9fd-4e37-a006-3f9f40a9d948}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalInput2 := _stNctProcessDataIn.AppData0.1;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="DigitalInput3" Id="{17ebbbd2-2d76-4cec-9b40-797de4c129d9}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalInput3 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{d99741c8-24fd-427f-a974-ce71f4118e8f}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalInput3 := _stNctProcessDataIn.AppData0.2;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="DigitalInput4" Id="{18dee391-41e7-47dd-affe-78d894eb292e}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalInput4 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{e4c3ed8a-60af-4d00-bdb9-09c3c683f260}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalInput4 := _stNctProcessDataIn.AppData0.3;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="DigitalOutput1" Id="{670fb611-f301-4c41-a934-0feaeecf35d0}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalOutput1 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{ac5e614a-2cf9-4a1d-aec0-d13e0d6e7be9}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalOutput1 := _stNctProcessDataOut.AppData0.0;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{8130b0a4-0f07-402a-b425-d85d162e631d}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[ _stNctProcessDataOut.AppData0.0:=DigitalOutput1;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="DigitalOutput2" Id="{149501d1-3f24-4500-8962-d0fb140abc72}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalOutput2 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{e095819a-f218-41fc-bf8e-a849cb9e9c6b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalOutput2 := _stNctProcessDataOut.AppData0.1;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{963e062e-b83a-40a5-9264-c05ca2496685}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut.AppData0.1:=DigitalOutput2;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="DigitalOutput3" Id="{aa28627f-6ac0-418c-a6be-03aa0cf006df}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalOutput3 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{82d0c011-5bfc-42e2-83c0-72b3bf5cc8c8}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalOutput3 := _stNctProcessDataOut.AppData0.2;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{156d7310-5f27-492c-aaee-86fb2515243d}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut.AppData0.2:=DigitalOutput3;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="DigitalOutput4" Id="{36ae4760-953b-45e0-b659-f62f83c04e9a}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY DigitalOutput4 : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{f93872ea-5431-4029-8173-74b5a2ae33b8}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[DigitalOutput4 := _stNctProcessDataOut.AppData0.3;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{83c86c13-8fc0-4d3b-869e-f2923f39725b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut.AppData0.3:=DigitalOutput4;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="HardwareVersion" Id="{d2ef81ff-8387-4449-b42c-a928cb3a4c4d}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY HardwareVersion : STRING(3)]]></Declaration>
+      <Get Name="Get" Id="{f9b747a6-98e4-4a7e-9192-e7853ce510a7}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	HardwareVersion := _ipTcIoXtsNctBaseUnitInterface.GetHardwareVersion();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{899edfc4-ec29-4fc0-8317-1fa69227c9d1}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_sHardwareVersion	:= HardwareVersion;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="Identity" Id="{8f6ba51b-3736-40ec-828f-bd37bfb6f023}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Identity : REFERENCE TO ProductIdentity]]></Declaration>
+      <Get Name="Get" Id="{1c1f8b7a-ab3e-4850-8b35-951665893b88}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	Identity REF= _stIdentity;//_ipTcIoXtsNctBaseUnitInterface.GetIdentity();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{42ba7d77-c028-4560-bbbe-4c13880037e2}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stIdentity	:= Identity;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="Initalize" Id="{b1650d70-dc95-4db8-8ba4-ae22507ef3b7}" FolderPath="Methods\Adminstrative\">
+      <Declaration><![CDATA[METHOD Initalize : REFERENCE TO ST_ReturnStructure
+
+VAR_INPUT
+	bExecute: BOOL;
+END_VAR
+
+VAR_OUTPUT
+END_VAR
+
+VAR_INST
+	//Case
+	nCase	: INT;
+	
+	//Return
+	stReturnStructure	: ST_ReturnStructure;
+
+	//Trigger
+	fbRTrig: R_TRIG;
+	fbFTrig: F_TRIG;
+
+	//Command
+	stNctCommandEntry	: NctCommandEntry;
+	stNctCommandInfo	: NctCommandInfo;
+	stNctCommandData	: ARRAY[1..256] OF BYTE;
+	
+	//Timeout	
+	fbTimeout	: TON;
+	
+	//LogMessage
+	aLogMessageThrown	: ARRAY[1..3] OF BOOL;
+END_VAR	
+	
+VAR	
+	//Command
+	stNctInitCommandArguments	: NctInitCommandArguments;
+	stAbortCommandArguments		: NctAbortCommandArguments;
+
+	//Timeout
+	tTimeoutTime	: TIME :=T#1S;	//Sets the time for timeout
+	
+	//LogMessage
+	nNumLogMessages	: INT :=3;
+	nForCounter		: INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbRTrig(CLK:=bExecute);
+fbFTrig(CLK:=bExecute);
+
+//On rising Execute
+IF fbRTrig.Q THEN
+	//Update return
+	stReturnStructure.Done		:= FALSE;
+	stReturnStructure.Busy		:= TRUE;
+	stReturnStructure.Active	:= FALSE;
+	stReturnStructure.Aborted	:= FALSE;
+	stReturnStructure.Error		:= FALSE;
+	stReturnStructure.ErrorId	:= 0;
+	
+	//Set case
+	nCase:=1;
+
+//On falling Execute
+ELSIF fbFTrig.Q THEN
+	//Update return
+	stReturnStructure.Done		:= FALSE;
+	stReturnStructure.Busy		:= FALSE;
+	stReturnStructure.Active	:= FALSE;
+	stReturnStructure.Aborted	:= FALSE;
+	stReturnStructure.Error		:= FALSE;
+	stReturnStructure.ErrorId	:= 0;
+
+	//Set case
+	nCase:=0;
+END_IF
+
+CASE nCase OF
+	0: //Idle
+		;
+	
+	1: //Prepare Command
+		IF Status.isMinActivationTimePassed AND Status.isReadyToInitialize THEN
+		
+			//Init Mode
+			NctBaseUnitInterface.SetInitMode(NctInitMode.SimpleInit);
+		
+			//Command Parameters
+			stNctInitCommandArguments.iterationCount 	:= 10;
+			stNctInitCommandArguments.maxErrorCount 	:= 10;
+			stNctInitCommandArguments.executionMode		:= NctCommandExecutionMode.UntilSuccessMaxErrors;
+			
+			//Add Write Init Command
+			stNctCommandEntry	:= NctBaseUnitInterface.AddInitCommand(stNctInitCommandArguments);
+			
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Reset log messages
+			FOR nForCounter:=1 TO nNumLogMessages DO
+				aLogMessageThrown[nForCounter]	:= FALSE;
+			END_FOR
+			
+			//Reset timeout timer
+			fbTimeOut(IN:=FALSE);
+			
+			//Set case
+			nCase:=2;
+			
+		ELSE
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 1;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Initalizing %s not possible because the Base Unit is not ready to be initalized.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+		
+			//Set case
+			nCase:=0;
+		END_IF
+
+	2: //Check Command
+		stNctCommandInfo	:= NctBaseUnitInterface.GetCmdInfoByCmdEntry(stNctCommandEntry);
+	
+		IF 		stNctCommandInfo.status = NctCommandStatus.IsRunning THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= TRUE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Timeout
+			fbTimeOut(IN:=TRUE, PT:=tTimeoutTime);
+			
+			IF fbTimeOut.Q THEN
+				//Abort Command
+				stAbortCommandArguments.option	:= NctAbortCommandParameterOption.ById;
+				stAbortCommandArguments.id		:= stNctCommandEntry.id;
+				NctBaseUnitInterface.AbortCommand(stAbortCommandArguments);
+				
+				//Update return structure
+				stReturnStructure.Done		:= FALSE;
+				stReturnStructure.Busy		:= FALSE;
+				stReturnStructure.Active	:= FALSE;
+				stReturnStructure.Aborted	:= FALSE;
+				stReturnStructure.Error		:= TRUE;
+				stReturnStructure.ErrorId	:= 3;
+				
+				//Write log message
+				IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+					aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+					
+					ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Initalizing %s not possible because the method went into timeout.',strArg:=NctBaseUnitInterface.P_ObjectName);
+				END_IF
+				
+				//Next step
+				nCase:=0;
+			END_IF
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsQueued OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingForStartConditions OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingToResume THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsSucceeded THEN
+			stNctCommandData	:= NctBaseUnitInterface.GetCmdDataByCmdEntry(stNctCommandEntry);
+			
+			//Process Data
+			_stNctProcessDataIn.AppData0	:= stNctCommandData[1];
+			_stNctProcessDataIn.AppData1	:= stNctCommandData[2];
+			_stNctProcessDataIn.AppData2	:= stNctCommandData[3];
+			_stNctProcessDataIn.AppData3	:= stNctCommandData[4];
+			_stNctProcessDataIn.AppData4	:= stNctCommandData[5];
+			
+			//Update return structure
+			stReturnStructure.Done		:= TRUE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+		
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsAbortedByArea OR
+				stNctCommandInfo.status = NctCommandStatus.IsAbortedByUser THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= TRUE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+				
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsFailed OR
+				stNctCommandInfo.status = NctCommandStatus.IsFailedDueToChildCommand OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToCorruptedArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToInvalidArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNoMemory OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNotSupportedRegister THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 2;	
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Initalizing %s not possible because command failed.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;
+			
+		ELSIF	stNctCommandInfo.status = NctCommandStatus.NotDefined THEN
+			;
+		END_IF
+			
+END_CASE
+
+//Update return structure
+Initalize	REF= stReturnStructure;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="InputProcessData" Id="{7adbd1e4-59ac-40f1-893a-b295506670cd}" FolderPath="Properties\ProcessData\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY InputProcessData : REFERENCE TO ST_NctProcessData]]></Declaration>
+      <Get Name="Get" Id="{673210bc-eca3-475f-a9ef-c140a67a6c15}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[InputProcessData REF= _stNctProcessDataIn;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="IsInterfaceAssigned" Id="{15cc93fc-be03-4935-a62c-3bb0ef93ad72}" FolderPath="Properties\Administrative\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY IsInterfaceAssigned : BOOL]]></Declaration>
+      <Get Name="Get" Id="{7b8aaa9c-7a06-4e2b-8c60-1f537bb61d12}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF _ipTcIoXtsNctBaseUnitInterface <> 0 THEN
+	IsInterfaceAssigned := TRUE;
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="MoverGuid" Id="{794ba28f-0201-490c-b25a-4d9fc93316a2}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[PROPERTY MoverGuid : GUID]]></Declaration>
+      <Get Name="Get" Id="{4536118b-9676-41b8-b967-64df0ea3ab1b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	MoverGuid := _ipTcIoXtsNctBaseUnitInterface.GetMoverGuid();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{8d7f4d75-a4dc-4b14-9ef9-4ee254198c90}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stMoverGuid	:= MoverGuid;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="MoverUsername" Id="{0cc4f66a-5f11-4fed-8533-947c409c67e2}" FolderPath="Properties\Registers\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY MoverUsername : STRING(31)]]></Declaration>
+      <Get Name="Get" Id="{8521e10b-796d-4ade-89b6-0c0edda4f58d}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	MoverUsername := _ipTcIoXtsNctBaseUnitInterface.GetMoverUsername();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{5f84a6e4-f6bf-447e-ba78-cf314f339c1c}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_sMoverUsername	:= MoverUsername;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="NctBaseUnitInterface" Id="{fbbe321f-16ec-4350-a296-9ef4bac0a0d5}" FolderPath="Properties\Administrative\">
+      <Declaration><![CDATA[PROPERTY NctBaseUnitInterface : I_TcIoXtsNctBaseUnitInterface]]></Declaration>
+      <Get Name="Get" Id="{7ceee9cf-6e09-4172-a8d4-b80b5d51288b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctBaseUnitInterface := _ipTcIoXtsNctBaseUnitInterface;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{d25fc9d0-1eaa-49df-91b0-642258a51401}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_ipTcIoXtsNctBaseUnitInterface	:= NctBaseUnitInterface;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="OutputProcessData" Id="{14207f1a-4b0d-4757-aa4b-3fb714dc5078}" FolderPath="Properties\ProcessData\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY OutputProcessData : REFERENCE TO ST_NctProcessData]]></Declaration>
+      <Get Name="Get" Id="{e02e0c42-b3b1-4f10-924e-b40bc4627dc9}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[OutputProcessData	REF= _stNctProcessDataOut;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{2d30b209-aa12-4f69-8e39-592ba4a70c9b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut	:= OutputProcessData;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="PwmChannel1" Id="{eab18e23-5151-476e-a526-560069b21980}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY PwmChannel1 : LREAL]]></Declaration>
+      <Get Name="Get" Id="{cde40334-5dd7-4b84-a06a-3067b679bd15}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[PwmChannel1	:= 100.0/255*_stNctProcessDataOut.AppData2;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{849da0df-dbd6-4035-8359-d2f46ea9bf9c}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut.AppData2	:= LREAL_TO_USINT(255.0/100*PwmChannel1);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="PwmChannel2" Id="{8fdb8e9d-9d17-4fa7-9e06-dcadaa0e745f}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY PwmChannel2 : LREAL]]></Declaration>
+      <Get Name="Get" Id="{1e641a4f-247a-415c-b47f-a311d68fdc7b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[PwmChannel2	:= 100.0/255*_stNctProcessDataOut.AppData3;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{ee029339-6efa-4efd-b98f-510de0002fff}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut.AppData3	:= LREAL_TO_USINT(255.0/100*PwmChannel2);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="PwmChannel3" Id="{64fe9f7f-8cb5-460c-a7e2-2afda7c52ccc}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY PwmChannel3 : LREAL]]></Declaration>
+      <Get Name="Get" Id="{980fec85-a0e7-41e2-a8a8-11cc00d28ca9}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[PwmChannel3	:= 100.0/255*_stNctProcessDataOut.AppData4;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{4418a8d0-ece4-4d7c-94af-784c206c943b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_stNctProcessDataOut.AppData4	:= LREAL_TO_USINT(255.0/100*PwmChannel3);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="PwmFrequency" Id="{a24acddc-f6aa-4df5-8c3f-c36e013ff129}" FolderPath="Properties\ProcessImage\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY PwmFrequency : LREAL]]></Declaration>
+      <Get Name="Get" Id="{348c18fc-2c17-41af-81e1-1d54f2e1778f}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[PwmFrequency	:= 32000.0 + ((128000.0-32000.0)/255.0)*_stNctProcessDataOut.AppData1;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{a1fe5c3a-59ea-492b-a799-d99dfa292595}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF PwmFrequency <= 32000 THEN
+	_stNctProcessDataOut.AppData1	:= 0;
+ELSIF PwmFrequency >= 128000 THEN
+	_stNctProcessDataOut.AppData1	:= 255;
+ELSE
+	_stNctProcessDataOut.AppData1	:= LREAL_TO_USINT(((PwmFrequency - 32000.0)/(128000.0-32000.0))*255);
+END_IF
+]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="ReadRegister" Id="{b67aa1cc-0037-4704-a163-0b29733d27ea}" FolderPath="Methods\Communication\">
+      <Declaration><![CDATA[METHOD ReadRegister : REFERENCE TO ST_ReturnStructure
+
+VAR_INPUT
+	bExecute		: BOOL;
+	stRegisterType	: NctRegisterType;
+END_VAR
+
+VAR_OUTPUT
+END_VAR
+
+VAR_INST
+	//Case
+	nCase	: INT;
+	
+	//Return
+	stReturnStructure	: ST_ReturnStructure;
+
+	//Trigger
+	fbRTrig: R_TRIG;
+	fbFTrig: F_TRIG;
+
+	//Command
+	stNctCommandEntry	: NctCommandEntry;
+	stNctCommandInfo	: NctCommandInfo;
+	stNctCommandData	: ARRAY[1..256] OF BYTE;
+	
+	//Timeout	
+	fbTimeout	: TON;
+	
+	//LogMessage
+	aLogMessageThrown	: ARRAY[1..4] OF BOOL;
+END_VAR	
+	
+VAR	
+	//Command
+	stNctReadRegisterCommandArguments	: NctReadRegisterCommandArguments;
+	stAbortCommandArguments					: NctAbortCommandArguments;
+	nDataCounter							: UDINT;
+	
+	//Timeout
+	tTimeoutTime	: TIME :=T#1S;	//Sets the time for timeout
+	
+	//LogMessage
+	nNumLogMessages	: INT :=4;
+	nForCounter		: INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbRTrig(CLK:=bExecute);
+fbFTrig(CLK:=bExecute);
+
+//On rising Execute
+IF fbRTrig.Q THEN
+	//Update return
+	stReturnStructure.Done		:= FALSE;
+	stReturnStructure.Busy		:= TRUE;
+	stReturnStructure.Active	:= FALSE;
+	stReturnStructure.Aborted	:= FALSE;
+	stReturnStructure.Error		:= FALSE;
+	stReturnStructure.ErrorId	:= 0;
+	
+	//Set case
+	nCase:=1;
+
+//On falling Execute
+ELSIF fbFTrig.Q THEN
+	//Update return
+	stReturnStructure.Done		:= FALSE;
+	stReturnStructure.Busy		:= FALSE;
+	stReturnStructure.Active	:= FALSE;
+	stReturnStructure.Aborted	:= FALSE;
+	stReturnStructure.Error		:= FALSE;
+	stReturnStructure.ErrorId	:= 0;
+
+	//Set case
+	nCase:=0;
+END_IF
+
+CASE nCase OF
+	0: //Idle
+		;
+	
+	1: //Prepare Command
+		IF Status.isLocalAddressValid AND Status.isMinActivationTimePassed THEN
+		
+			//Command Parameters
+			stNctReadRegisterCommandArguments.iterationCount		:= 1;
+			stNctReadRegisterCommandArguments.maxErrorCount		:= 10;
+			stNctReadRegisterCommandArguments.executionMode		:= NctCommandExecutionMode.UntilSuccessMaxErrors;
+			stNctReadRegisterCommandArguments.priority			:= 0;
+			stNctReadRegisterCommandArguments.registerType		:= stRegisterType;
+			stNctReadRegisterCommandArguments.offset				:= 0;
+			stNctReadRegisterCommandArguments.size				:= 0;
+			
+			stNctReadRegisterCommandArguments.options.isResumeOn	:= FALSE;
+
+			//Add Write Init Command
+			stNctCommandEntry	:= NctBaseUnitInterface.AddReadRegisterCommand(stNctReadRegisterCommandArguments);
+			
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Reset log messages
+			FOR nForCounter:=1 TO nNumLogMessages DO
+				aLogMessageThrown[nForCounter]	:= FALSE;
+			END_FOR
+			
+			//Reset timeout timer
+			fbTimeOut(IN:=FALSE);
+			
+			//Set case
+			nCase:=2;
+			
+		ELSIF NOT (Status.isLocalAddressValid AND Status.isMinActivationTimePassed) THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 2;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Read Register of %s not possible because the Base Unit is not ready to process commands.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+		
+			//Set case
+			nCase:=0;
+			
+		ELSE
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 1;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Read Register of %s not possible because of a general Error.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;	
+			
+		END_IF
+
+	2: //Check Command
+		stNctCommandInfo	:= NctBaseUnitInterface.GetCmdInfoByCmdEntry(stNctCommandEntry);
+	
+		IF 		stNctCommandInfo.status = NctCommandStatus.IsRunning THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= TRUE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Timeout
+			fbTimeOut(IN:=TRUE, PT:=tTimeoutTime);
+			
+			IF fbTimeOut.Q THEN
+				//Abort Command
+				stAbortCommandArguments.option	:= NctAbortCommandParameterOption.ById;
+				stAbortCommandArguments.id		:= stNctCommandEntry.id;
+				NctBaseUnitInterface.AbortCommand(stAbortCommandArguments);
+				
+				//Update return structure
+				stReturnStructure.Done		:= FALSE;
+				stReturnStructure.Busy		:= FALSE;
+				stReturnStructure.Active	:= FALSE;
+				stReturnStructure.Aborted	:= FALSE;
+				stReturnStructure.Error		:= TRUE;
+				stReturnStructure.ErrorId	:= 4;
+				
+				//Write log message
+				IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+					aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+					
+					ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Reed Register of %s not possible because the method went into timeout.',strArg:=NctBaseUnitInterface.P_ObjectName);
+				END_IF
+				
+				//Next step
+				nCase:=0;
+			END_IF
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsQueued OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingForStartConditions OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingToResume THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsSucceeded THEN
+			stNctCommandData	:= NctBaseUnitInterface.GetCmdDataByCmdEntry(stNctCommandEntry);
+			
+			//Process Data
+			_stNctProcessDataIn.AppData0	:= stNctCommandData[1];
+			_stNctProcessDataIn.AppData1	:= stNctCommandData[2];
+			_stNctProcessDataIn.AppData2	:= stNctCommandData[3];
+			_stNctProcessDataIn.AppData3	:= stNctCommandData[4];
+			_stNctProcessDataIn.AppData4	:= stNctCommandData[5];
+			
+			
+			//Update return structure
+			stReturnStructure.Done		:= TRUE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+		
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsAbortedByArea OR
+				stNctCommandInfo.status = NctCommandStatus.IsAbortedByUser THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= TRUE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+				
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsFailed OR
+				stNctCommandInfo.status = NctCommandStatus.IsFailedDueToChildCommand OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToCorruptedArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToInvalidArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNoMemory OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNotSupportedRegister THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 3;	
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Read Register of %s not possible because command failed.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;
+			
+		ELSIF	stNctCommandInfo.status = NctCommandStatus.NotDefined THEN
+			;
+		END_IF
+			
+END_CASE
+
+//Update return structure
+ReadRegister	REF= stReturnStructure;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Status" Id="{f93e715b-5c98-47cf-9a3e-ec550f5800c3}" FolderPath="Properties\Administrative\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Status : REFERENCE TO NctBaseUnitStatus]]></Declaration>
+      <Get Name="Get" Id="{5d97d588-a10b-4310-8a11-8549887efd7b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF IsInterfaceAssigned THEN
+	Status REF= _ipTcIoXtsNctBaseUnitInterface.GetStatus();
+END_IF]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="UpdateProcessData" Id="{a538a93d-e16c-4491-b40f-39fed5be4303}" FolderPath="Methods\Communication\">
+      <Declaration><![CDATA[METHOD UpdateProcessData : REFERENCE TO ST_ReturnStructure
+
+VAR_INPUT
+	bEnable	: BOOL;	//Enables the cylcilc communication
+END_VAR
+
+VAR_OUTPUT
+END_VAR
+
+VAR_INST
+	//Case
+	nCase	: INT;
+	
+	//Command
+	stNctCommandEntry	: NctCommandEntry;
+	stNctCommandInfo	: NctCommandInfo;
+	stNctCommandData	: ARRAY[1..256] OF BYTE;
+	
+	//Return
+	stReturnStructure	: ST_ReturnStructure;
+	
+	//Timeout	
+	fbTimeout	: TON;
+	
+	//LogMessage
+	aLogMessageThrown	: ARRAY[1..4] OF BOOL;
+END_VAR	
+	
+VAR	
+	//Command
+	stNctUpdateProcessDataCOmmandArguments	: NctUpdateProcessDataCommandArguments;
+	stAbortCommandArguments				: NctAbortCommandArguments;
+
+	//Timeout
+	tTimeoutTime	: TIME :=T#5S;	//Sets the time for timeout
+	
+	//LogMessage
+	nNumLogMessages	: INT :=4;
+	nForCounter		: INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE nCase OF
+	0: //Prepare Command
+		//Executes, if data exchange is enabled by user and Base Unit is ready to receive commands
+		IF bEnable AND Status.isLocalAddressValid AND Status.isMinActivationTimePassed THEN
+
+			//Command Parameters
+			stNctUpdateProcessDataCOmmandArguments.iterationCount		:= 1;
+			stNctUpdateProcessDataCOmmandArguments.maxErrorCount		:= 10;
+			stNctUpdateProcessDataCOmmandArguments.executionMode		:= NctCommandExecutionMode.UntilSuccess;
+			stNctUpdateProcessDataCOmmandArguments.priority				:= 0;
+			
+			stNctUpdateProcessDataCOmmandArguments.options.isResumeOn	:= FALSE;
+			
+			//Process Data
+			stNctUpdateProcessDataCOmmandArguments.data[0]	:= _stNctProcessDataOut.AppData0;
+			stNctUpdateProcessDataCOmmandArguments.data[1]	:= _stNctProcessDataOut.AppData1;
+			stNctUpdateProcessDataCOmmandArguments.data[2]	:= _stNctProcessDataOut.AppData2;
+			stNctUpdateProcessDataCOmmandArguments.data[3]	:= _stNctProcessDataOut.AppData3;
+			stNctUpdateProcessDataCOmmandArguments.data[4]	:= _stNctProcessDataOut.AppData4;
+			
+			//Add Write Process Data Command
+			stNctCommandEntry	:= NctBaseUnitInterface.AddUpdateProcessDataCommand(stNctUpdateProcessDataCOmmandArguments);
+			
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Reset log messages
+			FOR nForCounter:=1 TO nNumLogMessages DO
+				aLogMessageThrown[nForCounter]	:= FALSE;
+			END_FOR
+			
+			//Reset timeout timer
+			fbTimeOut(IN:=FALSE);
+			
+			//Next step
+			nCase:=1;
+			
+		ELSIF bEnable AND NOT (Status.isLocalAddressValid AND Status.isMinActivationTimePassed) THEN
+			//Update return
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 2;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Update Process Data of %s not possible because the Base Unit is not ready to process commands.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;
+		
+		ELSIF NOT bEnable THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Reset log messages
+			FOR nForCounter:=1 TO nNumLogMessages DO
+				aLogMessageThrown[nForCounter]	:= FALSE;
+			END_FOR
+			
+			//Next step
+			nCase:=0;
+		
+		ELSE
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 1;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Update Process Data of %s not possible because of a general Error.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;	
+		END_IF
+	
+		
+	1:	//Check Command
+		stNctCommandInfo	:= NctBaseUnitInterface.GetCmdInfoByCmdEntry(stNctCommandEntry);
+	
+		IF 		stNctCommandInfo.status = NctCommandStatus.IsRunning THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= TRUE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Timeout
+			fbTimeOut(IN:=TRUE, PT:=tTimeoutTime);
+			
+			IF fbTimeOut.Q THEN
+				//Abort Command
+				stAbortCommandArguments.option	:= NctAbortCommandParameterOption.ById;
+				stAbortCommandArguments.id		:= stNctCommandEntry.id;
+				NctBaseUnitInterface.AbortCommand(stAbortCommandArguments);
+				
+				//Update return structure
+				stReturnStructure.Done		:= FALSE;
+				stReturnStructure.Busy		:= FALSE;
+				stReturnStructure.Active	:= FALSE;
+				stReturnStructure.Aborted	:= FALSE;
+				stReturnStructure.Error		:= TRUE;
+				stReturnStructure.ErrorId	:= 4;
+				
+				//Write log message
+				IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+					aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+					
+					ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Update Process Data of %s not possible because the method went into timeout.',strArg:=NctBaseUnitInterface.P_ObjectName);
+				END_IF
+				
+				//Next step
+				nCase:=0;
+			END_IF
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsQueued OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingForStartConditions OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingToResume THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsSucceeded THEN
+			stNctCommandData	:= NctBaseUnitInterface.GetCmdDataByCmdEntry(stNctCommandEntry);
+			
+			//Process Data
+			_stNctProcessDataIn.AppData0	:= stNctCommandData[1];
+			_stNctProcessDataIn.AppData1	:= stNctCommandData[2];
+			_stNctProcessDataIn.AppData2	:= stNctCommandData[3];
+			_stNctProcessDataIn.AppData3	:= stNctCommandData[4];
+			_stNctProcessDataIn.AppData4	:= stNctCommandData[5];
+			
+			//Update return structure
+			stReturnStructure.Done		:= TRUE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+		
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsAbortedByArea OR
+				stNctCommandInfo.status = NctCommandStatus.IsAbortedByUser THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= TRUE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+				
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsFailed OR
+				stNctCommandInfo.status = NctCommandStatus.IsFailedDueToChildCommand OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToCorruptedArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToInvalidArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNoMemory OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNotSupportedRegister THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 3;	
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Update Process Data of %s not possible because command failed.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;
+			
+		ELSIF	stNctCommandInfo.status = NctCommandStatus.NotDefined THEN
+			;
+		END_IF
+
+END_CASE
+
+//Update return structure
+UpdateProcessData	REF= stReturnStructure;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="WriteRegister" Id="{08fff130-c93d-46f2-bf35-747a2a7321d1}" FolderPath="Methods\Communication\">
+      <Declaration><![CDATA[METHOD WriteRegister : REFERENCE TO ST_ReturnStructure
+
+VAR_INPUT
+	bExecute		: BOOL;
+	stRegisterType	: NctRegisterType;
+END_VAR
+
+VAR_OUTPUT
+END_VAR
+
+VAR_INST
+	//Case
+	nCase	: INT;
+	
+	//Return
+	stReturnStructure	: ST_ReturnStructure;
+
+	//Trigger
+	fbRTrig: R_TRIG;
+	fbFTrig: F_TRIG;
+
+	//Command
+	stNctCommandEntry	: NctCommandEntry;
+	stNctCommandInfo	: NctCommandInfo;
+	stNctCommandData	: ARRAY[1..256] OF BYTE;
+	
+	//Timeout	
+	fbTimeout	: TON;
+	
+	//LogMessage
+	aLogMessageThrown	: ARRAY[1..4] OF BOOL;
+END_VAR	
+	
+VAR	
+	//Command
+	stNctWriteRegisterCommandArguments	: NctWriteRegisterCommandArguments;
+	stAbortCommandArguments					: NctAbortCommandArguments;
+	pTempData								: POINTER TO BYTE;
+	nDataCounter							: UDINT;
+	nDataSize								: UDINT;
+	
+	//Timeout
+	tTimeoutTime	: TIME :=T#1S;	//Sets the time for timeout
+	
+	//LogMessage
+	nNumLogMessages	: INT :=4;
+	nForCounter		: INT;
+
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbRTrig(CLK:=bExecute);
+fbFTrig(CLK:=bExecute);
+
+//On rising Execute
+IF fbRTrig.Q THEN
+	//Update return
+	stReturnStructure.Done		:= FALSE;
+	stReturnStructure.Busy		:= TRUE;
+	stReturnStructure.Active	:= FALSE;
+	stReturnStructure.Aborted	:= FALSE;
+	stReturnStructure.Error		:= FALSE;
+	stReturnStructure.ErrorId	:= 0;
+	
+	//Set case
+	nCase:=1;
+
+//On falling Execute
+ELSIF fbFTrig.Q THEN
+	//Update return
+	stReturnStructure.Done		:= FALSE;
+	stReturnStructure.Busy		:= FALSE;
+	stReturnStructure.Active	:= FALSE;
+	stReturnStructure.Aborted	:= FALSE;
+	stReturnStructure.Error		:= FALSE;
+	stReturnStructure.ErrorId	:= 0;
+
+	//Set case
+	nCase:=0;
+END_IF
+
+CASE nCase OF
+	0: //Idle
+		;
+	
+	1: //Prepare Command
+		IF Status.isLocalAddressValid AND Status.isMinActivationTimePassed THEN
+		
+			//Command Parameters
+			stNctWriteRegisterCommandArguments.iterationCount		:= 1;
+			stNctWriteRegisterCommandArguments.maxErrorCount			:= 10;
+			stNctWriteRegisterCommandArguments.executionMode			:= NctCommandExecutionMode.UntilSuccessMaxErrors;
+			stNctWriteRegisterCommandArguments.priority				:= 0;
+			stNctWriteRegisterCommandArguments.registerType			:= stRegisterType;
+			stNctWriteRegisterCommandArguments.offset				:= 0;
+			stNctWriteRegisterCommandArguments.size					:= 0;
+			
+			stNctWriteRegisterCommandArguments.options.isResumeOn	:= FALSE;
+			
+			//Register Type
+			CASE stRegisterType OF
+				
+				NctRegisterType.Bic						: pTempData:=ADR(_aBIC);
+				
+				NctRegisterType.ControlVoltage			: pTempData:=ADR(_nControlVoltage);
+				
+				NctRegisterType.DeviceName				: pTempData:=ADR(_sDeviceName);
+				
+				NctRegisterType.HardwareVersion			: pTempData:=ADR(_sHardwareversion);
+				
+				NctRegisterType.Identity				: pTempData:=ADR(_stIdentity);
+				
+				NctRegisterType.MoverGuid				: pTempData:=ADR(_stMoverGuid);
+				
+				NctRegisterType.MoverUserName			: pTempData:=ADR(_sMoverUsername);
+																					
+			END_CASE
+			
+			//Register Data
+			IF pTempData <> 0 THEN
+				
+				nDataSize	:= NctBaseUnitInterface.GetRegisterParameterSize(stRegisterType := stRegisterType);
+				
+				IF nDataSize <> 0 THEN
+					nDataSize	:= nDataSize-1;
+				END_IF
+				
+				FOR nDataCounter := 0 TO nDataSize DO
+					stNctWriteRegisterCommandArguments.data[nDataCounter]	:= pTempData[nDataCounter];
+					
+				END_FOR
+			END_IF
+			
+			//Add Write Init Command
+			stNctCommandEntry	:= NctBaseUnitInterface.AddWriteRegisterCommand(stNctWriteRegisterCommandArguments);
+			
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Reset log messages
+			FOR nForCounter:=1 TO nNumLogMessages DO
+				aLogMessageThrown[nForCounter]	:= FALSE;
+			END_FOR
+			
+			//Reset timeout timer
+			fbTimeOut(IN:=FALSE);
+			
+			//Set case
+			nCase:=2;
+			
+		ELSIF NOT (Status.isLocalAddressValid AND Status.isMinActivationTimePassed) THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 2;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Write Register of %s not possible because the Base Unit is not ready to process commands.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+		
+			//Set case
+			nCase:=0;
+			
+		ELSE
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 1;
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Write Register of %s not possible because of a general Error.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;	
+			
+		END_IF
+
+	2: //Check Command
+		stNctCommandInfo	:= NctBaseUnitInterface.GetCmdInfoByCmdEntry(stNctCommandEntry);
+	
+		IF 		stNctCommandInfo.status = NctCommandStatus.IsRunning THEN
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= TRUE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+			
+			//Timeout
+			fbTimeOut(IN:=TRUE, PT:=tTimeoutTime);
+			
+			IF fbTimeOut.Q THEN
+				//Abort Command
+				stAbortCommandArguments.option	:= NctAbortCommandParameterOption.ById;
+				stAbortCommandArguments.id		:= stNctCommandEntry.id;
+				NctBaseUnitInterface.AbortCommand(stAbortCommandArguments);
+				
+				//Update return structure
+				stReturnStructure.Done		:= FALSE;
+				stReturnStructure.Busy		:= FALSE;
+				stReturnStructure.Active	:= FALSE;
+				stReturnStructure.Aborted	:= FALSE;
+				stReturnStructure.Error		:= TRUE;
+				stReturnStructure.ErrorId	:= 4;
+				
+				//Write log message
+				IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+					aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+					
+					ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Write Register of %s not possible because the method went into timeout.',strArg:=NctBaseUnitInterface.P_ObjectName);
+				END_IF
+				
+				//Next step
+				nCase:=0;
+			END_IF
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsQueued OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingForStartConditions OR
+				stNctCommandInfo.status = NctCommandStatus.IsWaitingToResume THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= TRUE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsSucceeded THEN
+			stNctCommandData	:= NctBaseUnitInterface.GetCmdDataByCmdEntry(stNctCommandEntry);
+			
+			//Process Data
+			_stNctProcessDataIn.AppData0	:= stNctCommandData[1];
+			_stNctProcessDataIn.AppData1	:= stNctCommandData[2];
+			_stNctProcessDataIn.AppData2	:= stNctCommandData[3];
+			_stNctProcessDataIn.AppData3	:= stNctCommandData[4];
+			_stNctProcessDataIn.AppData4	:= stNctCommandData[5];
+			
+			
+			//Update return structure
+			stReturnStructure.Done		:= TRUE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;
+		
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsAbortedByArea OR
+				stNctCommandInfo.status = NctCommandStatus.IsAbortedByUser THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= TRUE;
+			stReturnStructure.Error		:= FALSE;
+			stReturnStructure.ErrorId	:= 0;	
+				
+			//Next step
+			nCase:=0;
+			
+		ELSIF 	stNctCommandInfo.status = NctCommandStatus.IsFailed OR
+				stNctCommandInfo.status = NctCommandStatus.IsFailedDueToChildCommand OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToCorruptedArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToInvalidArgs OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNoMemory OR
+				stNctCommandInfo.status = NctCommandStatus.IsInitFailedDueToNotSupportedRegister THEN
+				
+			//Update return structure
+			stReturnStructure.Done		:= FALSE;
+			stReturnStructure.Busy		:= FALSE;
+			stReturnStructure.Active	:= FALSE;
+			stReturnStructure.Aborted	:= FALSE;
+			stReturnStructure.Error		:= TRUE;
+			stReturnStructure.ErrorId	:= 3;	
+			
+			//Write log message
+			IF NOT aLogMessageThrown[stReturnStructure.ErrorId] THEN
+				aLogMessageThrown[stReturnStructure.ErrorId]	:= TRUE;
+				
+				ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR ,msgFmtStr:='Write Register of %s not possible because command failed.',strArg:=NctBaseUnitInterface.P_ObjectName);
+			END_IF
+			
+			//Next step
+			nCase:=0;
+			
+		ELSIF	stNctCommandInfo.status = NctCommandStatus.NotDefined THEN
+			;
+		END_IF
+			
+END_CASE
+
+//Update return structure
+WriteRegister	REF= stReturnStructure;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

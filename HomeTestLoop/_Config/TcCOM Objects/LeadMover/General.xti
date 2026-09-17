@@ -386,7 +386,7 @@
 				</Value>
 				<Value>
 					<Name>EnableForceLimit</Name>
-					<EnumText>FALSE</EnumText>
+					<EnumText>TRUE</EnumText>
 				</Value>
 				<Value>
 					<Name>ForceLimit</Name>

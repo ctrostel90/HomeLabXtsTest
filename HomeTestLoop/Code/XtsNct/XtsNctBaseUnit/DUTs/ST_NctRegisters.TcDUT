@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <DUT Name="ST_NctRegisters" Id="{de811f81-7d9c-44c1-a070-b8369e9773dc}">
+    <Declaration><![CDATA[TYPE ST_NctRegisters :
+STRUCT
+	AdcCalibration			: ARRAY [1..32] OF BYTE;
+	AdcCalibrationChannel3	: ARRAY [1..8] 	OF BYTE;
+	AdcCalibrationChannel4	: ARRAY [1..8] 	OF BYTE;
+	AdcInputChannel3		: INT;
+	AdcInputChannel4		: INT;
+	AdcRawInputChannel3		: INT;
+	AdcRawInputChannel4		: INT;
+	AntennaValues			: ARRAY [1..4] 	OF BYTE;
+	ApplicationVersion		: STRING(31);
+	Bic						: ARRAY [1..256] OF BYTE;
+	BootloaderVersion		: STRING(31);
+	Codeword				: UDINT;
+	CommunicationVersion	: STRING(31);
+	ControlVoltage			: UINT;
+	DeviceId				: UDINT;
+	DeviceName				: STRING(31);
+	DiagHistoryBuffer		: ARRAY [1..256] OF BYTE;
+	DiagHistoryControl		: USINT;
+	DiagHistoryStatus		: USINT;
+	DiagInfo				: UINT;
+	HardwareVersion			: STRING(31);
+	Identity				: ProductIdentity;
+	MoverGuid				: GUID;
+	MoverUsername			: STRING(31);
+	RfidSettings			: ARRAY [1..4] 	OF BYTE;
+	LocalAddress			: USINT;
+	SoftwareVersion			: STRING(31);
+	StackVersion			: STRING(31);
+	SupplyCurrrent			: UINT;
+	SupplyVoltage			: UINT;
+	UserData				: ARRAY [1..32] OF BYTE;
+	UserDataEE				: ARRAY [1..32] OF BYTE;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

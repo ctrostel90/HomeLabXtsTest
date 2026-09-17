@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="XtsSystemNctManager" Id="{1433e549-903a-45db-9afb-37901a8190a5}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK XtsSystemNctManager EXTENDS XtsTaskResult IMPLEMENTS I_XtsSystemNctManager, I_Resettable, I_Cyclic, I_Initializable
+VAR
+	_XtsSystem : I_XtsSystem;
+	_XpuId	   : I_XtsXpuId;
+	_Xpu	   : I_ContainXtsUtility;
+	_State	   : UDINT;
+	_Nct	   : I_TcIoXtsNctController;
+END_VAR
+
+VAR
+	_LogMessage : XtsCore.TraceMessageInfo;
+	_LogSource  : XtsCore.TraceSourceInfo;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="CyclicLogic" Id="{1a5d688b-b5d1-4a73-8e94-e979bff4a2a0}">
+      <Declaration><![CDATA[METHOD CyclicLogic
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE _State OF
+	0:
+		IF NOT _Nct.GetIsEnergyEnabled() THEN
+			_Nct.SetIsEnergyEnabled(TRUE);
+			RETURN;
+		END_IF
+
+		_LogMessage.Message	 := 'Nct Energy Enabled.';
+		_LogMessage.Severity := 1;
+		_Logger.LogMessageInstance(_LogSource, _LogMessage);
+		_State := 10;
+
+	10:
+		_XtsSystem.Parts.ResetIterator();
+		WHILE _XtsSystem.Parts.MoveToNext DO
+			_XtsSystem.Parts.Current.Utility.TriggerReset();
+		END_WHILE
+
+		_State := 10;
+
+	20:
+
+	//
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_Init" Id="{ff0162b5-269f-400c-89d0-455182ad658e}">
+      <Declaration><![CDATA[//FB_Init is always available implicitly and it is used primarily for initialization.
+
+//The return value is not evaluated. For a specific influence, you can also declare the
+
+//methods explicitly and provide additional code there with the standard initialization
+
+//code. You can evaluate the return value.
+METHOD FB_Init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // TRUE: the retain variables are initialized (reset warm / reset cold)
+	bInCopyCode	 : BOOL; // TRUE: the instance will be copied to the copy code afterward (online change)   
+	XtsSystem	 : I_XtsSystem;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_TaskId				  := XtsSystemTaskId.NCT_MANAGER;
+XtsSystem.XtsTasks.AddTask(THIS^);
+_LogSource.SourceId	  := _TaskId;
+_LogSource.SourceName := 'XtsSystemNctManager';]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Initialize" Id="{9e2e69b9-80b4-455f-a68b-38471f992663}">
+      <Declaration><![CDATA[METHOD Initialize
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE _State OF
+	0:
+		_Nct := _Xpu.Utility.NctControllerTcIo();
+		IF _Nct <> 0 THEN
+			RETURN;
+		END_IF
+
+		_Error				 := TRUE;
+		_LogMessage.Message	 := 'Nct Controller not found on TcCom. Have you added a NCT Controller to the system?';
+		_LogMessage.Severity := 4;
+		_Logger.LogMessageInstance(_LogSource, _LogMessage);
+		_State := 99;
+		
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Initialized" Id="{85a301bb-eaa4-4978-b53e-72411bb0effa}">
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+PROPERTY Initialized : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{77a152a2-c609-44fc-96b0-559372720486}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Initialized := _Nct <> 0;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{6eecdb69-3b33-4725-be3e-90688d43eba4}">
+        <Declaration><![CDATA[
+VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="NctController" Id="{74c7e924-5ff1-48d6-948d-f2c503136dbf}">
+      <Declaration><![CDATA[PROPERTY NctController : I_TcIoXtsNctController]]></Declaration>
+      <Get Name="Get" Id="{3a269505-c551-4df8-b88a-29de4816eb7e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctController := _Nct;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Reset" Id="{132e8332-4b60-4160-8b50-ff05b06d3a8a}">
+      <Declaration><![CDATA[METHOD Reset
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_XtsSystem.Parts.ResetIterator();
+WHILE _XtsSystem.Parts.MoveToNext DO
+	_XtsSystem.Parts.Current.Utility.TriggerReset();
+END_WHILE]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="XpuId" Id="{68bf7522-de23-445a-9f2a-5ca96704761b}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY XpuId : XtsCore.I_XtsXpuId
+]]></Declaration>
+      <Get Name="Get" Id="{29f1abbf-122d-4a45-ae7d-7742b62ede38}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[XpuId := _XpuId;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{1c5cd1a3-cb20-4933-9cc9-4f8bf343121b}">
+        <Declaration><![CDATA[VAR
+END_VAR]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_XpuId := XpuId;
+__QUERYINTERFACE(_XpuId, _XtsSystem);
+__QUERYINTERFACE(_XtsSystem.TracePublisher, _Logger);
+__QUERYINTERFACE(_XpuId, _Xpu);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>

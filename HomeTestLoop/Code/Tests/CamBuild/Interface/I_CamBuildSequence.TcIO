@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <Itf Name="I_CamBuildSequence" Id="{51efc471-2182-472f-b1fb-387c8e510691}">
+    <Declaration><![CDATA[INTERFACE I_CamBuildSequence EXTENDS I_SequenceTest
+]]></Declaration>
+  </Itf>
+</TcPlcObject>

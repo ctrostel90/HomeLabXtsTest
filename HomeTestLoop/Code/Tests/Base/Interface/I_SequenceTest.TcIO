@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <Itf Name="I_SequenceTest" Id="{815f0974-c405-48f6-a3a2-102ffcad06f7}">
+    <Declaration><![CDATA[INTERFACE I_SequenceTest EXTENDS I_Base, I_Cyclic
+]]></Declaration>
+    <Property Name="Busy" Id="{9118f4bb-bb00-4632-a7b5-7fdc1f3c4e45}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Busy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{0cc8aedb-ca8a-4d91-b7fa-8062bf7e669e}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="Reset" Id="{3501d60d-f409-4c95-8a21-7008e1658fa9}">
+      <Declaration><![CDATA[METHOD Reset
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Start" Id="{cc128ce8-d56f-40e3-aa0d-9d8de554a659}">
+      <Declaration><![CDATA[METHOD Start
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Stop" Id="{0db30ca2-3dc7-4757-862d-fd83564b862e}">
+      <Declaration><![CDATA[METHOD Stop
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

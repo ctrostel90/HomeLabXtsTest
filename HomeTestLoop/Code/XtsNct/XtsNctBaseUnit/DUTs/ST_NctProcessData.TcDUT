@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <DUT Name="ST_NctProcessData" Id="{0c33f7a7-ecf6-4a17-aeb8-a1da2c1b4ac9}">
+    <Declaration><![CDATA[TYPE ST_NctProcessData :
+STRUCT
+	///Process data
+	AppData0: USINT;
+	AppData1: USINT;
+	AppData2: USINT;
+	AppData3: USINT;
+	AppData4: USINT;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

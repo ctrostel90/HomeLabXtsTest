@@ -23,7 +23,7 @@ VAR
 	PhaseAxis			 : ARRAY[1..2] OF MC_PhasingRelative;
 	OpenCloseDistance	 : LREAL := 60;
 	commandedPosition	 : ARRAY[1..2] OF LREAL;
-	Gap					 : LREAL := 60;
+	Gap					 : LREAL := 115;
 	newPosition			 : LREAL;
 
 	//
@@ -53,6 +53,10 @@ VAR
 	Pitch		  : LREAL := 50;
 	SyncPosition  : LREAL := 1100;
 	_NextPocket	  : UDINT;
+
+	// Cam Generator
+	CurveComp	   : CamBuild;
+	MoverCurveComp : CamCurveComp;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF NOT Xts.Initialized OR NOT Feeder.Initialized THEN
@@ -96,11 +100,31 @@ CASE State OF
 			State := 0;
 		END_IF
 
+	60:
+		MoveVelocity.CopyParametersFrom(Xts.Parameters);
+		MoveVelocity.ExecuteOn(Xts);
+		State := 50;
+
+	61:
+		Halt.CopyParametersFrom(Xts.Parameters);
+		Halt.ExecuteOn(Xts);
+		State := 50;
+
+	70:
+		MoveVelocity.CopyParametersFrom(Xts.Parameters);
+		MoveVelocity.ExecuteOn(VirtualMover);
+		State := 50;
+
+	71:
+		Halt.CopyParametersFrom(Xts.Parameters);
+		Halt.ExecuteOn(VirtualMover);
+		State := 50;
+
 	100:
 		IF Xts.Utility.GetMoverIdDetectionState() <> MoverIdDetectionStateEnum.Valid THEN
 			State := 101;
 		ELSE
-			State := 110;
+			State := 111;
 		END_IF
 
 	101:
@@ -123,10 +147,18 @@ CASE State OF
 			SetPosition(Axis := VirtualMover.Axis, Execute := FALSE);
 		END_IF
 
+	111:
+		startVirtualPosition := 194;
+		SetPosition(Axis := VirtualMover.Axis, Position := startVirtualPosition, Execute := TRUE);
+		IF SetPosition.Done OR SetPosition.Error THEN
+			State := 120;
+			SetPosition(Axis := VirtualMover.Axis, Execute := FALSE);
+		END_IF
+
 	120:
 		Xts.Enable();
 		IF Xts.Enabled THEN
-			State := 121;
+			State := 122;
 		END_IF
 
 	121:
@@ -159,6 +191,36 @@ CASE State OF
 			State := 125;
 		END_IF
 
+	122:
+		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
+		VirtualMover.Parameters.Gap := 0;
+		VirtualMover.MoveToPosition(VirtualMover.Position);
+		Movers[1].Parameters.CopyFrom(Xts.Parameters);
+		Movers[2].Parameters.CopyFrom(Xts.Parameters);
+		commandedPosition[1] := 180;
+		commandedPosition[2] := commandedPosition[1] - Gap;
+		MoveToPos[1](Axis		  := Movers[1].Axis,
+					 Execute	  := TRUE,
+					 Position	  := commandedPosition[1] + TRUNC(Movers[1].Axis.NcToPlc.ActPos / 1500.0) * 1500,
+					 Velocity	  := 300,
+					 Acceleration := 5000,
+					 Deceleration := 5000,
+					 Jerk		  := 100000);
+
+		MoveToPos[2](Axis		  := Movers[2].Axis,
+					 Execute	  := TRUE,
+					 Position	  := commandedPosition[2] + TRUNC(Movers[1].Axis.NcToPlc.ActPos / 1500.0) * 1500,
+					 Velocity	  := 300,
+					 Acceleration := 5000,
+					 Deceleration := 5000,
+					 Jerk		  := 100000);
+
+		IF MoveToPos[1].Error OR MoveToPos[2].Error OR (MoveToPos[1].Done AND MoveToPos[2].Done) THEN
+			MoveToPos[1](Axis := Movers[1].Axis, Execute := FALSE);
+			MoveToPos[2](Axis := Movers[2].Axis, Execute := FALSE);
+			State := 125;
+		END_IF
+
 	125:
 		GearIn[1](Master	   := VirtualMover.Axis,
 				  Slave		   := Movers[1].Axis,
@@ -169,12 +231,12 @@ CASE State OF
 
 		GearIn[2](Master	   := VirtualMover.Axis,
 				  Slave		   := Movers[2].Axis,
-				  Execute	   := TRUE,
+				  Execute	   := FALSE,
 				  Acceleration := 10_000,
 				  Deceleration := 10_000,
 				  Jerk		   := 100_000);
 
-		IF GearIn[1].InGear AND GearIn[2].InGear THEN
+		IF GearIn[1].InGear (*AND GearIn[2].InGear *) THEN
 			GearIn[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
 			GearIn[2](Master := VirtualMover.Axis, Slave := Movers[2].Axis, Execute := FALSE);
 			State := 150;
@@ -393,8 +455,35 @@ CASE State OF
 		IF NOT Feeder.Enabled THEN
 			State := 150;
 		END_IF
+
+	400:
+		CurveComp.Start();
+		NextMinorStep(State);
+
+	401:
+	//
+	402:
+		CurveComp.Reset();
+
+	410:
+		MoverCurveComp.FrontMover	:= Movers[1];
+		MoverCurveComp.RearMover	:= Movers[2];
+		MoverCurveComp.VirtualMover := VirtualMover;
+		MoverCurveComp.Start();
+		NextMinorStep(State);
+
+	411:
+		IF NOT MoverCurveComp.Busy THEN
+			NextStep(State);
+		END_IF
+
+	412:
+		MoverCurveComp.Reset();
+		NextStep(State);
 END_CASE
 
+MoverCurveComp.CyclicLogic();
+CurveComp.CyclicLogic();
 Feeder.CyclicLogic();
 godotHmi.CyclicLogic();
 Xts.CyclicLogic();

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <DUT Name="ST_Camming" Id="{9e594c57-3e05-48f9-ad7f-5ef832bb29a5}">
+    <Declaration><![CDATA[TYPE ST_Camming :
+	STRUCT
+		camIn		   : MC_CamIn_V2;
+		camOut		   : MC_CamOut;
+		camPoints	   : ARRAY[1..94] OF MC_MotionFunctionPoint;
+		camRef		   : MC_CAM_REF;
+		camTableSelect : MC_CamTableSelect;
+		camAdd		   : MC_CamAdd;
+		camRemove	   : MC_CamRemove;
+	END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <Itf Name="I_XtsNctMover" Id="{3ab6d252-35a3-4654-948b-1ce739641b66}">
+    <Declaration><![CDATA[INTERFACE I_XtsNctMover EXTENDS I_XtsMover
+]]></Declaration>
+    <Property Name="Nct" Id="{e72005cf-5d15-47b5-aea5-cd5789265bb8}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Nct : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{3362701e-b1be-4088-ba1c-0c4d7e8f16f8}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{f901bd45-a5d6-432f-8470-b5d88049114f}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+    <Property Name="NctReady" Id="{81c5b539-8a4a-4573-b3d1-0702fc9ff2ba}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY NctReady : BOOL]]></Declaration>
+      <Get Name="Get" Id="{b89ab2c1-8919-4b11-bd44-dd6af42a3689}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+  </Itf>
+</TcPlcObject>

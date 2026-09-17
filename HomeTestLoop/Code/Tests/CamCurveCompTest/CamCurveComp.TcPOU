@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="CamCurveComp" Id="{f937d082-501f-4bd0-8638-3078823e3070}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK CamCurveComp IMPLEMENTS I_CamBuildSequence
+VAR
+	_State			: UDINT;
+	_Front			: I_XtsMover;
+	_Rear			: I_XtsMover;
+	_Virtual		: I_XtsMover;
+	_StartPosition	: LREAL := 194;
+	_Speed			: LREAL := 200;
+	_Acc			: LREAL := 10_000;
+	_Dec			: LREAL := 10_000;
+	_Jerk			: LREAL := 100_000;
+	_Camming		: ST_Camming;
+	_Scaling		: ST_CamScalingData;
+	_Offset			: DINT;
+	_NumOfRotations : LREAL := 1;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="Busy" Id="{c85987ea-864e-45eb-83e1-d64e7cd592ed}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+{warning 'Add property implementation'}
+PROPERTY Busy : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{989d4fa8-d781-4c2d-9d59-46aa83b00ec7}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="CyclicLogic" Id="{d8230271-40ec-4c8b-9f3f-3f30beabce9f}">
+      <Declaration><![CDATA[METHOD CyclicLogic
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE _State OF
+	0:
+	10:
+		_Virtual.MoveToPosition(Position := _StartPosition);
+		NextMinorStep(_State);
+
+	11:
+		IF NOT _Virtual.CurrentTask.Busy AND NOT _Virtual.CurrentTask.Error THEN
+			NextStep(_State);
+		END_IF
+
+	20:
+		_Camming.camIn(Master	  := _Front.Axis,
+					   Slave	  := _Rear.Axis,
+					   Execute	  := TRUE,
+					   CamTableID := 1);
+
+		IF NOT _Camming.camIn.Busy AND NOT _Camming.camIn.Error THEN
+			_Camming.camIn(Master := _Front.Axis, Slave := _Rear.Axis, Execute := FALSE);
+			NextStep(_State);
+		END_IF
+
+	30:
+		_Virtual.Parameters.Velocity	 := _Speed;
+		_Virtual.Parameters.Acceleration := _Acc;
+		_Virtual.Parameters.Deceleration := _Dec;
+		_Virtual.Parameters.Jerk		 := _Jerk;
+		_Virtual.MoveRelative(1500 * _NumOfRotations);
+		NextMinorStep(_State);
+
+	31:
+		IF NOT _Virtual.CurrentTask.Busy AND NOT _Virtual.CurrentTask.Error THEN
+			NextStep(_State);
+		END_IF
+
+	40:
+		_Camming.camOut(Slave := _Rear.Axis, Execute := TRUE);
+		IF NOT _Camming.camOut.Busy AND NOT _Camming.camOut.Error THEN
+			_Camming.camOut(Slave := _Rear.Axis, Execute := FALSE);
+			SetStep(_State, 0);
+		END_IF
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="FrontMover" Id="{6b2311db-77e9-4021-b4ee-a30ffe0167d7}">
+      <Declaration><![CDATA[PROPERTY FrontMover : I_XtsMover]]></Declaration>
+      <Get Name="Get" Id="{6b52eaff-ca1c-4bcb-93e3-29bdfba8c39b}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[FrontMover := _Front;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{69e67626-edff-4071-880a-d99a3df22537}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_Front := FrontMover;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="RearMover" Id="{f9583fa8-7946-4415-b86b-846c0a1a2110}">
+      <Declaration><![CDATA[PROPERTY RearMover : I_XtsMover]]></Declaration>
+      <Get Name="Get" Id="{271e5b62-3d30-4eca-a42d-1a7b7e7edef8}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[RearMover := _Rear;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{5d60ed20-6809-47b3-b3cc-2642e08a105e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_Rear := RearMover;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="Reset" Id="{65c8728d-94af-4b6e-8c10-86f2a9110128}">
+      <Declaration><![CDATA[METHOD Reset
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_Camming.camIn(Master := _Front.Axis, Slave := _Rear.Axis, Execute := FALSE);
+_Virtual.Reset();
+SetStep(_State, 0);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Start" Id="{b447627a-0911-4eee-b681-628cb242439e}">
+      <Declaration><![CDATA[METHOD Start
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[NextStep(_State);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Stop" Id="{7f387c0f-46b5-4121-82a5-0208be847f05}">
+      <Declaration><![CDATA[{warning 'Add method implementation '}
+METHOD Stop
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="VirtualMover" Id="{91904990-cc87-451e-9e65-01a3947abfde}">
+      <Declaration><![CDATA[PROPERTY VirtualMover : I_XtsMover]]></Declaration>
+      <Get Name="Get" Id="{5d7c1961-9269-4a4f-b46b-3be1d2e7aabe}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[VirtualMover := _Virtual;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{aedeb202-eccb-4247-a7a4-7a7e91fb7e76}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_Virtual := VirtualMover;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>

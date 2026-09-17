@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="XtsNctMover" Id="{1df7bcda-85be-40e9-bd0f-ab3557f08545}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK XtsNctMover EXTENDS XtsMover IMPLEMENTS I_XtsNctMover
+VAR
+	_NctTask	: XtsMoverNctTask;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_Init" Id="{406517e2-0f46-4693-9585-eae7e9d931b1}">
+      <Declaration><![CDATA[(*FB_Init is always available implicitly and it is used primarily for initialization.
+The return value is not evaluated. For a specific influence, you can also declare the
+methods explicitly and provide additional code there with the standard initialization
+code. You can evaluate the return value.*)
+METHOD FB_Init : BOOL
+VAR_INPUT
+	(* TRUE: the retain variables are initialized (reset warm / reset cold)*)
+	bInitRetains : BOOL;
+
+	(* TRUE: the instance will be copied to the copy code afterward (online change)   *)
+	bInCopyCode : BOOL;
+	Name		: XtsCore.Core.T_MaxString;
+	MoverData	: I_XtsMoverData;	  //Optional MoverData assignment
+	System		: I_ContainXtsMovers; //Optional Self Registration with an Xts System
+END_VAR
+VAR
+	_Xts : I_XtsSystem;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF __QUERYINTERFACE(System, _Xts) THEN
+	_NctTask.XtsSystem := _Xts;
+END_IF
+
+_MoverTaskCollection.AddTask(_NctTask);]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Nct" Id="{89ce82ed-b8ba-4e4e-b338-0a31e72e9b89}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Nct : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{e42c1d7e-54cd-4757-962f-7f05c89044ff}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Nct := _NctTask.Nct;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{608e74b1-d79f-4cf1-9f2a-3a32a5f71b55}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_NctTask.Nct := Nct;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="NctReady" Id="{dfb3e380-7118-40e4-8d1c-f86d0c067bfb}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY NctReady : BOOL]]></Declaration>
+      <Get Name="Get" Id="{ed933c79-3f10-4e97-8d12-2b31831f4660}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctReady := _NctTask.NctReady;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+  </POU>
+</TcPlcObject>
