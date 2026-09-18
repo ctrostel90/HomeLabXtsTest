@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="SplitCamBuild" Id="{49033827-101b-440b-8398-2f887857636e}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK SplitCamBuild IMPLEMENTS I_CamBuildSequence
 VAR
@@ -45,8 +45,8 @@ END_VAR
 
 		//
 		point										:= 2;
-		_Camming.camPoints[point].MasterPos			:= 1;
-		_Camming.camPoints[point].SlavePos			:= 1;
+		_Camming.camPoints[point].MasterPos			:= 250;
+		_Camming.camPoints[point].SlavePos			:= 250;
 		_Camming.camPoints[point].PointIndex		:= point;
 		_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
 		_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
@@ -205,7 +205,7 @@ END_VAR
 		//
 		_Camming.camTableSelect(CamTable   := _Camming.camRef,
 								Execute	   := TRUE,
-								Periodic   := FALSE,
+								Periodic   := TRUE,
 								CamTableID := 2);
 
 		IF _Camming.camTableSelect.Done THEN

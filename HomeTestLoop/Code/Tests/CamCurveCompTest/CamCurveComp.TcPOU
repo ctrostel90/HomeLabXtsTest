@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="CamCurveComp" Id="{f937d082-501f-4bd0-8638-3078823e3070}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK CamCurveComp IMPLEMENTS I_CamBuildSequence
 VAR
@@ -60,7 +60,7 @@ END_VAR
 			NextStep(_State);
 		END_IF
 
-	30:
+	31:
 		_Virtual.Parameters.Velocity	 := _Speed;
 		_Virtual.Parameters.Acceleration := _Acc;
 		_Virtual.Parameters.Deceleration := _Dec;
@@ -68,7 +68,7 @@ END_VAR
 		_Virtual.MoveRelative(1500 * _NumOfRotations);
 		NextMinorStep(_State);
 
-	31:
+	32:
 		IF NOT _Virtual.CurrentTask.Busy AND NOT _Virtual.CurrentTask.Error THEN
 			NextStep(_State);
 		END_IF

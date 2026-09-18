@@ -52,7 +52,9 @@ END_VAR
 
 	20:
 		//_Camming.camIn.Options.CamOperationMode := CAMOPERATIONMODE_DEFAULT;
-		_Camming.camIn.ActivationPosition		:= 0;
+		_Camming.camIn.ActivationPosition	  := 0;
+		_Camming.camIn.Scaling.MasterOffset := _Front.Axis.NcToPlc.SetPos;
+		_Camming.camIn.Scaling.SlaveOffset  := -115;
 		_Camming.camIn(Master		  := _Front.Axis,
 					   Slave		  := _Rear.Axis,
 					   ActivationMode := MC_CamActivationMode.MC_CAMACTIVATION_INSTANTANEOUS,
