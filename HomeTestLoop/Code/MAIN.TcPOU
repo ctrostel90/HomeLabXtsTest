@@ -57,6 +57,8 @@ VAR
 	// Cam Generator
 	CurveComp	   : CamBuild;
 	MoverCurveComp : CamCurveComp;
+	MultiCamComp   : SplitCamBuild;
+	MultiCamTest   : SplitCamRun;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF NOT Xts.Initialized OR NOT Feeder.Initialized THEN
@@ -82,6 +84,7 @@ CASE State OF
 	0:
 	1:
 		Xts.Reset();
+		Xts.ResetMovers();
 		State := 0;
 
 	5:
@@ -140,15 +143,14 @@ CASE State OF
 		END_IF
 
 	110:
-		startVirtualPosition := (Movers[2].Position - Movers[1].Position) / 2 + Movers[1].Position;
-		SetPosition(Axis := VirtualMover.Axis, Position := startVirtualPosition, Execute := TRUE);
-		IF SetPosition.Done OR SetPosition.Error THEN
-			State := 120;
-			SetPosition(Axis := VirtualMover.Axis, Execute := FALSE);
+		Xts.Disable();
+		IF NOT Xts.Enabled THEN
+			State := 111;
 		END_IF
 
 	111:
-		startVirtualPosition := 194;
+		//startVirtualPosition := (Movers[2].Position - Movers[1].Position) / 2 + Movers[1].Position;
+		startVirtualPosition := 59;
 		SetPosition(Axis := VirtualMover.Axis, Position := startVirtualPosition, Execute := TRUE);
 		IF SetPosition.Done OR SetPosition.Error THEN
 			State := 120;
@@ -197,7 +199,7 @@ CASE State OF
 		VirtualMover.MoveToPosition(VirtualMover.Position);
 		Movers[1].Parameters.CopyFrom(Xts.Parameters);
 		Movers[2].Parameters.CopyFrom(Xts.Parameters);
-		commandedPosition[1] := 180;
+		commandedPosition[1] := 115;
 		commandedPosition[2] := commandedPosition[1] - Gap;
 		MoveToPos[1](Axis		  := Movers[1].Axis,
 					 Execute	  := TRUE,
@@ -456,14 +458,21 @@ CASE State OF
 			State := 150;
 		END_IF
 
-	400:
-		CurveComp.Start();
-		NextMinorStep(State);
-
 	401:
-	//
+		CurveComp.Start();
+		SetStep(State, 400);
+
 	402:
 		CurveComp.Reset();
+		SetStep(State, 400);
+
+	403:
+		MultiCamComp.Start();
+		SetStep(State, 400);
+
+	404:
+		MultiCamComp.Reset();
+		SetStep(State, 400);
 
 	410:
 		MoverCurveComp.FrontMover	:= Movers[1];
@@ -474,14 +483,32 @@ CASE State OF
 
 	411:
 		IF NOT MoverCurveComp.Busy THEN
-			NextStep(State);
+			SetStep(State, 400);
 		END_IF
 
 	412:
 		MoverCurveComp.Reset();
-		NextStep(State);
+		SetStep(State, 400);
+
+	420:
+		MultiCamTest.FrontMover	  := Movers[1];
+		MultiCamTest.RearMover	  := Movers[2];
+		MultiCamTest.VirtualMover := VirtualMover;
+		MultiCamTest.Start();
+		NextMinorStep(State);
+
+	421:
+		IF NOT MultiCamTest.Busy THEN
+			SetStep(State, 400);
+		END_IF
+
+	422:
+		MultiCamTest.Reset();
+		SetStep(State, 400);
 END_CASE
 
+MultiCamComp.CyclicLogic();
+MultiCamTest.CyclicLogic();
 MoverCurveComp.CyclicLogic();
 CurveComp.CyclicLogic();
 Feeder.CyclicLogic();
