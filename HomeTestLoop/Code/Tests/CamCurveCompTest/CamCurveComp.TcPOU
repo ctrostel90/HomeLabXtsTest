@@ -7,7 +7,7 @@ VAR
 	_Front			: I_XtsMover;
 	_Rear			: I_XtsMover;
 	_Virtual		: I_XtsMover;
-	_StartPosition	: LREAL := 194;
+	_StartPosition	: LREAL := 59;
 	_Speed			: LREAL := 200;
 	_Acc			: LREAL := 10_000;
 	_Dec			: LREAL := 10_000;
@@ -30,7 +30,7 @@ PROPERTY Busy : BOOL
 END_VAR
 ]]></Declaration>
         <Implementation>
-          <ST><![CDATA[]]></ST>
+          <ST><![CDATA[Busy := _State <> 0;]]></ST>
         </Implementation>
       </Get>
     </Property>
@@ -60,7 +60,7 @@ END_VAR
 			NextStep(_State);
 		END_IF
 
-	31:
+	30:
 		_Virtual.Parameters.Velocity	 := _Speed;
 		_Virtual.Parameters.Acceleration := _Acc;
 		_Virtual.Parameters.Deceleration := _Dec;
@@ -68,7 +68,7 @@ END_VAR
 		_Virtual.MoveRelative(1500 * _NumOfRotations);
 		NextMinorStep(_State);
 
-	32:
+	31:
 		IF NOT _Virtual.CurrentTask.Busy AND NOT _Virtual.CurrentTask.Error THEN
 			NextStep(_State);
 		END_IF

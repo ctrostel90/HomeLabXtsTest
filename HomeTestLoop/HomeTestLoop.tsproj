@@ -10,6 +10,12 @@
 				<Cpu CpuId="7" BaseTime="2500"/>
 				<IoIdleTask Affinity="#x00000002"/>
 			</Settings>
+			<Licenses>
+				<Target>
+					<ManualSelect>{3DDCAB25-BF0E-412C-A721-DC77C1B8099C}</ManualSelect>
+					<ManualSelect>{4989A799-AEEA-4FEE-88EF-666B99EEFB45}</ManualSelect>
+				</Target>
+			</Licenses>
 			<Tasks>
 				<Task Id="3" Priority="20" CycleTime="20000" AmsPort="350" Affinity="#x00000002" AdtTasks="true">
 					<Name>PlcTask</Name>

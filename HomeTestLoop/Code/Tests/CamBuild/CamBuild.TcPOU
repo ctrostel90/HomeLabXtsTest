@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="CamBuild" Id="{0163117f-87e6-4a6f-b082-09f43dcc539d}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK CamBuild IMPLEMENTS I_CamBuildSequence
 VAR
@@ -55,7 +55,7 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 3;
 			_Camming.camPoints[point].MasterPos			:= 329.4;
@@ -67,10 +67,11 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
+
 			//
 			point										:= 4;
 			_Camming.camPoints[point].MasterPos			:= 353.6;
-			_Camming.camPoints[point].SlavePos			:= 288.8;
+			_Camming.camPoints[point].SlavePos			:= 286.0;
 			_Camming.camPoints[point].PointIndex		:= point;
 			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
 			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
@@ -78,11 +79,11 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 5;
 			_Camming.camPoints[point].MasterPos			:= 412;
-			_Camming.camPoints[point].SlavePos			:= 349.6;
+			_Camming.camPoints[point].SlavePos			:= 348.8;//349.6;
 			_Camming.camPoints[point].PointIndex		:= point;
 			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
 			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
@@ -94,7 +95,7 @@ END_VAR
 			//
 			point										:= 6;
 			_Camming.camPoints[point].MasterPos			:= 700;
-			_Camming.camPoints[point].SlavePos			:= 641;
+			_Camming.camPoints[point].SlavePos			:= 639;
 			_Camming.camPoints[point].PointIndex		:= point;
 			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
 			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
@@ -102,7 +103,7 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 7;
 			_Camming.camPoints[point].MasterPos			:= 727.3;
@@ -114,7 +115,7 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 8;
 			_Camming.camPoints[point].MasterPos			:= 791.4;
@@ -126,10 +127,10 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 9;
-			_Camming.camPoints[point].MasterPos			:= 834;
+			_Camming.camPoints[point].MasterPos			:= 836;
 			_Camming.camPoints[point].SlavePos			:= 723;
 			_Camming.camPoints[point].PointIndex		:= point;
 			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
@@ -178,18 +179,18 @@ END_VAR
 			//
 			point										:= 13;
 			_Camming.camPoints[point].MasterPos			:= 1147;
-			_Camming.camPoints[point].SlavePos			:= 1085;
+			_Camming.camPoints[point].SlavePos			:= 1083;
 			_Camming.camPoints[point].PointIndex		:= point;
 			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM1;
 			_Camming.camPoints[point].PointType			:= MC_MotionPointType.MOTIONPOINTTYPE_MOTION;
 			_Camming.camPoints[point].RelIndexNextPoint := 1;
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
-			_Camming.camPoints[point].SlaveJerk			:= 0.00;			
+			_Camming.camPoints[point].SlaveJerk			:= 0.00;
 
 			//
 			point										:= 14;
-			_Camming.camPoints[point].MasterPos			:= 1432;
+			_Camming.camPoints[point].MasterPos			:= 1434;
 			_Camming.camPoints[point].SlavePos			:= 1373;
 			_Camming.camPoints[point].PointIndex		:= point;
 			_Camming.camPoints[point].FunctionType		:= MC_MotionFunctionType.MOTIONFUNCTYPE_POLYNOM5_MM;
@@ -222,7 +223,7 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 17;
 			_Camming.camPoints[point].MasterPos			:= 1580;
@@ -234,7 +235,7 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-			
+
 			//
 			point										:= 18;
 			_Camming.camPoints[point].MasterPos			:= 1680;
@@ -246,9 +247,11 @@ END_VAR
 			_Camming.camPoints[point].SlaveVelo			:= 0.00;
 			_Camming.camPoints[point].SlaveAcc			:= 0.00;
 			_Camming.camPoints[point].SlaveJerk			:= 0.00;
-
 		END_IF
 
+		NextMinorStep(_State);
+
+	11:
 		//
 		_Camming.camRef.NoOfColumns := 1;
 		_Camming.camRef.NoOfRows	:= point;

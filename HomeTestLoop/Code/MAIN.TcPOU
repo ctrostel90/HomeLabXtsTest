@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="MAIN" Id="{ca052151-d944-4048-8176-ae57a0c29f6c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -55,6 +55,8 @@ VAR
 	_NextPocket	  : UDINT;
 
 	// Cam Generator
+	ScopeRecord : BOOL;
+	ScopeRecordState : UDINT := 411;
 	CurveComp	   : CamBuild;
 	MoverCurveComp : CamCurveComp;
 	MultiCamComp   : SplitCamBuild;
@@ -243,6 +245,11 @@ CASE State OF
 			GearIn[2](Master := VirtualMover.Axis, Slave := Movers[2].Axis, Execute := FALSE);
 			State := 150;
 		END_IF
+
+	126:
+		GearIn[1](Master := VirtualMover.Axis, Slave := Movers[1].Axis, Execute := FALSE);
+		GearIn[2](Master := VirtualMover.Axis, Slave := Movers[2].Axis, Execute := FALSE);
+		State := 0;
 
 	130:
 		VirtualMover.Parameters.CopyFrom(Xts.Parameters);
@@ -507,6 +514,7 @@ CASE State OF
 		SetStep(State, 400);
 END_CASE
 
+ScopeRecord := State = ScopeRecordState;
 MultiCamComp.CyclicLogic();
 MultiCamTest.CyclicLogic();
 MoverCurveComp.CyclicLogic();

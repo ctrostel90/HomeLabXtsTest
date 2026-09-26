@@ -1309,12 +1309,16 @@ and will return to Group State Standby when the situation permits.
 			</SubItem>
 		</DataType>
 	</DataTypes>
-	<Instance TmcHash="{49E001E5-5291-6A8B-0192-0F0D07F027BB}">
+	<Instance TmcHash="{F8FD1347-FE6E-3A6E-4202-774DB08B7FD5}">
 		<Vars VarGrpType="1">
 			<Name>PlcTask Inputs</Name>
 			<Var>
 				<Name>NullObjects.Axis.NullAxis.NcToPlc</Name>
 				<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+			</Var>
+			<Var>
+				<Name>MAIN.tmp</Name>
+				<Type>UINT</Type>
 			</Var>
 			<Var>
 				<Name>MAIN.Xts._AxesGroupRef.NcToPlc</Name>
@@ -1333,10 +1337,6 @@ and will return to Group State Standby when the situation permits.
 				<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 			</Var>
 			<Var>
-				<Name>MAIN.tmp</Name>
-				<Type>UINT</Type>
-			</Var>
-			<Var>
 				<Name>MAIN.FeedAxis.NcToPlc</Name>
 				<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 			</Var>
@@ -1346,6 +1346,10 @@ and will return to Group State Standby when the situation permits.
 			<Var>
 				<Name>NullObjects.Axis.NullAxis.PlcToNc</Name>
 				<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+			</Var>
+			<Var>
+				<Name>MAIN.Xts._AxesGroupRef.PlcToNc</Name>
+				<Type GUID="{0E2E3852-A98C-4AF3-81E2-209EE128940C}" Namespace="MC">CDT_PLCTOMC_GROUP</Type>
 			</Var>
 			<Var>
 				<Name>MAIN.Movers[1]._Axis.PlcToNc</Name>
@@ -1358,10 +1362,6 @@ and will return to Group State Standby when the situation permits.
 			<Var>
 				<Name>MAIN.VirtualMover._Axis.PlcToNc</Name>
 				<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-			</Var>
-			<Var>
-				<Name>MAIN.Xts._AxesGroupRef.PlcToNc</Name>
-				<Type GUID="{0E2E3852-A98C-4AF3-81E2-209EE128940C}" Namespace="MC">CDT_PLCTOMC_GROUP</Type>
 			</Var>
 			<Var>
 				<Name>MAIN.FeedAxis.PlcToNc</Name>
