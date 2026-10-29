@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
+  <Itf Name="I_XtsNctTool" Id="{e66a611d-cdb3-43c9-a001-92be26719739}">
+    <Declaration><![CDATA[INTERFACE I_XtsNctTool EXTENDS I_Base
+]]></Declaration>
+    <Property Name="NctBaseUnit" Id="{a2e368c0-964b-4562-85eb-16eacc5b34e7}">
+      <Declaration><![CDATA[PROPERTY NctBaseUnit : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{953b0eb2-e7e9-41d9-9f4d-778e81783e2d}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{57b6402f-abb6-4d8b-ba84-696fa4eccedb}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+    <Property Name="Simulated" Id="{0aa4e837-0f99-40c8-90f8-5e262fef8547}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Simulated : BOOL]]></Declaration>
+      <Get Name="Get" Id="{0b918d6f-507b-46af-a7e1-125e19df9ce3}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{c39ce664-6e7d-493c-8286-2884394fcaa3}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+  </Itf>
+</TcPlcObject>

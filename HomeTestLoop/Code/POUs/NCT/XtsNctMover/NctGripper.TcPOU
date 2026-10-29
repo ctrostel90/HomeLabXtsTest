@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
+  <POU Name="NctGripper" Id="{63a0fe2a-ecd0-41f9-85f3-c919fae0008b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK NctGripper EXTENDS CyclicComponent IMPLEMENTS I_NctGripper
+VAR
+	_DwellTimer			: TON; //Q = the gripper has held the last output change for _ActionTime
+	_ActionTime			: TIME	:= T#10MS; //Minimum time the gripper holds each output state; it takes one command per 10 ms
+	_OpenPosition		: LREAL := 0.05;
+	_ClosePosition		: LREAL := 9.3;
+	_Simulated			: BOOL;
+	_SimActionTime		: TIME;
+	_SimTimer			: TON;
+	_NctBaseUnit		: I_XtsNctBaseUnit;
+	_GripperOpen		: NctDigitalOutput('Gripper Open', 1);
+	_GripperClose		: NctDigitalOutput('Gripper Close', 3);
+	_GripperPos			: NctAnalogInput('Gripper Position', 1);
+	_OutputChangeCount	: UDINT; //ProcessDataUpdateCount when an output last changed
+	_PowerUpTime		: TIME	:= T#30MS; //Exchanges must have run this long before a pulse starts; the gripper ignores an input that is already on when it powers up
+	_PowerUpTimer		: TON; //Q = on an NCT module and powered up for _PowerUpTime
+	_NoExchangeTimer	: TON; //Q = no NCT exchange for 30 ms, the mover is off the module
+	_LastUpdateCount	: UDINT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="Constructor" Id="{1a7e2c21-0bdc-49e3-a4ca-be3a4e537dc1}" />
+    <Folder Name="Methods" Id="{b69dec76-3681-4a6f-96b5-d6ec7a728651}" />
+    <Folder Name="Properties" Id="{00981d39-e99f-48e6-8097-b01b3e0a64e2}" />
+    <Method Name="Close" Id="{c9b47b51-4a28-43c6-8b4e-7c5fe527dc1d}" FolderPath="Methods\">
+      <Declaration><![CDATA[METHOD Close : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _GripperClose.On THEN
+	Close := TRUE; //Pulse already running
+	RETURN;
+END_IF
+
+//Only start on a powered-up module, after any Open pulse has ended and the all-off state has been held
+IF _GripperOpen.On OR NOT _PowerUpTimer.Q OR NOT _DwellTimer.Q THEN
+	RETURN;
+END_IF
+
+SetOutputs(OpenOn := FALSE, CloseOn := TRUE);
+Close := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="CloseOutput" Id="{c67c72d2-ea8e-47bd-9856-65b5f77423a3}" FolderPath="Properties\">
+      <Declaration><![CDATA[PROPERTY CloseOutput : I_DigitalOutput]]></Declaration>
+      <Get Name="Get" Id="{f2b19d58-3e96-45f2-820b-3669a336d7cb}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[CloseOutput := _GripperClose;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="CyclicLogic" Id="{f4e14436-77b9-4314-a73e-9057e2d853b8}" FolderPath="Methods\">
+      <Declaration><![CDATA[METHOD CyclicLogic
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//The gripper only has power on an NCT module, and ignores an input that is already on when it powers up
+_NoExchangeTimer(IN := _NctBaseUnit.ProcessDataUpdateCount = _LastUpdateCount, PT := T#30MS);
+_LastUpdateCount := _NctBaseUnit.ProcessDataUpdateCount;
+_PowerUpTimer(IN := _Simulated OR NOT _NoExchangeTimer.Q, PT := _PowerUpTime);
+IF NOT _PowerUpTimer.IN THEN
+	SetOutputs(OpenOn := FALSE, CloseOn := FALSE); //Drop the command rather than deliver it at power-up
+END_IF
+
+//The gripper only sees the output image once per NCT exchange, so the hold starts when the mover acknowledges the change
+_DwellTimer(IN := _Simulated OR ExchangesSinceChange() >= 2, PT := _ActionTime);
+IF (_GripperOpen.On OR _GripperClose.On) AND _DwellTimer.Q THEN
+	SetOutputs(OpenOn := FALSE, CloseOn := FALSE);
+END_IF
+
+_SimTimer(IN := _Simulated AND (_GripperOpen.On OR _GripperClose.On OR _SimTimer.IN), PT := _SimActionTime);
+//Need to fix since changing to NCTAnalogInput
+// IF _SimTimer.Q THEN
+// 	IF _GripperPosition.Value <= _OpenPosition THEN
+// 		_GripperPosition.ForceValue := LREAL_TO_INT(_ClosePosition);
+// 	ELSE
+// 		_GripperPosition.ForceValue := LREAL_TO_INT(_OpenPosition);
+// 	END_IF
+// END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ExchangesSinceChange" Id="{79e030ca-6423-454a-891f-223b8989776d}">
+      <Declaration><![CDATA[//Completed NCT exchanges since an output last changed. 2 = the mover has acknowledged the frame carrying the change
+METHOD PRIVATE ExchangesSinceChange : UDINT
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ExchangesSinceChange := _NctBaseUnit.ProcessDataUpdateCount - _OutputChangeCount;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_Init" Id="{9023a8e8-1136-4d5b-9556-911beb55dac5}" FolderPath="Constructor\">
+      <Declaration><![CDATA[(*FB_Init is always available implicitly and it is used primarily for initialization.
+The return value is not evaluated. For a specific influence, you can also declare the
+methods explicitly and provide additional code there with the standard initialization
+code. You can evaluate the return value.*)
+METHOD FB_Init : BOOL
+VAR_INPUT
+	(* TRUE: the retain variables are initialized (reset warm / reset cold)*)
+	bInitRetains : BOOL;
+
+	(* TRUE: the instance will be copied to the copy code afterward (online change)   *)
+	bInCopyCode : BOOL;
+	Name		: ApplicationBase.T_MaxString;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="GripperPosition" Id="{22a95f05-1a67-484c-a307-e5aec44ea7b4}" FolderPath="Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY GripperPosition : LREAL
+]]></Declaration>
+      <Get Name="Get" Id="{1aa57a25-4ae2-4599-bf1e-1439ebb07bbe}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[GripperPosition := _GripperPos.Value;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="IsClosed" Id="{e485316b-bff0-468d-a813-b7c68e6d15d7}" FolderPath="Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY IsClosed : BOOL]]></Declaration>
+      <Get Name="Get" Id="{5a80ca39-986c-4e37-94aa-477d9e7de6d1}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsClosed := _GripperPos.Value > _ClosePosition;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="IsOpen" Id="{254a9b7d-c468-4e24-a96c-ce0045de4085}" FolderPath="Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY IsOpen : BOOL]]></Declaration>
+      <Get Name="Get" Id="{981c13e7-62d3-4cd8-8f3e-139c8039e469}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsOpen := _GripperPos.Value < _OpenPosition;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="NctBaseUnit" Id="{95a5f417-54ee-40ad-8435-a5d9e3783774}" FolderPath="Properties\">
+      <Declaration><![CDATA[PROPERTY NctBaseUnit : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{b22a6a00-5705-4231-a768-1e67277815c7}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctBaseUnit := _NctBaseUnit;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{f74cde18-97c4-4f0c-ae71-adb1286c0b7c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_NctBaseUnit			  := NctBaseUnit;
+_GripperOpen.NctBaseUnit  := _NctBaseUnit;
+_GripperClose.NctBaseUnit := _NctBaseUnit;
+_GripperPos.NctBaseUnit	  := _NctBaseUnit;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="Open" Id="{692bc559-4382-47e8-97d6-0cfb3233bbbc}" FolderPath="Methods\">
+      <Declaration><![CDATA[METHOD Open : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _GripperOpen.On THEN
+	Open := TRUE; //Pulse already running
+	RETURN;
+END_IF
+
+//Only start on a powered-up module, after any Close pulse has ended and the all-off state has been held
+IF _GripperClose.On OR NOT _PowerUpTimer.Q OR NOT _DwellTimer.Q THEN
+	RETURN;
+END_IF
+
+SetOutputs(OpenOn := TRUE, CloseOn := FALSE);
+Open := TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="OpenOutput" Id="{981fa11a-5cb1-4d21-94fc-2bf841550c06}" FolderPath="Properties\">
+      <Declaration><![CDATA[PROPERTY OpenOutput : I_DigitalOutput]]></Declaration>
+      <Get Name="Get" Id="{4f16c2a1-b745-42ed-9abe-cee29af85d15}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[OpenOutput := _GripperOpen;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="PositionInput" Id="{75a14e3f-9819-49a5-abeb-00e2492bfa0e}" FolderPath="Properties\">
+      <Declaration><![CDATA[PROPERTY PositionInput : I_AnalogInput]]></Declaration>
+      <Get Name="Get" Id="{d5ddf1c4-8cb9-4ee7-83d2-f0fef88415c8}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[PositionInput := _GripperPos;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="SetOutputs" Id="{236eb0fc-58e0-450c-ac4b-9e611d03cf35}">
+      <Declaration><![CDATA[METHOD PRIVATE SetOutputs
+VAR_INPUT
+	OpenOn	: BOOL;
+	CloseOn : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF OpenOn AND CloseOn THEN
+	RETURN; //The gripper rejects a command with both inputs on
+END_IF
+
+IF OpenOn <> _GripperOpen.On OR CloseOn <> _GripperClose.On THEN
+	_GripperOpen.On	   := OpenOn;
+	_GripperClose.On   := CloseOn;
+	_OutputChangeCount := _NctBaseUnit.ProcessDataUpdateCount;
+	_DwellTimer(IN := FALSE); //Restart the hold, and block another change in this same scan
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Simulated" Id="{e55fff7a-bccb-4a3e-a2ab-d1de12b96367}" FolderPath="Properties\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Simulated : BOOL]]></Declaration>
+      <Get Name="Get" Id="{21da5f25-3753-4f87-8737-5b6e4d859c48}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Simulated := _Simulated;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{a33da3a8-aaab-474e-8261-7d02abe81fce}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_Simulated := Simulated;
+
+IF _Simulated THEN
+	_GripperPos.Force := E_ForceState.ForceOn;
+ELSE
+	_GripperPos.Force := E_ForceState.Unforced;
+END_IF]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+  </POU>
+</TcPlcObject>

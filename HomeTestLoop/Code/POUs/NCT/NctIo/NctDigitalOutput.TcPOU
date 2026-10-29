@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
+  <POU Name="NctDigitalOutput" Id="{a84eadfb-5007-42e0-a34b-b4e803f6fd74}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK NctDigitalOutput EXTENDS Component IMPLEMENTS I_DigitalOutput
+VAR
+	_ChannelId	   : USINT;
+	_BaseUnit	   : I_XtsNctBaseUnit;
+	ForcableOutput : ForcibleBool(_Name);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="Constructor" Id="{3624d421-8b0c-4a70-8a5f-85167ea8773d}" />
+    <Folder Name="I_DigitalOutput" Id="{271cc146-9389-4567-8afc-ec4276f3256b}" />
+    <Folder Name="Internal" Id="{a7611192-3e3c-49b3-b7bc-c7667e0422b0}" />
+    <Property Name="ChannelId" Id="{997a08f6-145c-4830-bf58-168730610ef4}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ChannelId : USINT]]></Declaration>
+      <Get Name="Get" Id="{a3da0430-ed33-469d-9cb8-f643db66585c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[ChannelId := _ChannelId;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{90867124-8f8c-41d5-840c-91b81741c42b}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_ChannelId := ChannelId; ]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="FB_Init" Id="{c44c2817-09a3-4ca1-b117-6e686389d223}" FolderPath="Constructor\">
+      <Declaration><![CDATA[(*FB_Init is always available implicitly and it is used primarily for initialization.
+The return value is not evaluated. For a specific influence, you can also declare the
+methods explicitly and provide additional code there with the standard initialization
+code. You can evaluate the return value.*)
+METHOD FB_Init : BOOL
+VAR_INPUT
+	(* TRUE: the retain variables are initialized (reset warm / reset cold)*)
+	bInitRetains : BOOL;
+
+	(* TRUE: the instance will be copied to the copy code afterward (online change)   *)
+	bInCopyCode : BOOL;
+	Name		: ApplicationBase.T_MaxString;
+	ChannelId	: USINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_ChannelId := ChannelId;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Force" Id="{deb5d82e-af6e-48be-83b2-e34933853b34}" FolderPath="I_DigitalOutput\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+{warning 'Add property implementation'}
+PROPERTY Force : ApplicationBase.E_ForceState
+]]></Declaration>
+      <Get Name="Get" Id="{797b12b0-c9d4-4049-ac9d-14e571d8d095}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{4902ee15-d18e-4a3e-8c98-27555e7a6edc}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[ForcableOutput.SetForceState(Force);
+SetOutput(ForcableOutput.Output);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="GetOutput" Id="{4004f51f-0ceb-43cd-bd55-d75669e7d04d}" FolderPath="Internal\">
+      <Declaration><![CDATA[METHOD INTERNAL GetOutput : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _BaseUnit = 0 THEN
+	RETURN;
+END_IF
+
+CASE _ChannelId OF
+	1:
+		GetOutput := _BaseUnit.DigitalOutput1;
+
+	2:
+		GetOutput := _BaseUnit.DigitalOutput2;
+
+	3:
+		GetOutput := _BaseUnit.DigitalOutput3;
+
+	4:
+		GetOutput := _BaseUnit.DigitalOutput4;
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="NctBaseUnit" Id="{b635903d-f7fc-4f7e-a9ff-30d5515dd795}">
+      <Declaration><![CDATA[PROPERTY NctBaseUnit : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{5e3eb052-d42a-4bfe-b8cd-132d9c47337c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctBaseUnit := _BaseUnit;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{dd832668-16e7-4e4a-8265-f9b67faa3576}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_BaseUnit := NctBaseUnit;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="On" Id="{97c629f8-7e9b-4a49-ac7e-2be31af4fde2}" FolderPath="I_DigitalOutput\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY On : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{6531fa4b-74ce-40dc-93a6-1cfe97ce7573}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[On := GetOutput();]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{4fff0c6a-d27e-4344-94ba-c2786c3dfc97}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[SetOutput(On);]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="SetOutput" Id="{a1472ad0-10a5-4e93-a8b2-69febaa50cc9}" FolderPath="Internal\">
+      <Declaration><![CDATA[METHOD INTERNAL SetOutput
+VAR_INPUT
+	Value : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _BaseUnit = 0 THEN
+	RETURN;
+END_IF
+
+CASE _ChannelId OF
+	1:
+		_BaseUnit.DigitalOutput1 := Value;
+
+	2:
+		_BaseUnit.DigitalOutput2 := Value;
+
+	3:
+		_BaseUnit.DigitalOutput3 := Value;
+
+	4:
+		_BaseUnit.DigitalOutput4 := Value;
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

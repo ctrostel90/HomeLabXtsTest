@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.25" ClassName="CTComObjDef">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.27" ClassName="CTComObjDef">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{58DE55F4-070E-420C-9B1A-9FED83EFDA5B}" Namespace="XTS">NctAbortCommandOption</Name>
@@ -2222,11 +2222,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>RegistersToReadViaInit</Name>
 					<Comment><![CDATA[Gets a list of all registers which are read via the init-command.]]></Comment>
-					<BitSize>0</BitSize>
+					<BitSize>128</BitSize>
 					<BaseType GUID="{390B3142-0E15-4C59-A40A-ED3CC534E12D}" Namespace="XTS">NctRegisterType</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="28">0</Elements>
+						<Elements Min="0" Max="28">8</Elements>
 					</ArrayInfo>
 					<PTCID>#x030805a8</PTCID>
 					<ContextId>1</ContextId>
@@ -2242,11 +2242,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="Structure">
 					<Name>BaseUnitInterfaceObjectIds</Name>
 					<Comment><![CDATA[Returns an array containing the object IDs of all movers.]]></Comment>
-					<BitSize>32</BitSize>
+					<BitSize>64</BitSize>
 					<BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="512">1</Elements>
+						<Elements Min="0" Max="512">2</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080507</PTCID>
 					<ContextId>1</ContextId>
@@ -2617,7 +2617,7 @@
 				</Value>
 				<Value>
 					<Name>IsEnergyEnabled</Name>
-					<EnumText>FALSE</EnumText>
+					<EnumText>TRUE</EnumText>
 				</Value>
 				<Value>
 					<Name>EnergyDutyCycle</Name>
@@ -2641,7 +2641,7 @@
 				</Value>
 				<Value>
 					<Name>IsFirmwareUpdateEnabled</Name>
-					<EnumText>FALSE</EnumText>
+					<EnumText>TRUE</EnumText>
 				</Value>
 				<Value>
 					<Name>FirmwareFilePath</Name>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.25" ClassName="CTComObjDef">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.27" ClassName="CTComObjDef">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{58DE55F4-070E-420C-9B1A-9FED83EFDA5B}" Namespace="XTS">NctAbortCommandOption</Name>
@@ -2700,7 +2700,7 @@
 		<ImageData Id="1000">424d360400000000000036000000280000001000000010000000010020000000000000000000c30e0000c30e000000000000000000009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300d5d4d400d2d0d000cfcdcd00cbc9c900c8c6c600c5c3c300c2bfbf00bebcbc00bbb8b800b8b5b500b4b2b200b1aeae00aeabab00aaa7a7009393930093939300d9d7d700d5d4d400d2d0d000cfcdcd00bdbbcd008c8ad600706fdb006f6dd9008382d000aeabbd00b8b5b500b4b2b200b1aeae00aeabab009393930093939300dcdbdb00d9d7d700bebed9004d4ceb000909fa000303fb000303fb000303fb000303fb000808f9004241e400a4a1bd00b4b2b200b1aeae009393930093939300dfdede00a09fe4001212f8000303fb000505fa003a39ee005a59e5005958e4003737ec000606fa000303fb000f0ff7008481c900b4b2b2009393930093939300b6b4e6000d0dfa000303fb004545f000bebdd900d2d0d000cfcdcd00cccaca00c8c6c600b2b0c9004140e7000303fb000a09f800908ec5009393930093939300c1c0e8003232f6005b5bf000dcdbdb00d9d7d700d5d4d400d2d0d000cfcdcd00cbc9c900c8c6c600c5c3c3005352e2003d3ce700aba8be009393930093939300e9e8e800e2e1e500dfdde100dbdadf008180e8003332f3000f0ff9000f0ef8003131f1007876dd00c4c2c700c3c1c300c2bfbf00bebcbc009393930093939300edecec00e9e8e800cfcfe8002d2cf6000303fb000303fb000303fb000303fb000303fb000303fb002929f200b5b3cb00c5c3c300c2bfbf009393930093939300f0efef00edecec00c3c2eb001e1ef8002525f8009898e800d0cfdd00cccad900908fe1002121f5001212f7009f9dd400c8c6c600c5c3c3009393930093939300eeeded00f0efef00edecec00d2d1ea00d7d6e700e3e1e100dfdede00dcdbdb00d9d7d700c6c5d700b5b3d500cfcdcd00cccaca00c8c6c6009393930093939300ecebeb00eeeded00f0efef00edecec00e9e8e800e6e5e500e3e1e1005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00cbc9c9009393930093939300ebe9e9005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00cfcdcd009393930093939300e9e7e7005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c005d5c5c00dfdede005d5c5c00d9d7d7005d5c5c00d2d0d0009393930093939300e7e5e500e9e7e700ebe9e900ecebeb00eeeded00f0efef00edecec00e9e8e800e6e5e500e3e1e100dfdede00dcdbdb00d9d7d700d5d4d4009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300939393009393930093939300</ImageData>
 	</ImageDatas>
 	<Module Id="#x010100a0" KeepUnrestoredLinks="2" ClassFactoryId="Beckhoff Automation GmbH|TcIoXts|4.4.38.0">
-		<Name>__FILENAME__</Name>
+		<Name>Base Unit Interface 2</Name>
 		<ImageId>1000</ImageId>
 		<TmcDesc GUID="{E422A534-515F-4B0E-8769-A963AC987917}" ClassFactoryId="Beckhoff Automation GmbH|TcIoXts|4.4.38.0">
 			<Name>XtsNctBaseUnitInterface</Name>
@@ -3267,11 +3267,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>AddedCommandLog</Name>
 					<Comment><![CDATA[Returns a list of commands in the order they have been added.]]></Comment>
-					<BitSize>128</BitSize>
+					<BitSize>2048</BitSize>
 					<BaseType GUID="{7BBCDE3C-4128-491B-9E51-23880A2975B9}" Namespace="XTS">NctCommandAddInfo</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="128">1</Elements>
+						<Elements Min="0" Max="128">16</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080534</PTCID>
 					<ContextId>1</ContextId>
@@ -3322,11 +3322,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>AsyncCommandQueue</Name>
 					<Comment><![CDATA[Returns the async command queue.]]></Comment>
-					<BitSize>128</BitSize>
+					<BitSize>1024</BitSize>
 					<BaseType GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="32">1</Elements>
+						<Elements Min="0" Max="32">8</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080542</PTCID>
 					<ContextId>1</ContextId>
@@ -3350,11 +3350,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>ProcessedCommandLog</Name>
 					<Comment><![CDATA[Returns a list of commands in the order they have been finished.]]></Comment>
-					<BitSize>320</BitSize>
+					<BitSize>0</BitSize>
 					<BaseType GUID="{B1C35696-64BC-4FBF-99A0-99B05197E4AF}" Namespace="XTS">NctCommandProcessedInfo</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="128">1</Elements>
+						<Elements Min="0" Max="128">0</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080538</PTCID>
 					<ContextId>1</ContextId>
@@ -3373,11 +3373,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>RegisteredCommandInfos</Name>
 					<Comment><![CDATA[Returns a list of registered command infos.]]></Comment>
-					<BitSize>64</BitSize>
+					<BitSize>2048</BitSize>
 					<BaseType GUID="{F414D4F5-4BEC-4324-8E7B-461B00FF6D29}" Namespace="XTS">NctCommandRegisterInfo</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="32">1</Elements>
+						<Elements Min="0" Max="32">32</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080520</PTCID>
 					<ContextId>1</ContextId>
@@ -3385,11 +3385,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>SelectedCommandData</Name>
 					<Comment><![CDATA[Gets the data of the selected command.]]></Comment>
-					<BitSize>2048</BitSize>
+					<BitSize>0</BitSize>
 					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="0">256</Elements>
+						<Elements Min="0" Max="0">0</Elements>
 					</ArrayInfo>
 					<PTCID>#x0308056c</PTCID>
 					<ContextId>1</ContextId>
@@ -3405,11 +3405,11 @@
 				<Parameter OnlineParameter="true" CreateSymbol="true" ReadOnly="true" Group="NCT Command System">
 					<Name>SyncCommandQueue</Name>
 					<Comment><![CDATA[Returns the sync command queue.]]></Comment>
-					<BitSize>128</BitSize>
+					<BitSize>1024</BitSize>
 					<BaseType GUID="{E645C0E7-2BD9-459A-8EE1-531E51092F63}" Namespace="XTS">NctCommandEntry</BaseType>
 					<ArrayInfo>
 						<LBound>0</LBound>
-						<Elements Min="0" Max="32">1</Elements>
+						<Elements Min="0" Max="32">8</Elements>
 					</ArrayInfo>
 					<PTCID>#x03080543</PTCID>
 					<ContextId>1</ContextId>
@@ -3660,7 +3660,7 @@
 				</Value>
 				<Value>
 					<Name>AddInitCommand.executionMode</Name>
-					<EnumText>UntilSuccessMaxContinuousErros</EnumText>
+					<EnumText>UntilSuccess</EnumText>
 				</Value>
 				<Value>
 					<Name>AddUpdateFirmwareCommand.iterationCount</Name>
@@ -3748,7 +3748,7 @@
 				</Value>
 				<Value>
 					<Name>AddUpdateProcessDataCommand.data[3]</Name>
-					<Value>0</Value>
+					<Value>26</Value>
 				</Value>
 				<Value>
 					<Name>AddUpdateProcessDataCommand.data[4]</Name>
@@ -5084,7 +5084,7 @@
 				</Value>
 				<Value>
 					<Name>InitMode</Name>
-					<EnumText>UseDefaultOfNctController</EnumText>
+					<EnumText>FullInit</EnumText>
 				</Value>
 				<Value>
 					<Name>SelectedCommandId</Name>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
+  <Itf Name="I_NctGripper" Id="{c7d93410-e1d3-43ae-b759-ef77edb0733b}">
+    <Declaration><![CDATA[INTERFACE I_NctGripper EXTENDS I_Component, I_XtsNctTool
+]]></Declaration>
+    <Method Name="Close" Id="{49a22e58-72b4-4a6f-815f-f40ac5026be8}">
+      <Declaration><![CDATA[METHOD Close : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="CloseOutput" Id="{f6b546f0-ef12-4073-ad7f-bc29e6bfc8fa}">
+      <Declaration><![CDATA[PROPERTY CloseOutput : I_DigitalOutput]]></Declaration>
+      <Get Name="Get" Id="{2e9dbbb3-70b5-4cf9-92a1-3efe5d7f581d}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="GripperPosition" Id="{c4c41b1e-1299-4fe6-b72a-d7be75291b3e}">
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+PROPERTY GripperPosition : LREAL]]></Declaration>
+      <Get Name="Get" Id="{e6c1d4fa-117c-49e7-802a-fa22866d40aa}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="IsClosed" Id="{f4efa852-4132-4039-bad3-3bba374b4b88}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY IsClosed : BOOL]]></Declaration>
+      <Get Name="Get" Id="{0cec037a-0fc1-43e4-98f3-18281359b23f}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="IsOpen" Id="{fb865b17-1963-4dc6-a3a7-9e5a2b62787e}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY IsOpen : BOOL]]></Declaration>
+      <Get Name="Get" Id="{379bcf2b-b4a5-4624-b26d-c3d8bdf58b66}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="Open" Id="{274f53c6-bff5-4916-8f5e-0be07f43ca7c}">
+      <Declaration><![CDATA[METHOD Open : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="OpenOutput" Id="{c32e6164-4c09-43f6-b3a8-b41475629c98}">
+      <Declaration><![CDATA[PROPERTY OpenOutput : I_DigitalOutput]]></Declaration>
+      <Get Name="Get" Id="{da9e9135-eb48-423d-8140-730a92d6c27f}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+  </Itf>
+</TcPlcObject>

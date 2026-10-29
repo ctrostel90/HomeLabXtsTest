@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	Xts				  : XtsSystem('XTS ProcessingUnit 1');
-	Movers			  : ARRAY[1..2] OF XtsMover[('Mover 1', 0, Xts), ('Mover 2', 0, Xts)];
+	Movers			  : ARRAY[1..2] OF XtsNctMover[('Mover 1', 0, Xts, 0), ('Mover 2', 0, Xts, 0)];
 	VirtualCollection : XtsMoverCollection;
 	ReleaseTrigger	  : XtsPositionTrigger('Release Trigger', 0, VirtualCollection, Xts);
 	VirtualMover	  : XtsMover('Virtual Mover', 0, Xts);
@@ -55,12 +55,12 @@ VAR
 	_NextPocket	  : UDINT;
 
 	// Cam Generator
-	ScopeRecord : BOOL;
+	ScopeRecord		 : BOOL;
 	ScopeRecordState : UDINT := 411;
-	CurveComp	   : CamBuild;
-	MoverCurveComp : CamCurveComp;
-	MultiCamComp   : SplitCamBuild;
-	MultiCamTest   : SplitCamRun;
+	CurveComp		 : CamBuild;
+	MoverCurveComp	 : CamCurveComp;
+	MultiCamComp	 : SplitCamBuild;
+	MultiCamTest	 : SplitCamRun;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF NOT Xts.Initialized OR NOT Feeder.Initialized THEN

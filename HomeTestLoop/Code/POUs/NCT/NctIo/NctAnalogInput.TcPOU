@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
+  <POU Name="NctAnalogInput" Id="{938964b2-6ef0-40db-815f-37921ce3910c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK NctAnalogInput EXTENDS Component IMPLEMENTS I_AnalogInput
+VAR
+	_ChannelId	   : USINT;
+	_BaseUnit	   : I_XtsNctBaseUnit;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="Constructor" Id="{b6f295bb-c6f6-4b24-83af-40726dfa4441}" />
+    <Folder Name="I_DigitalInput" Id="{f692d615-60c3-45a1-a3f7-32c4fef33173}" />
+    <Folder Name="Internal" Id="{691d5530-26c5-4bf8-824e-931f5cf7cd22}" />
+    <Property Name="ChannelId" Id="{9d484f69-9361-4b6e-a26d-208dcb39d126}">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY ChannelId : USINT]]></Declaration>
+      <Get Name="Get" Id="{a2c86577-5d59-4b7f-8dc7-98feaa1911b3}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[ChannelId := _ChannelId;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{ac6567c5-533c-4205-a172-49652235823d}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_ChannelId := ChannelId; ]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="FB_Init" Id="{58f18989-d088-422d-9ede-3224403b93b8}" FolderPath="Constructor\">
+      <Declaration><![CDATA[(*FB_Init is always available implicitly and it is used primarily for initialization.
+The return value is not evaluated. For a specific influence, you can also declare the
+methods explicitly and provide additional code there with the standard initialization
+code. You can evaluate the return value.*)
+METHOD FB_Init : BOOL
+VAR_INPUT
+	(* TRUE: the retain variables are initialized (reset warm / reset cold)*)
+	bInitRetains : BOOL;
+
+	(* TRUE: the instance will be copied to the copy code afterward (online change)   *)
+	bInCopyCode : BOOL;
+	Name		: ApplicationBase.T_MaxString;
+	ChannelId	: USINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_ChannelId := ChannelId;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="Force" Id="{06c6fe5a-39f8-4414-b075-e5f2c2cd780a}" FolderPath="I_DigitalInput\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+{warning 'Add property implementation'}
+PROPERTY Force : ApplicationBase.E_ForceState
+]]></Declaration>
+      <Get Name="Get" Id="{1a10532e-24d9-4d07-a7cb-f3abdcc2d73d}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{4ee115d1-525f-4a46-bffa-73024e557304}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="ForceValue" Id="{aafa5076-9ebf-49be-8827-245b7cb8be9a}" FolderPath="I_DigitalInput\">
+      <Declaration><![CDATA[{warning 'Add property implementation'}
+PROPERTY ForceValue : INT
+]]></Declaration>
+      <Get Name="Get" Id="{7e55ff7d-6875-476d-8542-2ab82574601e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{e6793edb-0afa-4c08-9c4c-a013d326540c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Method Name="GetInput" Id="{5587a1ba-dcd9-490e-ba80-a512760316fd}" FolderPath="Internal\">
+      <Declaration><![CDATA[METHOD INTERNAL GetInput : LREAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF _BaseUnit = 0 THEN
+	RETURN;
+END_IF
+
+CASE _ChannelId OF
+	1:
+		GetInput := _BaseUnit.AnalogInput1;
+
+	2:
+		GetInput := _BaseUnit.AnalogInput2;
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="NctBaseUnit" Id="{8299b610-cc2b-49c1-878b-28d638c6de04}">
+      <Declaration><![CDATA[PROPERTY NctBaseUnit : I_XtsNctBaseUnit]]></Declaration>
+      <Get Name="Get" Id="{d3cb118e-8c86-4ac5-9f15-fd7d50da6c56}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[NctBaseUnit := _BaseUnit;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{0ca74253-5a1b-4150-9c31-0d79f2479159}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[_BaseUnit := NctBaseUnit;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <Property Name="RawValue" Id="{e01a5469-42af-49bf-9320-8cf9c1218965}" FolderPath="I_DigitalInput\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+{warning 'Add property implementation'}
+PROPERTY RawValue : INT
+]]></Declaration>
+      <Get Name="Get" Id="{e1d4400f-ecf6-4ef5-904c-709de3766a1f}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="Value" Id="{1514dab6-1da0-45db-bdde-cb7bb5155bdd}" FolderPath="I_DigitalInput\">
+      <Declaration><![CDATA[{attribute 'monitoring' := 'call'}
+PROPERTY Value : LREAL
+]]></Declaration>
+      <Get Name="Get" Id="{8e710851-7596-40ba-9f69-869c168b7c31}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Value := GetInput();]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+  </POU>
+</TcPlcObject>

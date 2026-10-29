@@ -9,7 +9,7 @@
     <WriteProductVersion>true</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>Code</Name>
-    <ProgramVersion>3.1.4026.25</ProgramVersion>
+    <ProgramVersion>3.1.4026.27</ProgramVersion>
     <Application>{fa3ed7df-ecb9-4dde-973f-32f933b46783}</Application>
     <TypeSystem>{80352b98-345e-46a7-b57f-ded6870ca6bc}</TypeSystem>
     <Implicit_Task_Info>{eec95e47-6e25-4df7-9737-235f848c3d74}</Implicit_Task_Info>
@@ -28,6 +28,57 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\GodotHmi.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\NctIo\NctAnalogInput.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\NctIo\NctDigitalOutput.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctBaseUnit\DUTs\ST_NctProcessData.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctBaseUnit\DUTs\ST_NctProcessImage.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctBaseUnit\DUTs\ST_NctRegisters.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctBaseUnit\DUTs\ST_ReturnStructure.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctBaseUnit\ITF\I_XtsNctBaseUnit.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctBaseUnit\POU\XtsNctBaseUnit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\Interfaces\I_NctGripper.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\Interfaces\I_XtsNctMover.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\Interfaces\I_XtsNctMoverTask.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\Interfaces\I_XtsNctTool.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\NctGripper.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\XtsMoverNctTask.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsNctMover\XtsNctMover.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsSystemNct\Interfaces\I_XtsSystemNctManager.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\NCT\XtsSystemNct\XtsSystemNctManager.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\Base\Interface\I_SequenceTest.TcIO">
@@ -61,6 +112,16 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="POUs\NCT" />
+    <Folder Include="POUs\NCT\NctIo" />
+    <Folder Include="POUs\NCT\XtsNctBaseUnit" />
+    <Folder Include="POUs\NCT\XtsNctBaseUnit\DUTs" />
+    <Folder Include="POUs\NCT\XtsNctBaseUnit\ITF" />
+    <Folder Include="POUs\NCT\XtsNctBaseUnit\POU" />
+    <Folder Include="POUs\NCT\XtsNctMover" />
+    <Folder Include="POUs\NCT\XtsNctMover\Interfaces" />
+    <Folder Include="POUs\NCT\XtsSystemNct" />
+    <Folder Include="POUs\NCT\XtsSystemNct\Interfaces" />
     <Folder Include="Tests" />
     <Folder Include="Tests\Base" />
     <Folder Include="Tests\Base\Interface" />
@@ -74,6 +135,10 @@
     <PlaceholderReference Include="ApplicationBase">
       <DefaultResolution>ApplicationBase, * (Beckhoff Automation LLC)</DefaultResolution>
       <Namespace>ApplicationBase</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Math">
+      <DefaultResolution>Tc2_Math, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Math</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_MC2">
       <DefaultResolution>Tc2_MC2, * (Beckhoff Automation GmbH)</DefaultResolution>
@@ -95,6 +160,10 @@
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
       <SystemLibrary>true</SystemLibrary>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_XTS_Utility">
+      <DefaultResolution>Tc3_XTS_Utility, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_XTS_Utility</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="XtsCore">
       <DefaultResolution>XtsCore, * (Beckhoff Automation LLC)</DefaultResolution>
@@ -138,8 +207,8 @@
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-  <Data>
-    <o xml:space="preserve" t="OptionKey">
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{192FAD59-8248-4824-A8DE-9177C94C195A}</v>
@@ -215,14 +284,14 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-  </Data>
-  <TypeList>
-    <Type n="Boolean">System.Boolean</Type>
-    <Type n="Hashtable">System.Collections.Hashtable</Type>
-    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-    <Type n="String">System.String</Type>
-  </TypeList>
-</XmlArchive>
+        </Data>
+        <TypeList>
+          <Type n="Boolean">System.Boolean</Type>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>
